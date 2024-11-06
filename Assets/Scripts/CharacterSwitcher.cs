@@ -10,12 +10,21 @@ public class CharacterSwitcher : MonoBehaviour
     // Reference to input action mapping object.
     private PlayerControls playerControls;
 
-    // References for the two character objects
-    [SerializeField] private PlayerMovement amos;
-    [SerializeField] private PlayerMovement bo;
-
     // Used to set who is currently receiving the inputs.
     private PlayerMovement controlledCharacter;
+
+    // Used to store value from movement input.
+    private float movementValue;
+
+    // References for the two character objects
+    [Tooltip("Reference to Amos' movement script")]
+    [SerializeField] private PlayerMovement amos;
+
+    [Tooltip("Reference to Bo's movement script.")]
+    [SerializeField] private PlayerMovement bo;
+
+
+
 
     // Start is called before the first frame update
     private void Awake()
@@ -85,8 +94,10 @@ public class CharacterSwitcher : MonoBehaviour
     private void MovementInputStarted(InputAction.CallbackContext ctx)
     {
         // Value from the input
-        float inputValue = ctx.ReadValue<float>();
+        movementValue = ctx.ReadValue<float>();
+
         // Pass Input context object to character.
+
         Debug.Log("Move input started.");
     }
 
@@ -104,7 +115,7 @@ public class CharacterSwitcher : MonoBehaviour
     /// </summary>
     private void JumpEvent()
     {
-        //controlledCharacter.Jump();
+        controlledCharacter.Jump();
         Debug.Log("Jump.");
     }
 
