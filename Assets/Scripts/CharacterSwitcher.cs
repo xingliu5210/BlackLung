@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.PlayerSettings;
 
 public class CharacterSwitcher : MonoBehaviour
 {
@@ -17,13 +18,18 @@ public class CharacterSwitcher : MonoBehaviour
     private PlayerMovement controlledCharacter;
 
     // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
-        // Call bind method on start.
-        BindControlEvents();
-
+        playerControls = new PlayerControls();
+        // Call bind method on start.        
+        Debug.Log("Hello");
         // Set amos as the currently controlled character.
         controlledCharacter = amos;
+    }
+
+    private void Start()
+    {
+        BindControlEvents();
     }
 
     #region Input events and binding method
@@ -33,15 +39,33 @@ public class CharacterSwitcher : MonoBehaviour
     /// </summary>
     private void BindControlEvents()
     {
-        playerControls = new PlayerControls();
 
+        playerControls.Player.Jump.started += ctx => JumpEvent();
+
+        Debug.Log("Bind Called");
         playerControls.Player.Swap.started += ctx => { SwapCharacters();  };
 
         // Separate bindings for the movement starting and ending.
         playerControls.Player.Move.started += ctx => { MovementInputStarted(ctx); };
         playerControls.Player.Move.canceled += ctx => { MovementInputEnded(); };
+        
+        playerControls.Player.BarkWhip.started += ctx => { Debug.Log("Bark Whip"); };
+        playerControls.Player.Flare.started += ctx => { Debug.Log("Flare"); };
+        playerControls.Player.Lantern.started += ctx => { Debug.Log("Lantern"); };
+        playerControls.Player.Interact.started += ctx => { Debug.Log("Interact"); };
+    }
 
-        playerControls.Player.Jump.started += ctx => { JumpEvent(); };
+    private void OnEnable()
+    {
+        Debug.Log("Enable");
+        playerControls = new PlayerControls();
+        playerControls.Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("Disable");
+        playerControls.Player.Disable();
     }
 
     /// <summary>
@@ -51,6 +75,7 @@ public class CharacterSwitcher : MonoBehaviour
     {
         // If the controlledCharacter is Amos, assign bo as the controlledCharacter, otherwise assign Amos.
         controlledCharacter = controlledCharacter == amos ? bo : amos;
+        Debug.Log("Character swap.");
     }
 
     /// <summary>
@@ -62,6 +87,7 @@ public class CharacterSwitcher : MonoBehaviour
         // Value from the input
         float inputValue = ctx.ReadValue<float>();
         // Pass Input context object to character.
+        Debug.Log("Move input started.");
     }
 
     /// <summary>
@@ -70,6 +96,7 @@ public class CharacterSwitcher : MonoBehaviour
     private void MovementInputEnded()
     {
         // Stop movement for character
+        Debug.Log("Move input ended.");
     }
 
     /// <summary>
@@ -77,7 +104,8 @@ public class CharacterSwitcher : MonoBehaviour
     /// </summary>
     private void JumpEvent()
     {
-        controlledCharacter.Jump();
+        //controlledCharacter.Jump();
+        Debug.Log("Jump.");
     }
 
     #endregion
