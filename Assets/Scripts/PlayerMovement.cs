@@ -3,20 +3,21 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    private Rigidbody2D body;
+    [SerializeField] private float jumpForce;
+    private Rigidbody body;
     private Animator anim;
     private bool grounded;
 
     private void Awake()
     {
-        body = GetComponent<Rigidbody2D>();
+        body = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+        body.velocity = new Vector3(horizontalInput * speed, body.velocity.y, body.velocity.z);
 
         // Flip player's direction when moving left-right
         if(horizontalInput > 0.01f)
@@ -37,11 +38,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        body.velocity = new Vector2(body.velocity.x, speed);
+        body.velocity = new Vector3(body.velocity.x, jumpForce, body.velocity.z);
         grounded = false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Ground")
         {
