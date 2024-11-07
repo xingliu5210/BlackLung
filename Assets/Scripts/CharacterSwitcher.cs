@@ -23,9 +23,6 @@ public class CharacterSwitcher : MonoBehaviour
     [Tooltip("Reference to Bo's movement script.")]
     [SerializeField] private PlayerMovement bo;
 
-
-
-
     // Start is called before the first frame update
     private void Awake()
     {
@@ -56,7 +53,6 @@ public class CharacterSwitcher : MonoBehaviour
 
         // Separate bindings for the movement starting and ending.
         playerControls.Player.Move.started += ctx => { MovementInputStarted(ctx); };
-        playerControls.Player.Move.canceled += ctx => { MovementInputEnded(); };
         
         playerControls.Player.BarkWhip.started += ctx => { Debug.Log("Bark Whip"); };
         playerControls.Player.Flare.started += ctx => { Debug.Log("Flare"); };
@@ -93,21 +89,15 @@ public class CharacterSwitcher : MonoBehaviour
     /// <param name="ctx">Input context object.</param>
     private void MovementInputStarted(InputAction.CallbackContext ctx)
     {
+        //Debug.Log(ctx.ReadValue<Vector2>());
         // Value from the input
-        movementValue = ctx.ReadValue<float>();
+        movementValue = ctx.ReadValue<Vector2>().x;
 
-        // Pass Input context object to character.
+        // Setting input to a value of 1 or -1 as Gamepad stick values 'ramp up' to 1 (ex. 0.31 instead of 1)
+        movementValue = movementValue > 0 ? 1 : -1;
+        controlledCharacter.OnMove(movementValue);
 
-        Debug.Log("Move input started.");
-    }
 
-    /// <summary>
-    /// Ends movement for currently controlled character.
-    /// </summary>
-    private void MovementInputEnded()
-    {
-        // Stop movement for character
-        Debug.Log("Move input ended.");
     }
 
     /// <summary>
@@ -115,7 +105,7 @@ public class CharacterSwitcher : MonoBehaviour
     /// </summary>
     private void JumpEvent()
     {
-        controlledCharacter.Jump();
+        controlledCharacter.OnJump();
         Debug.Log("Jump.");
     }
 
