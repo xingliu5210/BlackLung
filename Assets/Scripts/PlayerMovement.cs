@@ -16,22 +16,19 @@ public class PlayerMovement : MonoBehaviour
     {
         body = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-        controls = new PlayerControls();
 
          // Ensure Rigidbody is found
         if (body == null)
         {
             Debug.LogError("Rigidbody component is missing on the Player GameObject.");
-        }
-
-        // Bind the jump and move actions to their respective methods
-        controls.Player.Jump.started += ctx => OnJump();
-        controls.Player.Move.performed += ctx => OnMove(ctx.ReadValue<float>());
-        controls.Player.Move.canceled += ctx => OnMove(0f);
-        
+        }        
     }
 
-    private void OnMove(float direction)
+    /// <summary>
+    /// Called when the player moves
+    /// </summary>
+    /// <param name="direction"></param>
+    public void OnMove(float direction)
     {
         moveInput = direction;
         Debug.Log("Move Input: " + moveInput);
@@ -50,31 +47,21 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnJump()
+    /// <summary>
+    /// Function for player jumping.
+    /// </summary>
+    public void OnJump()
     {
-            if (grounded && body != null)
+        // trigger jump if character is grounded. Removed redundant Jump method.
+        if (grounded && body != null)
         {
-            Jump();
+            body.velocity = new Vector3(body.velocity.x, jumpForce, body.velocity.z);
+            grounded = false;
         }
         else if (body == null)
         {
             Debug.LogError("Rigidbody not found on PlayerMovement script.");
         }
-    }
-        public void Jump()
-    {
-        body.velocity = new Vector3(body.velocity.x, jumpForce, body.velocity.z);
-        grounded = false;
-    }
-
-    private void OnEnable()
-    {
-        controls.Enable();
-    }
-
-    private void OnDisable()
-    {
-        controls.Disable();
     }
 
     private void OnCollisionEnter(Collision collision)

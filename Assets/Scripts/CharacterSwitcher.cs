@@ -23,9 +23,6 @@ public class CharacterSwitcher : MonoBehaviour
     [Tooltip("Reference to Bo's movement script.")]
     [SerializeField] private PlayerMovement bo;
 
-
-
-
     // Start is called before the first frame update
     private void Awake()
     {
@@ -56,7 +53,6 @@ public class CharacterSwitcher : MonoBehaviour
 
         // Separate bindings for the movement starting and ending.
         playerControls.Player.Move.started += ctx => { MovementInputStarted(ctx); };
-        playerControls.Player.Move.canceled += ctx => { MovementInputEnded(); };
         
         playerControls.Player.BarkWhip.started += ctx => { Debug.Log("Bark Whip"); };
         playerControls.Player.Flare.started += ctx => { Debug.Log("Flare"); };
@@ -95,19 +91,9 @@ public class CharacterSwitcher : MonoBehaviour
     {
         // Value from the input
         movementValue = ctx.ReadValue<float>();
-
-        // Pass Input context object to character.
+        controlledCharacter.OnMove(movementValue);
 
         Debug.Log("Move input started.");
-    }
-
-    /// <summary>
-    /// Ends movement for currently controlled character.
-    /// </summary>
-    private void MovementInputEnded()
-    {
-        // Stop movement for character
-        Debug.Log("Move input ended.");
     }
 
     /// <summary>
@@ -115,7 +101,7 @@ public class CharacterSwitcher : MonoBehaviour
     /// </summary>
     private void JumpEvent()
     {
-        controlledCharacter.Jump();
+        controlledCharacter.OnJump();
         Debug.Log("Jump.");
     }
 
