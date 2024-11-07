@@ -49,7 +49,7 @@ public class CharacterSwitcher : MonoBehaviour
         playerControls.Player.Jump.started += ctx => JumpEvent();
 
         Debug.Log("Bind Called");
-        playerControls.Player.Swap.started += ctx => { SwapCharacters();  };
+        playerControls.Player.Swap.performed += ctx => { SwapCharacters();  };
 
         // Separate bindings for the movement starting and ending.
         playerControls.Player.Move.started += ctx => { MovementInputStarted(ctx); };
