@@ -1,49 +1,85 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    private Rigidbody2D body;
+    [SerializeField] private float jumpForce;
+    private Rigidbody body;
     private Animator anim;
+    private PlayerControls controls;
     private bool grounded;
+
+    private float moveInput;
 
     private void Awake()
     {
-        body = GetComponent<Rigidbody2D>();
+        body = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        controls = new PlayerControls();
+
+         // Ensure Rigidbody is found
+        if (body == null)
+        {
+            Debug.LogError("Rigidbody component is missing on the Player GameObject.");
+        }
+
+        // Bind the jump and move actions to their respective methods
+        controls.Player.Jump.started += ctx => OnJump();
+        controls.Player.Move.performed += ctx => OnMove(ctx.ReadValue<float>());
+        controls.Player.Move.canceled += ctx => OnMove(0f);
+        
     }
 
-    private void Update()
+    private void OnMove(float direction)
     {
-        // float horizontalInput = Input.GetAxis("Horizontal");
-        //body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+        moveInput = direction;
+        Debug.Log("Move Input: " + moveInput);
 
-        // Flip player's direction when moving left-right
-        //if(horizontalInput > 0.01f)
-        //{
-        //    transform.localScale = Vector3.one;
-        //}
-        //else if (horizontalInput < -0.01f)
-        //{
-        //    transform.localScale = new Vector3(-1, 1, 1);
-        //}
+        // Set horizontal velocity based on move input
+        body.velocity = new Vector3(moveInput * speed, body.velocity.y, body.velocity.z);
 
-        //if(Input.GetKey(KeyCode.Space) && grounded)
-        //{
-        //    Jump();
-        //}
-
+        // Flip player direction based on movement input
+        if (moveInput > 0.01f)
+        {
+            transform.localScale = Vector3.one;
+        }
+        else if (moveInput < -0.01f)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 
-    public void Jump()
+    private void OnJump()
     {
-        body.velocity = new Vector2(body.velocity.x, speed);
+            if (grounded && body != null)
+        {
+            Jump();
+        }
+        else if (body == null)
+        {
+            Debug.LogError("Rigidbody not found on PlayerMovement script.");
+        }
+    }
+        public void Jump()
+    {
+        body.velocity = new Vector3(body.velocity.x, jumpForce, body.velocity.z);
         grounded = false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnEnable()
     {
-        if(collision.gameObject.tag == "Ground")
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Ground"))
         {
             grounded = true;
         }
