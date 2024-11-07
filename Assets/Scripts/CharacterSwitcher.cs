@@ -89,11 +89,15 @@ public class CharacterSwitcher : MonoBehaviour
     /// <param name="ctx">Input context object.</param>
     private void MovementInputStarted(InputAction.CallbackContext ctx)
     {
+        //Debug.Log(ctx.ReadValue<Vector2>());
         // Value from the input
-        movementValue = ctx.ReadValue<float>();
+        movementValue = ctx.ReadValue<Vector2>().x;
+
+        // Setting input to a value of 1 or -1 as Gamepad stick values 'ramp up' to 1 (ex. 0.31 instead of 1)
+        movementValue = movementValue > 0 ? 1 : -1;
         controlledCharacter.OnMove(movementValue);
 
-        Debug.Log("Move input started.");
+
     }
 
     /// <summary>
