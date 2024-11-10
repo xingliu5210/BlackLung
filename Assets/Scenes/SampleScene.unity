@@ -248,8 +248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3141791928a1994198163246aa42993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpForce: 5
+  speed: 6
+  jumpForce: 10
 --- !u!54 &726323913
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -503,8 +503,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3141791928a1994198163246aa42993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpForce: 5
+  speed: 6
+  jumpForce: 10
 --- !u!54 &1361748543
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -24,24 +24,36 @@ public class PlayerMovement : MonoBehaviour
         }        
     }
 
+    private void Update()
+    {
+        // Continuously call OnMove with the current value of moveInput
+        OnMove(moveInput);
+    }
+
+    // Method to set moveInput, called by CharacterSwitcher
+    public void SetMoveInput(float direction)
+    {
+        moveInput = direction;
+    }
+
     /// <summary>
     /// Called when the player moves
     /// </summary>
     /// <param name="direction"></param>
     public void OnMove(float direction)
     {
-        moveInput = direction;
-        Debug.Log("Move Input: " + moveInput);
+        // moveInput = direction;
+        Debug.Log("Move Input: " + direction);
 
         // Set horizontal velocity based on move input
         body.velocity = new Vector3(moveInput * speed, body.velocity.y, body.velocity.z);
 
         // Flip player direction based on movement input
-        if (moveInput > 0.01f)
+        if (direction > 0.01f)
         {
             transform.localScale = Vector3.one;
         }
-        else if (moveInput < -0.01f)
+        else if (direction < -0.01f)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
@@ -71,6 +83,5 @@ public class PlayerMovement : MonoBehaviour
             grounded = true;
         }
     }
-
-
+    
 }

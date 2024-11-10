@@ -52,7 +52,9 @@ public class CharacterSwitcher : MonoBehaviour
         playerControls.Player.Swap.performed += ctx => { SwapCharacters();  };
 
         // Separate bindings for the movement starting and ending.
-        playerControls.Player.Move.started += ctx => { MovementInputStarted(ctx); };
+        // playerControls.Player.Move.started += ctx => { MovementInputStarted(ctx); };
+        playerControls.Player.Move.performed += ctx => MovementInputStarted(ctx);
+        playerControls.Player.Move.canceled += ctx => MovementInputEnded();
         
         playerControls.Player.BarkWhip.started += ctx => { Debug.Log("Bark Whip"); };
         playerControls.Player.Flare.started += ctx => { Debug.Log("Flare"); };
@@ -94,11 +96,24 @@ public class CharacterSwitcher : MonoBehaviour
         movementValue = ctx.ReadValue<Vector2>().x;
 
         // Setting input to a value of 1 or -1 as Gamepad stick values 'ramp up' to 1 (ex. 0.31 instead of 1)
-        movementValue = movementValue > 0 ? 1 : -1;
+        /*movementValue = movementValue > 0 ? 1 : -1;
+        movementValue = movementValue > 0 ? 1 : movementValue < 0 ? -1 : 0;
         controlledCharacter.OnMove(movementValue);
-
-
+        Debug.Log("MovementInputStarted called. Movement input value: " + movementValue);
+        */
+        controlledCharacter.SetMoveInput(movementValue);
+        Debug.Log("Movement started with value: " + movementValue);
     }
+
+    /// <summary>
+    /// Ends movement for the currently controlled character.
+    /// </summary>
+    private void MovementInputEnded()
+    {
+        controlledCharacter.SetMoveInput(0f); // Stop movement by setting input to zero
+        Debug.Log("Movement input ended.");
+    }
+
 
     /// <summary>
     /// Calls the jump method for the currently controlled character.
