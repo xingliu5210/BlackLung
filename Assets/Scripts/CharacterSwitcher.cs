@@ -52,15 +52,18 @@ public class CharacterSwitcher : MonoBehaviour
         playerControls.Player.Swap.performed += ctx => { SwapCharacters();  };
 
         // Separate bindings for the movement starting and ending.
-        // playerControls.Player.Move.started += ctx => { MovementInputStarted(ctx); };
         playerControls.Player.Move.performed += ctx => MovementInputStarted(ctx);
         playerControls.Player.Move.canceled += ctx => MovementInputEnded();
-        
+
+        playerControls.Player.Climb.performed += ctx => { ClimbStarted(ctx); };
+        playerControls.Player.Climb.canceled += ctx => { ClimbEnded(); } ;
+
         playerControls.Player.BarkWhip.started += ctx => { Debug.Log("Bark Whip"); };
         playerControls.Player.Flare.started += ctx => { Debug.Log("Flare"); };
         playerControls.Player.Lantern.started += ctx => { Debug.Log("Lantern"); };
         playerControls.Player.Interact.started += ctx => { Debug.Log("Interact"); };
     }
+
 
     private void OnEnable()
     {
@@ -74,6 +77,25 @@ public class CharacterSwitcher : MonoBehaviour
         Debug.Log("Disable");
         playerControls.Player.Disable();
     }
+
+    /// <summary>
+    /// Sets climb input for controlled character, passing the input value.
+    /// </summary>
+    /// <param name="ctx">Input context object.</param>
+    private void ClimbStarted(InputAction.CallbackContext ctx)
+    {
+        controlledCharacter.SetClimbInput(ctx.ReadValue<float>());
+        Debug.Log(ctx.ReadValue<float>());
+    }
+
+    /// <summary>
+    /// End of climb input.
+    /// </summary>
+    private void ClimbEnded()
+    {
+        controlledCharacter.SetClimbInput(0);
+    }
+
 
     /// <summary>
     /// Swaps the currently controlled character to the character currently not being controlled.

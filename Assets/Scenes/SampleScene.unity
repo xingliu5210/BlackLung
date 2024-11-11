@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 726323915}
   - component: {fileID: 726323914}
   - component: {fileID: 726323913}
-  - component: {fileID: 726323912}
+  - component: {fileID: 726323918}
   m_Layer: 0
   m_Name: Amos
   m_TagString: Untagged
@@ -236,20 +236,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &726323912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726323911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3141791928a1994198163246aa42993, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  jumpForce: 10
 --- !u!54 &726323913
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -365,6 +351,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &726323918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726323911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e564f25f164a9e74696f05ebddb88744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
+  jumpForce: 10
 --- !u!1 &895306210
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +483,7 @@ GameObject:
   - component: {fileID: 1361748545}
   - component: {fileID: 1361748544}
   - component: {fileID: 1361748543}
-  - component: {fileID: 1361748542}
+  - component: {fileID: 1361748548}
   m_Layer: 0
   m_Name: Bo
   m_TagString: Untagged
@@ -491,20 +491,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1361748542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361748541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3141791928a1994198163246aa42993, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  jumpForce: 10
 --- !u!54 &1361748543
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -620,6 +606,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1361748548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361748541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55498f7a4edcd494cb8bc9933c0f3790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
+  jumpForce: 10
 --- !u!1 &1572929333
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,8 +665,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01990c9527798844e9c00fb5091663e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amos: {fileID: 726323912}
-  bo: {fileID: 1361748542}
+  amos: {fileID: 726323918}
+  bo: {fileID: 1361748548}
 --- !u!114 &1572929336
 MonoBehaviour:
   m_ObjectHideFlags: 0

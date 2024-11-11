@@ -36,6 +36,11 @@ public class PlayerMovement : MonoBehaviour
         moveInput = direction;
     }
 
+    public virtual void SetClimbInput(float input)
+    {
+        // Handle implementation differently for each character.
+    }
+
     /// <summary>
     /// Called when the player moves
     /// </summary>
@@ -43,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(float direction)
     {
         // moveInput = direction;
-        Debug.Log("Move Input: " + direction);
+        //Debug.Log("Move Input: " + direction);
 
         // Set horizontal velocity based on move input
         body.velocity = new Vector3(moveInput * speed, body.velocity.y, body.velocity.z);
