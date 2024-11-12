@@ -5,12 +5,18 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private float climbSpeed;
     private Rigidbody body;
     private Animator anim;
     private PlayerControls controls;
     private bool grounded;
 
     private float moveInput;
+
+    // Climbing
+    private float vertical;     // Vertical input for climbing
+    private bool isLadder;      // Indicates if the player is near a ladder
+    private bool isClimbing;    // Indicates if the player is currently climbing
 
     private void Awake()
     {
@@ -26,8 +32,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // Continuously call OnMove with the current value of moveInput
-        OnMove(moveInput);
+        // Check if the player is climbing
+        if (isClimbing)
+        {
+            OnClimb(vertical); // Calls climbing behavior when on a ladder
+        }
+        else
+        {
+            // If not climbing, apply horizontal movement
+            OnMove(moveInput);
+        }
     }
 
     // Method to set moveInput, called by CharacterSwitcher
@@ -36,9 +50,13 @@ public class PlayerMovement : MonoBehaviour
         moveInput = direction;
     }
 
+    // Method to set climb input, called by CharacterSwitcher or derived class
     public virtual void SetClimbInput(float input)
     {
-        // Handle implementation differently for each character.
+        vertical = input;
+        
+        // Start climbing if on a ladder and receiving vertical input
+        isClimbing = isLadder && vertical != 0;
     }
 
     /// <summary>
@@ -65,6 +83,17 @@ public class PlayerMovement : MonoBehaviour
     }
 
     /// <summary>
+    /// Function for climbing behavior
+    /// </summary>
+    private void OnClimb(float verticalInput)
+    {
+        // Move the player vertically along the ladder
+        body.velocity = new Vector3(body.velocity.x, verticalInput * climbSpeed, body.velocity.z);
+        body.useGravity = false; // Disable gravity while climbing
+    }
+
+
+    /// <summary>
     /// Function for player jumping.
     /// </summary>
     public void OnJump()
@@ -86,6 +115,26 @@ public class PlayerMovement : MonoBehaviour
         if(collision.gameObject.CompareTag("Ground"))
         {
             grounded = true;
+            isClimbing = false; // Stop climbing when grounded
+            body.useGravity = true; // Re-enable gravity
+        }
+    }
+
+     private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.CompareTag("Ladder"))
+        {
+            isLadder = true; // Enable ladder climbing
+        }
+    }
+
+    private void OnTriggerExit(Collider collider)
+    {
+        if (collider.CompareTag("Ladder"))
+        {
+            isLadder = false;   // Disable climbing when exiting the ladder
+            isClimbing = false;
+            body.useGravity = true; // Re-enable gravity when leaving the ladder
         }
     }
     
