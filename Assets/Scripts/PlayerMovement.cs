@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,12 +7,12 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
-    private Rigidbody body;
-    private Animator anim;
-    private PlayerControls controls;
-    private bool grounded;
+    protected Rigidbody body;
+    protected Animator anim;
+    protected PlayerControls controls;
+    protected bool grounded;
 
-    private float moveInput;
+    protected float moveInput;
 
     private void Awake()
     {
@@ -25,10 +26,14 @@ public class PlayerMovement : MonoBehaviour
         }        
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         // Continuously call OnMove with the current value of moveInput
-        OnMove(moveInput);
+        if((moveInput * 1) > 0)
+        {
+            OnMove(moveInput);
+        }
+
     }
 
     // Method to set moveInput, called by CharacterSwitcher
