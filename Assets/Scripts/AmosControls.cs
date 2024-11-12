@@ -14,5 +14,16 @@ public class AmosControls : PlayerMovement
     {
         base.SetClimbInput(input);
         climbInput = input;
+
+        // if climbing is enabled and input is non-zero, engable climbing
+        if (isLadder && climbInput != 0)
+        {
+            isClimbing = true; // Start Climbing when the input is received
+        }
+        else
+        {
+            isClimbing = false; // Stop climbing is there's no input or not on a ladder.
+        }
+
     }
 }

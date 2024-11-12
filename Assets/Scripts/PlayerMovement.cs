@@ -14,9 +14,9 @@ public class PlayerMovement : MonoBehaviour
     private float moveInput;
 
     // Climbing
-    private float vertical;     // Vertical input for climbing
-    private bool isLadder;      // Indicates if the player is near a ladder
-    private bool isClimbing;    // Indicates if the player is currently climbing
+    protected float vertical;     // Vertical input for climbing
+    protected bool isLadder;      // Indicates if the player is near a ladder
+    protected bool isClimbing;    // Indicates if the player is currently climbing
 
     private void Awake()
     {
