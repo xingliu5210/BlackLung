@@ -27,8 +27,7 @@ public class CharacterSwitcher : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerControls();
-        // Call bind method on start.        
-        Debug.Log("Hello");
+
         // Set amos as the currently controlled character.
         controlledCharacter = amos;
     }
@@ -48,7 +47,7 @@ public class CharacterSwitcher : MonoBehaviour
 
         playerControls.Player.Jump.started += ctx => JumpEvent();
 
-        Debug.Log("Bind Called");
+        //Debug.Log("Bind Called");
         playerControls.Player.Swap.performed += ctx => { SwapCharacters();  };
 
         // Separate bindings for the movement starting and ending.
@@ -58,12 +57,16 @@ public class CharacterSwitcher : MonoBehaviour
         playerControls.Player.Climb.performed += ctx => { ClimbStarted(ctx); };
         playerControls.Player.Climb.canceled += ctx => { ClimbEnded(); } ;
 
-        playerControls.Player.BarkWhip.started += ctx => { Debug.Log("Bark Whip"); };
+        playerControls.Player.BarkWhip.started += ctx => { BarkWhipInput(); };
         playerControls.Player.Flare.started += ctx => { Debug.Log("Flare"); };
         playerControls.Player.Lantern.started += ctx => { Debug.Log("Lantern"); };
         playerControls.Player.Interact.started += ctx => { Debug.Log("Interact"); };
     }
 
+    private void BarkWhipInput()
+    {
+        controlledCharacter.BarkWhip();
+    }
 
     private void OnEnable()
     {
@@ -74,7 +77,7 @@ public class CharacterSwitcher : MonoBehaviour
 
     private void OnDisable()
     {
-        Debug.Log("Disable");
+       //Debug.Log("Disable");
         playerControls.Player.Disable();
     }
 
@@ -124,7 +127,7 @@ public class CharacterSwitcher : MonoBehaviour
         Debug.Log("MovementInputStarted called. Movement input value: " + movementValue);
         */
         controlledCharacter.SetMoveInput(movementValue);
-        Debug.Log("Movement started with value: " + movementValue);
+        //Debug.Log("Movement started with value: " + movementValue);
     }
 
     /// <summary>
@@ -133,7 +136,7 @@ public class CharacterSwitcher : MonoBehaviour
     private void MovementInputEnded()
     {
         controlledCharacter.SetMoveInput(0f); // Stop movement by setting input to zero
-        Debug.Log("Movement input ended.");
+        //Debug.Log("Movement input ended.");
     }
 
 
@@ -143,7 +146,7 @@ public class CharacterSwitcher : MonoBehaviour
     private void JumpEvent()
     {
         controlledCharacter.OnJump();
-        Debug.Log("Jump.");
+        //Debug.Log("Jump.");
     }
 
     #endregion

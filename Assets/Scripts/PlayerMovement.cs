@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -36,10 +37,7 @@ public class PlayerMovement : MonoBehaviour
         moveInput = direction;
     }
 
-    public virtual void SetClimbInput(float input)
-    {
-        // Handle implementation differently for each character.
-    }
+
 
     /// <summary>
     /// Called when the player moves
@@ -88,5 +86,18 @@ public class PlayerMovement : MonoBehaviour
             grounded = true;
         }
     }
-    
+
+    #region Character Specific Functions
+
+
+    public virtual void SetClimbInput(float input)
+    {
+        // Handle implementation differently for each character.
+    }
+
+    public virtual void BarkWhip()
+    {       
+    }
+
+    #endregion
 }

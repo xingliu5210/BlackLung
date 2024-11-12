@@ -15,4 +15,16 @@ public class AmosControls : PlayerMovement
         base.SetClimbInput(input);
         climbInput = input;
     }
+
+    /// <summary>
+    /// Implementatio for Amos' Whip ability.
+    /// </summary>
+    public override void BarkWhip()
+    {
+        base.BarkWhip();
+
+    }
 }
+
+
+
