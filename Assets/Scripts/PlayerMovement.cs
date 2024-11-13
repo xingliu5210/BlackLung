@@ -71,6 +71,8 @@ public class PlayerMovement : MonoBehaviour
         
         // Start climbing if on a ladder and receiving vertical input
         isClimbing = isLadder && vertical != 0;
+
+        Debug.Log("SetClimbInput called. vertical: " + vertical + ", isLadder: " + isLadder + ", isClimbing: " + isClimbing);
     }
 
     /// <summary>
@@ -139,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
         if (collider.CompareTag("Ladder"))
         {
             isLadder = true; // Enable ladder climbing
+            Debug.Log("Entered ladder trigger with: " + collider.name + ". isLadder set to true.");
         }
     }
 
@@ -149,6 +152,7 @@ public class PlayerMovement : MonoBehaviour
             isLadder = false;   // Disable climbing when exiting the ladder
             isClimbing = false;
             body.useGravity = true; // Re-enable gravity when leaving the ladder
+            Debug.Log("Exited ladder trigger with: " + collider.name + ". isLadder set to false.");
         }
     }
     
