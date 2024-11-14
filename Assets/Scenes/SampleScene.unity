@@ -253,8 +253,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.3654215, y: 1, z: 2.818021}
+  m_Center: {x: 0.01866407, y: 0, z: 0.90901077}
 --- !u!23 &703792439
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -351,7 +351,7 @@ Rigidbody:
   m_GameObject: {fileID: 726323911}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -474,7 +474,7 @@ MonoBehaviour:
   jumpForce: 8
   climbSpeed: 5
   whipHookChecker: {fileID: 1782590443}
-  pullForce: 400
+  pullForce: 450
   lineRenderer: {fileID: 726323919}
   ropeVisibleTime: 0.5
 --- !u!120 &726323919
@@ -699,7 +699,7 @@ GameObject:
   - component: {fileID: 924512329}
   - component: {fileID: 924512328}
   - component: {fileID: 924512332}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WhipHook
   m_TagString: Hook
   m_Icon: {fileID: 0}
@@ -968,7 +968,7 @@ GameObject:
   - component: {fileID: 1534466324}
   - component: {fileID: 1534466323}
   - component: {fileID: 1534466326}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WhipHook (1)
   m_TagString: Hook
   m_Icon: {fileID: 0}
@@ -1159,8 +1159,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1782590442}
-  - component: {fileID: 1782590444}
   - component: {fileID: 1782590443}
+  - component: {fileID: 1782590444}
   m_Layer: 0
   m_Name: WhipHookChecker
   m_TagString: Untagged
@@ -1176,13 +1176,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782590441}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.4365563, w: 0.899677}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.45, y: 3.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 726323917}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -51.769}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1782590443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1195,10 +1195,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22f8ca634203804cadef260439ac63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 1782590444}
+  collider: {fileID: 0}
   hooksInRange: []
---- !u!136 &1782590444
-CapsuleCollider:
+--- !u!65 &1782590444
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1207,19 +1207,17 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 55
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2.1028624
-  m_Height: 7.963299
-  m_Direction: 1
-  m_Center: {x: -0.3421261, y: -1.724637, z: 0}
+  serializedVersion: 3
+  m_Size: {x: 4.284873, y: 3.7100196, z: 1}
+  m_Center: {x: -2.7921414, y: -1.4371316, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -54,6 +54,7 @@ public class AmosControls : PlayerMovement
             Vector3[] points = new Vector3[2];
             points[0] = transform.position;
             points[1] = targetHook.transform.position;
+            lineRenderer.positionCount = 2;
             lineRenderer.SetPositions(points);
             ropeVisible = true;
             //Debug.Log(points[0] + " " + points[1]);
@@ -63,7 +64,7 @@ public class AmosControls : PlayerMovement
             // Remove the Z part of the Vector so it doesn't move the player off the platform.
             direction = new Vector3(direction.x, direction.y, 0);
 
-            // Addforce to launch player toward hook. Increase force on y to combat gravity
+            // Addforce to launch player toward hook. Double force on y to combat gravity
             body.AddForce(new Vector2(direction.x * pullForce, direction.y * pullForce * 2));
         }
     }
