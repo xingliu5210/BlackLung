@@ -474,7 +474,7 @@ MonoBehaviour:
   jumpForce: 8
   climbSpeed: 5
   whipHookChecker: {fileID: 1782590443}
-  pullForce: 800
+  pullForce: 400
   lineRenderer: {fileID: 726323919}
   ropeVisibleTime: 0.5
 --- !u!120 &726323919

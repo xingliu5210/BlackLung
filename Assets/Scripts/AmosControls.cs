@@ -62,8 +62,9 @@ public class AmosControls : PlayerMovement
             Vector3 direction = Vector3.Normalize(targetHook.transform.position - transform.position);
             // Remove the Z part of the Vector so it doesn't move the player off the platform.
             direction = new Vector3(direction.x, direction.y, 0);
-            // Addforce to launch player toward hook
-            body.AddForce(direction * pullForce);
+
+            // Addforce to launch player toward hook. Increase force on y to combat gravity
+            body.AddForce(new Vector2(direction.x * pullForce, direction.y * pullForce * 2));
         }
     }
 
