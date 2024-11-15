@@ -30,5 +30,6 @@ public class PlayerHealth : MonoBehaviour
     private void HealthDepleted()
     {
         Debug.Log("HEALTH DEPLETED!");
+        GetComponent<Checkpoint>().Respawn();
     }
 }

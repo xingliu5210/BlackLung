@@ -6,7 +6,7 @@ public class Damage : MonoBehaviour
 {
     [SerializeField] private float damage;
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         //Checks if collides with player. Then, reduces health by damage set.
         if (other.gameObject.CompareTag("Player"))
