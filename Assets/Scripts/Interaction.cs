@@ -7,6 +7,16 @@ public class Interaction : MonoBehaviour
 
     [SerializeField] private float interactionRadius = 2f; // Radius to detect items
     [SerializeField] private LayerMask interactableLayer = 1 << 10;  // Layer for interactable items
+    private PlayerInventory playerInventory; // Reference to the player's inventory
+
+    private void Awake()
+    {
+        playerInventory = GetComponent<PlayerInventory>();
+        if (playerInventory == null)
+        {
+            Debug.LogError("PlayerInventory component is missing.");
+        }
+    }
 
     private Collider currentInteractable;
 
@@ -26,7 +36,7 @@ public class Interaction : MonoBehaviour
             Item item = currentInteractable.GetComponent<Item>();
             if (item != null)
             {
-                item.Interact();
+                item.Interact(playerInventory); // Pass the player inventory to the item
             }
             else
             {

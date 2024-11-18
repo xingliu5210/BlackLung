@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class Item : MonoBehaviour
 {
-    public enum InteractionType { None,PickUp,Examine}
+    public enum InteractionType { None,PickUp,Examine, Key}
     public InteractionType type;
     private void Reset()
     {
@@ -13,7 +13,7 @@ public class Item : MonoBehaviour
         gameObject.layer = 10;
     }
 
-    public void Interact()
+    public void Interact(PlayerInventory playerInventory)
     {
         switch(type)
         {
@@ -22,6 +22,11 @@ public class Item : MonoBehaviour
                 break;
             case InteractionType.Examine:
                 Debug.Log("Examine");
+                break;
+            case InteractionType.Key:
+                Debug.Log("Picked up a key.");
+                playerInventory.AddKey(); // Add key to inventory
+                Destroy(gameObject); // Remove the key after picking it up
                 break;
             default:
                 Debug.Log("Null Item");
