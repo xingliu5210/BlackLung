@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public GameObject ally;
+
     public float health;
     public float maxHealth;
     [SerializeField] private Image healthBar;
@@ -27,9 +29,20 @@ public class PlayerHealth : MonoBehaviour
         { HealthDepleted(); }
     }
 
+    public void FullHeal()
+    {
+        if (health != maxHealth)
+        {
+            health = maxHealth;
+            Healthbar();
+            Debug.Log("FEAR BAR REPLENISHED!");
+        }
+    }
+
     private void HealthDepleted()
     {
-        Debug.Log("HEALTH DEPLETED!");
+        Debug.Log("FEAR BAR DEPLETED!");
         GetComponent<Checkpoint>().Respawn();
+        ally.GetComponent<Checkpoint>().Respawn();
     }
 }

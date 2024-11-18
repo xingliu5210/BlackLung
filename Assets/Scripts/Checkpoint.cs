@@ -4,32 +4,51 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    private Vector3 savedPosition;
+    public GameObject ally;
+
+    private Vector3 CheckpointPosition;
+
+    public float spawnXOffset;
+    private Vector3 spawnPosition;
 
     // Start is called before the first frame update
     private void Start()
     {
-        savedPosition = transform.position;
+        CheckpointPosition = transform.position;
+
+        spawnPosition = CheckpointPosition;
+        spawnPosition.x += spawnXOffset;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Checkpoint"))
         {
-            GetComponent<PlayerHealth>().health += 100;
-            GetComponent<PlayerHealth>().Healthbar();
+            GetComponent<PlayerHealth>().FullHeal();
 
-            savedPosition = other.transform.position;
+            CheckpointPosition = other.transform.position;
 
-            Debug.Log("Checkpoint set to " + savedPosition);
+            spawnPosition = CheckpointPosition;
+            spawnPosition.x += spawnXOffset;
+
+            ally.GetComponent<Checkpoint>().AllyCheckpoint();
+
+            Debug.Log("Checkpoint set to " + CheckpointPosition);
         }
     }
 
-    public void Respawn()
-    { 
-        transform.position = savedPosition;
-        GetComponent<PlayerHealth>().health += 100;
-        GetComponent<PlayerHealth>().Healthbar();
+    public void AllyCheckpoint()
+    {
+        CheckpointPosition = ally.GetComponent<Checkpoint>().CheckpointPosition;
+
+        spawnPosition = CheckpointPosition;
+        spawnPosition.x += spawnXOffset;
     }
 
+    public void Respawn()
+    {
+        GetComponent<PlayerMovement>().Freeze();
+        transform.position = spawnPosition;
+        GetComponent<PlayerHealth>().FullHeal();
+    }
 }
