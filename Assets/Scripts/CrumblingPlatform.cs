@@ -12,11 +12,15 @@ public class CrumblingPlatform : MonoBehaviour
     [SerializeField] private float crumbleTime;
     private float crumbleCountdown;
 
+    [SerializeField] private float resetTime;
+    private float resetCountdown;
+
     // Start is called before the first frame update
     void Start()
     {
         // Set crumbleCountdown as the time it takes to crumble away.
         crumbleCountdown = crumbleTime;
+        resetCountdown = resetTime;
     }
 
     // Update is called once per frame
@@ -44,9 +48,41 @@ public class CrumblingPlatform : MonoBehaviour
                 platform.SetActive(false);
             }
         }
+
+        // If platform is inactive, start reset timer to reset it.
+        if(!platform.activeSelf)
+        {
+            resetCountdown -= Time.deltaTime;
+
+            if(resetCountdown <= 0 )
+            {
+
+                // Reset alpha channel
+                Color color = cubeRenderer.material.color;
+                color.a = 1;
+                cubeRenderer.material.color = color;
+
+                resetCountdown = resetTime;
+                platform.SetActive(true);
+            }
+        }
         
     }
 
+
+    /// <summary>
+    /// To be called when the platform needs to reset.
+    /// </summary>
+    public void Reset()
+    {
+        platform.SetActive(true);
+    }
+
+
+    /// <summary>
+    /// Called when a collider collides with the platform.
+    /// </summary>
+    /// <param name="other">Other object's collider</param>
     private void OnTriggerEnter(Collider other)
     {
         // Only need to check when the platform is not already crumbling and when it is still active.
