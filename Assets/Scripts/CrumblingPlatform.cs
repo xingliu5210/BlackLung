@@ -15,12 +15,18 @@ public class CrumblingPlatform : MonoBehaviour
     [SerializeField] private float resetTime;
     private float resetCountdown;
 
+    [SerializeField] ParticleSystem dustParticles;
+    private float defaultParticleRate;
+    [SerializeField] private float crumblingParticleRate = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
         // Set crumbleCountdown as the time it takes to crumble away.
         crumbleCountdown = crumbleTime;
         resetCountdown = resetTime;
+
+        defaultParticleRate = dustParticles.emission.rateOverTime.constant;
     }
 
     // Update is called once per frame
@@ -62,6 +68,10 @@ public class CrumblingPlatform : MonoBehaviour
                 color.a = 1;
                 cubeRenderer.material.color = color;
 
+
+                ParticleSystem.EmissionModule module = dustParticles.emission;
+                module.rateOverTime = defaultParticleRate;
+
                 resetCountdown = resetTime;
                 platform.SetActive(true);
             }
@@ -91,8 +101,9 @@ public class CrumblingPlatform : MonoBehaviour
             Debug.Log("Collision with: " + other.gameObject);
             if (other.gameObject.CompareTag("Player"))
             {
-
-               crumbling = true;
+                ParticleSystem.EmissionModule module = dustParticles.emission;
+                module.rateOverTime = crumblingParticleRate;
+                crumbling = true;
             }
         }
     }
