@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Hook
   - Ladder
+  - Elevator
   layers:
   - Default
   - TransparentFX
