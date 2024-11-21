@@ -52,7 +52,6 @@ public class PlayerMovement : MonoBehaviour
                 OnMove(moveInput);
             }
             
-
             if (!grounded)
             {
                 if (body.velocity.y > 0) // Ascending
@@ -126,6 +125,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void Freeze()
+    {
+        body.velocity = Vector3.zero;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Ground"))
@@ -138,7 +142,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("Trigger Entered " + collider.gameObject);
         if (collider.CompareTag("Ladder"))
         {
             isLadder = true; // Enable ladder climbing
