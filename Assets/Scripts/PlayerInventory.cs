@@ -10,6 +10,19 @@ public class PlayerInventory : MonoBehaviour
         Debug.Log("Keys collected: " + keyCount);
     }
 
+    public void UseKey()
+    {
+        if (keyCount > 0)
+        {
+            keyCount--;
+            Debug.Log("Key used. Remaining keys: " + keyCount);
+        }
+        else
+        {
+            Debug.LogWarning("No keys to use!");
+        }
+    }
+
     public int GetKeyCount()
     {
         return keyCount;
