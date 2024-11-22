@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class Item : MonoBehaviour
 {
-    public enum InteractionType { None,PickUp,Examine, Key}
+    public enum InteractionType { None,PickUp,Examine, Key, Fuel}
     public InteractionType type;
     private void Reset()
     {
@@ -27,6 +27,11 @@ public class Item : MonoBehaviour
                 Debug.Log("Picked up a key.");
                 playerInventory.AddKey(); // Add key to inventory
                 Destroy(gameObject); // Remove the key after picking it up
+                break;
+            case InteractionType.Fuel:
+                Debug.Log("Picked up a fuel.");
+                playerInventory.Addfuel(); // Add Fuel to inventory
+                Destroy(gameObject); // Remove the Fuel after picking it up
                 break;
             default:
                 Debug.Log("Null Item");

@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     private int keyCount = 0; // Number of keys collected
-
+    private float FuelAmount = 0.0f; // The amount of fuel
     public void AddKey()
     {
         keyCount++;
@@ -26,5 +26,29 @@ public class PlayerInventory : MonoBehaviour
     public int GetKeyCount()
     {
         return keyCount;
+    }
+
+    public void Addfuel()
+    {
+        FuelAmount++;
+        Debug.Log("Fuel collected: " + FuelAmount);
+    }
+
+    public void UseFuel()
+    {
+        if (FuelAmount > 0)
+        {
+            FuelAmount--;
+            Debug.Log("Fuel used. Remaining fuels: " + FuelAmount);
+        }
+        else
+        {
+            Debug.LogWarning("No keys to use!");
+        }
+    }
+
+    public float GetFuelAmount()
+    {
+        return FuelAmount;
     }
 }
