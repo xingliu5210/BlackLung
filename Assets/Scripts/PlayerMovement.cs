@@ -44,8 +44,14 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             // If not climbing, apply horizontal movement
-            OnMove(moveInput);
-
+            if(moveInput != 0 && !grounded)
+            {
+                OnMove(moveInput);
+            }else if(grounded)
+            {
+                OnMove(moveInput);
+            }
+            
             if (!grounded)
             {
                 if (body.velocity.y > 0) // Ascending

@@ -61,6 +61,9 @@ public class CharacterSwitcher : MonoBehaviour
         playerControls.Player.Flare.started += ctx => { Debug.Log("Flare"); };
         playerControls.Player.Lantern.started += ctx => { Debug.Log("Lantern"); };
         playerControls.Player.Interact.started += ctx => { Debug.Log("Interact"); };
+
+        // Bind interaction logic
+        playerControls.Player.Interact.started += ctx => InteractEvent();
     }
 
     private void BarkWhipInput()
@@ -147,6 +150,26 @@ public class CharacterSwitcher : MonoBehaviour
     {
         controlledCharacter.OnJump();
         //Debug.Log("Jump.");
+    }
+
+    /// <summary>
+    /// Calls the Interact method for the currently controlled character.
+    /// </summary>
+    private void InteractEvent()
+    {
+        if (controlledCharacter != null)
+        {
+            // Get the Interaction component on the controlled character and call Interact
+            Interaction interaction = controlledCharacter.GetComponent<Interaction>();
+            if (interaction != null)
+            {
+                interaction.Interact();
+            }
+            else
+            {
+                Debug.LogWarning("No Interaction component found on controlled character.");
+            }
+        }
     }
 
     #endregion
