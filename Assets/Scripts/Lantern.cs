@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class Lantern : MonoBehaviour
 {
-    //private bool PowerOn = false;
+    private bool powerOn = true;
+    [SerializeField] private SphereCollider lightCol;
 
-    public Light Lightsource1;
-    public Light Lightsource2;
+    [SerializeField] private Light lanternLight;
 
-    private Color startColor = new Color(1.0f, 0.76f, 0.0f); //Lanterns original bright glow #FFC200
+    private Color startColor = new Color(1f, 0.76f, 0f); //Lanterns original bright glow #FFC200
     private Color endColor = Color.black; //Lantern gets dark as its light diminishes
     private Color currentColor;
 
     [SerializeField] private Material material;
 
-    private float maxBrightness;
+    private float maxIntensity;
     [SerializeField] private float fuelUsagePercentPerSecond;
     private float fuelUsage;
 
-    private float currentFuelPercent;
+    private float currentFuelPercent = 1f;
 
     [SerializeField] private float refuelPercent;
     private float refuelAmount;
@@ -28,43 +28,51 @@ public class Lantern : MonoBehaviour
 
     private void Start()
     {
-        maxBrightness = Lightsource1.intensity;
+        //Set max brightness
+        maxIntensity = lanternLight.intensity;
 
-        //Translate from percentage
-        fuelUsage = maxBrightness * (fuelUsagePercentPerSecond / 100 / updateRate);
-        refuelAmount = maxBrightness * (refuelPercent / 100);
+        //Translate fuel usage from percentage and seconds
+        fuelUsage = maxIntensity * (fuelUsagePercentPerSecond / 100f / updateRate);
+
+        //Translate refuel from percentage
+        refuelAmount = maxIntensity * (refuelPercent / 100f);
     }
     private void FixedUpdate()
     {
-        //Brightness maximum value
-        if (Lightsource1.intensity > maxBrightness)
-        { 
-            Lightsource1.intensity = maxBrightness;
-            Lightsource2.intensity = maxBrightness;
-        }
+        //Fuel burn per frame 
+        if (lanternLight.intensity > 0)
+        { lanternLight.intensity -= fuelUsage; }
 
-        //Fuel burn per frame
-        if (Lightsource1.intensity > 0)
-        {
-            Lightsource1.intensity -= fuelUsage;
-            Lightsource2.intensity -= fuelUsage;
-        }
-        else if (Lightsource1.intensity < 0)
-        { 
-            Lightsource1.intensity = 0;
-            Lightsource2.intensity = 0;
-        }
-        else
-        {
-            //PowerOn = false;
-        }
+        //Limit to brightness minimum value
+        if (lanternLight.intensity < 0)
+        { lanternLight.intensity = 0; }
 
-        //The lamps color value changes with its brightness output
-        currentFuelPercent = Lightsource1.intensity / maxBrightness;
+        //Measure fuel percentage
+        if (powerOn)
+        currentFuelPercent = lanternLight.intensity / maxIntensity;
+
+        //Collision radius and Color value changes with its brightness output
+        lightCol.radius = Mathf.Lerp(0, 10, currentFuelPercent);
         currentColor = Color.Lerp(endColor, startColor, currentFuelPercent);
 
         //material.color = currentColor;
         material.SetColor("_EmissionColor", currentColor);
+    }
+
+    public void PowerToggle(Collider col)
+    {
+        powerOn = !powerOn;
+
+        if (!powerOn)
+        { 
+            col.enabled = false;
+            lanternLight.intensity = 0;
+        }
+        else
+        { 
+            col.enabled = true;
+            lanternLight.intensity = currentFuelPercent * maxIntensity;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -72,8 +80,7 @@ public class Lantern : MonoBehaviour
         //Water depletes fuel
         if (other.CompareTag("Water"))
         {
-            Lightsource1.intensity = 0;
-            Lightsource2.intensity = 0;
+            lanternLight.intensity = 0;
         }
 
         //Remove this below once Refuel() function works with inventory
@@ -87,13 +94,10 @@ public class Lantern : MonoBehaviour
     //Add 20% fuel to lantern
     public void Refuel()
     {
-        Lightsource1.intensity += refuelAmount;
-        Lightsource2.intensity += refuelAmount;
+        lanternLight.intensity += refuelAmount;
 
-        if (Lightsource1.intensity > maxBrightness)
-        {
-            Lightsource1.intensity = maxBrightness;
-            Lightsource2.intensity = maxBrightness;
-        }
+        //Limit to brightness maximum value
+        if (lanternLight.intensity > maxIntensity)
+        { lanternLight.intensity = maxIntensity; }
     }
 }
