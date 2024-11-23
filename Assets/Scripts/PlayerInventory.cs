@@ -4,6 +4,7 @@ public class PlayerInventory : MonoBehaviour
 {
     private int keyCount = 0; // Number of keys collected
     private float FuelAmount = 0.0f; // The amount of fuel
+    
     public void AddKey()
     {
         keyCount++;
@@ -40,6 +41,7 @@ public class PlayerInventory : MonoBehaviour
         {
             FuelAmount--;
             Debug.Log("Fuel used. Remaining fuels: " + FuelAmount);
+            GetComponent<Lantern>().Refuel(20);
         }
         else
         {

@@ -5,29 +5,28 @@ using UnityEngine.UI;
 
 public class CreatureFear : MonoBehaviour
 {
-    [SerializeField] private float fear;
+    [SerializeField] private float fearBar;
     [SerializeField] private float maxFear;
 
-    public void OnTriggerEnter(Collider other)
+    public void TakeDamage(int damage)
     {
-        if (other.CompareTag("Player"))
-        {
-            fear -= 25;
+        if (damage <= 0) return;
+        if (fearBar <= 0) return;
 
-            //Restrict Fear to maximum/minimum
-            if (fear > maxFear)
-            { fear = maxFear; }
+        fearBar -= damage;
 
-            if (fear < 0)
-            { fear = 0; }
+        //Restrict Fear to minimum 0
+        if (fearBar < 0)
+        { fearBar = 0; }
 
-            Debug.Log("Creature has " + fear + "/" + maxFear + "fear points");
+        Debug.Log(gameObject.name + " has " + fearBar + "/" + maxFear + " fearPoints remaining");
 
-            if (fear <= 0)
-            {
-                Debug.Log("Creature has been scared off!");
-                fear = 100;
-            }
-        }
+        if (fearBar <= 0) Escape();
+    }
+
+    private void Escape()
+    {
+        Debug.Log("Creature has been scared off!");
+        fearBar = 100; //For testing purposes. Remove line for full build!
     }
 }
