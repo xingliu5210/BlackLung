@@ -15,7 +15,7 @@ public class Lantern : MonoBehaviour
 
     [SerializeField] private Material material;
 
-    private float maxIntensity;
+    private float maxIntensity = 1.8f; //set max brightness
     [SerializeField] private float fuelUsagePercentPerSecond;
     private float fuelUsage;
 
@@ -28,9 +28,6 @@ public class Lantern : MonoBehaviour
 
     private void Start()
     {
-        //Set max brightness
-        maxIntensity = lanternLight.intensity;
-
         //Translate fuel usage from percentage and seconds
         fuelUsage = maxIntensity * (fuelUsagePercentPerSecond / 100f / updateRate);
 
