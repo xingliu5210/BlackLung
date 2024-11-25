@@ -13,6 +13,8 @@ public class AmosControls : PlayerMovement
     // How long to display the rope on screen when pulling Amos
     [SerializeField] private float ropeVisibleTime = 0.5f;
 
+    [SerializeField] private Lantern lantern;
+
     // Used to track if the rope is currently visible
     private bool ropeVisible = false;
 
@@ -67,6 +69,13 @@ public class AmosControls : PlayerMovement
             // Addforce to launch player toward hook. Double force on y to combat gravity
             body.AddForce(new Vector2(direction.x * pullForce, direction.y * pullForce * 2));
         }
+    }
+
+    public override void ToggleLantern()
+    {
+        base.ToggleLantern();
+        lantern.PowerToggle();
+
     }
 
     protected override void Update()
