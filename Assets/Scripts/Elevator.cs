@@ -6,22 +6,32 @@ public class Elevator : MonoBehaviour
 {
     [SerializeField] private Transform destination; // Destination floor for the elevator
     [SerializeField] private float moveSpeed = 2f;  // Speed at which the elevator moves
+
+    private Vector3 originalPosition;              // Original position of the elevator
     private bool isActivated = false;              // Tracks if the elevator is permanently activated
     private bool isMoving = false;                 // Tracks if the elevator is currently moving
+    private bool atDestination = false;           // Tracks if the elevator is at the destination
+
+    private void Awake()
+    {
+        // Store the original position of the elevator
+        originalPosition = transform.position;
+    }
 
     private void Update()
     {
-        // Smoothly move the elevator to the destination if it's activated and moving
-        if (isMoving && destination != null)
+        // Smoothly move the elevator to the target position if it's activated and moving
+        if (isMoving)
         {
-            // Move the platform (and any children, including the player)
-            transform.position = Vector3.MoveTowards(transform.position, destination.position, moveSpeed * Time.deltaTime);
+            Vector3 targetPosition = atDestination ? originalPosition : destination.position;
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
-            // Stop moving if the elevator reaches the destination
-            if (Vector3.Distance(transform.position, destination.position) < 0.01f)
+            // Stop moving if the elevator reaches the target position
+            if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
             {
                 isMoving = false;
-                Debug.Log("Elevator reached the destination.");
+                atDestination = !atDestination; // Toggle the destination flag
+                Debug.Log("Elevator reached the " + (atDestination ? "destination." : "original position."));
             }
         }
     }
