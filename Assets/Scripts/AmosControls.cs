@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AmosControls : PlayerMovement
 {
-    private float climbInput;
+    [Header("Whip Variables")]
     [SerializeField] private WhipHookChecker whipHookChecker;
     [SerializeField] private float pullForce = 15;
-
-    [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private float whipAttackRadius;
+    [SerializeField] private int whipDamage;
 
     // How long to display the rope on screen when pulling Amos
     [SerializeField] private float ropeVisibleTime = 0.5f;
 
+    [Header("Object References")]
+    [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Lantern lantern;
 
     // Used to track if the rope is currently visible
@@ -20,6 +23,8 @@ public class AmosControls : PlayerMovement
 
     // Used to countdown to remove the rope
     private float ropeVisibleCountdown = 0.5f;
+
+    private float climbInput;
 
     /// <summary>
     /// Implentation for Amos' climb.
@@ -69,13 +74,40 @@ public class AmosControls : PlayerMovement
             // Addforce to launch player toward hook. Double force on y to combat gravity
             body.AddForce(new Vector2(direction.x * pullForce, direction.y * pullForce * 2));
         }
+        else
+        {
+            RaycastHit hit;
+            bool enemyhit = Physics.SphereCast(transform.position, whipAttackRadius, Vector3.zero, out hit);
+            Debug.Log("Whip Spherecast");
+
+
+            if (enemyhit)
+            {
+                if(hit.collider.gameObject.CompareTag("Enemy"))
+                {
+                    Debug.Log("Enemy Hit: " + hit.collider.gameObject);
+                    hit.collider.gameObject.GetComponent<CreatureFear>().TakeDamage(whipDamage);
+                }
+            }
+        }
     }
 
+    /// <summary>
+    /// Debug for sphere and ray casts.
+    /// </summary>
+    private void OnDrawGizmos()
+    {
+        // Debug for whip radius.
+        Gizmos.DrawWireSphere(transform.position, whipAttackRadius);
+    }
+
+    /// <summary>
+    /// Calls the power toggle function on the lantern script, toggling it on or off.
+    /// </summary>
     public override void ToggleLantern()
     {
         base.ToggleLantern();
         lantern.PowerToggle();
-
     }
 
     protected override void Update()

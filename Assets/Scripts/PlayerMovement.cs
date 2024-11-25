@@ -5,9 +5,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement Variables")]
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float climbSpeed;
+
+
     protected Rigidbody body;
     protected Animator anim;
     protected PlayerControls controls;
