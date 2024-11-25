@@ -177,5 +177,9 @@ public class PlayerMovement : MonoBehaviour
     {       
     }
 
+    public virtual void ToggleLantern()
+    {
+    }
+
     #endregion
 }

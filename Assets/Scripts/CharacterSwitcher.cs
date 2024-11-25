@@ -57,13 +57,20 @@ public class CharacterSwitcher : MonoBehaviour
         playerControls.Player.Climb.performed += ctx => { ClimbStarted(ctx); };
         playerControls.Player.Climb.canceled += ctx => { ClimbEnded(); } ;
 
+        playerControls.Player.Lantern.started += ctx => { LanternToggleInput(); };
+
         playerControls.Player.BarkWhip.started += ctx => { BarkWhipInput(); };
+
         playerControls.Player.Flare.started += ctx => { Debug.Log("Flare"); };
-        playerControls.Player.Lantern.started += ctx => { Debug.Log("Lantern"); };
         playerControls.Player.Interact.started += ctx => { Debug.Log("Interact"); };
 
         // Bind interaction logic
         playerControls.Player.Interact.started += ctx => InteractEvent();
+    }
+
+    private void LanternToggleInput()
+    {
+        controlledCharacter.ToggleLantern();
     }
 
     private void BarkWhipInput()
