@@ -29,6 +29,15 @@ public class PlayerHealth : MonoBehaviour
         { HealthDepleted(); }
     }
 
+    public void Damage(float dmg)
+    {
+        if (health > 0)
+        {
+            health -= dmg;
+            Healthbar();
+        }
+    }
+
     public void FullHeal()
     {
         if (health != maxHealth)
