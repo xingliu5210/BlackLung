@@ -8,6 +8,7 @@ TagManager:
   - Hook
   - Ladder
   - Elevator
+  - Water
   layers:
   - Default
   - TransparentFX

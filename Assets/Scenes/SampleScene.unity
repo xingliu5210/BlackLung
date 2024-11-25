@@ -154,31 +154,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &245454989 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7445015403596789705, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
-  m_PrefabInstance: {fileID: 4025975440450259660}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &245454994 stripped
-SphereCollider:
-  m_CorrespondingSourceObject: {fileID: 6085789419904053165, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
-  m_PrefabInstance: {fileID: 4025975440450259660}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &245454995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245454989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10806ec632bcc3d4fb81763dee3f7854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightCol: {fileID: 245454994}
-  lanternLight: {fileID: 1328099373}
-  material: {fileID: 2100000, guid: b42a40e388e007249bb12913825377bc, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,11 +691,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!108 &1328099373 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 7282723877011051402, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
-  m_PrefabInstance: {fileID: 4025975440450259660}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1361748548 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2416400058251081295, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
@@ -1160,6 +1130,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2303905559177237098, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+      propertyPath: whipAttackRadius
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2847827641146774932, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
       propertyPath: m_Name
       value: Amos
@@ -1204,14 +1178,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6183397548182456982, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7445015403596789705, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 245454995}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
 --- !u!1001 &4174260363842793656
 PrefabInstance:

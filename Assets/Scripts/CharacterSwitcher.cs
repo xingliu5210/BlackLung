@@ -68,11 +68,17 @@ public class CharacterSwitcher : MonoBehaviour
         playerControls.Player.Interact.started += ctx => InteractEvent();
     }
 
+    /// <summary>
+    /// Routes input for the Lantern input to the character script.
+    /// </summary>
     private void LanternToggleInput()
     {
         controlledCharacter.ToggleLantern();
     }
 
+    /// <summary>
+    /// Routes input for the Lantern input to the character script.
+    /// </summary>
     private void BarkWhipInput()
     {
         controlledCharacter.BarkWhip();

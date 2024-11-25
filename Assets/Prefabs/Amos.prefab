@@ -60,7 +60,7 @@ BoxCollider:
     m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 1079
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -171,15 +171,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8799134033955291693}
+  - component: {fileID: 2303905559177237098}
+  - component: {fileID: 733590889509574899}
+  - component: {fileID: 1528812738822348302}
   - component: {fileID: 3700698448503774571}
   - component: {fileID: 2812204755177176692}
   - component: {fileID: 6117579513294376597}
   - component: {fileID: 4585397006715510678}
-  - component: {fileID: 2303905559177237098}
   - component: {fileID: 7572011819841016954}
-  - component: {fileID: 1528812738822348302}
-  - component: {fileID: 733590889509574899}
-  - component: {fileID: 6183397548182456982}
   m_Layer: 0
   m_Name: Amos
   m_TagString: Player
@@ -204,6 +203,55 @@ Transform:
   - {fileID: 5002479937239988670}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2303905559177237098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847827641146774932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e564f25f164a9e74696f05ebddb88744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
+  jumpForce: 8
+  climbSpeed: 5
+  whipHookChecker: {fileID: 4310463824651419387}
+  pullForce: 450
+  whipAttackRadius: 2.5
+  lineRenderer: {fileID: 7572011819841016954}
+  ropeVisibleTime: 0.5
+  lantern: {fileID: 8217204633425654942}
+--- !u!114 &733590889509574899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847827641146774932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273e19950aec1be4e8feabe568d027e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1528812738822348302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847827641146774932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 535c5d1faa03aab418dbddbf7873a708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRadius: 2
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!33 &3700698448503774571
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -304,25 +352,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &2303905559177237098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2847827641146774932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e564f25f164a9e74696f05ebddb88744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  jumpForce: 8
-  climbSpeed: 5
-  whipHookChecker: {fileID: 4310463824651419387}
-  pullForce: 450
-  lineRenderer: {fileID: 7572011819841016954}
-  ropeVisibleTime: 0.5
 --- !u!120 &7572011819841016954
 LineRenderer:
   serializedVersion: 2
@@ -427,49 +456,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &1528812738822348302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2847827641146774932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 535c5d1faa03aab418dbddbf7873a708, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionRadius: 2
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 1024
---- !u!114 &733590889509574899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2847827641146774932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 273e19950aec1be4e8feabe568d027e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6183397548182456982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2847827641146774932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10806ec632bcc3d4fb81763dee3f7854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightCol: {fileID: 6085789419904053165}
-  lanternLight: {fileID: 7282723877011051402}
-  material: {fileID: 2100000, guid: b42a40e388e007249bb12913825377bc, type: 2}
 --- !u!1 &7445015403596789705
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,6 +468,7 @@ GameObject:
   - component: {fileID: 5764868975611020540}
   - component: {fileID: 953341338714952245}
   - component: {fileID: 6085789419904053165}
+  - component: {fileID: 8217204633425654942}
   m_Layer: 0
   m_Name: Lantern
   m_TagString: Untagged
@@ -576,3 +563,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8217204633425654942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7445015403596789705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10806ec632bcc3d4fb81763dee3f7854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightCol: {fileID: 6085789419904053165}
+  lanternLight: {fileID: 7282723877011051402}
+  material: {fileID: 2100000, guid: b42a40e388e007249bb12913825377bc, type: 2}
