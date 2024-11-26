@@ -375,6 +375,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1038246300}
     - target: {fileID: 2540593744441133745, guid: 865fa3e3e9bb51a47a676ee3ffb70711, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2540593744441133745, guid: 865fa3e3e9bb51a47a676ee3ffb70711, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
@@ -1200,6 +1204,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2303905559177237098, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+      propertyPath: whipDamage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2303905559177237098, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
       propertyPath: whipAttackRadius
       value: 2.5
