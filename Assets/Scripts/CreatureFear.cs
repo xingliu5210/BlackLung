@@ -27,6 +27,6 @@ public class CreatureFear : MonoBehaviour
     private void Escape()
     {
         Debug.Log("Creature has been scared off!");
-        fearBar = 100; //For testing purposes. Remove line for full build!
+        Destroy(gameObject);
     }
 }
