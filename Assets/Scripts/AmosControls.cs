@@ -76,19 +76,25 @@ public class AmosControls : PlayerMovement
         }
         else
         {
-            RaycastHit hit;
-            bool enemyhit = Physics.SphereCast(transform.position, whipAttackRadius, Vector3.zero, out hit);
-            Debug.Log("Whip Spherecast");
+            //RaycastHit hit;
+            //bool enemyhit = Physics.SphereCast(transform.position, whipAttackRadius, transform.forward, out hit, 0.1f);
+            //Debug.Log("Whip Spherecast " + enemyhit);
 
+            Collider[] results = Physics.OverlapSphere(transform.position, whipAttackRadius);
 
-            if (enemyhit)
+            if (results.Length > 0)
             {
-                if(hit.collider.gameObject.CompareTag("Enemy"))
+                foreach (Collider r in results)
                 {
-                    Debug.Log("Enemy Hit: " + hit.collider.gameObject);
-                    hit.collider.gameObject.GetComponent<CreatureFear>().TakeDamage(whipDamage);
+                    if (r.gameObject.CompareTag("Enemy"))
+                    {
+                        Debug.Log("Enemy Hit: " + r.gameObject);
+                        r.gameObject.GetComponent<CreatureFear>().TakeDamage(whipDamage);
+                    }
                 }
             }
+
+
         }
     }
 

@@ -9,6 +9,8 @@ TagManager:
   - Ladder
   - Elevator
   - Water
+  - Enemy
+  - Light
   layers:
   - Default
   - TransparentFX
