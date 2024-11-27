@@ -38,6 +38,7 @@ public class Interaction : MonoBehaviour
             if (item != null)
             {
                 item.Interact(playerInventory); // Pass the player inventory to the item
+                return;
             }
             else
             {
