@@ -6,11 +6,13 @@ public class Elevator : MonoBehaviour
 {
     [SerializeField] private Elevator pairedElevator; // Destination floor for the elevator
     [SerializeField] private float teleportCooldown = 1f; // Cooldown to prevent instant re-teleportation  // Speed at which the elevator moves
-    private bool isActivated = false;              // Tracks if the elevator is permanently activated
-    private bool isCooldown = false;               // Tracks if the teleport is on cooldown
+    private bool isActivated;              // Tracks if the elevator is permanently activated
+    private bool isCooldown;               // Tracks if the teleport is on cooldown
 
     private void Awake()
     {
+        isActivated = false;
+        isCooldown = false;
         // Ensure the paired elevator is set
         if (pairedElevator == null)
         {
@@ -59,26 +61,30 @@ public class Elevator : MonoBehaviour
 
     private void TeleportPlayer()
     {
-        if (pairedElevator != null)
-        {
-            // Find the player
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
+        if (isActivated) 
+        {    if(pairedElevator != null)
             {
-                Debug.Log($"Teleporting player to {pairedElevator.name}");
-                player.transform.position = pairedElevator.transform.position;
+                // Find the player
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                if (player != null)
+                {
+                    Debug.Log($"Teleporting player to {pairedElevator.name}");
+                    player.transform.position = pairedElevator.transform.position;
 
-                // Start cooldown
-                StartCoroutine(TeleportCooldown());
+                    // Start cooldown
+                    StartCoroutine(TeleportCooldown());
+                }
+                else
+                {
+                    Debug.LogError("Player not found in the scene.");
+                }
             }
             else
             {
-                Debug.LogError("Player not found in the scene.");
+                Debug.LogError("Paired elevator not assigned for teleportation.");
             }
-        }
-        else
-        {
-            Debug.LogError("Paired elevator not assigned for teleportation.");
+        }else {
+            Debug.LogError("The elevator isn't activated yet.");
         }
     }
 
