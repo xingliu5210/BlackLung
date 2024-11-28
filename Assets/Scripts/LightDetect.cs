@@ -8,7 +8,7 @@ public class LightDetect : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Light"))
+        if (other.CompareTag("Light") || other.CompareTag("Checkpoint"))
         {
             danger = true;
 

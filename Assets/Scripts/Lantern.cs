@@ -47,7 +47,8 @@ public class Lantern : MonoBehaviour
         currentColor = Color.Lerp(endColor, startColor, currentFuelPercent);
 
         //material.color = currentColor;
-        material.SetColor("_EmissionColor", currentColor);
+        if (powerOn)
+        { material.SetColor("_EmissionColor", currentColor); }
     }
 
     public void PowerToggle()
@@ -59,6 +60,7 @@ public class Lantern : MonoBehaviour
         {
             lightCol.enabled = false;
             lanternLight.intensity = 0;
+            material.SetColor("_EmissionColor", Color.black);
         }
         else
         {

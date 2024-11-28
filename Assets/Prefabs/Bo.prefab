@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 6406370594073934120}
   - component: {fileID: 6991354294032209476}
   - component: {fileID: 5963073694512198951}
+  - component: {fileID: 1532989836110144798}
+  - component: {fileID: 8220968029723105445}
+  - component: {fileID: 5935470170192872712}
   - component: {fileID: 2416400058251081295}
   m_Layer: 0
   m_Name: Bo
@@ -136,6 +139,50 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 64
   m_CollisionDetection: 0
+--- !u!114 &1532989836110144798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596696371067362545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76db96c1ba14e804790b4d973b503550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minFallHeight: 5
+  maxFallHeight: 7
+--- !u!114 &8220968029723105445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596696371067362545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9fd075d9c5264468c9d0d6fc5abd71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ally: {fileID: 0}
+  health: 100
+  maxHealth: 100
+  healthBar: {fileID: 0}
+--- !u!114 &5935470170192872712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596696371067362545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64ca6fe87e80fd44aaeafb92905c4f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ally: {fileID: 0}
+  spawnXOffset: -1
 --- !u!114 &2416400058251081295
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,8 +9,6 @@ public class Bat : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
 
     float distanceToTarget;
-    float distanceFromLight;
-
     bool followPlayer = true;
 
 

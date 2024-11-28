@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7337708327522779932}
   - component: {fileID: 4310463824651419387}
   - component: {fileID: 9125715157687685758}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WhipHookChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ BoxCollider:
     m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1079
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -78,7 +78,7 @@ GameObject:
   m_Component:
   - component: {fileID: 322375155471110683}
   - component: {fileID: 7282723877011051402}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,6 +171,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8799134033955291693}
+  - component: {fileID: 8681203968446822411}
+  - component: {fileID: 1973779103601224865}
+  - component: {fileID: 6703017310458631786}
   - component: {fileID: 2303905559177237098}
   - component: {fileID: 733590889509574899}
   - component: {fileID: 1528812738822348302}
@@ -203,6 +206,50 @@ Transform:
   - {fileID: 5002479937239988670}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8681203968446822411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847827641146774932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9fd075d9c5264468c9d0d6fc5abd71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ally: {fileID: 0}
+  health: 100
+  maxHealth: 100
+  healthBar: {fileID: 0}
+--- !u!114 &1973779103601224865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847827641146774932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76db96c1ba14e804790b4d973b503550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minFallHeight: 5
+  maxFallHeight: 7
+--- !u!114 &6703017310458631786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847827641146774932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64ca6fe87e80fd44aaeafb92905c4f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ally: {fileID: 0}
+  spawnXOffset: 0
 --- !u!114 &2303905559177237098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,9 +517,9 @@ GameObject:
   - component: {fileID: 953341338714952245}
   - component: {fileID: 6085789419904053165}
   - component: {fileID: 8217204633425654942}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lantern
-  m_TagString: Untagged
+  m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -553,7 +600,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
