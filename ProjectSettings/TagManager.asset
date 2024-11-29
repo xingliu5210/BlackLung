@@ -11,6 +11,7 @@ TagManager:
   - Water
   - Enemy
   - Light
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - WhipHook
   - Water
   - UI
-  - 
+  - Light
   - 
   - 
   - 
