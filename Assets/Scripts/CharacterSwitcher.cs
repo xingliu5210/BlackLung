@@ -23,6 +23,14 @@ public class CharacterSwitcher : MonoBehaviour
     [Tooltip("Reference to Bo's movement script.")]
     [SerializeField] private PlayerMovement bo;
 
+    [Tooltip("Reference to Amos' camera")]
+    [SerializeField] private Camera amosCamera;
+
+    [Tooltip("Reference to Bo's camera")]
+    [SerializeField] private Camera boCamera;
+
+    [SerializeField] private CameraFollow cameraFollow;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -30,6 +38,8 @@ public class CharacterSwitcher : MonoBehaviour
 
         // Set amos as the currently controlled character.
         controlledCharacter = amos;
+        // Activate the camera for the default character
+        cameraFollow.SetTarget(amos.transform);
     }
 
     private void Start()
@@ -122,8 +132,24 @@ public class CharacterSwitcher : MonoBehaviour
     private void SwapCharacters()
     {
         // If the controlledCharacter is Amos, assign bo as the controlledCharacter, otherwise assign Amos.
-        controlledCharacter = controlledCharacter == amos ? bo : amos;
+        // controlledCharacter = controlledCharacter == amos ? bo : amos;
         Debug.Log("Character swap.");
+
+        // Swap between Amos and Bo
+        if (controlledCharacter == amos)
+        {
+            controlledCharacter = bo;
+
+            // Switch camera target to Bo
+            cameraFollow.SetTarget(bo.transform);
+        }
+        else
+        {
+            controlledCharacter = amos;
+
+            // Switch camera target to Amos
+            cameraFollow.SetTarget(amos.transform);
+        }
     }
 
     /// <summary>
