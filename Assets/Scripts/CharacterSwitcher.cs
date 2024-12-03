@@ -134,6 +134,9 @@ public class CharacterSwitcher : MonoBehaviour
         // controlledCharacter = controlledCharacter == amos ? bo : amos;
         Debug.Log("Character swap.");
 
+        // Stop movement for the currently controlled character
+        controlledCharacter.SetMoveInput(0f);
+
         // Swap between Amos and Bo
         if (controlledCharacter == amos)
         {
