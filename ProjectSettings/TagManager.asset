@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Light
   - Checkpoint
+  - Rock
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Water
   - UI
   - Light
-  - 
+  - Pickaxe
   - 
   - 
   - Item

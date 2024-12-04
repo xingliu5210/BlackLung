@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     protected Rigidbody body;
     protected Animator anim;
     protected PlayerControls controls;
-    protected bool grounded;
+    public bool grounded;
 
     protected float moveInput;
 
@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     protected bool isClimbing;    // Indicates if the player is currently climbing
     private float upwardGravityScale = 1.5f;
     private float downwardGravityScale = 7f;
+
+    private bool inAction = false;
 
     private void Awake()
     {
@@ -46,10 +48,11 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             // If not climbing, apply horizontal movement
-            if(moveInput != 0 && !grounded)
+            if(moveInput != 0 && !grounded && !inAction)
             {
                 OnMove(moveInput);
-            }else if(grounded)
+            }
+            else if(grounded && !inAction)
             {
                 OnMove(moveInput);
             }
@@ -116,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnJump()
     {
         // trigger jump if character is grounded. Removed redundant Jump method.
-        if (grounded && body != null)
+        if (grounded && body != null && !inAction)
         {
             body.velocity = new Vector3(body.velocity.x, jumpForce, body.velocity.z);
             grounded = false;
@@ -124,6 +127,19 @@ public class PlayerMovement : MonoBehaviour
         else if (body == null)
         {
             Debug.LogError("Rigidbody not found on PlayerMovement script.");
+        }
+    }
+
+    public void OnMine(bool mining)
+    {
+        if (mining)
+        {
+            body.velocity = Vector3.zero;
+            inAction = true;
+        }
+        else
+        {
+            inAction = false;
         }
     }
 

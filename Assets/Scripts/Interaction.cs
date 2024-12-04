@@ -9,6 +9,7 @@ public class Interaction : MonoBehaviour
     [SerializeField] private LayerMask interactableLayer = 1 << 10;  // Layer for interactable items
     private PlayerInventory playerInventory; // Reference to the player's inventory
     private Elevator currentElevator; // Reference to the elevator being interacted with
+    private GameObject rock; // Reference to the rock being interacted with
 
     private void Awake()
     {
@@ -44,11 +45,19 @@ public class Interaction : MonoBehaviour
             {
                 Debug.LogWarning("Interactable object does not have an Item component.");
             }
-        }else if (currentElevator != null)
+        }
+        else if (currentElevator != null)
         {
             // If an elevator is currently detected, interact with it
             Debug.Log("Interacting with the elevator.");
             currentElevator.ActivateElevator(playerInventory);
+        }
+        else if (rock != null)
+        {
+            // If a rock is currently detected, interact with it
+            Debug.Log("Interacting with the rock.");
+            GetComponent<Pickaxe>().rock = rock;
+            GetComponent<Pickaxe>().Mining();
         }
         else
         {
@@ -70,6 +79,12 @@ public class Interaction : MonoBehaviour
             {
                 Debug.LogError("Elevator script missing on the elevator object.");
             }
+        }
+
+        if (other.CompareTag("Rock")) // Ensure the elevator has the correct tag
+        {
+            Debug.Log($"Player entered the mining trigger: {other.name}");
+            rock = other.gameObject;
         }
     }
 

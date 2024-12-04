@@ -27,6 +27,7 @@ public class Lantern : MonoBehaviour
     {
         //Translate fuel usage from percentage and seconds
         fuelUsagePerSec = maxIntensity * (fuelUsagePercentPerSec / 100f / updateRate);
+        currentColor = startColor;
     }
     private void FixedUpdate()
     {
