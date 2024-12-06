@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -63,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     body.velocity += Vector3.up * Physics.gravity.y * (upwardGravityScale - 1) * Time.deltaTime;
                 }
-                else if (body.velocity.y < 0) // Descending
+                else // Descending
                 {
                     body.velocity += Vector3.up * Physics.gravity.y * (downwardGravityScale - 1) * Time.deltaTime;
                 }
@@ -128,6 +129,10 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("Rigidbody not found on PlayerMovement script.");
         }
+        else
+        {
+            Debug.LogError("currently is not grounded");
+        }
     }
 
     public void OnMine(bool mining)
@@ -157,6 +162,40 @@ public class PlayerMovement : MonoBehaviour
             body.useGravity = true; // Re-enable gravity
         }
     }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        grounded = false;
+        /*
+        if(collision.gameObject.CompareTag("Ground"))
+        {
+            StartCoroutine(CheckIfGrounded());
+        }
+        */
+    }
+    /*
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            foreach (ContactPoint contact in collision.contacts)
+            {
+                // Check if the contact point is close to vertical to confirm grounding
+                if (Vector3.Angle(contact.normal, Vector3.up) < 45) // Adjust the angle as needed
+                {
+                    grounded = true;
+                }
+            }
+        }
+    }
+    
+
+    private IEnumerator CheckIfGrounded()
+    {
+        yield return new WaitForSeconds(0.1f); // Delay to avoid immediate reset
+        grounded = false;
+    }
+    */
 
     private void OnTriggerEnter(Collider collider)
     {
