@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Perform a BoxCast downward to check for ground
         Vector3 boxCenter = transform.position - transform.up * groundCheckDistance;
-        
+
          // Perform CheckBox
         grounded = Physics.CheckBox(
             boxCenter,

@@ -11,7 +11,7 @@ public class BoControls : PlayerMovement
     {
         base.BarkWhip();
     }
-    
+
     /// <summary>
     /// Visualizes the ground detection box and other debug information specific to Bo.
     /// </summary>
@@ -22,5 +22,10 @@ public class BoControls : PlayerMovement
 
         Vector3 boxCenter = transform.position - transform.up * groundCheckDistance;
         Gizmos.DrawWireCube(boxCenter, groundCheckSize);
+    }
+
+    protected override void Update()
+    {
+        base.Update();
     }
 }
