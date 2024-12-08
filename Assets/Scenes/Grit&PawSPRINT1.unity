@@ -15282,6 +15282,10 @@ PrefabInstance:
       value: Bo
       objectReference: {fileID: 0}
     - target: {fileID: 1596696371067362545, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596696371067362545, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
