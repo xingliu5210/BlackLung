@@ -9,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float climbSpeed;
+    [SerializeField] protected LayerMask groundLayer; // LayerMask for ground detection
+    [SerializeField] protected Vector3 groundCheckSize = new Vector3(0.9f, 0.1f, 0.9f); // Box size for ground check
+    [SerializeField] protected float groundCheckDistance = 0.1f; // Distance below the player to check for ground
 
 
     protected Rigidbody body;
@@ -41,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
 
     protected virtual void Update()
     {
+        // Update grounded state using BoxCast
+        GroundCheck();
+
         // Check if the player is climbing
         if (isClimbing)
         {
@@ -72,6 +78,41 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
+    private void GroundCheck()
+    {
+        // Perform a BoxCast downward to check for ground
+        Vector3 boxCenter = transform.position - transform.up * groundCheckDistance;
+        
+         // Perform CheckBox
+        grounded = Physics.CheckBox(
+            boxCenter,
+            groundCheckSize / 2,
+            Quaternion.identity,
+            groundLayer
+        );
+
+        // Debugging
+        if (grounded)
+        {
+            Debug.Log("Grounded: True");
+        }
+        else
+        {
+            Debug.Log("Grounded: False");
+        }
+        Debug.Log($"Box Center: {boxCenter}, Size: {groundCheckSize}, Ground Layer: {groundLayer}");
+
+    }
+
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = grounded ? Color.green : Color.yellow;
+
+    //     Vector3 boxCenter = transform.position +Vector3.down * groundCheckDistance;
+    //     Gizmos.DrawWireCube(boxCenter, groundCheckSize);
+
+    // }
 
     // Method to set moveInput, called by CharacterSwitcher
     public void SetMoveInput(float direction)
@@ -153,49 +194,20 @@ public class PlayerMovement : MonoBehaviour
         body.velocity = Vector3.zero;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Ground"))
-        {
-            grounded = true;
-            isClimbing = false; // Stop climbing when grounded
-            body.useGravity = true; // Re-enable gravity
-        }
-    }
+    // private void OnCollisionEnter(Collision collision)
+    // {
+    //     if(collision.gameObject.CompareTag("Ground"))
+    //     {
+    //         grounded = true;
+    //         isClimbing = false; // Stop climbing when grounded
+    //         body.useGravity = true; // Re-enable gravity
+    //     }
+    // }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        grounded = false;
-        /*
-        if(collision.gameObject.CompareTag("Ground"))
-        {
-            StartCoroutine(CheckIfGrounded());
-        }
-        */
-    }
-    /*
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            foreach (ContactPoint contact in collision.contacts)
-            {
-                // Check if the contact point is close to vertical to confirm grounding
-                if (Vector3.Angle(contact.normal, Vector3.up) < 45) // Adjust the angle as needed
-                {
-                    grounded = true;
-                }
-            }
-        }
-    }
-    
-
-    private IEnumerator CheckIfGrounded()
-    {
-        yield return new WaitForSeconds(0.1f); // Delay to avoid immediate reset
-        grounded = false;
-    }
-    */
+    // private void OnCollisionExit(Collision collision)
+    // {
+    //     grounded = false;
+    // }
 
     private void OnTriggerEnter(Collider collider)
     {

@@ -98,14 +98,14 @@ public class AmosControls : PlayerMovement
         }
     }
 
-    /// <summary>
-    /// Debug for sphere and ray casts.
-    /// </summary>
-    private void OnDrawGizmos()
-    {
-        // Debug for whip radius.
-        Gizmos.DrawWireSphere(transform.position, whipAttackRadius);
-    }
+    // /// <summary>
+    // /// Debug for sphere and ray casts.
+    // /// </summary>
+    // private void OnDrawGizmos()
+    // {
+    //     // Debug for whip radius.
+    //     Gizmos.DrawWireSphere(transform.position, whipAttackRadius);
+    // }
 
     /// <summary>
     /// Calls the power toggle function on the lantern script, toggling it on or off.
@@ -132,6 +132,19 @@ public class AmosControls : PlayerMovement
                 ropeVisibleCountdown = ropeVisibleTime;
             }
         }
+    }
+
+    protected void OnDrawGizmos()
+    {
+        // Draw the box used for ground detection
+        Gizmos.color = grounded ? Color.green : Color.red;
+
+        Vector3 boxCenter = transform.position + Vector3.down * groundCheckDistance;
+        Gizmos.DrawWireCube(boxCenter, groundCheckSize);
+
+        // Debug for whip radius (specific to AmosControls)
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, whipAttackRadius);
     }
 
 }

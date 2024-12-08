@@ -11,4 +11,16 @@ public class BoControls : PlayerMovement
     {
         base.BarkWhip();
     }
+    
+    /// <summary>
+    /// Visualizes the ground detection box and other debug information specific to Bo.
+    /// </summary>
+    protected void OnDrawGizmos()
+    {
+        // Draw the box used for ground detection
+        Gizmos.color = grounded ? Color.green : Color.red;
+
+        Vector3 boxCenter = transform.position - transform.up * groundCheckDistance;
+        Gizmos.DrawWireCube(boxCenter, groundCheckSize);
+    }
 }

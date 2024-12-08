@@ -265,6 +265,12 @@ MonoBehaviour:
   speed: 6
   jumpForce: 8
   climbSpeed: 5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  groundCheckSize: {x: 0.9, y: 0.2, z: 0.9}
+  groundCheckDistance: 0.1
+  grounded: 0
   whipHookChecker: {fileID: 4310463824651419387}
   pullForce: 450
   whipAttackRadius: 2.5
