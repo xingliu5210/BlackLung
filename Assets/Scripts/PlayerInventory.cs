@@ -31,10 +31,12 @@ public class PlayerInventory : MonoBehaviour
 
     public void Addfuel()
     {
-        FuelAmount++;
-        Debug.Log("Fuel collected: " + FuelAmount);
-    }
+        GetComponentInChildren<Lantern>().Refuel(20); // Add Fuel to inventory
 
+        //FuelAmount++;
+        //Debug.Log("Fuel collected: " + FuelAmount);
+    }
+    /*
     public void UseFuel()
     {
         if (FuelAmount > 0)
@@ -52,5 +54,5 @@ public class PlayerInventory : MonoBehaviour
     public float GetFuelAmount()
     {
         return FuelAmount;
-    }
+    }*/
 }

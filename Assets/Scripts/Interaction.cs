@@ -10,6 +10,7 @@ public class Interaction : MonoBehaviour
     private PlayerInventory playerInventory; // Reference to the player's inventory
     private Elevator currentElevator; // Reference to the elevator being interacted with
     private GameObject rock; // Reference to the rock being interacted with
+    public GameObject mount; // Reference to the rock being interacted with
 
     private void Awake()
     {
@@ -59,6 +60,12 @@ public class Interaction : MonoBehaviour
             GetComponent<Pickaxe>().rock = rock;
             GetComponent<Pickaxe>().Mining();
         }
+        else if (mount != null)
+        {
+            Debug.Log("Mounting object.");
+            GetComponent<PlayerMovement>().mount = mount;
+            GetComponent<PlayerMovement>().OnMount();
+        }
         else
         {
             Debug.Log("No interactable objects nearby.");
@@ -86,6 +93,12 @@ public class Interaction : MonoBehaviour
             Debug.Log($"Player entered the mining trigger: {other.name}");
             rock = other.gameObject;
         }
+
+        if (other.CompareTag("Mount")) // Ensure the elevator has the correct tag
+        {
+            Debug.Log($"Player entered the mount trigger: {other.name}");
+            mount = other.gameObject;
+        }
     }
 
     /// <summary>
@@ -100,6 +113,18 @@ public class Interaction : MonoBehaviour
             {
                 currentElevator = null; // Clear the current elevator reference
             }
+        }
+
+        if (other.CompareTag("Rock")) // Ensure the rock has the correct tag
+        {
+            Debug.Log($"Player exited the rock trigger: {other.name}");
+            rock = null;  // Clear the rock reference
+        }
+
+        if (other.CompareTag("Mount")) // Ensure the mount has the correct tag
+        {
+            Debug.Log($"Player exited the mount trigger: {other.name}");
+            mount = null;  // Clear the mount reference
         }
     }
 

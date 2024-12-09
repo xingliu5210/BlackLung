@@ -29,7 +29,7 @@ public class Item : MonoBehaviour
                 Destroy(gameObject); // Remove the key after picking it up
                 break;
             case InteractionType.Fuel:
-                Debug.Log("Picked up a fuel.");
+                Debug.Log("Picked up a fuel. +20%");
                 playerInventory.Addfuel(); // Add Fuel to inventory
                 Destroy(gameObject); // Remove the Fuel after picking it up
                 break;

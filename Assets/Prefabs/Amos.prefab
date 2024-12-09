@@ -1,5 +1,58 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &593593605950070283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6180814931386428101}
+  - component: {fileID: 2960000992167195287}
+  m_Layer: 0
+  m_Name: PickaxeChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6180814931386428101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593593605950070283}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8799134033955291693}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2960000992167195287
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593593605950070283}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 1407
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 0.75, z: 1}
+  m_Center: {x: 1, y: 0, z: 0}
 --- !u!1 &1400609743747443425
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +113,7 @@ BoxCollider:
     m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1527
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -182,6 +235,7 @@ GameObject:
   - component: {fileID: 6117579513294376597}
   - component: {fileID: 4585397006715510678}
   - component: {fileID: 7572011819841016954}
+  - component: {fileID: 7695809761700899114}
   m_Layer: 0
   m_Name: Amos
   m_TagString: Player
@@ -203,6 +257,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7337708327522779932}
+  - {fileID: 6180814931386428101}
   - {fileID: 5002479937239988670}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -267,10 +322,11 @@ MonoBehaviour:
   climbSpeed: 5
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
-  groundCheckSize: {x: 0.9, y: 0.2, z: 0.9}
-  groundCheckDistance: 0.1
+    m_Bits: 256
+  groundCheckSize: {x: 0.74, y: 0.29, z: 0.9}
+  groundCheckDistance: 0.98
   grounded: 0
+  mount: {fileID: 0}
   whipHookChecker: {fileID: 4310463824651419387}
   pullForce: 450
   whipAttackRadius: 2.5
@@ -306,6 +362,7 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 1024
+  mount: {fileID: 0}
 --- !u!33 &3700698448503774571
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -510,6 +567,20 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &7695809761700899114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847827641146774932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18d7d7e7f1b2559468dc104b28fd1b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miningFrames: 50
+  rock: {fileID: 0}
 --- !u!1 &7445015403596789705
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,7 +680,7 @@ SphereCollider:
     m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1471
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0

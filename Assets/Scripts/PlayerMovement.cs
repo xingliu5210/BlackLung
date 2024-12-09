@@ -29,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
     private float downwardGravityScale = 7f;
 
     private bool inAction = false;
+    private bool isMounting = false;
+    public GameObject mount;
+    private int transitionTimer = 0;
 
     private void Awake()
     {
@@ -77,6 +80,21 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        // Check if player is mounted
+        if (isMounting && mount != null)
+        {
+            transform.position = new Vector3(mount.transform.position.x, mount.transform.position.y + 1.6f, mount.transform.position.z);// + mountOffset;
+
+            transitionTimer++;
+            //insert screen darkening here or insert below into a function in Mount
+            if (transitionTimer >= 50)
+            {
+                GameObject PairedCart = mount.GetComponent<Minecart>().PairedCart;
+
+                transform.position = new Vector3(PairedCart.transform.position.x, PairedCart.transform.position.y + 1.6f, PairedCart.transform.position.z);
+                OnMount();
+            }
+        }
     }
 
     private void GroundCheck()
@@ -176,6 +194,22 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void OnMount()
+    {
+        isMounting = !isMounting;
+
+        if (isMounting)
+        {
+            body.velocity = Vector3.zero;
+            inAction = true;
+        }
+        else
+        {
+            inAction = false;
+            Debug.Log("Dismount");
+        }
+    }
+
     public void OnMine(bool mining)
     {
         if (mining)
@@ -193,21 +227,6 @@ public class PlayerMovement : MonoBehaviour
     {
         body.velocity = Vector3.zero;
     }
-
-    // private void OnCollisionEnter(Collision collision)
-    // {
-    //     if(collision.gameObject.CompareTag("Ground"))
-    //     {
-    //         grounded = true;
-    //         isClimbing = false; // Stop climbing when grounded
-    //         body.useGravity = true; // Re-enable gravity
-    //     }
-    // }
-
-    // private void OnCollisionExit(Collision collision)
-    // {
-    //     grounded = false;
-    // }
 
     private void OnTriggerEnter(Collider collider)
     {
