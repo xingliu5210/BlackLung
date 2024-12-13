@@ -14,6 +14,7 @@ public class UIMainMenu : MonoBehaviour
     private void Start()
     {
         startScreen.SetActive(true);
+        mainMenuButtonGroup.SetActive(true);
         controlWindow.SetActive(false);
     }
 
