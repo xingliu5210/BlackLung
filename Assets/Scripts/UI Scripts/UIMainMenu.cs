@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIMainMenu : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] GameObject mainMenuButtonGroup;
     [SerializeField] GameObject mouseKeyPanel;
     [SerializeField] GameObject controllerPanel;
+    [SerializeField] Button mouseKeyButton;
     private GameObject currentPanelOpen;
 
     private void Start()
@@ -22,11 +24,14 @@ public class UIMainMenu : MonoBehaviour
     {
         startScreen.SetActive(false);
     }
+
+    //Default opens the Mouse & Key Controlls when Controlls
+    //window is opened
     public void OpenControlsWindow()
     {
         mainMenuButtonGroup.SetActive(false);
+        mouseKeyButton.Select();
         controlWindow.SetActive(true);
-        OpenPanel(mouseKeyPanel);
     }
 
     public void CloseControlsWindow()
