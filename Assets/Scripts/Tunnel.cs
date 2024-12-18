@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Minecart : MonoBehaviour
+public class Tunnel : MonoBehaviour
+
 {
-    public GameObject PairedCart;
+    public GameObject PairedTunnel;
 }
