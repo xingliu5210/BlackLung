@@ -147,6 +147,11 @@ public class AmosControls : PlayerMovement
         Gizmos.DrawWireSphere(transform.position, whipAttackRadius);
     }
 
+    public WhipHookChecker GetWhipHookChecker()
+    {
+        return whipHookChecker;
+    }
+
 }
 
 

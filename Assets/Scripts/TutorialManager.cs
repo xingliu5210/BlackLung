@@ -8,6 +8,7 @@ public class TutorialManager : MonoBehaviour
     private int popUpIndex;
     private bool leftArrowPressed = false;
     private bool rightArrowPressed = false;
+    private bool switchtoBo = false;
 
     [SerializeField] private PlayerMovement playerMovement; // Reference to the PlayerMovement script
     private float originalJumpForce; // To store the original jump force
@@ -66,6 +67,38 @@ public class TutorialManager : MonoBehaviour
                 popUpIndex++;
             }
         }
+        else if (popUpIndex == 2)
+        {
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                if(!switchtoBo)
+                {
+                    // Initial switch to Bo
+                    switchtoBo = true;  
+                }
+                else
+                {
+                    // If already switched, proceed to next popup
+                    popUpIndex++;
+                }
+            }
+        }
+        else if (popUpIndex == 3)
+        {
+            // Handle whip hook interaction (J key or left mouse button)
+            if (Input.GetKeyDown(KeyCode.J) || Input.GetMouseButtonDown(0))
+            {
+                if (CheckWhipHookInteraction()) // Custom function to verify interaction success
+                {
+                    Debug.Log("Successfully interacted with the whip hook.");
+                    popUpIndex++;
+                }
+                else
+                {
+                    Debug.Log("Failed to interact with the whip hook. Try again.");
+                }
+            }
+        }
     }
 
     // Helper method to reset key press states
@@ -73,5 +106,43 @@ public class TutorialManager : MonoBehaviour
     {
         leftArrowPressed = false;
         rightArrowPressed = false;
+    }
+
+    private bool CheckWhipHookInteraction()
+    {
+        WhipHookChecker whipHookChecker = null;
+
+        // Check if the playerMovement is AmosControls
+        if (playerMovement is AmosControls amosControls)
+        {
+            // using a getter method
+            whipHookChecker = amosControls.GetWhipHookChecker();
+        }
+
+        // Dynamically get WhipHookChecker as a fallback
+        if (whipHookChecker == null)
+        {
+            whipHookChecker = playerMovement.GetComponent<WhipHookChecker>();
+        }
+
+        if (whipHookChecker != null)
+        {
+            WhipHook closestHook = whipHookChecker.GetClosestHook(playerMovement.transform.position);
+            if (closestHook != null)
+            {
+                Debug.Log($"Interacted with WhipHook: {closestHook.name}");
+                return true; // Successful interaction
+            }
+            else
+            {
+                Debug.Log("No hooks in range.");
+            }
+        }
+        else
+        {
+            Debug.LogError("WhipHookChecker is not assigned to the player.");
+        }
+
+        return false; // Interaction failed
     }
 }
