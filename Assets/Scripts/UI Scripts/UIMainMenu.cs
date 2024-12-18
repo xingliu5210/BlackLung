@@ -11,7 +11,7 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] GameObject mouseKeyPanel;
     [SerializeField] GameObject controllerPanel;
     [SerializeField] Button mouseKeyButton;
-    private GameObject currentPanelOpen;
+    [SerializeField] GameObject currentPanelOpen;
 
     private void Start()
     {
@@ -31,6 +31,7 @@ public class UIMainMenu : MonoBehaviour
     {
         mainMenuButtonGroup.SetActive(false);
         mouseKeyButton.Select();
+        OpenMouseKeyPanel();
         controlWindow.SetActive(true);
     }
 
