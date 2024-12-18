@@ -8,7 +8,24 @@ public class TutorialManager : MonoBehaviour
     private int popUpIndex;
     private bool leftArrowPressed = false;
     private bool rightArrowPressed = false;
-    // Update is called once per frame
+
+    [SerializeField] private PlayerMovement playerMovement; // Reference to the PlayerMovement script
+    private float originalJumpForce; // To store the original jump force
+
+    void Start()
+    {
+        if (playerMovement == null)
+        {
+            Debug.LogError("PlayerMovement reference is not set in the TutorialManager!");
+            return;
+        }
+        // Save the original jump force value
+        originalJumpForce = playerMovement.JumpForce;
+
+        // Disable jumping by setting jumpForce to 0 initially
+        playerMovement.JumpForce = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -40,6 +57,9 @@ public class TutorialManager : MonoBehaviour
         }
         else if (popUpIndex == 1)
         {
+            // Re-enable jumping by restoring the original jumpForce
+            playerMovement.JumpForce = originalJumpForce;
+
             // Handle the second popup logic
             if (Input.GetKeyDown(KeyCode.Space)) 
             {

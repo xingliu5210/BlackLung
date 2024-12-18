@@ -110,16 +110,16 @@ public class PlayerMovement : MonoBehaviour
             groundLayer
         );
 
-        // Debugging
-        if (grounded)
-        {
-            Debug.Log("Grounded: True");
-        }
-        else
-        {
-            Debug.Log("Grounded: False");
-        }
-        Debug.Log($"Box Center: {boxCenter}, Size: {groundCheckSize}, Ground Layer: {groundLayer}");
+        // // Debugging
+        // if (grounded)
+        // {
+        //     Debug.Log("Grounded: True");
+        // }
+        // else
+        // {
+        //     Debug.Log("Grounded: False");
+        // }
+        // Debug.Log($"Box Center: {boxCenter}, Size: {groundCheckSize}, Ground Layer: {groundLayer}");
 
     }
 
@@ -267,6 +267,12 @@ public class PlayerMovement : MonoBehaviour
 
     public virtual void ToggleLantern()
     {
+    }
+
+    public float JumpForce // Expose jumpForce as a public property
+    {
+        get { return jumpForce; }
+        set { jumpForce = value; }
     }
 
     #endregion
