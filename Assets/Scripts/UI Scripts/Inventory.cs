@@ -34,20 +34,21 @@ public class Inventory : MonoBehaviour
         {
             ToggleInventoryWindow();
         }
+        currentPosition = transform.position;
     }
 
     public void ToggleInventoryWindow()
     {
         if(isOpen)
         {
-            isOpen = false;
             isClosing = true;
             isOpening = false;
+            isOpen = false;
         } else if(!isOpen)
-        {
-            isOpen = true;  
+        {  
             isOpening = true;
             isClosing = false;
+            isOpen = true;
         }
     }
 
@@ -55,10 +56,8 @@ public class Inventory : MonoBehaviour
     {
         while(true)
         {
-            Debug.Log("start");
             if (isOpening)
             {
-                Debug.Log("open coroutine");
                 transform.position = Vector3.Lerp(transform.position, openPosition, speed * Time.deltaTime);
                 if (transform.position.y > openPosition.y - 0.5f)
                 {
@@ -67,7 +66,6 @@ public class Inventory : MonoBehaviour
             }
             if (isClosing)
             {
-                Debug.Log("clse coroutine");
                 transform.position = Vector3.Lerp(transform.position, closePosition, speed * Time.deltaTime);
                 if (transform.position.y < closePosition.y + 0.5f)
                 {
@@ -75,7 +73,6 @@ public class Inventory : MonoBehaviour
                 }
             }
             yield return new WaitForSeconds(0.05f);
-           
         }
 
     }
