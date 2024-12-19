@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 4585397006715510678}
   - component: {fileID: 7572011819841016954}
   - component: {fileID: 7695809761700899114}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Amos
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
