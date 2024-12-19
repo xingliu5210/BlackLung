@@ -30,6 +30,11 @@ public class CharacterSwitcher : MonoBehaviour
 
     [SerializeField] private CameraFollow cameraFollow;
 
+    [Tooltip("Reference to the Inventory UI")]
+    [SerializeField] private GameObject inventoryUI;
+
+    private bool isInventoryVisible = true;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -75,11 +80,18 @@ public class CharacterSwitcher : MonoBehaviour
 
         // Bind interaction logic
         playerControls.Player.Interact.started += ctx => InteractEvent();
+
+        playerControls.Player.Inventory.started += ctx => ToggleInventory();
     }
 
     /// <summary>
     /// Routes input for the Lantern input to the character script.
     /// </summary>
+    private void ToggleInventory()
+    {
+        isInventoryVisible = !isInventoryVisible;
+        inventoryUI.SetActive(isInventoryVisible);
+    }
     private void LanternToggleInput()
     {
         controlledCharacter.ToggleLantern();
