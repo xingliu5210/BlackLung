@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    [SerializeField] private Transform contentArea;
+    [SerializeField] private UIInventoryItem uiItemPrefab;
+    [SerializeField] private Sprite image; //DELETE
+
     [SerializeField] private float speed;
     [SerializeField] Vector3 openPosition;
     [SerializeField] Vector3 closePosition;
-    [SerializeField] Vector3 currentPosition;
+    //[SerializeField] Vector3 currentPosition; //DELETE
+
     private bool isRunning;
     [SerializeField] private bool isOpen;
     [SerializeField] private bool isOpening;
@@ -26,15 +31,28 @@ public class Inventory : MonoBehaviour
         isOpen = false;
         StartCoroutine(InventoryAnimation());
     }
-    // TODO temporary call for toggling inventory window
-    // need to connect with control map call
+    // TESTING ONLY
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             ToggleInventoryWindow();
         }
-        currentPosition = transform.position;
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            Debug.Log("Add");
+            AddItem(image);
+        }
+        //currentPosition = transform.position;
+    }
+
+    //When item is picked up it will call this function and
+    // pass its icon image 
+    public void AddItem(Sprite icon)
+    {
+        UIInventoryItem item = Instantiate(uiItemPrefab, contentArea);
+        item.SetIcon(icon);
+        
     }
 
     public void ToggleInventoryWindow()
