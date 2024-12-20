@@ -73,6 +73,9 @@ public class AmosControls : PlayerMovement
 
             // Addforce to launch player toward hook. Double force on y to combat gravity
             body.AddForce(new Vector2(direction.x * pullForce, direction.y * pullForce * 2));
+
+            // Animation for whiphook
+            anim.SetTrigger("hook");
         }
         else
         {
@@ -116,12 +119,27 @@ public class AmosControls : PlayerMovement
         lantern.PowerToggle();
     }
 
+    protected override void Jumping()
+    {
+            //Jumping animation
+            anim.SetTrigger("jump");
+    }
+
     protected override void Update()
     {
         base.Update();
 
+        // Move Animations
+        anim.SetFloat("moveSpd", Mathf.Abs(body.velocity.x));
+
+        // Landing animation
+        if (grounded == false) anim.SetBool("grounded", false);
+        else anim.SetBool("grounded", true);
+
+
+
         // If the rope is visible, update player side. Once countdown is complete, clear the positions and reset counter.
-        if(ropeVisible)
+        if (ropeVisible)
         {
             lineRenderer.SetPosition(0, transform.position);
             ropeVisibleCountdown -= Time.deltaTime;
