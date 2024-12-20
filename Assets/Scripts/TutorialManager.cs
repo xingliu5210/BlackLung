@@ -113,6 +113,13 @@ public class TutorialManager : MonoBehaviour
                 }
             }
         }
+        else if (popUpIndex == 5)
+        {
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                popUpIndex++;
+            }
+        }
     }
 
     // Helper method to reset key press states
