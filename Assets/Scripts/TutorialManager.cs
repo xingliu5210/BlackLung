@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,9 @@ public class TutorialManager : MonoBehaviour
 
     [SerializeField] private PlayerMovement playerMovement; // Reference to the PlayerMovement script
     private float originalJumpForce; // To store the original jump force
+    [SerializeField] private Interaction interaction; // Reference to the Interaction script
+    [SerializeField] private CharacterSwitcher characterSwitcher;
+
 
     void Start()
     {
@@ -85,6 +89,17 @@ public class TutorialManager : MonoBehaviour
         }
         else if (popUpIndex == 3)
         {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                interaction.Interact(); // Call the Interaction method
+                if (CheckIfItemPickedUp())
+                {
+                    popUpIndex++;
+                }
+            }
+        }
+        else if (popUpIndex == 4)
+        {
             // Handle whip hook interaction (J key or left mouse button)
             if (Input.GetKeyDown(KeyCode.J) || Input.GetMouseButtonDown(0))
             {
@@ -97,6 +112,31 @@ public class TutorialManager : MonoBehaviour
                 {
                     Debug.Log("Failed to interact with the whip hook. Try again.");
                 }
+            }
+        }
+        else if (popUpIndex == 5)
+        {
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                popUpIndex++;
+            }
+        }
+        else if (popUpIndex == 6)
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                popUpIndex++;
+            }
+        }
+        else if (popUpIndex == 7)
+        {
+            // Tunnel interaction tutorial
+            PlayerMovement controlledCharacter = characterSwitcher.GetControlledCharacter();
+            TunnelCrawl boTunnelCrawl = controlledCharacter?.GetComponent<TunnelCrawl>();
+
+            if (boTunnelCrawl != null && boTunnelCrawl.IsInCooldown)
+            {
+                popUpIndex++;
             }
         }
     }
@@ -144,5 +184,28 @@ public class TutorialManager : MonoBehaviour
         }
 
         return false; // Interaction failed
+    }
+
+    private bool CheckIfItemPickedUp()
+    {
+        // Use the public method or property to get the interactable
+        Collider interactable = interaction.GetCurrentInteractable();
+        
+        if (interactable != null)
+        {
+            Item item = interactable.GetComponent<Item>();
+            if (item != null)
+            {
+                // Check if the item is of type PickUp or Fuel
+                //if (item.type == Item.InteractionType.PickUp || item.type == Item.InteractionType.Fuel || item.type == Item.InteractionType.Key)
+                if (Enum.IsDefined(typeof(Item.InteractionType), item.type))
+                {
+                    Debug.Log($"Successfully picked up an item of type: {item.type}");
+                    return true; // Pickup was successful
+                }
+            }
+        }
+        Debug.Log("No item picked up.");
+        return false; // Pickup failed
     }
 }

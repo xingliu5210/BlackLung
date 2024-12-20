@@ -135,4 +135,9 @@ public class Interaction : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, interactionRadius);
     }
 
+    public Collider GetCurrentInteractable()
+    {
+        return currentInteractable;
+    }
+
 }

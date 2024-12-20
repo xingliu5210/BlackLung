@@ -46,6 +46,11 @@ public class CharacterSwitcher : MonoBehaviour
         cameraFollow.SetTarget(amos.transform);
     }
 
+    public PlayerMovement GetControlledCharacter()
+    {
+        return controlledCharacter;
+    }
+
     private void Start()
     {
         BindControlEvents();
