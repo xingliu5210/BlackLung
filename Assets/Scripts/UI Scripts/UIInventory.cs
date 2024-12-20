@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class UIInventory : MonoBehaviour
 {
     [SerializeField] private Transform contentArea;
     [SerializeField] private UIInventoryItem uiItemPrefab;
@@ -34,10 +34,10 @@ public class Inventory : MonoBehaviour
     // TESTING ONLY
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            ToggleInventoryWindow();
-        }
+        //if (Input.GetKeyDown(KeyCode.Tab))
+        //{
+        //    ToggleInventoryWindow();
+        //}
         if (Input.GetKeyDown(KeyCode.M))
         {
             Debug.Log("Add");
@@ -55,6 +55,7 @@ public class Inventory : MonoBehaviour
         
     }
 
+    // Call this function to toggle inventory window view
     public void ToggleInventoryWindow()
     {
         if(isOpen)
