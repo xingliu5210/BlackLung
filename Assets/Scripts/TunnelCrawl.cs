@@ -9,6 +9,9 @@ public class TunnelCrawl : MonoBehaviour
 
     bool inCooldown = false;
 
+    // Public getter for inCooldown
+    public bool IsInCooldown => inCooldown;
+
     private void FixedUpdate()
     {
         if (inCooldown == true)

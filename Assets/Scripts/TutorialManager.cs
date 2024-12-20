@@ -14,6 +14,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement; // Reference to the PlayerMovement script
     private float originalJumpForce; // To store the original jump force
     [SerializeField] private Interaction interaction; // Reference to the Interaction script
+    [SerializeField] private CharacterSwitcher characterSwitcher;
 
 
     void Start()
@@ -123,6 +124,17 @@ public class TutorialManager : MonoBehaviour
         else if (popUpIndex == 6)
         {
             if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                popUpIndex++;
+            }
+        }
+        else if (popUpIndex == 7)
+        {
+            // Tunnel interaction tutorial
+            PlayerMovement controlledCharacter = characterSwitcher.GetControlledCharacter();
+            TunnelCrawl boTunnelCrawl = controlledCharacter?.GetComponent<TunnelCrawl>();
+
+            if (boTunnelCrawl != null && boTunnelCrawl.IsInCooldown)
             {
                 popUpIndex++;
             }
