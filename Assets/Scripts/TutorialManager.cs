@@ -120,6 +120,13 @@ public class TutorialManager : MonoBehaviour
                 popUpIndex++;
             }
         }
+        else if (popUpIndex == 6)
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                popUpIndex++;
+            }
+        }
     }
 
     // Helper method to reset key press states
