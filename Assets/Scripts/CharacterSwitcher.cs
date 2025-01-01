@@ -31,9 +31,9 @@ public class CharacterSwitcher : MonoBehaviour
     [SerializeField] private CameraFollow cameraFollow;
 
     [Tooltip("Reference to the Inventory UI")]
-    [SerializeField] private GameObject inventoryUI;
+    [SerializeField] private UIInventory inventoryUI;
 
-    private bool isInventoryVisible = true;
+    //private bool isInventoryVisible = true;
 
     // Start is called before the first frame update
     private void Awake()
@@ -94,8 +94,9 @@ public class CharacterSwitcher : MonoBehaviour
     /// </summary>
     private void ToggleInventory()
     {
-        isInventoryVisible = !isInventoryVisible;
-        inventoryUI.SetActive(isInventoryVisible);
+        //isInventoryVisible = !isInventoryVisible;
+        //inventoryUI.SetActive(isInventoryVisible);
+        inventoryUI.ToggleInventoryWindow();
     }
     private void LanternToggleInput()
     {

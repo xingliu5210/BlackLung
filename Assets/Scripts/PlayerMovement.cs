@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private float upwardGravityScale = 1.5f;
     private float downwardGravityScale = 7f;
 
-    private bool inAction = false;
+    public bool inAction = false;
     private bool isMounting = false;
     public GameObject mount;
     private int transitionTimer = 0;
@@ -183,6 +183,7 @@ public class PlayerMovement : MonoBehaviour
         {
             body.velocity = new Vector3(body.velocity.x, jumpForce, body.velocity.z);
             grounded = false;
+            Jumping();
         }
         else if (body == null)
         {
@@ -192,6 +193,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("currently is not grounded");
         }
+    }
+
+    protected virtual void Jumping()
+    {
+        //animation trigger
     }
 
     public void OnMount()
