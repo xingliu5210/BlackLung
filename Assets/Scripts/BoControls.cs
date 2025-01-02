@@ -4,9 +4,64 @@ using UnityEngine;
 
 public class BoControls : PlayerMovement
 {
-    /// <summary>
-    /// Implements Bo's bark function.
-    /// </summary>
+    [SerializeField] private GameObject amos;
+    [SerializeField] private float minFollowRange;
+    float currentPos;
+    float lastPos;
+    float frameCount = 0;
+    
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+        lastPos = currentPos;
+        currentPos = transform.position.x;
+
+        /*if(control bo)
+        {
+            boFollow = false;
+        }
+        */
+
+        // Bo follows Amos when Amos whistles
+        float distance = Mathf.Abs(amos.transform.position.x - transform.position.x);
+
+        if (amos.GetComponent<AmosControls>().boFollow && distance > minFollowRange )
+        {
+            float direction = 1;
+
+            // Flip player direction based on movement input
+            if (amos.transform.position.x > transform.position.x)
+            {
+                transform.localScale = Vector3.one;
+                direction = 1;
+            }
+            else if (amos.transform.position.x < transform.position.x)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                direction = -1;
+            }
+
+            body.velocity = new Vector3(direction * 10, body.velocity.y, body.velocity.z);
+
+
+            if (lastPos == currentPos)
+            { 
+                frameCount ++;
+                if (frameCount < 2) return;
+
+                base.OnJump();
+                Debug.Log("Jumping");
+            }
+            else
+            {
+                frameCount = 0;
+            }        
+        }
+        else if(amos.GetComponent<AmosControls>().boFollow!)
+        { frameCount = 0; }
+    }
+
     public override void BarkWhip()
     {
         base.BarkWhip();
@@ -23,6 +78,7 @@ public class BoControls : PlayerMovement
         Vector3 boxCenter = transform.position - transform.up * groundCheckDistance;
         Gizmos.DrawWireCube(boxCenter, groundCheckSize);
     }
+
 
     protected override void Update()
     {

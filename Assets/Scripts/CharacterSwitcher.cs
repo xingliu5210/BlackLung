@@ -83,6 +83,8 @@ public class CharacterSwitcher : MonoBehaviour
         playerControls.Player.Flare.started += ctx => { Debug.Log("Flare"); };
         playerControls.Player.Interact.started += ctx => { Debug.Log("Interact"); };
 
+        playerControls.Player.Whistle.started += ctx => { WhistleInput(); };
+
         // Bind interaction logic
         playerControls.Player.Interact.started += ctx => InteractEvent();
 
@@ -109,6 +111,11 @@ public class CharacterSwitcher : MonoBehaviour
     private void BarkWhipInput()
     {
         controlledCharacter.BarkWhip();
+    }
+
+    private void WhistleInput()
+    {
+        controlledCharacter.OnWhistle();
     }
 
     private void OnEnable()
