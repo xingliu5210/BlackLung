@@ -26,6 +26,8 @@ public class AmosControls : PlayerMovement
 
     private float climbInput;
 
+    public bool boFollow;
+
     /// <summary>
     /// Implentation for Amos' climb.
     /// </summary>
@@ -170,6 +172,21 @@ public class AmosControls : PlayerMovement
         return whipHookChecker;
     }
 
+    public override void OnWhistle()
+    {
+        base.OnWhistle();
+
+        if (boFollow)
+        {
+            boFollow = false;
+            Debug.Log("Bo, stay");
+        }
+        else
+        {
+            boFollow = true;
+            Debug.Log("Amos calls Bo");
+        }
+    }
 }
 
 

@@ -107,6 +107,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Whistle"",
+                    ""type"": ""Button"",
+                    ""id"": ""f4a6e7f3-69bc-4a49-919f-cb7a0c238035"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -406,6 +415,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f563b468-b0be-48fa-8eca-96a07bb822dd"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Whistle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -446,6 +466,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Climb = m_Player.FindAction("Climb", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
+        m_Player_Whistle = m_Player.FindAction("Whistle", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -516,6 +537,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Climb;
     private readonly InputAction m_Player_Inventory;
+    private readonly InputAction m_Player_Whistle;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -529,6 +551,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Climb => m_Wrapper.m_Player_Climb;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
+        public InputAction @Whistle => m_Wrapper.m_Player_Whistle;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -565,6 +588,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Inventory.started += instance.OnInventory;
             @Inventory.performed += instance.OnInventory;
             @Inventory.canceled += instance.OnInventory;
+            @Whistle.started += instance.OnWhistle;
+            @Whistle.performed += instance.OnWhistle;
+            @Whistle.canceled += instance.OnWhistle;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -596,6 +622,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Inventory.started -= instance.OnInventory;
             @Inventory.performed -= instance.OnInventory;
             @Inventory.canceled -= instance.OnInventory;
+            @Whistle.started -= instance.OnWhistle;
+            @Whistle.performed -= instance.OnWhistle;
+            @Whistle.canceled -= instance.OnWhistle;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -642,5 +671,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnClimb(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
+        void OnWhistle(InputAction.CallbackContext context);
     }
 }

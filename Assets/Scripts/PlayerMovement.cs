@@ -44,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
             Debug.LogError("Rigidbody component is missing on the Player GameObject.");
         }        
     }
+    protected virtual void FixedUpdate()
+    { 
+    }
 
     protected virtual void Update()
     {
@@ -272,6 +275,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public virtual void ToggleLantern()
+    {
+    }
+
+    public virtual void OnWhistle()
     {
     }
 

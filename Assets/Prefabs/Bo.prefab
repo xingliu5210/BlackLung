@@ -208,7 +208,10 @@ MonoBehaviour:
   groundCheckSize: {x: 0.71, y: 1.09, z: 0.9}
   groundCheckDistance: -0.01
   grounded: 0
+  inAction: 0
   mount: {fileID: 0}
+  amos: {fileID: 0}
+  minFollowRange: 2.5
 --- !u!114 &4754922847233782592
 MonoBehaviour:
   m_ObjectHideFlags: 0
