@@ -17422,6 +17422,10 @@ PrefabInstance:
       value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2416400058251081295, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: amos
+      value: 
+      objectReference: {fileID: 139789903}
+    - target: {fileID: 2416400058251081295, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: groundCheckSize.x
       value: 0.71
       objectReference: {fileID: 0}
