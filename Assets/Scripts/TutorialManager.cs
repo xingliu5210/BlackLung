@@ -60,7 +60,7 @@ public class TutorialManager : MonoBehaviour
                 ResetKeyPressStates();
             }
         }
-        else if (popUpIndex == 1)
+        else if (popUpIndex == 4)
         {
             // Re-enable jumping by restoring the original jumpForce
             playerMovement.JumpForce = originalJumpForce;
@@ -71,7 +71,7 @@ public class TutorialManager : MonoBehaviour
                 popUpIndex++;
             }
         }
-        else if (popUpIndex == 2)
+        else if (popUpIndex == 1)
         {
             if (Input.GetKeyDown(KeyCode.I))
             {
@@ -87,7 +87,7 @@ public class TutorialManager : MonoBehaviour
                 }
             }
         }
-        else if (popUpIndex == 3)
+        else if (popUpIndex == 2)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
@@ -98,7 +98,7 @@ public class TutorialManager : MonoBehaviour
                 }
             }
         }
-        else if (popUpIndex == 4)
+        else if (popUpIndex == 5)
         {
             // Handle whip hook interaction (J key or left mouse button)
             if (Input.GetKeyDown(KeyCode.J) || Input.GetMouseButtonDown(0))
@@ -114,7 +114,7 @@ public class TutorialManager : MonoBehaviour
                 }
             }
         }
-        else if (popUpIndex == 5)
+        else if (popUpIndex == 7)
         {
             if (Input.GetKeyDown(KeyCode.L))
             {
@@ -128,7 +128,7 @@ public class TutorialManager : MonoBehaviour
                 popUpIndex++;
             }
         }
-        else if (popUpIndex == 7)
+        else if (popUpIndex == 3)
         {
             // Tunnel interaction tutorial
             PlayerMovement controlledCharacter = characterSwitcher.GetControlledCharacter();
