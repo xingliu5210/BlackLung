@@ -6,7 +6,7 @@ using UnityEngine;
 public class TutorialManager : MonoBehaviour
 {
     public GameObject[] popUps;
-    private int popUpIndex;
+    private int currentPopUpIndex = -1; // Currently active popup index
     private bool leftArrowPressed = false;
     private bool rightArrowPressed = false;
     private bool switchtoBo = false;
@@ -29,115 +29,178 @@ public class TutorialManager : MonoBehaviour
 
         // Disable jumping by setting jumpForce to 0 initially
         playerMovement.JumpForce = 0;
+
+        // Ensure all popups are inactive at the start
+        HideAllPopUps();
+    }
+
+    private void HideAllPopUps()
+    {
+        foreach (var popUp in popUps)
+        {
+            popUp.SetActive(false);
+        }
+    }
+
+    public void TriggerPopup(int popUpIndex)
+    {
+        if (popUpIndex < 0 || popUpIndex >= popUps.Length)
+        {
+            Debug.LogError($"Invalid popup index {popUpIndex}");
+            return;
+        }
+
+        // Hide the current popup and show the triggered one
+        HideAllPopUps();
+        currentPopUpIndex = popUpIndex;
+        popUps[currentPopUpIndex].SetActive(true);
+
+        Debug.Log($"Popup {popUpIndex} triggered.");
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Show only the active popup
-        for (int i = 0; i < popUps.Length; i++)
+        // Handle specific popup logic based on the current popup index
+        switch (currentPopUpIndex)
         {
-            popUps[i].SetActive(i == popUpIndex);
+            case 0: // Movement tutorial
+                HandleMovementTutorial();
+                break;
+            case 1: // Switching characters tutorial
+                HandleCharacterSwitchTutorial();
+                break;
+            case 2: // Interaction tutorial
+                HandleInteractionTutorial();
+                break;
+            case 3: // Tunnel interaction tutorial
+                HandleTunnelInteractionTutorial();
+                break;
+            case 4: // Jumping tutorial
+                HandleJumpingTutorial();
+                break;
+            case 5: // Whip Hook interaction tutorial
+                HandleWhipHookTutorial();
+                break;
+            case 6: // Tab key tutorial
+                HandleTabKeyTutorial();
+                break;
+            case 7: // Lantern tutorial
+                HandleLanternTutorial();
+                break;
+            default:
+                break;
         }
+    }
 
-        // Handle the first popup logic
-        if (popUpIndex == 0) 
-        {
-            if (Input.GetKeyDown(KeyCode.A)) 
-            {
-                leftArrowPressed = true;
-            }
+    private void HandleMovementTutorial()
+    {
+        if (Input.GetKeyDown(KeyCode.A)) leftArrowPressed = true;
+        if (Input.GetKeyDown(KeyCode.D)) rightArrowPressed = true;
 
-            if (Input.GetKeyDown(KeyCode.D)) 
-            {
-                rightArrowPressed = true;
-            }
+        if (leftArrowPressed && rightArrowPressed)
+        {
+            // Disable the current popup
+            popUps[currentPopUpIndex].SetActive(false);
+            currentPopUpIndex = -1; // Disable current popup
+            ResetKeyPressStates();
+            Debug.Log("Movement tutorial completed.");
+        }
+    }
 
-            // If both keys are pressed, move to the next popup
-            if (leftArrowPressed && rightArrowPressed) 
+    private void HandleCharacterSwitchTutorial()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (!switchtoBo)
             {
-                popUpIndex++;
-                ResetKeyPressStates();
+                switchtoBo = true;
+            }
+            else
+            {
+                // Disable the current popup
+                popUps[currentPopUpIndex].SetActive(false);
+                currentPopUpIndex = -1; // Disable current popup
+                Debug.Log("Character switch tutorial completed.");
             }
         }
-        else if (popUpIndex == 4)
-        {
-            // Re-enable jumping by restoring the original jumpForce
-            playerMovement.JumpForce = originalJumpForce;
+    }
 
-            // Handle the second popup logic
-            if (Input.GetKeyDown(KeyCode.Space)) 
+    private void HandleInteractionTutorial()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            interaction.Interact();
+            if (CheckIfItemPickedUp())
             {
-                popUpIndex++;
+                // Disable the current popup
+                popUps[currentPopUpIndex].SetActive(false);
+                currentPopUpIndex = -1; // Disable current popup
+                Debug.Log("Interaction tutorial completed.");
             }
         }
-        else if (popUpIndex == 1)
-        {
-            if (Input.GetKeyDown(KeyCode.I))
-            {
-                if(!switchtoBo)
-                {
-                    // Initial switch to Bo
-                    switchtoBo = true;  
-                }
-                else
-                {
-                    // If already switched, proceed to next popup
-                    popUpIndex++;
-                }
-            }
-        }
-        else if (popUpIndex == 2)
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                interaction.Interact(); // Call the Interaction method
-                if (CheckIfItemPickedUp())
-                {
-                    popUpIndex++;
-                }
-            }
-        }
-        else if (popUpIndex == 5)
-        {
-            // Handle whip hook interaction (J key or left mouse button)
-            if (Input.GetKeyDown(KeyCode.J) || Input.GetMouseButtonDown(0))
-            {
-                if (CheckWhipHookInteraction()) // Custom function to verify interaction success
-                {
-                    Debug.Log("Successfully interacted with the whip hook.");
-                    popUpIndex++;
-                }
-                else
-                {
-                    Debug.Log("Failed to interact with the whip hook. Try again.");
-                }
-            }
-        }
-        else if (popUpIndex == 7)
-        {
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                popUpIndex++;
-            }
-        }
-        else if (popUpIndex == 6)
-        {
-            if (Input.GetKeyDown(KeyCode.Tab))
-            {
-                popUpIndex++;
-            }
-        }
-        else if (popUpIndex == 3)
-        {
-            // Tunnel interaction tutorial
-            PlayerMovement controlledCharacter = characterSwitcher.GetControlledCharacter();
-            TunnelCrawl boTunnelCrawl = controlledCharacter?.GetComponent<TunnelCrawl>();
+    }
 
-            if (boTunnelCrawl != null && boTunnelCrawl.IsInCooldown)
+    private void HandleTunnelInteractionTutorial()
+    {
+        PlayerMovement controlledCharacter = characterSwitcher.GetControlledCharacter();
+        TunnelCrawl boTunnelCrawl = controlledCharacter?.GetComponent<TunnelCrawl>();
+
+        if (boTunnelCrawl != null && boTunnelCrawl.IsInCooldown)
+        {
+            // Disable the current popup
+            popUps[currentPopUpIndex].SetActive(false);
+            currentPopUpIndex = -1; // Disable current popup
+            Debug.Log("Tunnel interaction tutorial completed.");
+        }
+    }
+
+    private void HandleJumpingTutorial()
+    {
+        playerMovement.JumpForce = originalJumpForce;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Disable the current popup
+            popUps[currentPopUpIndex].SetActive(false);
+            currentPopUpIndex = -1; // Disable current popup
+            Debug.Log("Jumping tutorial completed.");
+        }
+    }
+
+    private void HandleWhipHookTutorial()
+    {
+        if (Input.GetKeyDown(KeyCode.J) || Input.GetMouseButtonDown(0))
+        {
+            if (CheckWhipHookInteraction())
             {
-                popUpIndex++;
+                // Disable the current popup
+                popUps[currentPopUpIndex].SetActive(false);
+                currentPopUpIndex = -1; // Disable current popup
+                Debug.Log("Whip hook interaction tutorial completed.");
             }
+        }
+    }
+
+    private void HandleTabKeyTutorial()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            // Disable the current popup
+            popUps[currentPopUpIndex].SetActive(false);
+            currentPopUpIndex = -1; // Disable current popup
+            Debug.Log("Tab key tutorial completed.");
+        }
+    }
+
+    private void HandleLanternTutorial()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            // Disable the current popup
+            popUps[currentPopUpIndex].SetActive(false);
+            currentPopUpIndex = -1; // Disable current popup
+            Debug.Log("Lantern tutorial completed.");
         }
     }
 
