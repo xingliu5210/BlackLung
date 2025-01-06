@@ -569,21 +569,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2303905559177237098, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+      propertyPath: bo
+      value: 
+      objectReference: {fileID: 3956860864776883805}
     - target: {fileID: 2847827641146774932, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
       propertyPath: m_Name
       value: Amos
-      objectReference: {fileID: 0}
-    - target: {fileID: 2847827641146774932, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 3700698448503774571, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6117579513294376597, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 6703017310458631786, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
       propertyPath: ally
@@ -640,10 +632,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2847827641146774932, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 139789933}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
 --- !u!1 &139789903 stripped
 GameObject:
@@ -666,27 +655,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8799134033955291693, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
   m_PrefabInstance: {fileID: 139789902}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &139789933
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139789903}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: a0bf0ad2a7727ca4a9c0e0f9856f078d, type: 3}
-  m_Controller: {fileID: 9100000, guid: 7a1644c1c9f3fc2419d888b98c38da40, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &147392357
 GameObject:
   m_ObjectHideFlags: 0
@@ -17261,34 +17229,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bo
       objectReference: {fileID: 0}
-    - target: {fileID: 1596696371067362545, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1596696371067362545, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 2416400058251081295, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: amos
       value: 
       objectReference: {fileID: 139789903}
-    - target: {fileID: 2416400058251081295, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
-      propertyPath: groundCheckSize.x
-      value: 0.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 2416400058251081295, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
-      propertyPath: groundCheckSize.y
-      value: 1.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 2416400058251081295, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
-      propertyPath: groundLayer.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 2416400058251081295, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
-      propertyPath: groundCheckDistance
-      value: -0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 3534248218595810644, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.14
@@ -17333,14 +17277,6 @@ PrefabInstance:
       propertyPath: ally
       value: 
       objectReference: {fileID: 139789903}
-    - target: {fileID: 5963073694512198951, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
-      propertyPath: m_Constraints
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 6991354294032209476, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 2048
-      objectReference: {fileID: 0}
     - target: {fileID: 8220968029723105445, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: ally
       value: 

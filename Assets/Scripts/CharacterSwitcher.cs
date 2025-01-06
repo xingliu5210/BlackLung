@@ -169,6 +169,9 @@ public class CharacterSwitcher : MonoBehaviour
 
             // Switch camera target to Bo
             cameraFollow.SetTarget(bo.transform);
+
+            // Disable follow
+            amos.GetComponent<AmosControls>().boFollow = false;
         }
         else
         {

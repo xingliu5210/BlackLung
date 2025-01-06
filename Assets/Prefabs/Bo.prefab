@@ -100,7 +100,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596696371067362545}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d10bbee5ca8a08940896304c5547f8d5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -210,8 +210,10 @@ MonoBehaviour:
   grounded: 0
   inAction: 0
   mount: {fileID: 0}
+  amosback: 0
   amos: {fileID: 0}
   minFollowRange: 2.5
+  teleportRange: 15
 --- !u!114 &4754922847233782592
 MonoBehaviour:
   m_ObjectHideFlags: 0

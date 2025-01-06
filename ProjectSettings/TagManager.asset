@@ -13,6 +13,9 @@ TagManager:
   - Light
   - Checkpoint
   - Rock
+  - Mount
+  - Tunnel
+  - noWhistle
   layers:
   - Default
   - TransparentFX

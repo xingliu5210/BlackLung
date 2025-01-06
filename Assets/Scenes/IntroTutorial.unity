@@ -513,6 +513,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+--- !u!1 &210073316 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1596696371067362545, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+  m_PrefabInstance: {fileID: 210073315}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &269579102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1703,6 +1708,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2303905559177237098, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+      propertyPath: bo
+      value: 
+      objectReference: {fileID: 210073316}
     - target: {fileID: 2847827641146774932, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
       propertyPath: m_Name
       value: Amos
@@ -3463,7 +3472,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2416400058251081295, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
   m_PrefabInstance: {fileID: 210073315}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 210073316}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55498f7a4edcd494cb8bc9933c0f3790, type: 3}

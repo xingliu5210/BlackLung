@@ -237,26 +237,6 @@ public class PlayerMovement : MonoBehaviour
         body.velocity = Vector3.zero;
     }
 
-    private void OnTriggerEnter(Collider collider)
-    {
-        if (collider.CompareTag("Ladder"))
-        {
-            isLadder = true; // Enable ladder climbing
-            Debug.Log("Entered ladder trigger. isLadder set to true.");
-        }
-    }
-
-    private void OnTriggerExit(Collider collider)
-    {
-        if (collider.CompareTag("Ladder"))
-        {
-            isLadder = false;   // Disable climbing when exiting the ladder
-            isClimbing = false;
-            body.useGravity = true; // Re-enable gravity when leaving the ladder
-            Debug.Log("Exited ladder trigger. isLadder set to false.");
-        }
-    }
-
     #region Character Specific Functions
 
     // Method to set climb input, called by CharacterSwitcher or derived class

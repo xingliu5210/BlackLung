@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 4585397006715510678}
   - component: {fileID: 7572011819841016954}
   - component: {fileID: 7695809761700899114}
-  - component: {fileID: 5434208910061262080}
+  - component: {fileID: 9024607623565704656}
   m_Layer: 11
   m_Name: Amos
   m_TagString: Player
@@ -330,6 +330,7 @@ MonoBehaviour:
   grounded: 0
   inAction: 0
   mount: {fileID: 0}
+  bo: {fileID: 0}
   whipHookChecker: {fileID: 4310463824651419387}
   pullForce: 450
   whipAttackRadius: 2.5
@@ -585,7 +586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   miningFrames: 50
   rock: {fileID: 0}
---- !u!95 &5434208910061262080
+--- !u!95 &9024607623565704656
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class BoControls : PlayerMovement
 {
+    public bool amosback;
     [SerializeField] private GameObject amos;
     [SerializeField] private float minFollowRange;
+    [SerializeField] private float teleportRange;
     float currentPos;
     float lastPos;
     float frameCount = 0;
@@ -26,7 +28,24 @@ public class BoControls : PlayerMovement
         // Bo follows Amos when Amos whistles
         float distance = Mathf.Abs(amos.transform.position.x - transform.position.x);
 
-        if (amos.GetComponent<AmosControls>().boFollow && distance > minFollowRange )
+        if (amos.GetComponent<AmosControls>().boFollow && amosback)
+        {
+            //GetComponent<Collider>().enabled = false;
+            //body.isKinematic = false;
+            //grounded = true;
+        }
+        else
+        {
+            //GetComponent<Collider>().enabled = true;
+           // body.isKinematic = true;
+        }
+
+        if (amos.GetComponent<AmosControls>().boFollow && (amosback || distance > teleportRange))
+        {
+            transform.position = amos.transform.position;
+            body.velocity = Vector3.zero;
+        }
+        else if (amos.GetComponent<AmosControls>().boFollow && distance > minFollowRange )
         {
             float direction = 1;
 
@@ -60,6 +79,11 @@ public class BoControls : PlayerMovement
         }
         else if(amos.GetComponent<AmosControls>().boFollow!)
         { frameCount = 0; }
+    }
+
+    public void BackpackRide()
+    {
+
     }
 
     public override void BarkWhip()

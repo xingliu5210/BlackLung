@@ -4,10 +4,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class AmosControls : PlayerMovement
-{
+{    
+    [SerializeField] private GameObject bo;
+
     [Header("Whip Variables")]
     [SerializeField] private WhipHookChecker whipHookChecker;
     [SerializeField] private float pullForce = 15;
+    private bool hooking = false;
+    private int hookingCounter = 0;
+
     [SerializeField] private float whipAttackRadius;
     [SerializeField] private int whipDamage;
 
@@ -26,12 +31,37 @@ public class AmosControls : PlayerMovement
 
     private float climbInput;
 
-    public bool boFollow;
+    //Used to have Bo follow Amos
+    public bool boFollow = false;
+    public bool whistleLearned = false;
+    public bool whistleRestricted = false;
 
     /// <summary>
     /// Implentation for Amos' climb.
     /// </summary>
     /// <param name="input">Value of climb input.</param>
+    /// 
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+        
+        if (hooking == true)
+        {
+            hookingCounter++;
+
+            if (hookingCounter > 10)
+            {
+                Debug.Log("COUNTER RESET");
+                hooking = false;
+                hookingCounter = 0;
+            }
+        }
+
+        if (grounded && !isClimbing && !hooking)
+        {
+            bo.GetComponent<BoControls>().amosback = false;
+        }
+    }
     public override void SetClimbInput(float input)
     {
         base.SetClimbInput(input);
@@ -41,6 +71,7 @@ public class AmosControls : PlayerMovement
         if (isLadder && climbInput != 0)
         {
             isClimbing = true; // Start Climbing when the input is received
+            bo.GetComponent<BoControls>().amosback = true;
         }
         else
         {
@@ -78,6 +109,9 @@ public class AmosControls : PlayerMovement
 
             // Animation for whiphook
             anim.SetTrigger("hook");
+
+            hooking = true;
+            bo.GetComponent<BoControls>().amosback = true;
         }
         else
         {
@@ -98,8 +132,6 @@ public class AmosControls : PlayerMovement
                     }
                 }
             }
-
-
         }
     }
 
@@ -123,8 +155,8 @@ public class AmosControls : PlayerMovement
 
     protected override void Jumping()
     {
-            //Jumping animation
-            anim.SetTrigger("jump");
+        //Jumping animation
+        anim.SetTrigger("jump");
     }
 
     protected override void Update()
@@ -176,6 +208,8 @@ public class AmosControls : PlayerMovement
     {
         base.OnWhistle();
 
+        if (!whistleLearned || whistleRestricted) return;
+
         if (boFollow)
         {
             boFollow = false;
@@ -185,6 +219,42 @@ public class AmosControls : PlayerMovement
         {
             boFollow = true;
             Debug.Log("Amos calls Bo");
+        }
+    }
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.CompareTag("Ladder"))
+        {
+            isLadder = true; // Enable ladder climbing
+            Debug.Log("Entered ladder trigger. isLadder set to true.");
+        }
+
+        if (collider.CompareTag("noWhistle"))
+        {
+            whistleRestricted = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider collider)
+    {
+        if (collider.CompareTag("Ladder"))
+        {
+            isLadder = false;   // Disable climbing when exiting the ladder
+            isClimbing = false;
+            body.useGravity = true; // Re-enable gravity when leaving the ladder
+            Debug.Log("Exited ladder trigger. isLadder set to false.");
+        }
+
+        if (collider.CompareTag("noWhistle"))
+        {
+            whistleRestricted = false;
+        }
+    }
+    private void OnTriggerStay(Collider col)
+    {
+        if (col.CompareTag("noWhistle"))
+        {
+            boFollow = false;
         }
     }
 }
