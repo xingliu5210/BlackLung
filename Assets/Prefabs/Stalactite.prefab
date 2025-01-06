@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1479464317159081276}
   - component: {fileID: 5652510523310294089}
   - component: {fileID: 3686921878607985494}
+  - component: {fileID: 6272784346259936262}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -101,10 +102,31 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &6272784346259936262
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639380605778962375}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9cb51d2b5bf541944b49d3fef489f589, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6464973409781946210
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,8 +179,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.4202144, y: 4.1041646, z: 1}
-  m_Center: {x: -0.020332932, y: -1.5520828, z: 0}
+  m_Size: {x: 1.6, y: 3.687334, z: 1}
+  m_Center: {x: -0.020332932, y: -1.760498, z: 0}
 --- !u!114 &9060373620647821121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d969b0f385a9643b247bfb4cf4751b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 6272784346259936262}
   resetBool: 0
   damage: 15
   sensor: {fileID: 9060373620647821121}
@@ -254,7 +277,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7302735463913297014}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

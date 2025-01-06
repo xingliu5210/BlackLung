@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Stalactite : MonoBehaviour
 {
+    [SerializeField] private Animator animator;
     [SerializeField] private bool resetBool;
     [SerializeField] private float damage;
     [SerializeField] private Sensor sensor;
@@ -19,7 +20,7 @@ public class Stalactite : MonoBehaviour
         isGrounded = false;
         startPosition = transform.position;
         rb = GetComponent<Rigidbody>();
-        sensor.OnPlayerEnter += ActivateStalactite;
+        sensor.OnPlayerEnter += WarnPlayer;
     }
 
     // Update is called once per frame
@@ -27,12 +28,20 @@ public class Stalactite : MonoBehaviour
     {
         if (isFalling)
         {
-            Debug.Log("Fall");
             rb.useGravity = true;
             if(isGrounded)
             {
                 isFalling = false;
             }
+        }
+    }
+
+    private void WarnPlayer(bool inRange)
+    {
+        animator.SetBool("InWarningRange", inRange);
+        if(inRange)
+        {
+            Invoke(nameof(ActivateStalactite), 2f);
         }
     }
 

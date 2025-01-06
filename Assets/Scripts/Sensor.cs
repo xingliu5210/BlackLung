@@ -5,13 +5,21 @@ using UnityEngine;
 
 public class Sensor : MonoBehaviour
 {
-    public Action OnPlayerEnter;
+    public Action<bool> OnPlayerEnter;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            OnPlayerEnter.Invoke();
+            OnPlayerEnter.Invoke(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            OnPlayerEnter.Invoke(false);
         }
     }
 }
