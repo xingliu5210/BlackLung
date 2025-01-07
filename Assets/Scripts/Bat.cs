@@ -7,13 +7,18 @@ public class Bat : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private float detectionRange = 10f;
     [SerializeField] private float moveSpeed = 5f;
-
+    [SerializeField] private float moveSpeedMultiplier;
+    [SerializeField] private bool isFearing;
+    [SerializeField] private float fearingTime;
+    private float fearingTimer;
+    Vector3 fleeDirection;
     float distanceToTarget;
     bool followPlayer = true;
 
 
     public void Flee(bool fleeing, Vector3 lightPos)
     {
+        
         //Avoid light
         if(fleeing)
         {
@@ -27,16 +32,37 @@ public class Bat : MonoBehaviour
         else followPlayer = true;
     }
 
+    public void FearedFlee(Vector3 playerPos)
+    {
+        Debug.Log("FLEE");
+        isFearing = true;
+        fleeDirection = - (playerPos - transform.position).normalized;
+        fleeDirection.z = 0;
+        fearingTimer = 0f;
+    }
+
     void FixedUpdate()
     {
         // Chase player once in range
         distanceToTarget = Vector3.Distance(transform.position, player.position);
 
-        if (distanceToTarget <= detectionRange && followPlayer)
+        if (isFearing)
         {
-            Vector3 direction = (player.position - transform.position).normalized;
-            direction.z = 0; //lock axis
-            transform.position += direction * moveSpeed;
+            transform.position += fleeDirection * moveSpeed * moveSpeedMultiplier;
+            fearingTimer += Time.deltaTime;
+            if(fearingTimer > fearingTime)
+            {
+                isFearing = false;
+            }
+        }
+        else
+        {
+            if (distanceToTarget <= detectionRange && followPlayer)
+            {
+                Vector3 direction = (player.position - transform.position).normalized;
+                direction.z = 0; //lock axis
+                transform.position += direction * moveSpeed;
+            }
         }
     }
 

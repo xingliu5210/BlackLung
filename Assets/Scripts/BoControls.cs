@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class BoControls : PlayerMovement
     [SerializeField] private GameObject amos;
     [SerializeField] private float minFollowRange;
     [SerializeField] private float teleportRange;
+    [SerializeField] private float barkRadius;
     float currentPos;
     float lastPos;
     float frameCount = 0;
@@ -89,6 +91,21 @@ public class BoControls : PlayerMovement
     public override void BarkWhip()
     {
         base.BarkWhip();
+        Debug.Log("BARK ");
+        //onBark.Invoke();
+        Collider[] objectsInRange = Physics.OverlapSphere(transform.position, barkRadius);
+        if (objectsInRange.Length > 0)
+        {
+            foreach (Collider obj in objectsInRange)
+            {
+                if (obj.gameObject.CompareTag("Enemy"))
+                {
+                    obj.GetComponent<Bat>().FearedFlee(transform.position);
+                }
+            }
+        }
+
+
     }
 
     /// <summary>
