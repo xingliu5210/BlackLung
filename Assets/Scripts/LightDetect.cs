@@ -13,6 +13,8 @@ public class LightDetect : MonoBehaviour
             danger = true;
 
             GetComponentInParent<Bat>().Flee(true, other.gameObject.transform.position);
+
+            Debug.Log("fleeing");
         }
     }
 
