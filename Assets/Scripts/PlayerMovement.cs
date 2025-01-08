@@ -58,6 +58,21 @@ public class PlayerMovement : MonoBehaviour
         {
             OnClimb(vertical); // Calls climbing behavior when on a ladder
         }
+        else if (isLadder)
+        {
+            body.useGravity = false;
+            grounded = true;
+            // If not climbing, apply horizontal movement
+            if(moveInput != 0 && !grounded && !inAction)
+            {
+                OnMove(moveInput);
+            }
+            else if(grounded && !inAction)
+            {
+                OnMove(moveInput);
+            }
+            
+        }
         else
         {
             // If not climbing, apply horizontal movement
@@ -266,6 +281,26 @@ public class PlayerMovement : MonoBehaviour
     {
         get { return jumpForce; }
         set { jumpForce = value; }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+            Debug.Log("Entered ladder.");
+            isLadder = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+            Debug.Log("Exited ladder.");
+            isLadder = false;
+            isClimbing = false;
+            body.useGravity = true; // Re-enable gravity
+        }
     }
 
     #endregion
