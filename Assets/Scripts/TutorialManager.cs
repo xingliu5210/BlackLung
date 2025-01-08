@@ -31,7 +31,7 @@ public class TutorialManager : MonoBehaviour
         originalJumpForce = playerMovement.JumpForce;
 
         // Disable jumping by setting jumpForce to 0 initially
-        playerMovement.JumpForce = 0;
+        // playerMovement.JumpForce = 0;
 
         // Ensure all popups are inactive at the start
         HideAllPopUps();
@@ -175,7 +175,7 @@ public class TutorialManager : MonoBehaviour
 
     private void HandleJumpingTutorial()
     {
-        playerMovement.JumpForce = originalJumpForce;
+        // playerMovement.JumpForce = originalJumpForce;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
