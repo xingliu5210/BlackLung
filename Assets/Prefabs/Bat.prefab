@@ -240,10 +240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bf906711da7664fba1b87ac7b76880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
   detectionRange: 10
-  moveSpeed: 0.02
+  moveSpeed: 0.06
   moveSpeedMultiplier: 4
   isFearing: 0
   fearingTime: 3
@@ -259,5 +258,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a097a550ab0882940aceb4f598038367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fearBar: 100
-  maxFear: 100
+  fearBar: 30
+  maxFear: 30
