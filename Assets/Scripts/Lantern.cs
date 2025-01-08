@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Lantern : MonoBehaviour
 {
-    private bool powerOn = true;
+    private bool powerOn = false;
     [SerializeField] private SphereCollider lightCol;
 
     [SerializeField] private Light lanternLight;
@@ -49,7 +49,10 @@ public class Lantern : MonoBehaviour
 
         //material.color = currentColor;
         if (powerOn)
-        { material.SetColor("_EmissionColor", currentColor); }
+        { 
+            material.SetColor("Color", currentColor); 
+            material.SetColor("_EmissionColor", currentColor); 
+        }
     }
 
     public void PowerToggle()
@@ -61,6 +64,7 @@ public class Lantern : MonoBehaviour
         {
             lightCol.enabled = false;
             lanternLight.intensity = 0;
+            material.SetColor("Color", Color.black);
             material.SetColor("_EmissionColor", Color.black);
         }
         else

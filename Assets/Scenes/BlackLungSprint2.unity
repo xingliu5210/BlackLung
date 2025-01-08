@@ -746,7 +746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1596696371067362545, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Dog
       objectReference: {fileID: 0}
     - target: {fileID: 2416400058251081295, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: amos
@@ -1039,6 +1039,14 @@ PrefabInstance:
     - target: {fileID: 96545122197828671, guid: 0947cbe913913434b8c56eb13e96898a, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 186908934862448553, guid: 0947cbe913913434b8c56eb13e96898a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -309
+      objectReference: {fileID: 0}
+    - target: {fileID: 186908934862448553, guid: 0947cbe913913434b8c56eb13e96898a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 142
       objectReference: {fileID: 0}
     - target: {fileID: 251947068246677176, guid: 0947cbe913913434b8c56eb13e96898a, type: 3}
       propertyPath: m_Value
@@ -1363,6 +1371,14 @@ PrefabInstance:
     - target: {fileID: 7822366585105996456, guid: 0947cbe913913434b8c56eb13e96898a, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071790706566950388, guid: 0947cbe913913434b8c56eb13e96898a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -309
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071790706566950388, guid: 0947cbe913913434b8c56eb13e96898a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 104.3
       objectReference: {fileID: 0}
     - target: {fileID: 8192171483474046110, guid: 0947cbe913913434b8c56eb13e96898a, type: 3}
       propertyPath: m_IsActive
@@ -3614,6 +3630,14 @@ PrefabInstance:
     - target: {fileID: 6902182018999652075, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
       propertyPath: m_LocalPosition.z
       value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282723877011051402, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282723877011051402, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+      propertyPath: m_Intensity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8681203968446822411, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
       propertyPath: healthBar

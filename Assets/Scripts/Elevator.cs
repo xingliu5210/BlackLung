@@ -66,10 +66,13 @@ public class Elevator : MonoBehaviour
             {
                 // Find the player
                 GameObject player = GameObject.FindGameObjectWithTag("Player");
+                GameObject dog = GameObject.FindGameObjectWithTag("Dog");
                 if (player != null)
                 {
                     Debug.Log($"Teleporting player to {pairedElevator.name}");
                     player.transform.position = pairedElevator.transform.position;
+                    dog.transform.position = pairedElevator.transform.position;
+
 
                     // Start cooldown
                     StartCoroutine(TeleportCooldown());
