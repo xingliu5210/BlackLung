@@ -9,8 +9,11 @@ public class TutorialManager : MonoBehaviour
     private int currentPopUpIndex = -1; // Currently active popup index
     private bool leftArrowPressed = false;
     private bool rightArrowPressed = false;
+    private bool upArrowPressed = false;
+    private bool downArrowPressed = false;
     private bool switchtoBo = false;
-
+    private float batTutorialTimer = 4f; // Timer for HandleBatTutorial
+    private float stalactiteTutorialTimer = 4f; // Timer for HandleStalactiteTutorial
     [SerializeField] private PlayerMovement playerMovement; // Reference to the PlayerMovement script
     private float originalJumpForce; // To store the original jump force
     [SerializeField] private Interaction interaction; // Reference to the Interaction script
@@ -83,10 +86,25 @@ public class TutorialManager : MonoBehaviour
                 HandleWhipHookTutorial();
                 break;
             case 6: // Tab key tutorial
-                HandleTabKeyTutorial();
+                HandleMinecartTutorial();
                 break;
             case 7: // Lantern tutorial
                 HandleLanternTutorial();
+                break;
+            case 8: // Fetch tutorial
+                HandleFetchTutorial();
+                break;
+            case 9: // Ladder tutorial
+                HandleLadderTutorial();
+                break;
+            case 10: // Checkpoint tutorial
+                HandleCheckpointTutorial();
+                break;
+            case 11: // Bat tutorial
+                HandleBatTutorial();
+                break;
+                case 12: // Stalactite tutorial
+                HandleStalactiteTutorial();
                 break;
             default:
                 break;
@@ -182,9 +200,9 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    private void HandleTabKeyTutorial()
+    private void HandleMinecartTutorial()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             // Disable the current popup
             popUps[currentPopUpIndex].SetActive(false);
@@ -201,6 +219,67 @@ public class TutorialManager : MonoBehaviour
             popUps[currentPopUpIndex].SetActive(false);
             currentPopUpIndex = -1; // Disable current popup
             Debug.Log("Lantern tutorial completed.");
+        }
+    }
+
+    private void HandleFetchTutorial()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            // Disable the current popup
+            popUps[currentPopUpIndex].SetActive(false);
+            currentPopUpIndex = -1; // Disable current popup
+            Debug.Log("Fetch tutorial completed.");
+        }
+    }
+
+    private void HandleLadderTutorial()
+    {
+        if (Input.GetKeyDown(KeyCode.W)) upArrowPressed = true;
+        if (Input.GetKeyDown(KeyCode.S)) downArrowPressed = true;
+
+        if (upArrowPressed && downArrowPressed)
+        {
+            // Disable the current popup
+            popUps[currentPopUpIndex].SetActive(false);
+            currentPopUpIndex = -1; // Disable current popup
+            ResetKeyPressStates();
+            Debug.Log("Ladder tutorial completed.");
+        }
+    }
+
+    private void HandleCheckpointTutorial()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            // Disable the current popup
+            popUps[currentPopUpIndex].SetActive(false);
+            currentPopUpIndex = -1; // Disable current popup
+            Debug.Log("Checkpoint tutorial completed.");
+        }
+    }
+
+    private void HandleBatTutorial()
+    {
+        batTutorialTimer -= Time.deltaTime;
+        if (batTutorialTimer <= 0f)
+        {
+            // Disable the current popup
+            popUps[currentPopUpIndex].SetActive(false);
+            currentPopUpIndex = -1; // Disable current popup
+            Debug.Log("Bat tutorial completed.");
+        }
+    }
+
+    private void HandleStalactiteTutorial()
+    {
+        stalactiteTutorialTimer -= Time.deltaTime;
+        if (stalactiteTutorialTimer <= 0f)
+        {
+            // Disable the current popup
+            popUps[currentPopUpIndex].SetActive(false);
+            currentPopUpIndex = -1; // Disable current popup
+            Debug.Log("Stalactite tutorial completed.");
         }
     }
 
