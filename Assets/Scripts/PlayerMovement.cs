@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
         else if (isLadder)
         {
             body.useGravity = false;
+            grounded = true;
             // If not climbing, apply horizontal movement
             if(moveInput != 0 && !grounded && !inAction)
             {
