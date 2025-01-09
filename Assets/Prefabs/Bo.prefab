@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 7427104683695544266}
   m_Layer: 11
   m_Name: Bo
-  m_TagString: Untagged
+  m_TagString: Dog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,6 +214,7 @@ MonoBehaviour:
   amos: {fileID: 0}
   minFollowRange: 2.5
   teleportRange: 15
+  barkRadius: 0
 --- !u!114 &4754922847233782592
 MonoBehaviour:
   m_ObjectHideFlags: 0
