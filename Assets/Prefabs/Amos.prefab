@@ -339,6 +339,8 @@ MonoBehaviour:
   lineRenderer: {fileID: 7572011819841016954}
   lantern: {fileID: 8217204633425654942}
   boFollow: 0
+  whistleLearned: 0
+  whistleRestricted: 0
 --- !u!114 &733590889509574899
 MonoBehaviour:
   m_ObjectHideFlags: 0
