@@ -5,35 +5,20 @@ using UnityEngine;
 public class Stalactite : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private bool resetBool;
+    [SerializeField] private float fallDelay;
+    [SerializeField] private float forceMultiplier;
     [SerializeField] private float damage;
     [SerializeField] private Sensor sensor;
     [SerializeField] private Vector3 startPosition;
-    [SerializeField] private bool isFalling;
-    [SerializeField] private bool isGrounded;
+    private bool isActivated;
     private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        isFalling = false;
-        isGrounded = false;
         startPosition = transform.position;
         rb = GetComponent<Rigidbody>();
         sensor.OnPlayerEnter += WarnPlayer;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (isFalling)
-        {
-            rb.useGravity = true;
-            if(isGrounded)
-            {
-                isFalling = false;
-            }
-        }
     }
 
     private void WarnPlayer(bool inRange)
@@ -41,13 +26,15 @@ public class Stalactite : MonoBehaviour
         animator.SetBool("InWarningRange", inRange);
         if(inRange)
         {
-            Invoke(nameof(ActivateStalactite), 2f);
+            Invoke(nameof(ActivateStalactite), fallDelay);
         }
     }
 
     private void ActivateStalactite()
     {
-        isFalling = true;
+        isActivated = true;
+        rb.useGravity = true;
+        rb.AddForce(Vector3.down * forceMultiplier, ForceMode.VelocityChange);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -55,8 +42,10 @@ public class Stalactite : MonoBehaviour
         //check when stalactite touches the ground layer
         if (collision.gameObject.layer == 8)
         {
-            isGrounded = true;
-            Break();
+            if (isActivated)
+            {
+                Break();
+            }
         }
         //if collide with player, damage player
         if (collision.gameObject.CompareTag("Player"))
@@ -80,8 +69,7 @@ public class Stalactite : MonoBehaviour
     //Resets stalactite to starting state
     private void Reset()
     {
-        isFalling = false;
-        isGrounded = false;
+        isActivated = false;
 
         //Reset physics
         rb.useGravity = false;
