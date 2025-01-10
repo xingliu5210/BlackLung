@@ -6,26 +6,40 @@ public class TutorialTrigger : MonoBehaviour
 {
     [Tooltip("Index of the popup to trigger in the TutorialManager.")]
     public int popUpIndex;
+    [SerializeField] private bool boTrigger;
 
     private void OnTriggerEnter(Collider other)
     {
+        if (boTrigger)
+        {
+            if (other.CompareTag("Dog"))
+            {
+                TriggerPopUp();
+            }
+        }
         // Check if the player entered the trigger
         if (other.CompareTag("Player"))
         {
-            TutorialManager tutorialManager = FindObjectOfType<TutorialManager>();
 
-            if (tutorialManager != null)
-            {
-                tutorialManager.TriggerPopup(popUpIndex);
-                Debug.Log($"Triggered popup index: {popUpIndex}");
-            }
-            else
-            {
-                Debug.LogError("TutorialManager not found in the scene.");
-            }
-
-            // Destroy this trigger after it has been activated
-            Destroy(gameObject);
+            TriggerPopUp();
         }
+    }
+
+    private void TriggerPopUp()
+    {
+        TutorialManager tutorialManager = FindObjectOfType<TutorialManager>();
+
+        if (tutorialManager != null)
+        {
+            tutorialManager.TriggerPopup(popUpIndex);
+            Debug.Log($"Triggered popup index: {popUpIndex}");
+        }
+        else
+        {
+            Debug.LogError("TutorialManager not found in the scene.");
+        }
+
+        // Destroy this trigger after it has been activated
+        Destroy(gameObject);
     }
 }
