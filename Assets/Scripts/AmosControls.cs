@@ -36,6 +36,7 @@ public class AmosControls : PlayerMovement
     public bool whistleLearned = false;
     public bool whistleRestricted = false;
 
+
     /// <summary>
     /// Implentation for Amos' climb.
     /// </summary>
@@ -169,8 +170,6 @@ public class AmosControls : PlayerMovement
         // Landing animation
         if (grounded == false) anim.SetBool("grounded", false);
         else anim.SetBool("grounded", true);
-
-
 
         // If the rope is visible, update player side. Once countdown is complete, clear the positions and reset counter.
         if (ropeVisible)

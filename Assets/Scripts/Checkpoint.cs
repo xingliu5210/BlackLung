@@ -25,7 +25,7 @@ public class Checkpoint : MonoBehaviour
         if (other.CompareTag("Checkpoint"))
         {
             GetComponent<PlayerHealth>().FullHeal();
-
+            AudioManager.Instance.PlayWarmLight();
             CheckpointPosition = other.transform.position;
 
             spawnPosition = CheckpointPosition;

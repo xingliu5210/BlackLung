@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         if (body == null)
         {
             Debug.LogError("Rigidbody component is missing on the Player GameObject.");
-        }        
+        }
     }
     protected virtual void FixedUpdate()
     { 
