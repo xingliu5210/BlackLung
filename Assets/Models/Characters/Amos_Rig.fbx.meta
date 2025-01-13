@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1eac87251f14bb4498566863d6d0e866
+guid: 05560c54dac29da41b371a932286b909
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: mBo
-    second: {fileID: 2100000, guid: 20f161ff9594534438d771ab43e52076, type: 2}
+      name: mAmos_Belt
+    second: {fileID: 2100000, guid: cfe7df3db8b3adc4896a9e16f29cb648, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mAmos_Body
+    second: {fileID: 2100000, guid: b56d68acbca7956449ee163bc5f682ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mAmos_Clothing
+    second: {fileID: 2100000, guid: 4b506a98e8416914cb1619243ad6ecd4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
