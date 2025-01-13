@@ -10,7 +10,7 @@ public class AmosControls : PlayerMovement
     [Header("Whip Variables")]
     [SerializeField] private WhipHookChecker whipHookChecker;
     [SerializeField] private float pullForce = 15;
-    private bool hooking = false;
+    public bool hooking = false;
     private int hookingCounter = 0;
 
     [SerializeField] private float whipAttackRadius;

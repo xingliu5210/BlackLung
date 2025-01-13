@@ -24,7 +24,8 @@ public class PlayerMovement : MonoBehaviour
     // Climbing
     protected float vertical;     // Vertical input for climbing
     protected bool isLadder;      // Indicates if the player is near a ladder
-    protected bool isClimbing;    // Indicates if the player is currently climbing
+    //protected 
+    public bool isClimbing;    // Indicates if the player is currently climbing
     private float upwardGravityScale = 1.5f;
     private float downwardGravityScale = 7f;
 

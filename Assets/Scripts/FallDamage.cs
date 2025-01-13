@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class FallDamage : MonoBehaviour
 {
-    bool skipUpdate;
-    bool airborne;
+    private bool skipUpdate;
+    public bool airborne;
 
-    float fallStart;
-    float fallEnd;
+    private float fallStart;
+    private float fallEnd;
 
     //Damage will scale from 1 to 100 based on height range
-    [SerializeField] float minFallHeight; 
-    [SerializeField] float maxFallHeight;
+    [SerializeField] private float minFallHeight; 
+    [SerializeField] private float maxFallHeight;
 
     private void OnCollisionEnter(Collision col)
     {
@@ -58,7 +58,7 @@ public class FallDamage : MonoBehaviour
     {
         if (!skipUpdate)
         {
-            if (airborne == false)
+            if (airborne == false || GetComponent<PlayerMovement>().isClimbing || GetComponent<AmosControls>().hooking)
             { 
                 fallStart = transform.position.y;
                 Debug.Log("Player is airborn!");
