@@ -2241,7 +2241,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 7430972761198685965, guid: f1743a8b860db470bbcc309c5ed32692, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6158d2c53d0df4eceada004f10238c31, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.511
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3048,7 +3048,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e9824816822874516895dfcb6d5902cd, type: 3}
   - {fileID: 8300000, guid: 5c3b5202c91de4b1eb64844bf95ecf29, type: 3}
   - {fileID: 8300000, guid: 04c0208a0edd54311b6619c581566a12, type: 3}
-  footstepInterval: 0.43
+  footstepInterval: 0.45
 --- !u!1001 &572854778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5434,6 +5434,10 @@ PrefabInstance:
       propertyPath: bo
       value: 
       objectReference: {fileID: 210073316}
+    - target: {fileID: 2303905559177237098, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+      propertyPath: footstepAudioManager
+      value: 
+      objectReference: {fileID: 569016907}
     - target: {fileID: 2847827641146774932, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
       propertyPath: m_Name
       value: Amos

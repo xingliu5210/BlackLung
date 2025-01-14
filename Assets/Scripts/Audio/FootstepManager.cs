@@ -17,49 +17,11 @@ public class FootstepAudioManager : MonoBehaviour
     public AudioClip[] RightFootBoClips;
 
     [Header("Footstep Timing")]
-    public float footstepInterval = 0.5f; // Time between footsteps
+    public float footstepInterval = 0.45f; // Time between footsteps
 
     private bool isLeftFoot = true; // To toggle between left and right
     private bool isLeftFootBo = true; // To toggle between left and right
-    private bool isWalking = false; // To check if the player is walking
-    private bool isGrounded = true; // To track if the character is grounded
 
-    void Update()
-    {
-        // Here to check if the player is walking (Pressing D or A Key) and grounded
-        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) && isGrounded)
-        {
-            StartWalking();
-        }
-        else
-        {
-            StopWalking();
-        }
-    }
-
-    public void StartWalking()
-    {
-        if (!isWalking)
-        {
-            isWalking = true;
-            StartCoroutine(PlayFootsteps());
-        }
-    }
-
-    public void StopWalking()
-    {
-        isWalking = false;
-    }
-
-    private System.Collections.IEnumerator PlayFootsteps()
-    {
-        while (isWalking)
-        {
-            PlayFootstep();
-            PlayCloths();
-            yield return new WaitForSeconds(footstepInterval);
-        }
-    }
 
     public void PlayFootstep()
     {
@@ -67,10 +29,12 @@ public class FootstepAudioManager : MonoBehaviour
         if (isLeftFoot)
         {
             PlayRandomClip(leftFootAudioSource, leftFootClips);
+            PlayCloths();
         }
         else
         {
             PlayRandomClip(rightFootAudioSource, rightFootClips);
+            PlayCloths();
         }
 
         // Toggle foot
@@ -107,9 +71,4 @@ public class FootstepAudioManager : MonoBehaviour
         audioSource.Play();
     }
 
-    // This method is called whenever the player's grounded state changes
-    public void UpdateGroundedState(bool grounded)
-    {
-        isGrounded = grounded;
-    }
 }

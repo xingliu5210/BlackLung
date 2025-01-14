@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] protected float groundCheckDistance = 0.1f; // Distance below the player to check for ground
 
 
+
     protected Rigidbody body;
     protected Animator anim;
     protected PlayerControls controls;
@@ -178,6 +179,7 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
+
     }
 
     /// <summary>
