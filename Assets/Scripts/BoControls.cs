@@ -13,7 +13,14 @@ public class BoControls : PlayerMovement
     float currentPos;
     float lastPos;
     float frameCount = 0;
-    
+
+    [Header("Audio")]
+    [SerializeField] private new FootstepAudioManager footstepAudioManager;
+
+
+    // Used to track the time between footstep sounds
+    private float footstepTimer = 0f;
+
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
@@ -124,5 +131,30 @@ public class BoControls : PlayerMovement
     protected override void Update()
     {
         base.Update();
+
+        // Trigger footstep sounds 
+        if (grounded && Mathf.Abs(body.velocity.x) > 0.1f)
+        {
+            // If the timer is at zero, immediately play a footstep sound
+            if (footstepTimer == 0f)
+            {
+                footstepAudioManager.PlayBoFootstep();
+            }
+
+            // Increment the timer
+            footstepTimer += Time.deltaTime;
+
+            // Play footstep at regular intervals
+            if (footstepTimer >= footstepAudioManager.footstepInterval)
+            {
+                footstepAudioManager.PlayBoFootstep();
+                footstepTimer = 0f; // Reset timer
+            }
+        }
+        else
+        {
+            // Reset timer when not moving or grounded
+            footstepTimer = 0f;
+        }
     }
 }

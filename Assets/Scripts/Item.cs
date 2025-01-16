@@ -26,11 +26,13 @@ public class Item : MonoBehaviour
             case InteractionType.Key:
                 Debug.Log("Picked up a key.");
                 playerInventory.AddKey(); // Add key to inventory
+                AudioManager.Instance.PlayPickUpKey(); // Play key pickup sound
                 Destroy(gameObject); // Remove the key after picking it up
                 break;
             case InteractionType.Fuel:
                 Debug.Log("Picked up a fuel. +20%");
                 playerInventory.Addfuel(); // Add Fuel to inventory
+                AudioManager.Instance.PlayPickUpFuel(); // Play fuel pickup sound
                 Destroy(gameObject); // Remove the Fuel after picking it up
                 break;
             default:

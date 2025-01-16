@@ -66,11 +66,21 @@ public class Lantern : MonoBehaviour
             lanternLight.intensity = 0;
             material.SetColor("Color", Color.black);
             material.SetColor("_EmissionColor", Color.black);
+            // Play lantern off sound effect
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySwitchOffLantern();
+            }
         }
         else
         {
             lightCol.enabled = true;
             lanternLight.intensity = currentFuelPercent * maxIntensity;
+            // Play lantern on sound effect
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySwitchOnLantern();
+            }
         }
     }
 

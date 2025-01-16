@@ -32,6 +32,7 @@ public class Stalactite : MonoBehaviour
 
     private void ActivateStalactite()
     {
+        AudioManager.Instance.PlayStalactitesFall();
         isActivated = true;
         rb.useGravity = true;
         rb.AddForce(Vector3.down * forceMultiplier, ForceMode.VelocityChange);
