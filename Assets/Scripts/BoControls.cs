@@ -17,7 +17,6 @@ public class BoControls : PlayerMovement
     [Header("Audio")]
     [SerializeField] private new FootstepAudioManager footstepAudioManager;
 
-
     // Used to track the time between footstep sounds
     private float footstepTimer = 0f;
 
