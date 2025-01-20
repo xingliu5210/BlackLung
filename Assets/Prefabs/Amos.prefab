@@ -293,6 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76db96c1ba14e804790b4d973b503550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  airborne: 0
   minFallHeight: 5
   maxFallHeight: 7
 --- !u!114 &6703017310458631786
@@ -330,16 +331,19 @@ MonoBehaviour:
   groundCheckSize: {x: 0.74, y: 0.29, z: 0.9}
   groundCheckDistance: 0.98
   grounded: 0
+  isClimbing: 0
   inAction: 0
   mount: {fileID: 0}
   bo: {fileID: 0}
   whipHookChecker: {fileID: 4310463824651419387}
   pullForce: 450
+  hooking: 0
   whipAttackRadius: 2.5
   whipDamage: 5
   ropeVisibleTime: 0.5
   lineRenderer: {fileID: 7572011819841016954}
   lantern: {fileID: 8217204633425654942}
+  footstepAudioManager: {fileID: 0}
   boFollow: 0
   whistleLearned: 0
   whistleRestricted: 0
@@ -897,6 +901,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amos_Rig (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 05560c54dac29da41b371a932286b909, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7a1644c1c9f3fc2419d888b98c38da40, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
