@@ -16,7 +16,7 @@ public class BoControls : PlayerMovement
 
     [Header("Audio")]
     [SerializeField] private new FootstepAudioManager footstepAudioManager;
-
+    [SerializeField] private DogBarking dogBarking; 
 
     // Used to track the time between footstep sounds
     private float footstepTimer = 0f;
@@ -99,6 +99,8 @@ public class BoControls : PlayerMovement
     {
         base.BarkWhip();
         Debug.Log("BARK ");
+        // Trigger the dog barking
+        dogBarking.StartBarking(); // Call the StartBarking method
         //onBark.Invoke();
         Collider[] objectsInRange = Physics.OverlapSphere(transform.position, barkRadius);
         if (objectsInRange.Length > 0)

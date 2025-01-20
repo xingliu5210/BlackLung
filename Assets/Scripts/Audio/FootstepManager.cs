@@ -51,11 +51,11 @@ public class FootstepAudioManager : MonoBehaviour
         // Choose a random clip from the respective container
         if (isLeftFootBo)
         {
-            PlayRandomClip(leftFootAudioSource, leftFootClips);
+            PlayRandomClip(LeftFootBoSource, LeftFootBoClips);
         }
         else
         {
-            PlayRandomClip(rightFootAudioSource, rightFootClips);
+            PlayRandomClip(RightFootBoSource, RightFootBoClips);
         }
 
         // Toggle foot
