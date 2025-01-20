@@ -14,15 +14,6 @@ public class DogBarking : MonoBehaviour
     [SerializeField] private int minBarkCount = 1; 
     [SerializeField] private int maxBarkCount = 4;
 
-    private void Update()
-    {
-        // Check if the "B" key is pressed
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            StartBarking(); // Trigger barking
-        }
-    }
-
     public void StartBarking()
     {
         int randomBarkCount = Random.Range(minBarkCount, maxBarkCount + 1);
