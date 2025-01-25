@@ -33,6 +33,9 @@ public class CharacterSwitcher : MonoBehaviour
     [Tooltip("Reference to the Inventory UI")]
     [SerializeField] private UIInventory inventoryUI;
 
+    [Tooltip("Reference to the Pause Menu UI")]
+    [SerializeField] private PauseMenu pauseMenu;
+
     //private bool isInventoryVisible = true;
 
     // Start is called before the first frame update
@@ -89,6 +92,9 @@ public class CharacterSwitcher : MonoBehaviour
         playerControls.Player.Interact.started += ctx => InteractEvent();
 
         playerControls.Player.Inventory.started += ctx => ToggleInventory();
+
+        // Bind pause functionality to Esc key.
+        playerControls.Player.Pause.started += ctx => TogglePauseMenu();
     }
 
     /// <summary>
@@ -99,6 +105,25 @@ public class CharacterSwitcher : MonoBehaviour
         //isInventoryVisible = !isInventoryVisible;
         //inventoryUI.SetActive(isInventoryVisible);
         inventoryUI.ToggleInventoryWindow();
+    }
+
+    private void TogglePauseMenu()
+    {
+        if (pauseMenu != null)
+        {
+            if (pauseMenu.IsPaused)
+            {
+                pauseMenu.ResumeGame();
+            }
+            else
+            {
+                pauseMenu.PauseGame();
+            }
+        }
+        else
+        {
+            Debug.LogWarning("PauseMenu reference is not set.");
+        }
     }
     private void LanternToggleInput()
     {
