@@ -59,6 +59,11 @@
 				<Bus Id="3803692087" Name="Master Audio Bus" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus" GUID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 			</Busses>
 		</SoundBank>
+		<SoundBank Id="3587989757" Type="User" GUID="{901AAACA-D81C-4AE6-9961-B4B6384D8C79}" Language="SFX" Hash="{F7223193-D4F9-6124-9A87-797D2C748DC5}">
+			<ObjectPath>\SoundBanks\Default Work Unit\Amos</ObjectPath>
+			<ShortName>Amos</ShortName>
+			<Path>Amos.bnk</Path>
+		</SoundBank>
 	</SoundBanks>
-	<FileHash>{39F5C784-9425-AF3F-33C7-EFA9815611C2}</FileHash>
+	<FileHash>{579F3239-5FFD-8A68-7C92-66CEE808D3B8}</FileHash>
 </SoundBanksInfo>
