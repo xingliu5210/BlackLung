@@ -20,7 +20,7 @@
 				</File>
 			</Media>
 			<Events>
-				<Event Id="204269822" Name="Play_ambience_cave" ObjectPath="\Events\Default Work Unit\Play_ambience_cave" GUID="{1BBA9B01-91E4-4600-B76C-F0AA51DB38DD}" DurationType="Infinite">
+				<Event Id="204269822" Name="Play_ambience_cave" ObjectPath="\Events\ME_Event_WorkUnit\Play_ambience_cave" GUID="{1BBA9B01-91E4-4600-B76C-F0AA51DB38DD}" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="164796356"/>
 					</MediaRefs>
@@ -65,5 +65,5 @@
 			<Path>Amos.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{0CF433EF-1730-9429-1B9D-F56A4512A613}</FileHash>
+	<FileHash>{2A39C17F-5074-874E-8BA7-9F17587B7A93}</FileHash>
 </SoundBanksInfo>

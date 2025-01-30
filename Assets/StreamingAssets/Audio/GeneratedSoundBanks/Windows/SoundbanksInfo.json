@@ -36,7 +36,7 @@
      {
       "Id": "204269822",
       "Name": "Play_ambience_cave",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_ambience_cave",
+      "ObjectPath": "\\Events\\ME_Event_WorkUnit\\Play_ambience_cave",
       "GUID": "{1BBA9B01-91E4-4600-B76C-F0AA51DB38DD}",
       "DurationType": "Infinite",
       "MediaRefs": [
@@ -132,6 +132,6 @@
     "Path": "Amos.bnk"
    }
   ],
-  "FileHash": "{52613437-695A-0770-4A10-86CE61B13CD1}"
+  "FileHash": "{913EE8F2-2719-9CEA-3BBC-55FC52455216}"
  }
 }

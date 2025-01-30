@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks/Default Work Unit
     guid: 147cf98059949f49a0c1ac37de744d60
     GuidInternal: 
-    m_lastTime: -8584633491760630426
+    m_lastTime: -8584633475552008643
     List:
     - name: Ambience
       guid: 0d54b832657548468d33c32673ad17ec
@@ -122,25 +122,8 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit
     guid: 2d6fe38b65a02e4d9bf97df545c8a150
     GuidInternal: 
-    m_lastTime: -8584633581761569987
+    m_lastTime: -8584633475551943713
     List:
-    - name: Play_ambience_cave
-      guid: 019bba1be4910046b76cf0aa51db38dd
-      id: 204269822
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 2d6fe38b65a02e4d9bf97df545c8a150
-      - ElementName: Play_ambience_cave
-        ObjectType: 3
-        guid: 019bba1be4910046b76cf0aa51db38dd
-      Path: Events/Default Work Unit/Play_ambience_cave
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
     - name: Play_Pickup_Fuel
       guid: b3633dd49c543745a7e63fedb78e661c
       id: 578142713
@@ -158,6 +141,36 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.7838376
       minDuration: 1.2613637
+  - PhysicalPath: Events/ME_Event_WorkUnit.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: ME_Event_WorkUnit
+      ObjectType: 12
+      guid: 87197f5cf291e341acf805d9e0288c11
+    ParentPath: Events/ME_Event_WorkUnit
+    guid: 87197f5cf291e341acf805d9e0288c11
+    GuidInternal: 
+    m_lastTime: -8584633475551890172
+    List:
+    - name: Play_ambience_cave
+      guid: 019bba1be4910046b76cf0aa51db38dd
+      id: 204269822
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: ME_Event_WorkUnit
+        ObjectType: 12
+        guid: 87197f5cf291e341acf805d9e0288c11
+      - ElementName: Play_ambience_cave
+        ObjectType: 3
+        guid: 019bba1be4910046b76cf0aa51db38dd
+      Path: Events/ME_Event_WorkUnit/Play_ambience_cave
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters/Default Work Unit.wwu
     PathAndIcons:

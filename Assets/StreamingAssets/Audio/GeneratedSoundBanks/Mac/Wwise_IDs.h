@@ -21,6 +21,7 @@ namespace AK
     {
         static const AkUniqueID INIT = 1355168291U;
         static const AkUniqueID AMBIENCE = 85412153U;
+        static const AkUniqueID AMOS = 3587989757U;
         static const AkUniqueID SFX = 393239870U;
     } // namespace BANKS
 
