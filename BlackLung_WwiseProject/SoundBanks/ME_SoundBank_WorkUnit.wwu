@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{DA9AED11-B2AB-4380-BF14-0B7AEFDC03FF}" SchemaVersion="119">
+	<SoundBanks>
+		<WorkUnit Name="ME_SoundBank_WorkUnit" ID="{DA9AED11-B2AB-4380-BF14-0B7AEFDC03FF}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Ambience" ID="{32B8540D-7565-4648-8D33-C32673AD17EC}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_ambience_cave" ID="{1BBA9B01-91E4-4600-B76C-F0AA51DB38DD}" WorkUnitID="{5C7F1987-91F2-41E3-ACF8-05D9E0288C11}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>
