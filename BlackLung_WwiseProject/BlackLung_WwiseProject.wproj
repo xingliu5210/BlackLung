@@ -25,15 +25,18 @@
 						<Value Platform="Windows">GeneratedSoundBanks\Windows</Value>
 					</ValueList>
 				</Property>
+				<Property Name="GenerateSoundBankJSON" Type="bool" Value="True"/>
 				<Property Name="LicenseKey" Type="string" Value="PHByb2plY3QgaWQ9IjE5NDE2IiBtYXNrPSJDVVpWODU0OCIgZW5jPSIwIj48bGlj ZW5zZSBpZD0iMSIgbmFtZT0iV3dpc2UiIHR5cGU9IjEiIHBsYXRmb3Jtcz0iNCwx MCIgZXhwaXJlcz0iMjAyNi0wMi0wMSIgIC8+PGxpY2Vuc2UgaWQ9IjIxIiBuYW1l PSJNYWludGVuYW5jZSIgdHlwZT0iMSIgcGxhdGZvcm1zPSI0LDEwIiBleHBpcmVz PSIyMDI2LTAyLTAxIiAgLz48bGljZW5zZSBpZD0iNzAiIG5hbWU9IkluZGllIExp Y2Vuc2UiIHR5cGU9IjEiIHBsYXRmb3Jtcz0iNCwxMCIgZXhwaXJlcz0iMjAyNi0w Mi0wMSIgIC8+PC9wcm9qZWN0Pg==|GdcnLnWER0oRN+hN2BNOygBa5cLnKxMXEcW defrDzsFgzgi2LF6RKKdLvfkkOkiIV3AfRmOUpK4wM4kZcZD109RVMNAemIJpYq+ bgV4zlXo4PLvbnD4heIxCIWwWFyDlKrYzDiRy9f9fgN1XlS/r1+J8i61IeoEdwpX U3MxrqYAi40wJB0GN5Jp6yEG4z2mzbkZnC7CCXQsMPArrXfhQ0nz8jB9cjTjRyoO zT47M2gwjV1cSMMtG3Um+qgqIvONhPBWqj6XRxkhwn3giiiG6JCeaaAaWDrdyr9b VzMtsmoJP0Hih+9Fb4ZfBHUVZOmUCDPn4qtuggwAwCoZqoUauhw== "/>
 				<Property Name="SoundBankGenerateEstimatedDuration" Type="bool" Value="True"/>
 				<Property Name="SoundBankGenerateHeaderFile" Type="bool" Value="True"/>
 				<Property Name="SoundBankGenerateMaxAttenuationInfo" Type="bool" Value="True"/>
-				<Property Name="SoundBankHeaderFilePath" Type="string" Value="Z:\Volumes\Archive01\CCC\Media\P1\Grit &amp; Paw\BlackLung\Assets\StreamingAssets\Audio\GeneratedSoundBanks"/>
+				<Property Name="SoundBankGeneratePrintGUID" Type="bool" Value="True"/>
+				<Property Name="SoundBankGeneratePrintPath" Type="bool" Value="True"/>
+				<Property Name="SoundBankHeaderFilePath" Type="string" Value="..\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Mac"/>
 				<Property Name="SoundBankPaths" Type="string">
 					<ValueList>
-						<Value Platform="Mac">GeneratedSoundBanks\Mac\</Value>
-						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
+						<Value Platform="Mac">..\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Mac\</Value>
+						<Value Platform="Windows">..\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\</Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPostGenerateCustomCmdDescription" Type="string">
