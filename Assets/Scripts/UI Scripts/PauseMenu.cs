@@ -10,6 +10,9 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject controlsWindowUI;
     [SerializeField] private GameObject controllerPanel;
     [SerializeField] private GameObject mouseKeyPanel;
+    [SerializeField] private GameObject exitPanel;
+    [SerializeField] private GameObject controlsButton;
+    [SerializeField] private GameObject quitButton;
 
     private bool isPaused = false;
 
@@ -25,6 +28,7 @@ public class PauseMenu : MonoBehaviour
         if (pauseMenuUI != null)
         {
             pauseMenuUI.SetActive(false);
+            exitPanel.SetActive(false);
         }
         else
         {
@@ -124,6 +128,20 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("CloseControls() called"); // Debug message
         pauseMenuUI.SetActive(true);
         controlsWindowUI.SetActive(false);
+    }
+
+    public void ExitPanel()
+    {
+        exitPanel.SetActive(true);
+        controlsButton.SetActive(false);
+        quitButton.SetActive(false);
+    }
+
+    public void CancelExit()
+    {
+        exitPanel.SetActive(false);
+        controlsButton.SetActive(true);
+        quitButton.SetActive(true);
     }
 
 }
