@@ -19,7 +19,7 @@
     "GUID": "{32B8540D-7565-4648-8D33-C32673AD17EC}",
     "Language": "SFX",
     "Hash": "{65637BA3-DA3E-85AF-BA12-A2DE40555A9C}",
-    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Ambience",
+    "ObjectPath": "\\SoundBanks\\ME_SoundBank_WorkUnit\\Ambience",
     "ShortName": "Ambience",
     "Path": "Ambience.bnk",
     "Media": [
@@ -132,6 +132,6 @@
     "Path": "Amos.bnk"
    }
   ],
-  "FileHash": "{913EE8F2-2719-9CEA-3BBC-55FC52455216}"
+  "FileHash": "{5C4B11BF-7387-A222-C49A-5F4EFE6E6EC2}"
  }
 }

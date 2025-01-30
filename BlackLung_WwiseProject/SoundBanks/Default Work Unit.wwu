@@ -10,13 +10,6 @@
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
-				<SoundBank Name="Ambience" ID="{32B8540D-7565-4648-8D33-C32673AD17EC}">
-					<ObjectInclusionList>
-						<ObjectRef Name="Play_ambience_cave" ID="{1BBA9B01-91E4-4600-B76C-F0AA51DB38DD}" WorkUnitID="{5C7F1987-91F2-41E3-ACF8-05D9E0288C11}" Origin="Manual" Filter="7"/>
-					</ObjectInclusionList>
-					<ObjectExclusionList/>
-					<GameSyncExclusionList/>
-				</SoundBank>
 				<SoundBank Name="Amos" ID="{901AAACA-D81C-4AE6-9961-B4B6384D8C79}">
 					<ObjectInclusionList/>
 					<ObjectExclusionList/>

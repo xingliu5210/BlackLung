@@ -66,22 +66,8 @@ MonoBehaviour:
     ParentPath: SoundBanks/Default Work Unit
     guid: 147cf98059949f49a0c1ac37de744d60
     GuidInternal: 
-    m_lastTime: -8584633475552008643
+    m_lastTime: -8584633474212797626
     List:
-    - name: Ambience
-      guid: 0d54b832657548468d33c32673ad17ec
-      id: 85412153
-      PathAndIcons:
-      - ElementName: SoundBanks
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 147cf98059949f49a0c1ac37de744d60
-      - ElementName: Ambience
-        ObjectType: 7
-        guid: 0d54b832657548468d33c32673ad17ec
-      Path: SoundBanks/Default Work Unit/Ambience
     - name: Amos
       guid: caaa1a901cd8e64a9961b4b6384d8c79
       id: 3587989757
@@ -110,6 +96,33 @@ MonoBehaviour:
         ObjectType: 7
         guid: 68983deee1a78b4e930d964492d2dae7
       Path: SoundBanks/Default Work Unit/SFX
+  - PhysicalPath: SoundBanks/ME_SoundBank_WorkUnit.wwu
+    PathAndIcons:
+    - ElementName: SoundBanks
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: ME_SoundBank_WorkUnit
+      ObjectType: 12
+      guid: 11ed9adaabb28043bf140b7aefdc03ff
+    ParentPath: SoundBanks/ME_SoundBank_WorkUnit
+    guid: 11ed9adaabb28043bf140b7aefdc03ff
+    GuidInternal: 
+    m_lastTime: -8584633474212734593
+    List:
+    - name: Ambience
+      guid: 0d54b832657548468d33c32673ad17ec
+      id: 85412153
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: ME_SoundBank_WorkUnit
+        ObjectType: 12
+        guid: 11ed9adaabb28043bf140b7aefdc03ff
+      - ElementName: Ambience
+        ObjectType: 7
+        guid: 0d54b832657548468d33c32673ad17ec
+      Path: SoundBanks/ME_SoundBank_WorkUnit/Ambience
   EventWwu:
   - PhysicalPath: Events/Default Work Unit.wwu
     PathAndIcons:

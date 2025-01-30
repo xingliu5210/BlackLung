@@ -10,7 +10,7 @@
 	<DialogueEvents/>
 	<SoundBanks>
 		<SoundBank Id="85412153" Type="User" GUID="{32B8540D-7565-4648-8D33-C32673AD17EC}" Language="SFX" Hash="{65637BA3-DA3E-85AF-BA12-A2DE40555A9C}">
-			<ObjectPath>\SoundBanks\Default Work Unit\Ambience</ObjectPath>
+			<ObjectPath>\SoundBanks\ME_SoundBank_WorkUnit\Ambience</ObjectPath>
 			<ShortName>Ambience</ShortName>
 			<Path>Ambience.bnk</Path>
 			<Media>
@@ -65,5 +65,5 @@
 			<Path>Amos.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{1E13C6F2-3345-BB61-C7B2-8A973A5677E8}</FileHash>
+	<FileHash>{BEF950CC-EDF7-D108-BF5C-3C13780BF948}</FileHash>
 </SoundBanksInfo>
