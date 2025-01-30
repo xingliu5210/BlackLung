@@ -14,17 +14,6 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_ambience_cave" ID="{1BBA9B01-91E4-4600-B76C-F0AA51DB38DD}">
-					<ChildrenList>
-						<Action Name="" ID="{C886A1DB-561C-40B1-8507-BD99D57B6AC2}" ShortID="1043081608">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="ambience_cave_01" ID="{D363843A-3DAF-425C-9FE1-7DEA0E7B73DE}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

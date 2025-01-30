@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{5C7F1987-91F2-41E3-ACF8-05D9E0288C11}" SchemaVersion="119">
+	<Events>
+		<WorkUnit Name="ME_Event_WorkUnit" ID="{5C7F1987-91F2-41E3-ACF8-05D9E0288C11}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_ambience_cave" ID="{1BBA9B01-91E4-4600-B76C-F0AA51DB38DD}">
+					<ChildrenList>
+						<Action Name="" ID="{C886A1DB-561C-40B1-8507-BD99D57B6AC2}" ShortID="1043081608">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ambience_cave_01" ID="{D363843A-3DAF-425C-9FE1-7DEA0E7B73DE}" WorkUnitID="{9024C4C6-0D57-4C6F-B375-363FAF7B2F22}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
