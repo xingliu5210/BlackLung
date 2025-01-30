@@ -120,8 +120,18 @@
       "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
      }
     ]
+   },
+   {
+    "Id": "3587989757",
+    "Type": "User",
+    "GUID": "{901AAACA-D81C-4AE6-9961-B4B6384D8C79}",
+    "Language": "SFX",
+    "Hash": "{F7223193-D4F9-6124-9A87-797D2C748DC5}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Amos",
+    "ShortName": "Amos",
+    "Path": "Amos.bnk"
    }
   ],
-  "FileHash": "{C5962DDC-EC59-57D7-9EB6-B71ADDCB0A8C}"
+  "FileHash": "{52613437-695A-0770-4A10-86CE61B13CD1}"
  }
 }

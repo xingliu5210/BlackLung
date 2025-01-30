@@ -4991,7 +4991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdc98fef8a53b4c929dc2f1505c940c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: ae8d9d44
+  triggerList: f7f422d6
   useOtherObject: 0
   actionOnEventType: 0
   curveInterpolation: 4
@@ -10339,6 +10339,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1445188727}
+  controlsWindowUI: {fileID: 0}
+  controllerPanel: {fileID: 0}
+  mouseKeyPanel: {fileID: 0}
+  exitPanel: {fileID: 0}
+  controlsButton: {fileID: 0}
+  quitButton: {fileID: 0}
 --- !u!4 &1044879371
 Transform:
   m_ObjectHideFlags: 0
@@ -12279,7 +12285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdc98fef8a53b4c929dc2f1505c940c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: ae8d9d44
+  triggerList: f7f422d6
   useOtherObject: 0
   actionOnEventType: 0
   curveInterpolation: 4
@@ -18271,7 +18277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdc98fef8a53b4c929dc2f1505c940c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: ae8d9d44
+  triggerList: f7f422d6
   useOtherObject: 0
   actionOnEventType: 0
   curveInterpolation: 4
@@ -19529,7 +19535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdc98fef8a53b4c929dc2f1505c940c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: ae8d9d44
+  triggerList: f7f422d6
   useOtherObject: 0
   actionOnEventType: 0
   curveInterpolation: 4

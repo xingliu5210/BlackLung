@@ -15,7 +15,7 @@
 		<SubFoldersForGeneratedFiles>false</SubFoldersForGeneratedFiles>
 		<RemoveUnusedGeneratedFiles>true</RemoveUnusedGeneratedFiles>
 		<SourceControlGeneratedFiles>false</SourceControlGeneratedFiles>
-		<GenerateHeaderFile>true</GenerateHeaderFile>
+		<GenerateHeaderFile>false</GenerateHeaderFile>
 		<GenerateContentTxtFile>true</GenerateContentTxtFile>
 		<GenerateMetadataXML>true</GenerateMetadataXML>
 		<GenerateMetadataJSON>true</GenerateMetadataJSON>
@@ -28,5 +28,5 @@
 		<PrintObjectGuid>true</PrintObjectGuid>
 		<PrintObjectPath>true</PrintObjectPath>
 	</Settings>
-	<FileHash>{C7BFD4F4-E56B-1F6A-1126-C4D3824BFA92}</FileHash>
+	<FileHash>{D8F0ACA1-A516-9F52-BE31-D80F8B9EFF5B}</FileHash>
 </PlatformInfo>
