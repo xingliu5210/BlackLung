@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" SchemaVersion="119">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Pickup_Fuel" ID="{D43D63B3-549C-4537-A7E6-3FEDB78E661C}">
+					<ChildrenList>
+						<Action Name="" ID="{2A11800C-2098-4881-9F26-AF2C15E4B976}" ShortID="905496892">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pickup_Fuel_01" ID="{75A94FE1-205F-4D31-9E48-DBE2C16215B6}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_ambience_cave" ID="{1BBA9B01-91E4-4600-B76C-F0AA51DB38DD}">
+					<ChildrenList>
+						<Action Name="" ID="{C886A1DB-561C-40B1-8507-BD99D57B6AC2}" ShortID="1043081608">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ambience_cave_01" ID="{D363843A-3DAF-425C-9FE1-7DEA0E7B73DE}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

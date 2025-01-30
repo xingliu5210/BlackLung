@@ -66,11 +66,11 @@ MonoBehaviour:
     ParentPath: SoundBanks/Default Work Unit
     guid: 147cf98059949f49a0c1ac37de744d60
     GuidInternal: 
-    m_lastTime: -8584633608623465944
+    m_lastTime: -8584633581761451367
     List:
-    - name: Main
-      guid: 68983deee1a78b4e930d964492d2dae7
-      id: 3161908922
+    - name: Ambience
+      guid: 0d54b832657548468d33c32673ad17ec
+      id: 85412153
       PathAndIcons:
       - ElementName: SoundBanks
         ObjectType: 5
@@ -78,10 +78,24 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 147cf98059949f49a0c1ac37de744d60
-      - ElementName: Main
+      - ElementName: Ambience
+        ObjectType: 7
+        guid: 0d54b832657548468d33c32673ad17ec
+      Path: SoundBanks/Default Work Unit/Ambience
+    - name: SFX
+      guid: 68983deee1a78b4e930d964492d2dae7
+      id: 393239870
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 147cf98059949f49a0c1ac37de744d60
+      - ElementName: SFX
         ObjectType: 7
         guid: 68983deee1a78b4e930d964492d2dae7
-      Path: SoundBanks/Default Work Unit/Main
+      Path: SoundBanks/Default Work Unit/SFX
   EventWwu:
   - PhysicalPath: Events/Default Work Unit.wwu
     PathAndIcons:
@@ -94,8 +108,42 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit
     guid: 2d6fe38b65a02e4d9bf97df545c8a150
     GuidInternal: 
-    m_lastTime: -8584633608623820604
-    List: []
+    m_lastTime: -8584633581761569987
+    List:
+    - name: Play_ambience_cave
+      guid: 019bba1be4910046b76cf0aa51db38dd
+      id: 204269822
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Play_ambience_cave
+        ObjectType: 3
+        guid: 019bba1be4910046b76cf0aa51db38dd
+      Path: Events/Default Work Unit/Play_ambience_cave
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Pickup_Fuel
+      guid: b3633dd49c543745a7e63fedb78e661c
+      id: 578142713
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Play_Pickup_Fuel
+        ObjectType: 3
+        guid: b3633dd49c543745a7e63fedb78e661c
+      Path: Events/Default Work Unit/Play_Pickup_Fuel
+      maxAttenuation: 0
+      maxDuration: 1.7838376
+      minDuration: 1.2613637
   RtpcWwu:
   - PhysicalPath: Game Parameters/Default Work Unit.wwu
     PathAndIcons:
@@ -153,7 +201,7 @@ MonoBehaviour:
     m_lastTime: -8584633608623444850
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 06000000070000000c0000000d000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
