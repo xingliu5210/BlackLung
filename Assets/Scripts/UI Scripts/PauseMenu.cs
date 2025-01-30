@@ -1,11 +1,18 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     [Header("UI Elements")]
     [Tooltip("Reference to the pause menu UI panel.")]
     [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private GameObject controlsWindowUI;
+    [SerializeField] private GameObject controllerPanel;
+    [SerializeField] private GameObject mouseKeyPanel;
+    [SerializeField] private GameObject exitPanel;
+    [SerializeField] private GameObject controlsButton;
+    [SerializeField] private GameObject quitButton;
 
     private bool isPaused = false;
 
@@ -21,6 +28,7 @@ public class PauseMenu : MonoBehaviour
         if (pauseMenuUI != null)
         {
             pauseMenuUI.SetActive(false);
+            exitPanel.SetActive(false);
         }
         else
         {
@@ -91,4 +99,49 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void Controls()
+    {
+        // Show the Controls Window and hide the main pause menu
+        Debug.Log("Controls() called"); // Debug message
+        pauseMenuUI.SetActive(false);
+        controllerPanel.SetActive(false);
+        mouseKeyPanel.SetActive(true);
+        controlsWindowUI.SetActive(true);
+    }
+
+    public void ControllerPanel()
+    {
+        controllerPanel.SetActive(true);
+        mouseKeyPanel.SetActive(false);
+    }
+
+    public void MouseKeyPanel()
+    {
+        controllerPanel.SetActive(false);
+        mouseKeyPanel.SetActive(true);
+    }
+
+    public void CloseControls()
+    {
+        // Hide the Controls Window and return to the pause menu
+        Debug.Log("CloseControls() called"); // Debug message
+        pauseMenuUI.SetActive(true);
+        controlsWindowUI.SetActive(false);
+    }
+
+    public void ExitPanel()
+    {
+        exitPanel.SetActive(true);
+        controlsButton.SetActive(false);
+        quitButton.SetActive(false);
+    }
+
+    public void CancelExit()
+    {
+        exitPanel.SetActive(false);
+        controlsButton.SetActive(true);
+        quitButton.SetActive(true);
+    }
+
 }
