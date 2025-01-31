@@ -5,10 +5,12 @@ using UnityEngine;
 public class Stalactite : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private ParticleSystem ceilingDustParticles;
     [SerializeField] private float fallDelay;
     [SerializeField] private float forceMultiplier;
     [SerializeField] private float damage;
-    [SerializeField] private Sensor sensor;
+    [SerializeField] private Sensor warningSensor;
+    [SerializeField] private Sensor fallSensor;
     [SerializeField] private Vector3 startPosition;
     private bool isActivated;
     private Rigidbody rb;
@@ -18,13 +20,34 @@ public class Stalactite : MonoBehaviour
     {
         startPosition = transform.position;
         rb = GetComponent<Rigidbody>();
-        sensor.OnPlayerEnter += WarnPlayer;
-    }
+        if(warningSensor != null)
+        {
+            warningSensor.OnPlayerEnter += WarnPlayer;
+        }
+        fallSensor.OnPlayerEnter += DelayActivation;
+    } 
 
     private void WarnPlayer(bool inRange)
     {
-        animator.SetBool("InWarningRange", inRange);
-        if(inRange)
+        Debug.Log("Stal: warning - " + inRange);
+        
+        if (inRange)
+        {
+            Invoke(nameof(PlayWarningAnimation), Random.Range(0f, 0.1f));
+
+        } 
+    }
+
+    private void PlayWarningAnimation()
+    {
+        ceilingDustParticles.Play();
+        animator.SetBool("InWarningRange", true);
+    } 
+
+    private void DelayActivation(bool inRange)
+    {
+        Debug.Log("Stal: delay");
+        if (inRange)
         {
             Invoke(nameof(ActivateStalactite), fallDelay);
         }
@@ -33,6 +56,8 @@ public class Stalactite : MonoBehaviour
     private void ActivateStalactite()
     {
         AudioManager.Instance.PlayStalactitesFall();
+        //animator.SetTrigger("warningTrigger");
+        //animator.SetBool("InWarningRange", true);
         isActivated = true;
         rb.useGravity = true;
         rb.AddForce(Vector3.down * forceMultiplier, ForceMode.VelocityChange);
