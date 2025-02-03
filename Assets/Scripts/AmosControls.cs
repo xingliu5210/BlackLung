@@ -23,13 +23,6 @@ public class AmosControls : PlayerMovement
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Lantern lantern;
 
-    [Header("Audio")]
-    [SerializeField] private new FootstepAudioManager footstepAudioManager;
-
-
-    // Used to track the time between footstep sounds
-    private float footstepTimer = 0f;
-
     // Used to track if the rope is currently visible
     private bool ropeVisible = false;
 
@@ -189,31 +182,6 @@ public class AmosControls : PlayerMovement
                 ropeVisible = false;
                 ropeVisibleCountdown = ropeVisibleTime;
             }
-        }
-
-        // Trigger footstep sounds 
-        if (grounded && Mathf.Abs(body.velocity.x) > 0.1f)
-        {
-            // If the timer is at zero, immediately play a footstep sound
-            if (footstepTimer == 0f)
-            {
-                footstepAudioManager.PlayFootstep();
-            }
-
-            // Increment the timer
-            footstepTimer += Time.deltaTime;
-
-            // Play footstep at regular intervals
-            if (footstepTimer >= footstepAudioManager.footstepInterval)
-            {
-                footstepAudioManager.PlayFootstep();
-                footstepTimer = 0f; // Reset timer
-            }
-        }
-        else
-        {
-            // Reset timer when not moving or grounded
-            footstepTimer = 0f;
         }
     }
 

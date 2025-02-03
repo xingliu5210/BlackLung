@@ -14,6 +14,34 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_WaterDrips" ID="{E7F53904-0BAC-449F-A9BE-9960537FD1DA}">
+					<ChildrenList>
+						<Action Name="" ID="{67369F19-0521-4B28-99D0-146634A0DF36}" ShortID="315046520">
+							<PropertyList>
+								<Property Name="FadeInCurve" Type="int16" Value="6"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Drips" ID="{2E7FEE1C-D9B9-4C67-AEBD-76295C43B742}" WorkUnitID="{9024C4C6-0D57-4C6F-B375-363FAF7B2F22}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_RockFalls" ID="{A60620A5-E6FA-4758-BA45-83B727317FB2}">
+					<ChildrenList>
+						<Action Name="" ID="{B1C277B3-435F-48FD-9B00-B76D268AB708}" ShortID="1052478609">
+							<PropertyList>
+								<Property Name="FadeInCurve" Type="int16" Value="6"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Rocks" ID="{599F23BF-FBBB-4C70-BE92-61C55EBFBFD4}" WorkUnitID="{9024C4C6-0D57-4C6F-B375-363FAF7B2F22}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
