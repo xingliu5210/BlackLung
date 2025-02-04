@@ -34,6 +34,7 @@ public class CrumblingPlatform : MonoBehaviour
     {
         if(crumbling)
         {
+            Debug.Log("Plat - crumbling");
             // Reduce countdown
             crumbleCountdown -= Time.deltaTime;
 
@@ -101,9 +102,10 @@ public class CrumblingPlatform : MonoBehaviour
             Debug.Log("Collision with: " + other.gameObject);
             if (other.gameObject.CompareTag("Player"))
             {
+                crumbling = true;
                 ParticleSystem.EmissionModule module = dustParticles.emission;
                 module.rateOverTime = crumblingParticleRate;
-                crumbling = true;
+                
             }
         }
     }
