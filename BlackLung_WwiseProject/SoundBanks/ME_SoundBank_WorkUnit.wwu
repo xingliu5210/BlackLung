@@ -5,7 +5,9 @@
 			<ChildrenList>
 				<SoundBank Name="Ambience" ID="{32B8540D-7565-4648-8D33-C32673AD17EC}">
 					<ObjectInclusionList>
+						<ObjectRef Name="Play_WaterDrips" ID="{E7F53904-0BAC-449F-A9BE-9960537FD1DA}" WorkUnitID="{5C7F1987-91F2-41E3-ACF8-05D9E0288C11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ambience_cave" ID="{1BBA9B01-91E4-4600-B76C-F0AA51DB38DD}" WorkUnitID="{5C7F1987-91F2-41E3-ACF8-05D9E0288C11}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_RockFalls" ID="{A60620A5-E6FA-4758-BA45-83B727317FB2}" WorkUnitID="{5C7F1987-91F2-41E3-ACF8-05D9E0288C11}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

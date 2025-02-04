@@ -1,6 +1,35 @@
 Event	ID	Name			Wwise Object Path	Notes
-	204269822	Play_ambience_cave			\Default Work Unit\Play_ambience_cave	
+	204269822	Play_ambience_cave			\ME_Event_WorkUnit\Play_ambience_cave	
+	2446034093	Play_RockFalls			\ME_Event_WorkUnit\Play_RockFalls	
+	3381592253	Play_WaterDrips			\ME_Event_WorkUnit\Play_WaterDrips	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	164796356	ambience_cave_01	Z:\Volumes\Archive01\CCC\Media\P1\GritandPaw\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\ambience_cave_01 _FBC78EF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\ambience_cave_01		4410116
+	112092366	WaterDrip_2	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_2_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_2		737684
+	164796356	ambience_cave_01	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\ambience_cave_01 _E3F3C005.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\ambience_cave_01		4410164
+	190658490	RocksFall_3	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Rocks\RocksFall_3_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Rocks\RocksFall_3		175084
+	193726895	WaterDrip_5	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_5_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_5		737684
+	220852057	RocksFall_1	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Rocks\RocksFall_1_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Rocks\RocksFall_1		250348
+	226741907	WaterDrip_1	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_1_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_1		737684
+	232035683	WaterDrip_9	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_9_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_9		737684
+	245026982	RocksFall_5	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Rocks\RocksFall_5_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Rocks\RocksFall_5		87592
+	315945083	WaterDrip_10	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_10_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_10		737684
+	359623001	RocksFall_2	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Rocks\RocksFall_2_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Rocks\RocksFall_2		193900
+	381461368	RocksFall_6	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Rocks\RocksFall_6_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Rocks\RocksFall_6		90412
+	429035553	WaterDrip_4	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_4_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_4		737684
+	435388753	WaterDrip_13	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_13_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_13		737684
+	463811403	RocksFall_9	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Rocks\RocksFall_9_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Rocks\RocksFall_9		90884
+	506465678	WaterDrip_6	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_6_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_6		737684
+	518477209	RocksFall_10	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Rocks\RocksFall_10_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Rocks\RocksFall_10		83828
+	520872629	WaterDrip_3	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_3_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_3		737684
+	543312965	WaterDrip_14	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_14_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_14		737684
+	562104145	WaterDrip_16	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_16_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_16		671828
+	590694781	RocksFall_11	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Rocks\RocksFall_11_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Rocks\RocksFall_11		147332
+	603147848	RocksFall_8	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Rocks\RocksFall_8_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Rocks\RocksFall_8		110640
+	680715876	RocksFall_7	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Rocks\RocksFall_7_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Rocks\RocksFall_7		143096
+	728950721	WaterDrip_11	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_11_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_11		737684
+	740990410	WaterDrip_7	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_7_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_7		737684
+	806618012	WaterDrip_12	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_12_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_12		737684
+	982660195	WaterDrip_8	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_8_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_8		737684
+	1039635913	WaterDrip_15	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_15_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_15		737684
+	1056949508	RocksFall_4	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Rocks\RocksFall_4_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Rocks\RocksFall_4		123340
 

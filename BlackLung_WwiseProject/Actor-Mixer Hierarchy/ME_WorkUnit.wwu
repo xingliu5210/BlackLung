@@ -16,8 +16,17 @@
 						<RandomSequenceContainer Name="Drips" ID="{2E7FEE1C-D9B9-4C67-AEBD-76295C43B742}" ShortID="618712798">
 							<PropertyList>
 								<Property Name="3DPosition" Type="int16" Value="1"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
 								<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="3"/>
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="3"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
 							</PropertyList>
 							<ReferenceList>
@@ -519,9 +528,23 @@
 						<RandomSequenceContainer Name="Rocks" ID="{599F23BF-FBBB-4C70-BE92-61C55EBFBFD4}" ShortID="456725250">
 							<PropertyList>
 								<Property Name="3DPosition" Type="int16" Value="1"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
 								<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
-								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
+								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="3"/>
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="2"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -923,6 +946,10 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="ambience_cave_01" ID="{686C1348-BF37-43CA-8964-023F95C20563}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="11.1626020641453"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Amb\ambience_cave_01 .wav</AudioFile>
 									<MediaIDList>

@@ -18,18 +18,234 @@
     "Type": "User",
     "GUID": "{32B8540D-7565-4648-8D33-C32673AD17EC}",
     "Language": "SFX",
-    "Hash": "{65637BA3-DA3E-85AF-BA12-A2DE40555A9C}",
+    "Hash": "{8704D223-8704-5EB6-E1B3-5403B2EE8AA4}",
     "ObjectPath": "\\SoundBanks\\ME_SoundBank_WorkUnit\\Ambience",
     "ShortName": "Ambience",
     "Path": "Ambience.bnk",
     "Media": [
+     {
+      "Id": "112092366",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Drips\\WaterDrip_2.wav",
+      "CachePath": "SFX/Amb/Drips/WaterDrip_2_818F3B66.wem"
+     },
      {
       "Id": "164796356",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Amb\\ambience_cave_01 .wav",
-      "CachePath": "SFX/Amb/ambience_cave_01 _FBC78EF0.wem"
+      "CachePath": "SFX/Amb/ambience_cave_01 _E3F3C005.wem"
+     },
+     {
+      "Id": "190658490",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Rocks\\RocksFall_3.wav",
+      "CachePath": "SFX/Amb/Rocks/RocksFall_3_818F3B66.wem"
+     },
+     {
+      "Id": "193726895",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Drips\\WaterDrip_5.wav",
+      "CachePath": "SFX/Amb/Drips/WaterDrip_5_818F3B66.wem"
+     },
+     {
+      "Id": "220852057",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Rocks\\RocksFall_1.wav",
+      "CachePath": "SFX/Amb/Rocks/RocksFall_1_818F3B66.wem"
+     },
+     {
+      "Id": "226741907",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Drips\\WaterDrip_1.wav",
+      "CachePath": "SFX/Amb/Drips/WaterDrip_1_818F3B66.wem"
+     },
+     {
+      "Id": "232035683",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Drips\\WaterDrip_9.wav",
+      "CachePath": "SFX/Amb/Drips/WaterDrip_9_818F3B66.wem"
+     },
+     {
+      "Id": "245026982",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Rocks\\RocksFall_5.wav",
+      "CachePath": "SFX/Amb/Rocks/RocksFall_5_818F3B66.wem"
+     },
+     {
+      "Id": "315945083",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Drips\\WaterDrip_10.wav",
+      "CachePath": "SFX/Amb/Drips/WaterDrip_10_818F3B66.wem"
+     },
+     {
+      "Id": "359623001",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Rocks\\RocksFall_2.wav",
+      "CachePath": "SFX/Amb/Rocks/RocksFall_2_818F3B66.wem"
+     },
+     {
+      "Id": "381461368",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Rocks\\RocksFall_6.wav",
+      "CachePath": "SFX/Amb/Rocks/RocksFall_6_818F3B66.wem"
+     },
+     {
+      "Id": "429035553",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Drips\\WaterDrip_4.wav",
+      "CachePath": "SFX/Amb/Drips/WaterDrip_4_818F3B66.wem"
+     },
+     {
+      "Id": "435388753",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Drips\\WaterDrip_13.wav",
+      "CachePath": "SFX/Amb/Drips/WaterDrip_13_818F3B66.wem"
+     },
+     {
+      "Id": "463811403",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Rocks\\RocksFall_9.wav",
+      "CachePath": "SFX/Amb/Rocks/RocksFall_9_818F3B66.wem"
+     },
+     {
+      "Id": "506465678",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Drips\\WaterDrip_6.wav",
+      "CachePath": "SFX/Amb/Drips/WaterDrip_6_818F3B66.wem"
+     },
+     {
+      "Id": "518477209",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Rocks\\RocksFall_10.wav",
+      "CachePath": "SFX/Amb/Rocks/RocksFall_10_818F3B66.wem"
+     },
+     {
+      "Id": "520872629",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Drips\\WaterDrip_3.wav",
+      "CachePath": "SFX/Amb/Drips/WaterDrip_3_818F3B66.wem"
+     },
+     {
+      "Id": "543312965",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Drips\\WaterDrip_14.wav",
+      "CachePath": "SFX/Amb/Drips/WaterDrip_14_818F3B66.wem"
+     },
+     {
+      "Id": "562104145",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Drips\\WaterDrip_16.wav",
+      "CachePath": "SFX/Amb/Drips/WaterDrip_16_818F3B66.wem"
+     },
+     {
+      "Id": "590694781",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Rocks\\RocksFall_11.wav",
+      "CachePath": "SFX/Amb/Rocks/RocksFall_11_818F3B66.wem"
+     },
+     {
+      "Id": "603147848",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Rocks\\RocksFall_8.wav",
+      "CachePath": "SFX/Amb/Rocks/RocksFall_8_818F3B66.wem"
+     },
+     {
+      "Id": "680715876",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Rocks\\RocksFall_7.wav",
+      "CachePath": "SFX/Amb/Rocks/RocksFall_7_818F3B66.wem"
+     },
+     {
+      "Id": "728950721",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Drips\\WaterDrip_11.wav",
+      "CachePath": "SFX/Amb/Drips/WaterDrip_11_818F3B66.wem"
+     },
+     {
+      "Id": "740990410",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Drips\\WaterDrip_7.wav",
+      "CachePath": "SFX/Amb/Drips/WaterDrip_7_818F3B66.wem"
+     },
+     {
+      "Id": "806618012",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Drips\\WaterDrip_12.wav",
+      "CachePath": "SFX/Amb/Drips/WaterDrip_12_818F3B66.wem"
+     },
+     {
+      "Id": "982660195",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Drips\\WaterDrip_8.wav",
+      "CachePath": "SFX/Amb/Drips/WaterDrip_8_818F3B66.wem"
+     },
+     {
+      "Id": "1039635913",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Drips\\WaterDrip_15.wav",
+      "CachePath": "SFX/Amb/Drips/WaterDrip_15_818F3B66.wem"
+     },
+     {
+      "Id": "1056949508",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Amb\\Rocks\\RocksFall_4.wav",
+      "CachePath": "SFX/Amb/Rocks/RocksFall_4_818F3B66.wem"
      }
     ],
     "Events": [
@@ -42,6 +258,111 @@
       "MediaRefs": [
        {
         "Id": "164796356"
+       }
+      ]
+     },
+     {
+      "Id": "2446034093",
+      "Name": "Play_RockFalls",
+      "ObjectPath": "\\Events\\ME_Event_WorkUnit\\Play_RockFalls",
+      "GUID": "{A60620A5-E6FA-4758-BA45-83B727317FB2}",
+      "MaxAttenuation": "100",
+      "DurationType": "OneShot",
+      "DurationMin": "22.47467",
+      "DurationMax": "23.418663",
+      "MediaRefs": [
+       {
+        "Id": "190658490"
+       },
+       {
+        "Id": "220852057"
+       },
+       {
+        "Id": "245026982"
+       },
+       {
+        "Id": "359623001"
+       },
+       {
+        "Id": "381461368"
+       },
+       {
+        "Id": "463811403"
+       },
+       {
+        "Id": "518477209"
+       },
+       {
+        "Id": "590694781"
+       },
+       {
+        "Id": "603147848"
+       },
+       {
+        "Id": "680715876"
+       },
+       {
+        "Id": "1056949508"
+       }
+      ]
+     },
+     {
+      "Id": "3381592253",
+      "Name": "Play_WaterDrips",
+      "ObjectPath": "\\Events\\ME_Event_WorkUnit\\Play_WaterDrips",
+      "GUID": "{E7F53904-0BAC-449F-A9BE-9960537FD1DA}",
+      "MaxAttenuation": "100",
+      "DurationType": "OneShot",
+      "DurationMin": "49.808006",
+      "DurationMax": "50.18134",
+      "MediaRefs": [
+       {
+        "Id": "112092366"
+       },
+       {
+        "Id": "193726895"
+       },
+       {
+        "Id": "226741907"
+       },
+       {
+        "Id": "232035683"
+       },
+       {
+        "Id": "315945083"
+       },
+       {
+        "Id": "429035553"
+       },
+       {
+        "Id": "435388753"
+       },
+       {
+        "Id": "506465678"
+       },
+       {
+        "Id": "520872629"
+       },
+       {
+        "Id": "543312965"
+       },
+       {
+        "Id": "562104145"
+       },
+       {
+        "Id": "728950721"
+       },
+       {
+        "Id": "740990410"
+       },
+       {
+        "Id": "806618012"
+       },
+       {
+        "Id": "982660195"
+       },
+       {
+        "Id": "1039635913"
        }
       ]
      }
@@ -132,6 +453,6 @@
     "Path": "Amos.bnk"
    }
   ],
-  "FileHash": "{5C4B11BF-7387-A222-C49A-5F4EFE6E6EC2}"
+  "FileHash": "{EC111B23-98B9-66C5-5882-D3198B99C78E}"
  }
 }

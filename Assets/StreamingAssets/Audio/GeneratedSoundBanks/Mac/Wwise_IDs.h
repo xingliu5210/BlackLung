@@ -15,6 +15,8 @@ namespace AK
     {
         static const AkUniqueID PLAY_AMBIENCE_CAVE = 204269822U;
         static const AkUniqueID PLAY_PICKUP_FUEL = 578142713U;
+        static const AkUniqueID PLAY_ROCKFALLS = 2446034093U;
+        static const AkUniqueID PLAY_WATERDRIPS = 3381592253U;
     } // namespace EVENTS
 
     namespace BANKS

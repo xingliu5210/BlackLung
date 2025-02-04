@@ -9,20 +9,163 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="85412153" Type="User" GUID="{32B8540D-7565-4648-8D33-C32673AD17EC}" Language="SFX" Hash="{65637BA3-DA3E-85AF-BA12-A2DE40555A9C}">
+		<SoundBank Id="85412153" Type="User" GUID="{32B8540D-7565-4648-8D33-C32673AD17EC}" Language="SFX" Hash="{8704D223-8704-5EB6-E1B3-5403B2EE8AA4}">
 			<ObjectPath>\SoundBanks\ME_SoundBank_WorkUnit\Ambience</ObjectPath>
 			<ShortName>Ambience</ShortName>
 			<Path>Ambience.bnk</Path>
 			<Media>
+				<File Id="112092366" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Drips\WaterDrip_2.wav</ShortName>
+					<CachePath>SFX/Amb/Drips/WaterDrip_2_818F3B66.wem</CachePath>
+				</File>
 				<File Id="164796356" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Amb\ambience_cave_01 .wav</ShortName>
-					<CachePath>SFX/Amb/ambience_cave_01 _FBC78EF0.wem</CachePath>
+					<CachePath>SFX/Amb/ambience_cave_01 _E3F3C005.wem</CachePath>
+				</File>
+				<File Id="190658490" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Rocks\RocksFall_3.wav</ShortName>
+					<CachePath>SFX/Amb/Rocks/RocksFall_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="193726895" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Drips\WaterDrip_5.wav</ShortName>
+					<CachePath>SFX/Amb/Drips/WaterDrip_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="220852057" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Rocks\RocksFall_1.wav</ShortName>
+					<CachePath>SFX/Amb/Rocks/RocksFall_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="226741907" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Drips\WaterDrip_1.wav</ShortName>
+					<CachePath>SFX/Amb/Drips/WaterDrip_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="232035683" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Drips\WaterDrip_9.wav</ShortName>
+					<CachePath>SFX/Amb/Drips/WaterDrip_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="245026982" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Rocks\RocksFall_5.wav</ShortName>
+					<CachePath>SFX/Amb/Rocks/RocksFall_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="315945083" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Drips\WaterDrip_10.wav</ShortName>
+					<CachePath>SFX/Amb/Drips/WaterDrip_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="359623001" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Rocks\RocksFall_2.wav</ShortName>
+					<CachePath>SFX/Amb/Rocks/RocksFall_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="381461368" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Rocks\RocksFall_6.wav</ShortName>
+					<CachePath>SFX/Amb/Rocks/RocksFall_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="429035553" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Drips\WaterDrip_4.wav</ShortName>
+					<CachePath>SFX/Amb/Drips/WaterDrip_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="435388753" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Drips\WaterDrip_13.wav</ShortName>
+					<CachePath>SFX/Amb/Drips/WaterDrip_13_818F3B66.wem</CachePath>
+				</File>
+				<File Id="463811403" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Rocks\RocksFall_9.wav</ShortName>
+					<CachePath>SFX/Amb/Rocks/RocksFall_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="506465678" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Drips\WaterDrip_6.wav</ShortName>
+					<CachePath>SFX/Amb/Drips/WaterDrip_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="518477209" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Rocks\RocksFall_10.wav</ShortName>
+					<CachePath>SFX/Amb/Rocks/RocksFall_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="520872629" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Drips\WaterDrip_3.wav</ShortName>
+					<CachePath>SFX/Amb/Drips/WaterDrip_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="543312965" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Drips\WaterDrip_14.wav</ShortName>
+					<CachePath>SFX/Amb/Drips/WaterDrip_14_818F3B66.wem</CachePath>
+				</File>
+				<File Id="562104145" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Drips\WaterDrip_16.wav</ShortName>
+					<CachePath>SFX/Amb/Drips/WaterDrip_16_818F3B66.wem</CachePath>
+				</File>
+				<File Id="590694781" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Rocks\RocksFall_11.wav</ShortName>
+					<CachePath>SFX/Amb/Rocks/RocksFall_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="603147848" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Rocks\RocksFall_8.wav</ShortName>
+					<CachePath>SFX/Amb/Rocks/RocksFall_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="680715876" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Rocks\RocksFall_7.wav</ShortName>
+					<CachePath>SFX/Amb/Rocks/RocksFall_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="728950721" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Drips\WaterDrip_11.wav</ShortName>
+					<CachePath>SFX/Amb/Drips/WaterDrip_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="740990410" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Drips\WaterDrip_7.wav</ShortName>
+					<CachePath>SFX/Amb/Drips/WaterDrip_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="806618012" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Drips\WaterDrip_12.wav</ShortName>
+					<CachePath>SFX/Amb/Drips/WaterDrip_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="982660195" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Drips\WaterDrip_8.wav</ShortName>
+					<CachePath>SFX/Amb/Drips/WaterDrip_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1039635913" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Drips\WaterDrip_15.wav</ShortName>
+					<CachePath>SFX/Amb/Drips/WaterDrip_15_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1056949508" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amb\Rocks\RocksFall_4.wav</ShortName>
+					<CachePath>SFX/Amb/Rocks/RocksFall_4_818F3B66.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
 				<Event Id="204269822" Name="Play_ambience_cave" ObjectPath="\Events\ME_Event_WorkUnit\Play_ambience_cave" GUID="{1BBA9B01-91E4-4600-B76C-F0AA51DB38DD}" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="164796356"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2446034093" Name="Play_RockFalls" ObjectPath="\Events\ME_Event_WorkUnit\Play_RockFalls" GUID="{A60620A5-E6FA-4758-BA45-83B727317FB2}" MaxAttenuation="100" DurationType="OneShot" DurationMin="22.47467" DurationMax="23.418663">
+					<MediaRefs>
+						<MediaRef Id="190658490"/>
+						<MediaRef Id="220852057"/>
+						<MediaRef Id="245026982"/>
+						<MediaRef Id="359623001"/>
+						<MediaRef Id="381461368"/>
+						<MediaRef Id="463811403"/>
+						<MediaRef Id="518477209"/>
+						<MediaRef Id="590694781"/>
+						<MediaRef Id="603147848"/>
+						<MediaRef Id="680715876"/>
+						<MediaRef Id="1056949508"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3381592253" Name="Play_WaterDrips" ObjectPath="\Events\ME_Event_WorkUnit\Play_WaterDrips" GUID="{E7F53904-0BAC-449F-A9BE-9960537FD1DA}" MaxAttenuation="100" DurationType="OneShot" DurationMin="49.808006" DurationMax="50.18134">
+					<MediaRefs>
+						<MediaRef Id="112092366"/>
+						<MediaRef Id="193726895"/>
+						<MediaRef Id="226741907"/>
+						<MediaRef Id="232035683"/>
+						<MediaRef Id="315945083"/>
+						<MediaRef Id="429035553"/>
+						<MediaRef Id="435388753"/>
+						<MediaRef Id="506465678"/>
+						<MediaRef Id="520872629"/>
+						<MediaRef Id="543312965"/>
+						<MediaRef Id="562104145"/>
+						<MediaRef Id="728950721"/>
+						<MediaRef Id="740990410"/>
+						<MediaRef Id="806618012"/>
+						<MediaRef Id="982660195"/>
+						<MediaRef Id="1039635913"/>
 					</MediaRefs>
 				</Event>
 			</Events>
@@ -65,5 +208,5 @@
 			<Path>Amos.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{9A51E4D7-B7EC-1993-74E4-857BD17DB148}</FileHash>
+	<FileHash>{116E7A95-287C-69F5-4231-423FA392FB4E}</FileHash>
 </SoundBanksInfo>

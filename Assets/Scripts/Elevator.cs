@@ -72,7 +72,6 @@ public class Elevator : MonoBehaviour
                     Debug.Log($"Teleporting player to {pairedElevator.name}");
                     player.transform.position = pairedElevator.transform.position;
                     dog.transform.position = pairedElevator.transform.position;
-                    AudioManager.Instance.PlayUsingElevator(); // Elevator sound effect
 
 
                     // Start cooldown
