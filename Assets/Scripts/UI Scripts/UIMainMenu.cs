@@ -71,4 +71,19 @@ public class UIMainMenu : MonoBehaviour
             panel.SetActive(false);
         }
     }
+
+    public void LoadGame()
+    {
+        bool loaded = SaveSystem.LoadGame(GameObject.FindWithTag("Player").transform, 
+                                        GameObject.FindWithTag("Ally").transform);
+        
+        if (loaded)
+        {
+            Debug.Log("Game Loaded via Pause Menu!");
+        }
+        else
+        {
+            Debug.LogWarning("No save file found!");
+        }
+    }
 }

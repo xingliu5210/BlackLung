@@ -46,6 +46,16 @@ public class PlayerMovement : MonoBehaviour
             Debug.LogError("Rigidbody component is missing on the Player GameObject.");
         }
     }
+    private void Start()
+    {
+        // Load game at start if save data exists
+        bool loaded = SaveSystem.LoadGame(transform, GameObject.FindWithTag("Ally").transform);
+        
+        if (loaded)
+        {
+            Debug.Log("Game loaded at startup.");
+        }
+    }
     protected virtual void FixedUpdate()
     { 
     }
