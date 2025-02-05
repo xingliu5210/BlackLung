@@ -94,7 +94,7 @@ public class CharacterSwitcher : MonoBehaviour
         playerControls.Player.Inventory.started += ctx => ToggleInventory();
 
         // Bind pause functionality to Esc key.
-        playerControls.Player.Pause.started += ctx => TogglePauseMenu();
+        //playerControls.Player.Pause.started += ctx => TogglePauseMenu();
     }
 
     /// <summary>

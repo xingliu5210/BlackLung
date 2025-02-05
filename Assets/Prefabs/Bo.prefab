@@ -12,6 +12,13 @@ GameObject:
   - component: {fileID: 4852824429821192469}
   - component: {fileID: 6991354294032209476}
   - component: {fileID: 5963073694512198951}
+  - component: {fileID: 3321816088878531405}
+  - component: {fileID: 3582872127169175411}
+  - component: {fileID: 3667953262515035793}
+  - component: {fileID: 508470538113480325}
+  - component: {fileID: 254049038573152848}
+  - component: {fileID: 8914308215458233690}
+  - component: {fileID: 7970636961739809252}
   m_Layer: 11
   m_Name: Bo
   m_TagString: Dog
@@ -94,6 +101,122 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &3321816088878531405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596696371067362545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76db96c1ba14e804790b4d973b503550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  airborne: 0
+  minFallHeight: 0
+  maxFallHeight: 0
+--- !u!114 &3582872127169175411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596696371067362545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9fd075d9c5264468c9d0d6fc5abd71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ally: {fileID: 0}
+  health: 0
+  maxHealth: 0
+  healthBar: {fileID: 0}
+--- !u!114 &3667953262515035793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596696371067362545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64ca6fe87e80fd44aaeafb92905c4f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ally: {fileID: 0}
+  spawnXOffset: 0
+--- !u!114 &508470538113480325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596696371067362545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55498f7a4edcd494cb8bc9933c0f3790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  jumpForce: 0
+  climbSpeed: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  groundCheckSize: {x: 0.9, y: 0.1, z: 0.9}
+  groundCheckDistance: 0.1
+  grounded: 0
+  isClimbing: 0
+  inAction: 0
+  mount: {fileID: 0}
+  amosback: 0
+  amos: {fileID: 2847827641146774932, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+  minFollowRange: 0
+  teleportRange: 0
+  barkRadius: 0
+--- !u!114 &254049038573152848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596696371067362545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 535c5d1faa03aab418dbddbf7873a708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRadius: 2
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  mount: {fileID: 0}
+--- !u!114 &8914308215458233690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596696371067362545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273e19950aec1be4e8feabe568d027e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7970636961739809252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596696371067362545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b317fc1d9355ef144ac6ca7702d238d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tunnelCooldown: 0
 --- !u!1 &7792828560607765960
 GameObject:
   m_ObjectHideFlags: 0
