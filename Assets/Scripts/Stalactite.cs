@@ -55,7 +55,6 @@ public class Stalactite : MonoBehaviour
 
     private void ActivateStalactite()
     {
-        AudioManager.Instance.PlayStalactitesFall();
         //animator.SetTrigger("warningTrigger");
         //animator.SetBool("InWarningRange", true);
         isActivated = true;
