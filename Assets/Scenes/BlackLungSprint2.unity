@@ -1220,12 +1220,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 508470538113480325, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: amos
+      value: 
+      objectReference: {fileID: 723582019}
+    - target: {fileID: 508470538113480325, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: speed
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 508470538113480325, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: jumpForce
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 508470538113480325, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: teleportRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 508470538113480325, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: minFollowRange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 508470538113480325, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: groundCheckSize.y
@@ -1247,6 +1259,14 @@ PrefabInstance:
       propertyPath: amos
       value: 
       objectReference: {fileID: 723582019}
+    - target: {fileID: 3321816088878531405, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: maxFallHeight
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3321816088878531405, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: minFallHeight
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3534248218595810644, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 77.2
@@ -1286,6 +1306,18 @@ PrefabInstance:
     - target: {fileID: 3534248218595810644, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582872127169175411, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582872127169175411, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 53993524}
+    - target: {fileID: 3582872127169175411, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: maxHealth
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7970636961739809252, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: tunnelCooldown
@@ -7051,6 +7083,10 @@ PrefabInstance:
       propertyPath: bo
       value: 
       objectReference: {fileID: 210073316}
+    - target: {fileID: 2303905559177237098, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+      propertyPath: whistleLearned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2303905559177237098, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
       propertyPath: footstepAudioManager
       value: 

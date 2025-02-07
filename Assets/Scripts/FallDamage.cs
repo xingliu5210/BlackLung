@@ -14,6 +14,11 @@ public class FallDamage : MonoBehaviour
     [SerializeField] private float minFallHeight; 
     [SerializeField] private float maxFallHeight;
 
+    public void FallStartSet()
+    {
+        fallStart = transform.position.y;
+    }
+
     private void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.CompareTag("Ground") && airborne)
@@ -26,14 +31,14 @@ public class FallDamage : MonoBehaviour
 
             float fallHeight = fallStart - fallEnd;
 
-            if(fallHeight >= minFallHeight)
+            if(fallHeight >= minFallHeight) // Determines if Damage should be taken
             {
-                if (fallHeight > maxFallHeight)
+                if (fallHeight > maxFallHeight) // Damage scaling cap
                 { fallHeight = maxFallHeight; }
                 
-                float normalizedFallHeight = (fallHeight - minFallHeight) / (maxFallHeight - minFallHeight);
+                float damageScale = (fallHeight - minFallHeight) / (maxFallHeight - minFallHeight); // Damage scaler 0 - 1
 
-                int damage = Mathf.RoundToInt(Mathf.Lerp(1f, 100f, normalizedFallHeight));
+                int damage = Mathf.RoundToInt(Mathf.Lerp(1f, 100f, damageScale)); // Translate (0 - 1)float to (0 - 100)int
 
                 Debug.Log("Player has taken " + damage + " fall damage.");
 
@@ -58,7 +63,7 @@ public class FallDamage : MonoBehaviour
     {
         if (!skipUpdate)
         {
-            if (airborne == false || GetComponent<PlayerMovement>().isClimbing || GetComponent<AmosControls>().hooking)
+            if (airborne == false || GetComponent<PlayerMovement>().isClimbing) //|| GetComponent<AmosControls>().hooking)
             { 
                 fallStart = transform.position.y;
                 Debug.Log("Player is airborn!");
