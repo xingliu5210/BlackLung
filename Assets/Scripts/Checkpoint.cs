@@ -24,7 +24,6 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.CompareTag("Checkpoint"))
         {
-            SaveSystem.SaveGame(other.transform, ally.transform);
             GetComponent<PlayerHealth>().FullHeal();
 
             spawnPosition = CheckpointPosition;
@@ -35,6 +34,7 @@ public class Checkpoint : MonoBehaviour
             ally.GetComponent<Checkpoint>().AllyCheckpoint();
 
             Debug.Log("Checkpoint set to " + CheckpointPosition);
+            SaveSystem.SaveGame(other.transform, ally.transform);
         }
     }
 

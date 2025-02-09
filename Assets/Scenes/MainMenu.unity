@@ -1359,7 +1359,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3151420731351871188, guid: 1c49951b259d74d48adbb0646a871f69, type: 3}
       propertyPath: m_Name
-      value: UIButton_GridElement
+      value: ContinueButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649866519116886055, guid: 1c49951b259d74d48adbb0646a871f69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1119808692}
+    - target: {fileID: 3649866519116886055, guid: 1c49951b259d74d48adbb0646a871f69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649866519116886055, guid: 1c49951b259d74d48adbb0646a871f69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIMainMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4247684601665586346, guid: 1c49951b259d74d48adbb0646a871f69, type: 3}
       propertyPath: m_text
