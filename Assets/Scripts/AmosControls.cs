@@ -49,6 +49,7 @@ public class AmosControls : PlayerMovement
         if (hooking == true)
         {
             hookingCounter++;
+            GetComponent<FallDamage>().FallStartSet();
 
             if (hookingCounter > 10)
             {

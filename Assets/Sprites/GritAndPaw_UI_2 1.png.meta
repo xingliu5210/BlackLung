@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: GritAndPaw_UI_2 1_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 648
+        width: 301
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f10efde6c61daac448fe8f1401fadb66
+      internalID: 1041019291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GritAndPaw_UI_2 1_1
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 648
+        width: 301
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c7f55a17cab5164c90645d5faa36994
+      internalID: 989787194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GritAndPaw_UI_2 1_2
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 648
+        width: 201
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d9f1d5e02c4ddf41a21dcdcbd7a11f4
+      internalID: -1281123862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GritAndPaw_UI_2 1_3
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 546
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdaf25492bfe225448c27e94c1f8f14e
+      internalID: 1022822773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GritAndPaw_UI_2 1_4
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 546
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 453b712060ae3794ea900f29c299e714
+      internalID: 2111276872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GritAndPaw_UI_2 1_5
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 631
+        width: 200
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d122b6f25b7cf604985e3a1ae50a909a
+      internalID: -1541194097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GritAndPaw_UI_2 1_6
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 591
+        width: 400
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c44314370c7ed540b1b55b4f965de5d
+      internalID: -116837730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GritAndPaw_UI_2 1_7
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 554
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 772bbfcffd0f56f4596999d82ad9086d
+      internalID: 2122419135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GritAndPaw_UI_2 1_8
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 528
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 207d25a9e17f36e40a1eb7fbe3b0dfa4
+      internalID: 838307002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GritAndPaw_UI_2 1_9
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 534
+        width: 400
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b37657a9ce4c902409cb22170b537dfe
+      internalID: -1137727221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GritAndPaw_UI_2 1_10
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 244
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 708e255b65fc2ab4fa4e3bd1f96f5346
+      internalID: 257270481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GritAndPaw_UI_2 1_11
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 493
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32b72e50bd9db974db3ca1a851599f4e
+      internalID: 1232471688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +371,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GritAndPaw_UI_2 1_0: 1041019291
+      GritAndPaw_UI_2 1_1: 989787194
+      GritAndPaw_UI_2 1_10: 257270481
+      GritAndPaw_UI_2 1_11: 1232471688
+      GritAndPaw_UI_2 1_2: -1281123862
+      GritAndPaw_UI_2 1_3: 1022822773
+      GritAndPaw_UI_2 1_4: 2111276872
+      GritAndPaw_UI_2 1_5: -1541194097
+      GritAndPaw_UI_2 1_6: -116837730
+      GritAndPaw_UI_2 1_7: 2122419135
+      GritAndPaw_UI_2 1_8: 838307002
+      GritAndPaw_UI_2 1_9: -1137727221
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
