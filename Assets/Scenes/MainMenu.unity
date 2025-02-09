@@ -995,6 +995,7 @@ MonoBehaviour:
   controllerPanel: {fileID: 1896021881}
   mouseKeyButton: {fileID: 1102882485}
   currentPanelOpen: {fileID: 0}
+  sceneManager: {fileID: 1119808691}
 --- !u!1 &1135323410
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,7 +1368,7 @@ PrefabInstance:
       objectReference: {fileID: 1119808692}
     - target: {fileID: 3649866519116886055, guid: 1c49951b259d74d48adbb0646a871f69, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadGame
+      value: StartGameAndLoad
       objectReference: {fileID: 0}
     - target: {fileID: 3649866519116886055, guid: 1c49951b259d74d48adbb0646a871f69, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2580,7 +2581,15 @@ PrefabInstance:
     - target: {fileID: 3649866519116886055, guid: 1c49951b259d74d48adbb0646a871f69, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1119808691}
+      objectReference: {fileID: 1119808692}
+    - target: {fileID: 3649866519116886055, guid: 1c49951b259d74d48adbb0646a871f69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartNewGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649866519116886055, guid: 1c49951b259d74d48adbb0646a871f69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIMainMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4247684601665586346, guid: 1c49951b259d74d48adbb0646a871f69, type: 3}
       propertyPath: m_text
       value: New Game

@@ -12,6 +12,7 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] GameObject controllerPanel;
     [SerializeField] Button mouseKeyButton;
     [SerializeField] GameObject currentPanelOpen;
+    [SerializeField] SceneController sceneManager;
 
     private void Start()
     {
@@ -72,18 +73,70 @@ public class UIMainMenu : MonoBehaviour
         }
     }
 
-    public void LoadGame()
+    public void StartGameAndLoad()
     {
-        bool loaded = SaveSystem.LoadGame(GameObject.FindWithTag("Player").transform, 
-                                        GameObject.FindWithTag("Ally").transform);
-        
-        if (loaded)
+        sceneManager.OnLoadFirstScene(); // Load the game scene
+        StartCoroutine(LoadGameAfterSceneLoad());
+    }
+
+    private IEnumerator LoadGameAfterSceneLoad()
+    {
+        // Wait for the next frame to ensure the scene is loaded
+        yield return new WaitForSeconds(0.1f);
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject ally = GameObject.FindGameObjectWithTag("Dog");
+
+        if (player != null && ally != null)
         {
-            Debug.Log("Game Loaded via Pause Menu!");
+            bool loaded = SaveSystem.LoadGame(player.transform, ally.transform);
+            if (loaded)
+            {
+                Debug.Log("Game Loaded after scene transition!");
+            }
+            else
+            {
+                Debug.LogWarning("No save file found!");
+            }
         }
         else
         {
-            Debug.LogWarning("No save file found!");
+            Debug.LogError("Player or Ally object not found in the gameplay scene.");
+        }
+    }
+
+    public void StartNewGame()
+    {
+        SaveSystem.DeleteSave(); // Clears previous save data
+        SaveSystem saveSystem = FindObjectOfType<SaveSystem>(); // Find SaveSystem instance
+
+        if (saveSystem != null)
+        {
+            saveSystem.ResetGame(); // Reset game state
+        }
+        else
+        {
+            Debug.LogError("SaveSystem not found in the scene!");
+        }
+
+        sceneManager.OnLoadFirstScene(); // Load first scene
+    }
+
+    private IEnumerator ResetGameAfterSceneLoad()
+    {
+        SaveSystem saveSystem = FindObjectOfType<SaveSystem>(); // Find SaveSystem instance
+        yield return new WaitForSeconds(0.1f); // Ensure the scene is loaded
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject bo = GameObject.FindGameObjectWithTag("Dog");
+
+        if (player != null && bo != null)
+        {
+            saveSystem.ResetGame();
+        }
+        else
+        {
+            Debug.LogError("Player or Ally not found in the scene!");
         }
     }
 }

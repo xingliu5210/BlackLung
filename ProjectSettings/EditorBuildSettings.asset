@@ -14,8 +14,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 916cef22c7587d3409ea50beed820827
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Grit&PawSPRINT1.unity
     guid: 6db0949dd1ae33c4aae8eb91bd8abd4c
+  - enabled: 1
+    path: Assets/Scenes/BlackLungSprint2.unity
+    guid: 7ae80fd958e88f941a8db8265ac1a5d0
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: bcb739cf481aa1f44bd3c4982d3df24b, type: 2}
