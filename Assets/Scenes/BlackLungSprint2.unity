@@ -1315,6 +1315,18 @@ PrefabInstance:
       propertyPath: ally
       value: 
       objectReference: {fileID: 723582019}
+    - target: {fileID: 3582872127169175411, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582872127169175411, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 53993524}
+    - target: {fileID: 3582872127169175411, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3667953262515035793, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: ally
       value: 
@@ -1331,6 +1343,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 53993524}
+    - target: {fileID: 8353918928381246048, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: m_Name
+      value: Bo_Rig
+      objectReference: {fileID: 0}
     - target: {fileID: 8693290530674778330, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.5
@@ -7091,22 +7107,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 81703556847634881, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+      propertyPath: m_Name
+      value: Amos_Rig
+      objectReference: {fileID: 0}
+    - target: {fileID: 750293949221589883, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.153
+      objectReference: {fileID: 0}
     - target: {fileID: 2303905559177237098, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
       propertyPath: bo
       value: 
       objectReference: {fileID: 210073316}
     - target: {fileID: 2303905559177237098, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
-      propertyPath: SaveSystem
-      value: 
-      objectReference: {fileID: 1986951275}
-    - target: {fileID: 2303905559177237098, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
       propertyPath: whistleLearned
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2303905559177237098, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
-      propertyPath: footstepAudioManager
-      value: 
-      objectReference: {fileID: 569016907}
     - target: {fileID: 2847827641146774932, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
       propertyPath: m_Name
       value: Amos
@@ -7115,22 +7131,10 @@ PrefabInstance:
       propertyPath: ally
       value: 
       objectReference: {fileID: 210073316}
-    - target: {fileID: 6703017310458631786, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
-      propertyPath: SaveSystem
+    - target: {fileID: 8681203968446822411, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+      propertyPath: ally
       value: 
-      objectReference: {fileID: 1986951275}
-    - target: {fileID: 6902182018999652075, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 6902182018999652075, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 7282723877011051402, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
-      propertyPath: m_Intensity
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 210073316}
     - target: {fileID: 8681203968446822411, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
       propertyPath: healthBar
       value: 
@@ -7175,8 +7179,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 923763454311498347, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+    - target: {fileID: 9024607623565704656, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 05560c54dac29da41b371a932286b909, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
