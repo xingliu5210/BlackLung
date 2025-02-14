@@ -1,12 +1,30 @@
 using UnityEngine;
 using System.IO;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class SaveData
 {
     public float playerX, playerY, playerZ;
     public float allyX, allyY, allyZ;
+
+    // Store elevator activation status using a serializable format
+    public List<ElevatorState> elevatorStates = new List<ElevatorState>();
 }
+
+[System.Serializable]
+public class ElevatorState
+{
+    public string elevatorName;
+    public bool isActivated;
+
+    public ElevatorState(string name, bool activated)
+    {
+        elevatorName = name;
+        isActivated = activated;
+    }
+}
+
 public class SaveSystem : MonoBehaviour
 {
     public GameObject player;
@@ -48,7 +66,8 @@ public class SaveSystem : MonoBehaviour
             playerZ = player.position.z,
             allyX = ally.position.x,
             allyY = ally.position.y,
-            allyZ = ally.position.z
+            allyZ = ally.position.z,
+            elevatorStates = GetElevatorStates()
         };
 
         string json = JsonUtility.ToJson(data, true);
@@ -72,6 +91,8 @@ public class SaveSystem : MonoBehaviour
 
         playerTransform.position = new Vector3(data.playerX, data.playerY, data.playerZ);
         allyTransform.position = new Vector3(data.allyX, data.allyY, data.allyZ);
+
+        RestoreElevatorStates(data.elevatorStates);
 
         Debug.Log("Game Loaded!");
         return true;
@@ -108,4 +129,34 @@ public class SaveSystem : MonoBehaviour
 
         Debug.Log("Game has been reset.");
     }
+    // **Helper Functions for Elevator State**
+    private static List<ElevatorState> GetElevatorStates()
+    {
+        List<ElevatorState> elevatorStates = new List<ElevatorState>();
+        Elevator[] elevators = GameObject.FindObjectsOfType<Elevator>();
+
+        foreach (Elevator elevator in elevators)
+        {
+            elevatorStates.Add(new ElevatorState(elevator.gameObject.name, elevator.IsActivated));
+        }
+
+        return elevatorStates;
+    }
+
+    private static void RestoreElevatorStates(List<ElevatorState> elevatorStates)
+    {
+        Elevator[] elevators = GameObject.FindObjectsOfType<Elevator>();
+
+       foreach (Elevator elevator in elevators)
+        {
+            foreach (ElevatorState state in elevatorStates)
+            {
+                if (elevator.gameObject.name == state.elevatorName)
+                {
+                    elevator.SetActivated(state.isActivated);
+                }
+            }
+        }
+    }
 }
+

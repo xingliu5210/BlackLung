@@ -7,6 +7,7 @@ public class Elevator : MonoBehaviour
     [SerializeField] private Elevator pairedElevator; // Destination floor for the elevator
     [SerializeField] private float teleportCooldown = 1f; // Cooldown to prevent instant re-teleportation  // Speed at which the elevator moves
     private bool isActivated;              // Tracks if the elevator is permanently activated
+    public bool IsActivated => isActivated; // Getter
     private bool isCooldown;               // Tracks if the teleport is on cooldown
 
     private void Awake()
@@ -96,5 +97,17 @@ public class Elevator : MonoBehaviour
         isCooldown = true;
         yield return new WaitForSeconds(teleportCooldown);
         isCooldown = false;
+    }
+
+    public void SetActivated(bool state)
+    {
+        isActivated = state;
+        gameObject.SetActive(state); // Activate/Deactivate accordingly
+    }
+
+    public void ActivateElevator()
+    {
+        isActivated = true;
+        Debug.Log("Elevator Activated!");
     }
 }
