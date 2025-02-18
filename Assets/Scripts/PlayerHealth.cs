@@ -11,15 +11,6 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth;
     [SerializeField] private Image healthBar;
 
-    private void Update()
-    {
-        
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Debug.Log("Take life");
-            Damage(25);
-        }
-    }
     public void Healthbar()
     {
         //Restrict Health to maximum/minimum

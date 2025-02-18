@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Lantern : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Lantern : MonoBehaviour
 
     [SerializeField] private Material material;
 
+    [SerializeField] private Image fuelBar;
+
     private float maxIntensity = 1.8f; //set max brightness
     private float fuelUsagePercentPerSec = 1.2f;
     private float fuelUsagePerSec;
@@ -28,6 +31,8 @@ public class Lantern : MonoBehaviour
         //Translate fuel usage from percentage and seconds
         fuelUsagePerSec = maxIntensity * (fuelUsagePercentPerSec / 100f / updateRate);
         currentColor = startColor;
+
+        UpdateFuelBar();
     }
     private void FixedUpdate()
     {
@@ -97,5 +102,11 @@ public class Lantern : MonoBehaviour
         //Limit to brightness maximum value
         if (lanternLight.intensity > maxIntensity)
         { lanternLight.intensity = maxIntensity; }
+        UpdateFuelBar();
+    }
+
+    private void UpdateFuelBar()
+    {
+        fuelBar.fillAmount = Mathf.Clamp(currentFuelPercent / 1f, 0, 1);
     }
 }
