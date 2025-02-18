@@ -58,6 +58,7 @@ public class Lantern : MonoBehaviour
             material.SetColor("Color", currentColor); 
             material.SetColor("_EmissionColor", currentColor); 
         }
+        UpdateFuelBar();
     }
 
     public void PowerToggle()
@@ -102,11 +103,10 @@ public class Lantern : MonoBehaviour
         //Limit to brightness maximum value
         if (lanternLight.intensity > maxIntensity)
         { lanternLight.intensity = maxIntensity; }
-        UpdateFuelBar();
     }
 
     private void UpdateFuelBar()
     {
-        fuelBar.fillAmount = Mathf.Clamp(currentFuelPercent / 1f, 0, 1);
+        fuelBar.fillAmount = Mathf.Clamp(currentFuelPercent, 0, 1);
     }
 }
