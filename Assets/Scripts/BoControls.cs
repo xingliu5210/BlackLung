@@ -121,9 +121,22 @@ public class BoControls : PlayerMovement
         Gizmos.DrawWireCube(boxCenter, groundCheckSize);
     }
 
+    protected override void Jumping()
+    {
+        //Jumping animation
+        anim.SetTrigger("jump");
+    }
+
 
     protected override void Update()
     {
         base.Update();
+
+        // Move Animations
+        anim.SetFloat("moveSpd", Mathf.Abs(body.velocity.x));
+
+        // Landing animation
+        if (grounded == false) anim.SetBool("grounded", false);
+        else anim.SetBool("grounded", true);
     }
 }
