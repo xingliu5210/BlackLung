@@ -10,6 +10,7 @@ public class SaveData
 
     // Store elevator activation status using a serializable format
     public List<ElevatorState> elevatorStates = new List<ElevatorState>();
+    public List<string> collectedKeys = new List<string>();
 }
 
 [System.Serializable]
@@ -33,6 +34,8 @@ public class SaveSystem : MonoBehaviour
     private Vector3 boStartPos = new Vector3 (77.2f, 1.4f, 0);
     private static string savePath => Application.persistentDataPath + "/savegame.json";
     private static SaveSystem instance;
+    private static HashSet<string> collectedKeysList = new HashSet<string>();
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -67,7 +70,8 @@ public class SaveSystem : MonoBehaviour
             allyX = ally.position.x,
             allyY = ally.position.y,
             allyZ = ally.position.z,
-            elevatorStates = GetElevatorStates()
+            elevatorStates = GetElevatorStates(),
+            collectedKeys = new List<string>(collectedKeysList)
         };
 
         string json = JsonUtility.ToJson(data, true);
@@ -93,6 +97,8 @@ public class SaveSystem : MonoBehaviour
         allyTransform.position = new Vector3(data.allyX, data.allyY, data.allyZ);
 
         RestoreElevatorStates(data.elevatorStates);
+        RestoreCollectedKeys(data.collectedKeys);
+        RespawnTemporaryObjects();
 
         Debug.Log("Game Loaded!");
         return true;
@@ -156,6 +162,50 @@ public class SaveSystem : MonoBehaviour
                     elevator.SetActivated(state.isActivated);
                 }
             }
+        }
+    }
+    private static void RestoreCollectedKeys(List<string> collectedKeys)
+    {
+        collectedKeysList.Clear();
+        foreach (string keyName in collectedKeys)
+        {
+            collectedKeysList.Add(keyName); // ✅ Re-add keys to memory
+        }
+
+        Item[] keys = GameObject.FindObjectsOfType<Item>();
+
+        foreach (Item key in keys)
+        {
+            if (key.type == Item.InteractionType.Key && collectedKeysList.Contains(key.gameObject.name))
+            {
+                key.gameObject.SetActive(false); // ✅ Disable picked-up keys
+                Debug.Log("Restored: Key " + key.gameObject.name + " is disabled.");
+            }
+        }
+    }
+
+    // **Respawning Temporary Objects**
+    private static void RespawnTemporaryObjects()
+    {
+        string[] respawnTags = { "Enemy", "Stalactite", "Fuel", "Platform" };
+
+        foreach (string tag in respawnTags)
+        {
+            GameObject[] objects = GameObject.FindGameObjectsWithTag(tag);
+
+            foreach (GameObject obj in objects)
+            {
+                obj.SetActive(true);
+            }
+        }
+    }
+
+    // ✅ Store the name of the picked-up key
+    public static void RegisterKeyPickup(string keyName)
+    {
+        if (!collectedKeysList.Contains(keyName))
+        {
+            collectedKeysList.Add(keyName);
         }
     }
 }

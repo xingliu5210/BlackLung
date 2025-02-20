@@ -26,7 +26,11 @@ public class Item : MonoBehaviour
             case InteractionType.Key:
                 Debug.Log("Picked up a key.");
                 playerInventory.AddKey(); // Add key to inventory
-                Destroy(gameObject); // Remove the key after picking it up
+
+                // **Mark this key as collected before destroying**
+                SaveSystem.RegisterKeyPickup(gameObject.name);
+
+                gameObject.SetActive(false); // **Deactivate instead of Destroy**
                 break;
             case InteractionType.Fuel:
                 Debug.Log("Picked up a fuel. +20%");

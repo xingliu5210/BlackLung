@@ -4280,6 +4280,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stalactite (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7302735463913297014, guid: 86b66767d9ff8714e98ba2cbcdb393bc, type: 3}
+      propertyPath: m_TagString
+      value: Stalactite
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4460,6 +4464,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stalactite (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7302735463913297014, guid: 86b66767d9ff8714e98ba2cbcdb393bc, type: 3}
+      propertyPath: m_TagString
+      value: Stalactite
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4521,6 +4529,10 @@ PrefabInstance:
     - target: {fileID: 7302735463913297014, guid: 86b66767d9ff8714e98ba2cbcdb393bc, type: 3}
       propertyPath: m_Name
       value: Stalactite (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302735463913297014, guid: 86b66767d9ff8714e98ba2cbcdb393bc, type: 3}
+      propertyPath: m_TagString
+      value: Stalactite
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4831,6 +4843,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7707706531322493293, guid: b6ad3863a188aee45bdfa69c2897f8b8, type: 3}
       propertyPath: m_Name
+      value: Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707706531322493293, guid: b6ad3863a188aee45bdfa69c2897f8b8, type: 3}
+      propertyPath: m_TagString
       value: Key
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6045,6 +6061,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fuel (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7250927755321826315, guid: 6a812c7b2d785664e8df52174917dc8d, type: 3}
+      propertyPath: m_TagString
+      value: Fuel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7123,6 +7143,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7250927755321826315, guid: 6a812c7b2d785664e8df52174917dc8d, type: 3}
       propertyPath: m_Name
+      value: Fuel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250927755321826315, guid: 6a812c7b2d785664e8df52174917dc8d, type: 3}
+      propertyPath: m_TagString
       value: Fuel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8970,6 +8994,10 @@ PrefabInstance:
     - target: {fileID: 7302735463913297014, guid: 86b66767d9ff8714e98ba2cbcdb393bc, type: 3}
       propertyPath: m_Name
       value: Stalactite (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302735463913297014, guid: 86b66767d9ff8714e98ba2cbcdb393bc, type: 3}
+      propertyPath: m_TagString
+      value: Stalactite
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11093,6 +11121,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stalactite (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7302735463913297014, guid: 86b66767d9ff8714e98ba2cbcdb393bc, type: 3}
+      propertyPath: m_TagString
+      value: Stalactite
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11396,6 +11428,10 @@ PrefabInstance:
     - target: {fileID: 7302735463913297014, guid: 86b66767d9ff8714e98ba2cbcdb393bc, type: 3}
       propertyPath: m_Name
       value: Stalactite (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302735463913297014, guid: 86b66767d9ff8714e98ba2cbcdb393bc, type: 3}
+      propertyPath: m_TagString
+      value: Stalactite
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12054,6 +12090,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Key (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7707706531322493293, guid: b6ad3863a188aee45bdfa69c2897f8b8, type: 3}
+      propertyPath: m_TagString
+      value: Key
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12183,6 +12223,10 @@ PrefabInstance:
     - target: {fileID: 7250927755321826315, guid: 6a812c7b2d785664e8df52174917dc8d, type: 3}
       propertyPath: m_Name
       value: Fuel (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250927755321826315, guid: 6a812c7b2d785664e8df52174917dc8d, type: 3}
+      propertyPath: m_TagString
+      value: Fuel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13497,6 +13541,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fuel (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7250927755321826315, guid: 6a812c7b2d785664e8df52174917dc8d, type: 3}
+      propertyPath: m_TagString
+      value: Fuel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13762,6 +13810,10 @@ PrefabInstance:
     - target: {fileID: 7302735463913297014, guid: 86b66767d9ff8714e98ba2cbcdb393bc, type: 3}
       propertyPath: m_Name
       value: Stalactite (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302735463913297014, guid: 86b66767d9ff8714e98ba2cbcdb393bc, type: 3}
+      propertyPath: m_TagString
+      value: Stalactite
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
