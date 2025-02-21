@@ -11,6 +11,7 @@ public class SaveData
     // Store elevator activation status using a serializable format
     public List<ElevatorState> elevatorStates = new List<ElevatorState>();
     public List<string> collectedKeys = new List<string>();
+    public Dictionary<string, int> inventoryItems;
 }
 
 [System.Serializable]
@@ -71,7 +72,8 @@ public class SaveSystem : MonoBehaviour
             allyY = ally.position.y,
             allyZ = ally.position.z,
             elevatorStates = GetElevatorStates(),
-            collectedKeys = new List<string>(collectedKeysList)
+            collectedKeys = new List<string>(collectedKeysList),
+            inventoryItems = InventoryManager.Instance.SaveInventoryData()
         };
 
         string json = JsonUtility.ToJson(data, true);
@@ -97,6 +99,7 @@ public class SaveSystem : MonoBehaviour
         allyTransform.position = new Vector3(data.allyX, data.allyY, data.allyZ);
 
         RestoreElevatorStates(data.elevatorStates);
+        InventoryManager.Instance.LoadInventoryData(data.inventoryItems);
         RestoreCollectedKeys(data.collectedKeys);
         RespawnTemporaryObjects();
 

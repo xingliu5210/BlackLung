@@ -60,4 +60,17 @@ public class InventoryManager : MonoBehaviour
     {
         return inventoryItems.ContainsKey(item) ? inventoryItems[item] : 0;
     }
+
+    // method to return inventory data for saving
+    public Dictionary<string, int> SaveInventoryData()
+    {
+        return new Dictionary<string, int>(inventoryItems);
+    }
+
+    // method to restore inventory from save file
+    public void LoadInventoryData(Dictionary<string, int> savedInventory)
+    {
+        inventoryItems = new Dictionary<string, int>(savedInventory);
+        Debug.Log("Inventory Loaded: " + string.Join(", ", inventoryItems));
+    }
 }
