@@ -27,9 +27,10 @@ public class Checkpoint : MonoBehaviour
         {
             GetComponent<PlayerHealth>().FullHeal();
 
+            CheckpointPosition = other.transform.position;
             spawnPosition = CheckpointPosition;
             spawnPosition.x += spawnXOffset;
-            CheckpointPosition = other.transform.position;
+            // CheckpointPosition = other.transform.position;
             ally.transform.position = spawnPosition;
 
             ally.GetComponent<Checkpoint>().AllyCheckpoint();
