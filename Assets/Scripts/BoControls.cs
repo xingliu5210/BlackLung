@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AK.Wwise;
 
 public class BoControls : PlayerMovement
 {
+    [SerializeField] AK.Wwise.Event boBarkEvent;
     public bool amosback;
     [SerializeField] private GameObject amos;
     [SerializeField] private float minFollowRange;
@@ -92,6 +94,7 @@ public class BoControls : PlayerMovement
     {
         base.BarkWhip();
         Debug.Log("BARK ");
+        PlayBarkSound();
         // Trigger the dog barking
         //onBark.Invoke();
         Collider[] objectsInRange = Physics.OverlapSphere(transform.position, barkRadius);
@@ -138,5 +141,10 @@ public class BoControls : PlayerMovement
         // Landing animation
         if (grounded == false) anim.SetBool("grounded", false);
         else anim.SetBool("grounded", true);
+    }
+
+    private void PlayBarkSound()
+    {
+        AkSoundEngine.PostEvent(boBarkEvent.Id, this.gameObject);
     }
 }

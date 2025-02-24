@@ -1,6 +1,12 @@
 Event	ID	Name			Wwise Object Path	Notes
-	578142713	Play_Pickup_Fuel			\Default Work Unit\Play_Pickup_Fuel	
+	44584836	Play_Lantern_Fuel_PickUp			\Default Work Unit\Tools\Lantern\Play_Lantern_Fuel_PickUp	
+	2347498863	Play_Elevator_Key_PickUp			\Default Work Unit\Tools\Elevator\Play_Elevator_Key_PickUp	
+	2564111373	Play_Lnatern_Switch_Off			\Default Work Unit\Tools\Lantern\Play_Lnatern_Switch_Off	
+	3740452215	Play_Lantern_Switch_On			\Default Work Unit\Tools\Lantern\Play_Lantern_Switch_On	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	20457821	Pickup_Fuel_01	Z:\Volumes\Archive01\CCC\Media\P1\GritandPaw\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Pickup_Fuel_01_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Pickup_Fuel_01		264700
+	20457821	Pickup_Fuel_01	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Pickup_Fuel_01_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Lantern\Pickup_Fuel_01		264700
+	458750129	Lantern_Switch_Off	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Lantern_Off_02_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Lantern\Lantern_Switch_Off		192096
+	709264786	Elevator_Key_PickUp	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Pickup_Key_01_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Elevator\Elevator_Key_PickUp		308800
+	1000970244	Lantren_Switch_On	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Lantren_On_04_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Lantern\Lantren_Switch_On		288096
 

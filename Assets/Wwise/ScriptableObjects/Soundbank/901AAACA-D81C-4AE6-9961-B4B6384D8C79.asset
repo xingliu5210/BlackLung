@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b38b28185b9e9460a847710abb81a2d1, type: 3}
+  m_Name: 901AAACA-D81C-4AE6-9961-B4B6384D8C79
+  m_EditorClassIdentifier: 
+  objectName: Amos
+  id: 3587989757
+  guid: 901AAACA-D81C-4AE6-9961-B4B6384D8C79
