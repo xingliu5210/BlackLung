@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 96021130e9f0f04590841e3b4f96d2ca
     GuidInternal: 
-    m_lastTime: -8584628312967048608
+    m_lastTime: -8584627429971648745
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 59faefa4061ff145860af744d804a85b
     GuidInternal: 
-    m_lastTime: -8584628312973164259
+    m_lastTime: -8584627430003632114
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 147cf98059949f49a0c1ac37de744d60
     GuidInternal: 
-    m_lastTime: -8584628312967093672
+    m_lastTime: -8584612161236385213
     List:
     - name: Amos
       guid: caaa1a901cd8e64a9961b4b6384d8c79
@@ -107,7 +107,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\ME_SoundBank_WorkUnit
     guid: 11ed9adaabb28043bf140b7aefdc03ff
     GuidInternal: 
-    m_lastTime: -8584628312967083661
+    m_lastTime: -8584627429971779799
     List:
     - name: Ambience
       guid: 0d54b832657548468d33c32673ad17ec
@@ -135,8 +135,336 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2d6fe38b65a02e4d9bf97df545c8a150
     GuidInternal: 
-    m_lastTime: -8584628312973277621
+    m_lastTime: -8584612161236656597
     List:
+    - name: Amos
+      guid: 3dd5b71369c24f44b388b5028ae0c5dc
+      id: 3587989757
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Characters
+        ObjectType: 4
+        guid: def827be3043c3428c76d078da7274bc
+      - ElementName: Amos
+        ObjectType: 4
+        guid: 3dd5b71369c24f44b388b5028ae0c5dc
+      Path: Events\Default Work Unit\Characters\Amos
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Bo
+      guid: f3463aed61429c4eb6abef206003f106
+      id: 1870080936
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Characters
+        ObjectType: 4
+        guid: def827be3043c3428c76d078da7274bc
+      - ElementName: Bo
+        ObjectType: 4
+        guid: f3463aed61429c4eb6abef206003f106
+      Path: Events\Default Work Unit\Characters\Bo
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Characters
+      guid: def827be3043c3428c76d078da7274bc
+      id: 1557941045
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Characters
+        ObjectType: 4
+        guid: def827be3043c3428c76d078da7274bc
+      Path: Events\Default Work Unit\Characters
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Cloths
+      guid: 9a470bf2f26c414bb5eca764977432db
+      id: 3095375362
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Characters
+        ObjectType: 4
+        guid: def827be3043c3428c76d078da7274bc
+      - ElementName: Amos
+        ObjectType: 4
+        guid: 3dd5b71369c24f44b388b5028ae0c5dc
+      - ElementName: Cloths
+        ObjectType: 4
+        guid: 9a470bf2f26c414bb5eca764977432db
+      Path: Events\Default Work Unit\Characters\Amos\Cloths
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Footstep
+      guid: 90c76d4a8594dc46813d4b8343523085
+      id: 1866025847
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Characters
+        ObjectType: 4
+        guid: def827be3043c3428c76d078da7274bc
+      - ElementName: Amos
+        ObjectType: 4
+        guid: 3dd5b71369c24f44b388b5028ae0c5dc
+      - ElementName: Footstep
+        ObjectType: 4
+        guid: 90c76d4a8594dc46813d4b8343523085
+      Path: Events\Default Work Unit\Characters\Amos\Footstep
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Footstep
+      guid: 0954223431fe8848bf2dd89d085d270f
+      id: 1866025847
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Characters
+        ObjectType: 4
+        guid: def827be3043c3428c76d078da7274bc
+      - ElementName: Bo
+        ObjectType: 4
+        guid: f3463aed61429c4eb6abef206003f106
+      - ElementName: Footstep
+        ObjectType: 4
+        guid: 0954223431fe8848bf2dd89d085d270f
+      Path: Events\Default Work Unit\Characters\Bo\Footstep
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Lantern
+      guid: 773da20f8432d845bb792e16220e6e2d
+      id: 1937850491
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Tools
+        ObjectType: 4
+        guid: e7e68b7eef766d47888e0beef5e966af
+      - ElementName: Lantern
+        ObjectType: 4
+        guid: 773da20f8432d845bb792e16220e6e2d
+      Path: Events\Default Work Unit\Tools\Lantern
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Cloth_Land
+      guid: 57982e9b64b41148a45130f79744eb0c
+      id: 1764375706
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Characters
+        ObjectType: 4
+        guid: def827be3043c3428c76d078da7274bc
+      - ElementName: Amos
+        ObjectType: 4
+        guid: 3dd5b71369c24f44b388b5028ae0c5dc
+      - ElementName: Cloths
+        ObjectType: 4
+        guid: 9a470bf2f26c414bb5eca764977432db
+      - ElementName: Play_Cloth_Land
+        ObjectType: 3
+        guid: 57982e9b64b41148a45130f79744eb0c
+      Path: Events\Default Work Unit\Characters\Amos\Cloths\Play_Cloth_Land
+      maxAttenuation: 0
+      maxDuration: 1.4054866
+      minDuration: 0.9067487
+    - name: Play_Cloth_Run
+      guid: e51bb0f5a219184cb65cea1758a40ee1
+      id: 2772643996
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Characters
+        ObjectType: 4
+        guid: def827be3043c3428c76d078da7274bc
+      - ElementName: Amos
+        ObjectType: 4
+        guid: 3dd5b71369c24f44b388b5028ae0c5dc
+      - ElementName: Cloths
+        ObjectType: 4
+        guid: 9a470bf2f26c414bb5eca764977432db
+      - ElementName: Play_Cloth_Run
+        ObjectType: 3
+        guid: e51bb0f5a219184cb65cea1758a40ee1
+      Path: Events\Default Work Unit\Characters\Amos\Cloths\Play_Cloth_Run
+      maxAttenuation: 0
+      maxDuration: 0.6162242
+      minDuration: 0.4419556
+    - name: Play_Cloth_Walk
+      guid: 065408dce1b11f409c02c4dbe0086146
+      id: 282740138
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Characters
+        ObjectType: 4
+        guid: def827be3043c3428c76d078da7274bc
+      - ElementName: Amos
+        ObjectType: 4
+        guid: 3dd5b71369c24f44b388b5028ae0c5dc
+      - ElementName: Cloths
+        ObjectType: 4
+        guid: 9a470bf2f26c414bb5eca764977432db
+      - ElementName: Play_Cloth_Walk
+        ObjectType: 3
+        guid: 065408dce1b11f409c02c4dbe0086146
+      Path: Events\Default Work Unit\Characters\Amos\Cloths\Play_Cloth_Walk
+      maxAttenuation: 0
+      maxDuration: 1.4037054
+      minDuration: 0.6555989
+    - name: Play_Footstep_Climb
+      guid: 2e143fa4ffbc3a4682843e39ca82d78f
+      id: 4182872170
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Characters
+        ObjectType: 4
+        guid: def827be3043c3428c76d078da7274bc
+      - ElementName: Amos
+        ObjectType: 4
+        guid: 3dd5b71369c24f44b388b5028ae0c5dc
+      - ElementName: Footstep
+        ObjectType: 4
+        guid: 90c76d4a8594dc46813d4b8343523085
+      - ElementName: Play_Footstep_Climb
+        ObjectType: 3
+        guid: 2e143fa4ffbc3a4682843e39ca82d78f
+      Path: Events\Default Work Unit\Characters\Amos\Footstep\Play_Footstep_Climb
+      maxAttenuation: 0
+      maxDuration: 1.003496
+      minDuration: 0.35719612
+    - name: Play_Footstep_Land
+      guid: 66667d2574a2c94bb8333784386d312e
+      id: 2435142848
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Characters
+        ObjectType: 4
+        guid: def827be3043c3428c76d078da7274bc
+      - ElementName: Amos
+        ObjectType: 4
+        guid: 3dd5b71369c24f44b388b5028ae0c5dc
+      - ElementName: Footstep
+        ObjectType: 4
+        guid: 90c76d4a8594dc46813d4b8343523085
+      - ElementName: Play_Footstep_Land
+        ObjectType: 3
+        guid: 66667d2574a2c94bb8333784386d312e
+      Path: Events\Default Work Unit\Characters\Amos\Footstep\Play_Footstep_Land
+      maxAttenuation: 0
+      maxDuration: 1.4058235
+      minDuration: 0.4602491
+    - name: Play_Footstep_Run
+      guid: fa20b46928579f44a2ac64b34f1a5d33
+      id: 1276431738
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Characters
+        ObjectType: 4
+        guid: def827be3043c3428c76d078da7274bc
+      - ElementName: Amos
+        ObjectType: 4
+        guid: 3dd5b71369c24f44b388b5028ae0c5dc
+      - ElementName: Footstep
+        ObjectType: 4
+        guid: 90c76d4a8594dc46813d4b8343523085
+      - ElementName: Play_Footstep_Run
+        ObjectType: 3
+        guid: fa20b46928579f44a2ac64b34f1a5d33
+      Path: Events\Default Work Unit\Characters\Amos\Footstep\Play_Footstep_Run
+      maxAttenuation: 0
+      maxDuration: 0.646817
+      minDuration: 0.42851272
+    - name: Play_Footstep_Walk
+      guid: a621a515199da34c90eb3ddfcbe4c97f
+      id: 2256727140
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Characters
+        ObjectType: 4
+        guid: def827be3043c3428c76d078da7274bc
+      - ElementName: Amos
+        ObjectType: 4
+        guid: 3dd5b71369c24f44b388b5028ae0c5dc
+      - ElementName: Footstep
+        ObjectType: 4
+        guid: 90c76d4a8594dc46813d4b8343523085
+      - ElementName: Play_Footstep_Walk
+        ObjectType: 3
+        guid: a621a515199da34c90eb3ddfcbe4c97f
+      Path: Events\Default Work Unit\Characters\Amos\Footstep\Play_Footstep_Walk
+      maxAttenuation: 0
+      maxDuration: 1.4037054
+      minDuration: 0.65219986
     - name: Play_Pickup_Fuel
       guid: b3633dd49c543745a7e63fedb78e661c
       id: 578142713
@@ -147,13 +475,36 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Tools
+        ObjectType: 4
+        guid: e7e68b7eef766d47888e0beef5e966af
+      - ElementName: Lantern
+        ObjectType: 4
+        guid: 773da20f8432d845bb792e16220e6e2d
       - ElementName: Play_Pickup_Fuel
         ObjectType: 3
         guid: b3633dd49c543745a7e63fedb78e661c
-      Path: Events\Default Work Unit\Play_Pickup_Fuel
+      Path: Events\Default Work Unit\Tools\Lantern\Play_Pickup_Fuel
       maxAttenuation: 0
       maxDuration: 1.7838376
       minDuration: 1.2613637
+    - name: Tools
+      guid: e7e68b7eef766d47888e0beef5e966af
+      id: 1353321450
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2d6fe38b65a02e4d9bf97df545c8a150
+      - ElementName: Tools
+        ObjectType: 4
+        guid: e7e68b7eef766d47888e0beef5e966af
+      Path: Events\Default Work Unit\Tools
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   - PhysicalPath: Events\ME_Event_WorkUnit.wwu
     PathAndIcons:
     - ElementName: Events
@@ -165,7 +516,7 @@ MonoBehaviour:
     ParentPath: Events\ME_Event_WorkUnit
     guid: 87197f5cf291e341acf805d9e0288c11
     GuidInternal: 
-    m_lastTime: -8584628312973277621
+    m_lastTime: -8584627430004052034
     List:
     - name: Play_ambience_cave
       guid: 019bba1be4910046b76cf0aa51db38dd
@@ -230,7 +581,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 2c500b95ca42b848ac24b04f36168af1
     GuidInternal: 
-    m_lastTime: -8584628312973267911
+    m_lastTime: -8584627430004032083
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -244,7 +595,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: a28827b1fda31446a4ca51ebcef7e49a
     GuidInternal: 
-    m_lastTime: -8584628312967063665
+    m_lastTime: -8584627429971734209
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -258,8 +609,90 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: c751e87686109141b3d7bad065297481
     GuidInternal: 
-    m_lastTime: -8584628312967063665
-    List: []
+    m_lastTime: -8584612986398704803
+    List:
+    - name: Surfaces
+      guid: de057143eeff0c4ea50cf1635ec9a7f5
+      id: 3714303081
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: c751e87686109141b3d7bad065297481
+      - ElementName: Surfaces
+        ObjectType: 11
+        guid: de057143eeff0c4ea50cf1635ec9a7f5
+      Path: Switches\Default Work Unit\Surfaces
+      values:
+      - name: Dirt
+        guid: c041c34b545b7d46a8376210eedeffc3
+        id: 2195636714
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: c751e87686109141b3d7bad065297481
+        - ElementName: Surfaces
+          ObjectType: 11
+          guid: de057143eeff0c4ea50cf1635ec9a7f5
+        - ElementName: Dirt
+          ObjectType: 10
+          guid: c041c34b545b7d46a8376210eedeffc3
+      - name: Metal
+        guid: 8d122f67f486e644898c5f9bc3328dd7
+        id: 2473969246
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: c751e87686109141b3d7bad065297481
+        - ElementName: Surfaces
+          ObjectType: 11
+          guid: de057143eeff0c4ea50cf1635ec9a7f5
+        - ElementName: Metal
+          ObjectType: 10
+          guid: 8d122f67f486e644898c5f9bc3328dd7
+      - name: Stone
+        guid: a510eccb33bbd5488d6f75d57b9e589b
+        id: 1216965916
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: c751e87686109141b3d7bad065297481
+        - ElementName: Surfaces
+          ObjectType: 11
+          guid: de057143eeff0c4ea50cf1635ec9a7f5
+        - ElementName: Stone
+          ObjectType: 10
+          guid: a510eccb33bbd5488d6f75d57b9e589b
+      - name: Wood
+        guid: c335427ab69c2a40a59e9660c2f36cab
+        id: 2058049674
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: c751e87686109141b3d7bad065297481
+        - ElementName: Surfaces
+          ObjectType: 11
+          guid: de057143eeff0c4ea50cf1635ec9a7f5
+        - ElementName: Wood
+          ObjectType: 10
+          guid: c335427ab69c2a40a59e9660c2f36cab
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     PathAndIcons:
@@ -272,10 +705,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 4e7c2ef5b3a95a43b3ef6015fed614c1
     GuidInternal: 
-    m_lastTime: -8584628312967053680
+    m_lastTime: -8584627429971668757
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 05000000060000000700000008000000090000000c0000000d00000010000000
+  ExpandedWaapiItemIds: 05000000060000000700000008000000090000000c0000000d0000000f0000001100000015000000160000001700000018000000240000002c000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

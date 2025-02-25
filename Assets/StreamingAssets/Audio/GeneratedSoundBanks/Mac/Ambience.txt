@@ -5,7 +5,7 @@ Event	ID	Name			Wwise Object Path	Notes
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	112092366	WaterDrip_2	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_2_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_2		737684
-	164796356	ambience_cave_01	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\ambience_cave_01 _E3F3C005.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\ambience_cave_01		4410164
+	164796356	ambience_cave_01	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\ambience_cave_01 _DC9E72EB.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\ambience_cave_01		4410164
 	190658490	RocksFall_3	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Rocks\RocksFall_3_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Rocks\RocksFall_3		175084
 	193726895	WaterDrip_5	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Drips\WaterDrip_5_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Drips\WaterDrip_5		737684
 	220852057	RocksFall_1	C:\Users\milee\OneDrive\Desktop\Games\BlackLung\BlackLung_WwiseProject\.cache\Mac\SFX\Amb\Rocks\RocksFall_1_818F3B66.wem		\Actor-Mixer Hierarchy\ME_WorkUnit\Ambience\Rocks\RocksFall_1		250348

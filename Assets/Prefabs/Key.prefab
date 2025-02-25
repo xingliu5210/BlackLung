@@ -216,4 +216,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54a1af60bdcfc5c4cbfe3a5bcdd8e85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lanternPickUpFuelEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d4d36a2a2ba3849b787e0dbe07d3e875, type: 2}
+  elevatorPickUpKeyEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0c26cd9dcb16c044b8c2d24907b879e4, type: 2}
   type: 3

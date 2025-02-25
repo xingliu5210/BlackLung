@@ -3,17 +3,211 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Play_Pickup_Fuel" ID="{D43D63B3-549C-4537-A7E6-3FEDB78E661C}">
+				<Folder Name="Characters" ID="{BE27F8DE-4330-42C3-8C76-D078DA7274BC}" ShortID="446120974">
 					<ChildrenList>
-						<Action Name="" ID="{2A11800C-2098-4881-9F26-AF2C15E4B976}" ShortID="905496892">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Pickup_Fuel_01" ID="{75A94FE1-205F-4D31-9E48-DBE2C16215B6}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
+						<Folder Name="Amos" ID="{13B7D53D-C269-444F-B388-B5028AE0C5DC}" ShortID="861827898">
+							<ChildrenList>
+								<Folder Name="Cloths" ID="{F20B479A-6CF2-4B41-B5EC-A764977432DB}" ShortID="944417410">
+									<ChildrenList>
+										<Event Name="Play_Cloth_Walk" ID="{DC085406-B1E1-401F-9C02-C4DBE0086146}">
+											<ChildrenList>
+												<Action Name="" ID="{9E72FD27-8FEE-4176-8B4B-8C8153E3E087}" ShortID="389971597">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Cloth_Walk" ID="{D3B4F80D-F6D7-4722-81EF-0801DECC3FC6}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_Cloth_Run" ID="{F5B01BE5-19A2-4C18-B65C-EA1758A40EE1}">
+											<ChildrenList>
+												<Action Name="" ID="{09729C46-C425-4D5A-B651-2E37BFD82FB6}" ShortID="703501253">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Cloth_Run" ID="{CFBD8056-0E06-46F0-9BF0-FE3E6D3D85CC}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_Cloth_Land" ID="{9B2E9857-B464-4811-A451-30F79744EB0C}">
+											<ChildrenList>
+												<Action Name="" ID="{D6F4438D-5FC3-418C-8674-BEC265479CDE}" ShortID="159677811">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Cloth_Land" ID="{362B0120-9038-4595-BB8A-A98235554672}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+									</ChildrenList>
+								</Folder>
+								<Folder Name="Footstep" ID="{4A6DC790-9485-46DC-813D-4B8343523085}" ShortID="186972088">
+									<ChildrenList>
+										<Event Name="Play_Footstep_Walk" ID="{15A521A6-9D19-4CA3-90EB-3DDFCBE4C97F}">
+											<ChildrenList>
+												<Action Name="" ID="{621A5448-44CB-49C3-9FBC-DF5584E84656}" ShortID="134344881">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Walking" ID="{7FE8085C-1530-4FED-91EA-94A61879D78D}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_Footstep_Land" ID="{257D6666-A274-4BC9-B833-3784386D312E}">
+											<ChildrenList>
+												<Action Name="" ID="{702AAE3B-1DF2-486C-B5AA-736DAE865EB0}" ShortID="114556680">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Landing" ID="{C8837546-6A7E-42CC-8D43-426CAD5F74FF}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_Footstep_Run" ID="{69B420FA-5728-449F-A2AC-64B34F1A5D33}">
+											<ChildrenList>
+												<Action Name="" ID="{DDA6828B-D582-4B3A-B36A-3AF9495226BB}" ShortID="563802489">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Running" ID="{BFB8065E-8C4F-4540-AFCD-60078513F134}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_Footstep_Climb" ID="{A43F142E-BCFF-463A-8284-3E39CA82D78F}">
+											<ChildrenList>
+												<Action Name="" ID="{B07DB9F8-720C-41E9-A294-EB0BBB5F58CA}" ShortID="48235660">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Climbing" ID="{D3463774-96C8-4BDA-BF82-D0AF0C1D183B}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+									</ChildrenList>
+								</Folder>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Bo" ID="{ED3A46F3-4261-4E9C-B6AB-EF206003F106}" ShortID="729862741">
+							<ChildrenList>
+								<Folder Name="Pawtstep" ID="{34225409-FE31-4888-BF2D-D89D085D270F}" ShortID="999409154">
+									<ChildrenList>
+										<Event Name="Play_Pawstep_Walk" ID="{0FF03506-7099-46FB-8C75-3F48EEC9409B}">
+											<ChildrenList>
+												<Action Name="" ID="{EE388A2C-E6A9-496A-B784-5EF87F649E3B}" ShortID="204799696">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Walking" ID="{7BCAB3DB-F4B0-42F9-AE28-C34301CFE289}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_Pawstep_Run" ID="{50198133-CCB5-4FF4-87BE-F13B739F4EF3}">
+											<ChildrenList>
+												<Action Name="" ID="{DDED6191-C680-4BA7-86B5-3B1761325ABD}" ShortID="828780281">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Running" ID="{DBCC3254-D51D-427F-97AE-3D7786DFD80D}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_Pawstep_Land" ID="{874E1002-8B72-4BB6-8BC1-67D6D4664EAA}">
+											<ChildrenList>
+												<Action Name="" ID="{6362B9DE-FBA3-4A1C-846E-4B854A278472}" ShortID="30572154">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Landing" ID="{E39E4139-F00E-48E0-9A59-9316EE7E2ED1}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+									</ChildrenList>
+								</Folder>
+								<Folder Name="Bark" ID="{245B8B14-89D1-49B6-B78C-812BB676DF8C}" ShortID="675511453">
+									<ChildrenList>
+										<Event Name="Play_Bark_Defensive" ID="{5848D22A-E85B-4F2F-A545-9FE9BD51C3C8}">
+											<ChildrenList>
+												<Action Name="" ID="{E2DF68FE-DC8B-4918-9178-0419EE0DBFF0}" ShortID="479340201">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Bark_Defensive" ID="{AC46A68A-D44D-42E7-8795-F8AB455CE675}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+									</ChildrenList>
+								</Folder>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
-				</Event>
+				</Folder>
+				<Folder Name="Tools" ID="{7E8BE6E7-76EF-476D-888E-0BEEF5E966AF}" ShortID="1040917351">
+					<ChildrenList>
+						<Folder Name="Lantern" ID="{0FA23D77-3284-45D8-BB79-2E16220E6E2D}" ShortID="703468787">
+							<ChildrenList>
+								<Event Name="Play_Lantern_Fuel_PickUp" ID="{D43D63B3-549C-4537-A7E6-3FEDB78E661C}">
+									<ChildrenList>
+										<Action Name="" ID="{2A11800C-2098-4881-9F26-AF2C15E4B976}" ShortID="905496892">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Pickup_Fuel_01" ID="{75A94FE1-205F-4D31-9E48-DBE2C16215B6}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Lantern_Switch_On" ID="{0F8158F0-DEF8-4B07-B6F1-E7B6CC4C7512}">
+									<ChildrenList>
+										<Action Name="" ID="{A4EBD097-5612-42E5-BC10-4EC40CF24BC5}" ShortID="736346626">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lantren_Switch_On" ID="{D8F129C3-DA1F-440E-8CED-C894CB01CD24}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Lnatern_Switch_Off" ID="{703015DF-8E41-4C96-A24A-645D137D1625}">
+									<ChildrenList>
+										<Action Name="" ID="{F0154D4F-74C2-4233-8932-8F7217256214}" ShortID="936802387">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lantern_Switch_Off" ID="{E537E0EF-33C1-494E-9E8B-A19A2F77AA9F}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Elevator" ID="{C2FEC434-C7CD-4FD4-83C7-56586429DE76}" ShortID="248843291">
+							<ChildrenList>
+								<Event Name="Play_Elevator_Key_PickUp" ID="{3285368B-53E4-40E7-8BB6-B0B228334106}">
+									<ChildrenList>
+										<Action Name="" ID="{8AC2399F-825F-4A49-9066-9D2C8889CCAF}" ShortID="161375209">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Elevator_Key_PickUp" ID="{BF6CABEE-EE44-498B-9431-ED3229AAD512}" WorkUnitID="{50083D49-C5C6-4A2D-9A41-879FE5D62D06}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -5,13 +5,34 @@
 			<ChildrenList>
 				<SoundBank Name="SFX" ID="{EE3D9868-A7E1-4E8B-930D-964492D2DAE7}">
 					<ObjectInclusionList>
-						<ObjectRef Name="Play_Pickup_Fuel" ID="{D43D63B3-549C-4537-A7E6-3FEDB78E661C}" WorkUnitID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Elevator_Key_PickUp" ID="{3285368B-53E4-40E7-8BB6-B0B228334106}" WorkUnitID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Lantern_Fuel_PickUp" ID="{D43D63B3-549C-4537-A7E6-3FEDB78E661C}" WorkUnitID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Lantern_Switch_On" ID="{0F8158F0-DEF8-4B07-B6F1-E7B6CC4C7512}" WorkUnitID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Lnatern_Switch_Off" ID="{703015DF-8E41-4C96-A24A-645D137D1625}" WorkUnitID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="Amos" ID="{901AAACA-D81C-4AE6-9961-B4B6384D8C79}">
-					<ObjectInclusionList/>
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_Cloth_Walk" ID="{DC085406-B1E1-401F-9C02-C4DBE0086146}" WorkUnitID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Footstep_Run" ID="{69B420FA-5728-449F-A2AC-64B34F1A5D33}" WorkUnitID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Footstep_Climb" ID="{A43F142E-BCFF-463A-8284-3E39CA82D78F}" WorkUnitID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Cloth_Land" ID="{9B2E9857-B464-4811-A451-30F79744EB0C}" WorkUnitID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Footstep_Land" ID="{257D6666-A274-4BC9-B833-3784386D312E}" WorkUnitID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Cloth_Run" ID="{F5B01BE5-19A2-4C18-B65C-EA1758A40EE1}" WorkUnitID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Footstep_Walk" ID="{15A521A6-9D19-4CA3-90EB-3DDFCBE4C97F}" WorkUnitID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Bo" ID="{8CED2B96-62EE-46A2-96A4-8ECDF29DEE5F}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_Pawstep_Walk" ID="{0FF03506-7099-46FB-8C75-3F48EEC9409B}" WorkUnitID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Pawstep_Land" ID="{874E1002-8B72-4BB6-8BC1-67D6D4664EAA}" WorkUnitID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Bark_Defensive" ID="{5848D22A-E85B-4F2F-A545-9FE9BD51C3C8}" WorkUnitID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Pawstep_Run" ID="{50198133-CCB5-4FF4-87BE-F13B739F4EF3}" WorkUnitID="{8BE36F2D-A065-4D2E-9BF9-7DF545C8A150}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
