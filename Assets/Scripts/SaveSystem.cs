@@ -52,6 +52,9 @@ public class SaveSystem : MonoBehaviour
             return;
         }
 
+        if (player == null) player = GameObject.FindGameObjectWithTag("Player");
+        if (bo == null) bo = GameObject.FindGameObjectWithTag("Dog");
+
         if (player == null || bo == null)
         {
             Debug.LogError("Player or Bo is not assigned in SaveSystem!");
@@ -99,6 +102,14 @@ public class SaveSystem : MonoBehaviour
         allyTransform.position = new Vector3(data.allyX, data.allyY, data.allyZ);
 
         RestoreElevatorStates(data.elevatorStates);
+
+        // Ensure Inventory Data is NOT NULL before loading
+        if (data.inventoryItems == null)
+        {
+            Debug.LogWarning("Inventory data is missing! Initializing empty inventory.");
+            data.inventoryItems = new Dictionary<string, int>(); // Initialize a new empty dictionary
+        }
+
         InventoryManager.Instance.LoadInventoryData(data.inventoryItems);
         RestoreCollectedKeys(data.collectedKeys);
         RespawnTemporaryObjects();
@@ -170,9 +181,16 @@ public class SaveSystem : MonoBehaviour
     private static void RestoreCollectedKeys(List<string> collectedKeys)
     {
         collectedKeysList.Clear();
+
+        if (collectedKeys == null)
+        {
+            Debug.LogWarning("No collected keys found in save file!");
+            return;
+        }
+
         foreach (string keyName in collectedKeys)
         {
-            collectedKeysList.Add(keyName); // ✅ Re-add keys to memory
+            collectedKeysList.Add(keyName); // Re-add keys to memory
         }
 
         Item[] keys = GameObject.FindObjectsOfType<Item>();
@@ -183,6 +201,10 @@ public class SaveSystem : MonoBehaviour
             {
                 key.gameObject.SetActive(false); // ✅ Disable picked-up keys
                 Debug.Log("Restored: Key " + key.gameObject.name + " is disabled.");
+            }
+            else
+            {
+                key.gameObject.SetActive(true);
             }
         }
     }

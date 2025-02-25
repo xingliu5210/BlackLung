@@ -108,15 +108,12 @@ public class UIMainMenu : MonoBehaviour
     public void StartNewGame()
     {
         SaveSystem.DeleteSave(); // Clears previous save data
-        SaveSystem saveSystem = FindObjectOfType<SaveSystem>(); // Find SaveSystem instance
 
-        if (saveSystem != null)
+        if (FindObjectOfType<SaveSystem>() == null)
         {
-            saveSystem.ResetGame(); // Reset game state
-        }
-        else
-        {
-            Debug.LogError("SaveSystem not found in the scene!");
+            Debug.LogWarning("SaveSystem not found! Creating a new one.");
+            GameObject saveSystemObj = new GameObject("SaveSystem");
+            saveSystemObj.AddComponent<SaveSystem>();
         }
 
         sceneManager.OnLoadFirstScene(); // Load first scene

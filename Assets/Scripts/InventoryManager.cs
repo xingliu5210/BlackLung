@@ -70,7 +70,15 @@ public class InventoryManager : MonoBehaviour
     // method to restore inventory from save file
     public void LoadInventoryData(Dictionary<string, int> savedInventory)
     {
-        inventoryItems = new Dictionary<string, int>(savedInventory);
+        if (savedInventory == null)
+        {
+            Debug.LogWarning("Saved inventory is null! Initializing new inventory.");
+            inventoryItems = new Dictionary<string, int>(); // Initialize an empty dictionary
+        }
+        else
+        {
+            inventoryItems = new Dictionary<string, int>(savedInventory);
+        }
         Debug.Log("Inventory Loaded: " + string.Join(", ", inventoryItems));
     }
 }
