@@ -84,6 +84,16 @@ public class UIMainMenu : MonoBehaviour
         // Wait for the next frame to ensure the scene is loaded
         yield return new WaitForSeconds(0.1f);
 
+        // **Ensure SaveSystem exists**
+        if (FindObjectOfType<SaveSystem>() == null)
+        {
+            Debug.LogWarning("SaveSystem missing! Creating a new one.");
+            GameObject saveSystemObj = new GameObject("SaveSystem");
+            saveSystemObj.AddComponent<SaveSystem>();
+            DontDestroyOnLoad(saveSystemObj);
+        }
+
+
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         GameObject ally = GameObject.FindGameObjectWithTag("Dog");
 
@@ -111,9 +121,10 @@ public class UIMainMenu : MonoBehaviour
 
         if (FindObjectOfType<SaveSystem>() == null)
         {
-            Debug.LogWarning("SaveSystem not found! Creating a new one.");
             GameObject saveSystemObj = new GameObject("SaveSystem");
             saveSystemObj.AddComponent<SaveSystem>();
+            DontDestroyOnLoad(saveSystemObj); // Ensure it persists
+            Debug.Log("SaveSystem created in Main Menu.");
         }
 
         sceneManager.OnLoadFirstScene(); // Load first scene

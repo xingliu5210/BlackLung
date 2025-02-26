@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
+using System.Collections;
 
 [System.Serializable]
 public class SaveData
@@ -45,24 +46,47 @@ public class SaveSystem : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject); // ✅ Persist SaveSystem across scenes
+            Debug.Log("SaveSystem initialized and set to persist.");
         }
         else
         {
+            Debug.LogWarning("Duplicate SaveSystem detected and destroyed.");
             Destroy(gameObject); // Prevent duplicates
             return;
         }
 
-        if (player == null) player = GameObject.FindGameObjectWithTag("Player");
-        if (bo == null) bo = GameObject.FindGameObjectWithTag("Dog");
+        // if (player == null) player = GameObject.FindGameObjectWithTag("Player");
+        // if (bo == null) bo = GameObject.FindGameObjectWithTag("Dog");
 
-        if (player == null || bo == null)
-        {
-            Debug.LogError("Player or Bo is not assigned in SaveSystem!");
-            return;
-        }
+        // if (player == null || bo == null)
+        // {
+        //     Debug.LogError("Player or Bo is not assigned in SaveSystem!");
+        //     return;
+        // }
         // Initialize start positions when the game begins
         // playerStartPos = player.transform.position;
         // boStartPos = bo.transform.position;
+    }
+
+    private void Start()
+    {
+        StartCoroutine(FindPlayerAndBo());
+    }
+    private IEnumerator FindPlayerAndBo()
+    {
+        yield return new WaitForSeconds(0.5f); // Small delay to allow objects to load
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        bo = GameObject.FindGameObjectWithTag("Dog");
+
+        if (player == null || bo == null)
+        {
+            Debug.LogError("SaveSystem: Player or Bo is still null after attempting to find them.");
+        }
+        else
+        {
+            Debug.Log($"SaveSystem: Player and Bo successfully assigned - Player = {player.name}, Bo = {bo.name}");
+        }
     }
     public static void SaveGame(Transform player, Transform ally)
     {
@@ -98,6 +122,14 @@ public class SaveSystem : MonoBehaviour
         string json = File.ReadAllText(savePath);
         SaveData data = JsonUtility.FromJson<SaveData>(json);
 
+        // Try to find player and bo if not assigned
+        if (playerTransform == null) playerTransform = GameObject.FindGameObjectWithTag("Player")?.transform;
+        if (allyTransform == null) allyTransform = GameObject.FindGameObjectWithTag("Dog")?.transform;
+        if (playerTransform == null || allyTransform == null)
+        {
+            Debug.LogError("LoadGame: Player or Bo is still null even after trying to find them.");
+            return false;
+        }
         playerTransform.position = new Vector3(data.playerX, data.playerY, data.playerZ);
         allyTransform.position = new Vector3(data.allyX, data.allyY, data.allyZ);
 
