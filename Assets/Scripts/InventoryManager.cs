@@ -64,6 +64,13 @@ public class InventoryManager : MonoBehaviour
     // method to return inventory data for saving
     public Dictionary<string, int> SaveInventoryData()
     {
+        if (inventoryItems == null || inventoryItems.Count == 0)
+        {
+            Debug.LogWarning("SaveInventoryData: No inventory items to save!");
+            return new Dictionary<string, int>(); // ✅ Ensure empty inventory doesn't cause issues
+        }
+        
+        Debug.Log("Saving Inventory: " + string.Join(", ", inventoryItems));
         return new Dictionary<string, int>(inventoryItems);
     }
 
@@ -78,7 +85,7 @@ public class InventoryManager : MonoBehaviour
         else
         {
             inventoryItems = new Dictionary<string, int>(savedInventory);
+            Debug.Log("Inventory Loaded: " + string.Join(", ", inventoryItems));
         }
-        Debug.Log("Inventory Loaded: " + string.Join(", ", inventoryItems));
     }
 }

@@ -141,8 +141,13 @@ public class SaveSystem : MonoBehaviour
             Debug.LogWarning("Inventory data is missing! Initializing empty inventory.");
             data.inventoryItems = new Dictionary<string, int>(); // Initialize a new empty dictionary
         }
+        else
+        {
+            InventoryManager.Instance.LoadInventoryData(data.inventoryItems);
+            Debug.Log("Inventory Loaded Successfully: " + string.Join(", ", data.inventoryItems));
+        }
 
-        InventoryManager.Instance.LoadInventoryData(data.inventoryItems);
+        // InventoryManager.Instance.LoadInventoryData(data.inventoryItems);
         RestoreCollectedKeys(data.collectedKeys);
         RespawnTemporaryObjects();
 
