@@ -9,6 +9,8 @@ public class SaveData
     public float playerX, playerY, playerZ;
     public float allyX, allyY, allyZ;
 
+    public float lanternFuelPercent;
+
     // Store elevator activation status using a serializable format
     public List<ElevatorState> elevatorStates = new List<ElevatorState>();
     public List<string> collectedKeys = new List<string>();
@@ -32,6 +34,7 @@ public class SaveSystem : MonoBehaviour
 {
     public GameObject player;
     public GameObject bo;
+    private Lantern lantern;
     private Vector3 playerStartPos = new Vector3 (61f, 0, 0);
     private Vector3 boStartPos = new Vector3 (77.2f, 1.4f, 0);
     private static string savePath => Application.persistentDataPath + "/savegame.json";
@@ -87,6 +90,14 @@ public class SaveSystem : MonoBehaviour
         {
             Debug.Log($"SaveSystem: Player and Bo successfully assigned - Player = {player.name}, Bo = {bo.name}");
         }
+
+        // Find Lantern inside Player
+        lantern = player.GetComponentInChildren<Lantern>();
+
+        if (lantern == null)
+        {
+            Debug.LogWarning("Lantern not found! Fuel will not be saved.");
+        }
     }
     public static void SaveGame(Transform player, Transform ally)
     {
@@ -98,6 +109,7 @@ public class SaveSystem : MonoBehaviour
             allyX = ally.position.x,
             allyY = ally.position.y,
             allyZ = ally.position.z,
+            lanternFuelPercent = instance.lantern != null ? instance.lantern.GetfuelPercent() : 1.0f,
             elevatorStates = GetElevatorStates(),
             collectedKeys = new List<string>(collectedKeysList),
             inventoryItems = InventoryManager.Instance.SaveInventoryData()
@@ -122,16 +134,42 @@ public class SaveSystem : MonoBehaviour
         string json = File.ReadAllText(savePath);
         SaveData data = JsonUtility.FromJson<SaveData>(json);
 
+        // ** Re-find Player and Bo after scene changes**
+        instance.player = GameObject.FindGameObjectWithTag("Player");
+        instance.bo = GameObject.FindGameObjectWithTag("Dog");
+
         // Try to find player and bo if not assigned
-        if (playerTransform == null) playerTransform = GameObject.FindGameObjectWithTag("Player")?.transform;
-        if (allyTransform == null) allyTransform = GameObject.FindGameObjectWithTag("Dog")?.transform;
-        if (playerTransform == null || allyTransform == null)
+        // if (playerTransform == null) playerTransform = GameObject.FindGameObjectWithTag("Player")?.transform;
+        // if (allyTransform == null) allyTransform = GameObject.FindGameObjectWithTag("Dog")?.transform;
+        // if (playerTransform == null || allyTransform == null)
+        // {
+        //     Debug.LogError("LoadGame: Player or Bo is still null even after trying to find them.");
+        //     return false;
+        // }
+
+        if (instance.player == null || instance.bo == null)
         {
-            Debug.LogError("LoadGame: Player or Bo is still null even after trying to find them.");
+            Debug.LogError("Player or Bo not found after loading scene!");
             return false;
         }
-        playerTransform.position = new Vector3(data.playerX, data.playerY, data.playerZ);
-        allyTransform.position = new Vector3(data.allyX, data.allyY, data.allyZ);
+
+        // ✅ Restore Player and Bo positions
+        instance.player.transform.position = new Vector3(data.playerX, data.playerY, data.playerZ);
+        instance.bo.transform.position = new Vector3(data.allyX, data.allyY, data.allyZ);
+        // playerTransform.position = new Vector3(data.playerX, data.playerY, data.playerZ);
+        // allyTransform.position = new Vector3(data.allyX, data.allyY, data.allyZ);
+
+        // ** Reassign Lantern after scene change**
+        instance.lantern = instance.player.GetComponentInChildren<Lantern>();
+
+        if (instance.lantern != null)
+        {
+            instance.lantern.SetFuelPercent(data.lanternFuelPercent); // ✅ Restore fuel level
+        }
+        else
+        {
+            Debug.LogWarning("Lantern not found! Fuel level not restored.");
+        }
 
         RestoreElevatorStates(data.elevatorStates);
 

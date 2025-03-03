@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using AK.Wwise;
+using System;
 
 public class Lantern : MonoBehaviour
 {
@@ -124,6 +125,18 @@ public class Lantern : MonoBehaviour
     public void PlaySwitchOffSound()
     {
         AkSoundEngine.PostEvent(lanternSwitchOffEvent.Id, this.gameObject);
+    }
+
+    public float GetfuelPercent()
+    {
+        return currentFuelPercent;
+    }
+
+    public void SetFuelPercent(float fuel)
+    {
+        currentFuelPercent = Mathf.Clamp(fuel, 0, 1);
+        lanternLight.intensity = currentFuelPercent * maxIntensity;
+        UpdateFuelBar();
     }
 
 }
