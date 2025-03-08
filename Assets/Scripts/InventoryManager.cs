@@ -6,6 +6,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance { get; private set; } // Singleton
 
     private Dictionary<string, int> inventoryItems = new Dictionary<string, int>();
+    private Dictionary<string, int> savedInventoryItems = new Dictionary<string, int>(); 
 
     private void Awake()
     {
@@ -77,15 +78,56 @@ public class InventoryManager : MonoBehaviour
     // method to restore inventory from save file
     public void LoadInventoryData(Dictionary<string, int> savedInventory)
     {
-        if (savedInventory == null)
+         if (savedInventory == null)
         {
-            Debug.LogWarning("Saved inventory is null! Initializing new inventory.");
-            inventoryItems = new Dictionary<string, int>(); // Initialize an empty dictionary
+            Debug.LogWarning("[LOAD] No inventory data in save file! Initializing empty inventory.");
+            savedInventoryItems = new Dictionary<string, int>(); // ✅ Ensure empty inventory is handled
+            inventoryItems = new Dictionary<string, int>();
         }
         else
         {
-            inventoryItems = new Dictionary<string, int>(savedInventory);
-            Debug.Log("Inventory Loaded: " + string.Join(", ", inventoryItems));
+            savedInventoryItems = new Dictionary<string, int>(savedInventory); // ✅ Load saved inventory
+            inventoryItems = new Dictionary<string, int>(savedInventoryItems); // ✅ Reset temp inventory
         }
+
+        Debug.Log("[LOAD] Inventory restored: " + string.Join(", ", inventoryItems));
+    }
+
+    // Method to save inventory at checkpoint
+    public void SaveInventoryAtCheckpoint()
+    {
+        savedInventoryItems.Clear();
+        savedInventoryItems = new Dictionary<string, int>(inventoryItems);
+        Debug.Log("[CHECKPOINT] Inventory saved: " + string.Join(", ", savedInventoryItems));
+    }
+
+    // Method to load inventory from the last checkpoint
+    public void LoadInventoryFromCheckpoint()
+    {
+        inventoryItems = new Dictionary<string, int>(savedInventoryItems);
+        Debug.Log("[LOAD] Inventory restored from checkpoint: " + string.Join(", ", inventoryItems));
+    }
+    public Dictionary<string, int> GetSavedInventoryData()
+    {
+        if (savedInventoryItems == null || savedInventoryItems.Count == 0)
+        {
+            Debug.LogWarning("[ERROR] GetSavedInventoryData() - No saved inventory found!");
+        }
+        else
+        {
+            Debug.Log("[DEBUG] GetSavedInventoryData before saving: " + string.Join(", ", savedInventoryItems));
+        }
+
+        return new Dictionary<string, int>(savedInventoryItems);
+    }
+
+    public Dictionary<string, int> GetInventoryForSave()
+    {
+        return new Dictionary<string, int>(inventoryItems); // ✅ Return checkpoint inventory for saving
+    }
+
+    public Dictionary<string, int> GetInventoryItems()
+    {
+        return inventoryItems;
     }
 }

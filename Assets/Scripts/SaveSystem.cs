@@ -4,6 +4,19 @@ using System.Collections.Generic;
 using System.Collections;
 
 [System.Serializable]
+public class InventoryItem
+{
+    public string itemName;
+    public int quantity;
+
+    public InventoryItem(string name, int qty)
+    {
+        itemName = name;
+        quantity = qty;
+    }
+}
+
+[System.Serializable]
 public class SaveData
 {
     public float playerX, playerY, playerZ;
@@ -14,7 +27,9 @@ public class SaveData
     // Store elevator activation status using a serializable format
     public List<ElevatorState> elevatorStates = new List<ElevatorState>();
     public List<string> collectedKeys = new List<string>();
-    public Dictionary<string, int> inventoryItems;
+    public List<InventoryItem> inventoryItems = new List<InventoryItem>();
+    // public Dictionary<string, int> savedInventoryItems;
+
 }
 
 [System.Serializable]
@@ -101,6 +116,23 @@ public class SaveSystem : MonoBehaviour
     }
     public static void SaveGame(Transform player, Transform ally)
     {
+        Debug.Log("[DEBUG] Calling SaveInventoryAtCheckpoint()");  
+        InventoryManager.Instance.SaveInventoryAtCheckpoint();
+        Dictionary<string, int> inventoryDictionary;
+        inventoryDictionary = InventoryManager.Instance.GetSavedInventoryData();
+        // ✅ Debugging: Print inventory before saving
+        Debug.Log("[DEBUG] InventoryDictionary before saving: " + 
+                (inventoryDictionary.Count > 0 ? string.Join(", ", inventoryDictionary) : "EMPTY"));
+
+        List<InventoryItem> inventoryList = new List<InventoryItem>();
+        foreach (var item in inventoryDictionary)
+        {
+            inventoryList.Add(new InventoryItem(item.Key, item.Value));
+        }
+
+        Debug.Log("[DEBUG] Inventory List before saving: " +
+              (inventoryList.Count > 0 ? string.Join(", ", inventoryList) : "EMPTY"));
+
         SaveData data = new SaveData
         {
             playerX = player.position.x,
@@ -112,7 +144,9 @@ public class SaveSystem : MonoBehaviour
             lanternFuelPercent = instance.lantern != null ? instance.lantern.GetfuelPercent() : 1.0f,
             elevatorStates = GetElevatorStates(),
             collectedKeys = new List<string>(collectedKeysList),
-            inventoryItems = InventoryManager.Instance.SaveInventoryData()
+            inventoryItems = inventoryList
+            // savedInventoryItems = InventoryManager.Instance.GetSavedInventoryData()
+            // inventoryItems = InventoryManager.Instance.GetInventoryItems()
         };
 
         string json = JsonUtility.ToJson(data, true);
@@ -125,6 +159,7 @@ public class SaveSystem : MonoBehaviour
 
     public static bool LoadGame(Transform playerTransform, Transform allyTransform)
     {
+        // InventoryManager.Instance.GetInventoryItems().Clear();
         if (!File.Exists(savePath))
         {
             Debug.LogWarning("No save file found!");
@@ -174,18 +209,28 @@ public class SaveSystem : MonoBehaviour
         RestoreElevatorStates(data.elevatorStates);
 
         // Ensure Inventory Data is NOT NULL before loading
-        if (data.inventoryItems == null)
-        {
-            Debug.LogWarning("Inventory data is missing! Initializing empty inventory.");
-            data.inventoryItems = new Dictionary<string, int>(); // Initialize a new empty dictionary
-        }
-        else
-        {
-            InventoryManager.Instance.LoadInventoryData(data.inventoryItems);
-            Debug.Log("Inventory Loaded Successfully: " + string.Join(", ", data.inventoryItems));
-        }
+        // if (data.inventoryItems == null)
+        // {
+        //     Debug.LogWarning("Inventory data is missing! Initializing empty inventory.");
+        //     data.inventoryItems = new Dictionary<string, int>(); // Initialize a new empty dictionary
+        // }
+        // else
+        // {
+        //     InventoryManager.Instance.LoadInventoryData(data.inventoryItems);
+        //     Debug.Log("Inventory Loaded Successfully: " + string.Join(", ", data.inventoryItems));
+        // }
 
         // InventoryManager.Instance.LoadInventoryData(data.inventoryItems);
+        // InventoryManager.Instance.LoadInventoryData(data.savedInventoryItems);
+        // ✅ Convert List to Dictionary
+        Dictionary<string, int> loadedInventory = new Dictionary<string, int>();
+        foreach (var item in data.inventoryItems)
+        {
+            loadedInventory[item.itemName] = item.quantity;
+        }
+
+        InventoryManager.Instance.LoadInventoryData(loadedInventory);
+
         RestoreCollectedKeys(data.collectedKeys);
         RespawnTemporaryObjects();
 

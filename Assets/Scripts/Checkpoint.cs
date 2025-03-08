@@ -36,6 +36,7 @@ public class Checkpoint : MonoBehaviour
             ally.GetComponent<Checkpoint>().AllyCheckpoint();
 
             Debug.Log("Checkpoint set to " + CheckpointPosition);
+            InventoryManager.Instance.SaveInventoryAtCheckpoint();
             SaveSystem.SaveGame(other.transform, ally.transform);
         }
     }

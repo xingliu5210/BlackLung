@@ -100,6 +100,7 @@ public class UIMainMenu : MonoBehaviour
         if (player != null && ally != null)
         {
             bool loaded = SaveSystem.LoadGame(player.transform, ally.transform);
+            InventoryManager.Instance.LoadInventoryFromCheckpoint();
             if (loaded)
             {
                 Debug.Log("Game Loaded after scene transition!");
