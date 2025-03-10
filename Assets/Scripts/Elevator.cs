@@ -102,7 +102,7 @@ public class Elevator : MonoBehaviour
     public void SetActivated(bool state)
     {
         isActivated = state;
-        gameObject.SetActive(state); // Activate/Deactivate accordingly
+        // gameObject.SetActive(state); // Activate/Deactivate accordingly
     }
 
     public void ActivateElevator()

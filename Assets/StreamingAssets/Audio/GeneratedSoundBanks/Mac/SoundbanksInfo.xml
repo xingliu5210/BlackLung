@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="85412153" Type="User" GUID="{32B8540D-7565-4648-8D33-C32673AD17EC}" Language="SFX" Hash="{8704D223-8704-5EB6-E1B3-5403B2EE8AA4}">
+		<SoundBank Id="85412153" Type="User" GUID="{32B8540D-7565-4648-8D33-C32673AD17EC}" Language="SFX" Hash="{59AB686E-413C-4639-EFDC-33358E8B8092}">
 			<ObjectPath>\SoundBanks\ME_SoundBank_WorkUnit\Ambience</ObjectPath>
 			<ShortName>Ambience</ShortName>
 			<Path>Ambience.bnk</Path>
@@ -20,7 +20,7 @@
 				</File>
 				<File Id="164796356" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Amb\ambience_cave_01 .wav</ShortName>
-					<CachePath>SFX/Amb/ambience_cave_01 _E3F3C005.wem</CachePath>
+					<CachePath>SFX/Amb/ambience_cave_01 _DC9E72EB.wem</CachePath>
 				</File>
 				<File Id="190658490" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Amb\Rocks\RocksFall_3.wav</ShortName>
@@ -170,7 +170,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="393239870" Type="User" GUID="{EE3D9868-A7E1-4E8B-930D-964492D2DAE7}" Language="SFX" Hash="{6B8B9CCF-1B09-F496-56F9-E1762FA7B4BF}">
+		<SoundBank Id="393239870" Type="User" GUID="{EE3D9868-A7E1-4E8B-930D-964492D2DAE7}" Language="SFX" Hash="{2FAD4448-6AB9-22BE-BC24-3F08E5AA1C54}">
 			<ObjectPath>\SoundBanks\Default Work Unit\SFX</ObjectPath>
 			<ShortName>SFX</ShortName>
 			<Path>SFX.bnk</Path>
@@ -179,16 +179,43 @@
 					<ShortName>Pickup_Fuel_01.wav</ShortName>
 					<CachePath>SFX/Pickup_Fuel_01_818F3B66.wem</CachePath>
 				</File>
+				<File Id="458750129" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lantern_Off_02.wav</ShortName>
+					<CachePath>SFX/Lantern_Off_02_818F3B66.wem</CachePath>
+				</File>
+				<File Id="709264786" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pickup_Key_01.wav</ShortName>
+					<CachePath>SFX/Pickup_Key_01_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1000970244" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lantren_On_04.wav</ShortName>
+					<CachePath>SFX/Lantren_On_04_818F3B66.wem</CachePath>
+				</File>
 			</Media>
 			<Events>
-				<Event Id="578142713" Name="Play_Pickup_Fuel" ObjectPath="\Events\Default Work Unit\Play_Pickup_Fuel" GUID="{D43D63B3-549C-4537-A7E6-3FEDB78E661C}" DurationType="OneShot" DurationMin="1.2613637" DurationMax="1.7838376">
+				<Event Id="2347498863" Name="Play_Elevator_Key_PickUp" ObjectPath="\Events\Default Work Unit\Tools\Elevator\Play_Elevator_Key_PickUp" GUID="{3285368B-53E4-40E7-8BB6-B0B228334106}" DurationType="OneShot" DurationMin="1.7500226" DurationMax="1.7500226">
+					<MediaRefs>
+						<MediaRef Id="709264786"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="44584836" Name="Play_Lantern_Fuel_PickUp" ObjectPath="\Events\Default Work Unit\Tools\Lantern\Play_Lantern_Fuel_PickUp" GUID="{D43D63B3-549C-4537-A7E6-3FEDB78E661C}" DurationType="OneShot" DurationMin="1.2613637" DurationMax="1.7838376">
 					<MediaRefs>
 						<MediaRef Id="20457821"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3740452215" Name="Play_Lantern_Switch_On" ObjectPath="\Events\Default Work Unit\Tools\Lantern\Play_Lantern_Switch_On" GUID="{0F8158F0-DEF8-4B07-B6F1-E7B6CC4C7512}" DurationType="OneShot" DurationMin="1.5" DurationMax="1.5">
+					<MediaRefs>
+						<MediaRef Id="1000970244"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2564111373" Name="Play_Lnatern_Switch_Off" ObjectPath="\Events\Default Work Unit\Tools\Lantern\Play_Lnatern_Switch_Off" GUID="{703015DF-8E41-4C96-A24A-645D137D1625}" DurationType="OneShot" DurationMin="1" DurationMax="1">
+					<MediaRefs>
+						<MediaRef Id="458750129"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" GUID="{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}" Language="SFX" Hash="{9C4B197A-4F10-AC29-7C7B-68D1A448FA0F}">
+		<SoundBank Id="1355168291" Type="User" GUID="{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}" Language="SFX" Hash="{0592690D-5A54-0E12-80D0-5D894B62922E}">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -201,12 +228,1654 @@
 			<Busses>
 				<Bus Id="3803692087" Name="Master Audio Bus" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus" GUID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 			</Busses>
+			<SwitchGroups>
+				<SwitchGroup Id="3714303081" Name="Surfaces" ObjectPath="\Switches\Default Work Unit\Surfaces" GUID="{437105DE-FFEE-4E0C-A50C-F1635EC9A7F5}">
+					<Switches>
+						<Switch Id="1216965916" Name="Stone" ObjectPath="\Switches\Default Work Unit\Surfaces\Stone" GUID="{CBEC10A5-BB33-48D5-8D6F-75D57B9E589B}"/>
+						<Switch Id="2058049674" Name="Wood" ObjectPath="\Switches\Default Work Unit\Surfaces\Wood" GUID="{7A4235C3-9CB6-402A-A59E-9660C2F36CAB}"/>
+						<Switch Id="2195636714" Name="Dirt" ObjectPath="\Switches\Default Work Unit\Surfaces\Dirt" GUID="{4BC341C0-5B54-467D-A837-6210EEDEFFC3}"/>
+						<Switch Id="2473969246" Name="Metal" ObjectPath="\Switches\Default Work Unit\Surfaces\Metal" GUID="{672F128D-86F4-44E6-898C-5F9BC3328DD7}"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3587989757" Type="User" GUID="{901AAACA-D81C-4AE6-9961-B4B6384D8C79}" Language="SFX" Hash="{F7223193-D4F9-6124-9A87-797D2C748DC5}">
+		<SoundBank Id="1870080936" Type="User" GUID="{8CED2B96-62EE-46A2-96A4-8ECDF29DEE5F}" Language="SFX" Hash="{564C1551-D043-B998-F842-DB791FC66C04}">
+			<ObjectPath>\SoundBanks\Default Work Unit\Bo</ObjectPath>
+			<ShortName>Bo</ShortName>
+			<Path>Bo.bnk</Path>
+			<Media>
+				<File Id="578324" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Metal_7.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Metal_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="3049201" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Bark_Defensive_4.wav</ShortName>
+					<CachePath>SFX/Bo_Bark_Defensive_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="15229480" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Bark_Defensive_7.wav</ShortName>
+					<CachePath>SFX/Bo_Bark_Defensive_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="26452911" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Metal_2.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Metal_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="38583586" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Metal_3.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Metal_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="40967209" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Dirt_4.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Dirt_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="49020880" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Dirt_1.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Dirt_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="63811923" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Stone_4.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Stone_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="73678712" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Bark_Defensive_6.wav</ShortName>
+					<CachePath>SFX/Bo_Bark_Defensive_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="75106633" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Dirt_3.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Dirt_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="82777833" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Wood_10.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Wood_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="89763913" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Dirt_2.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Dirt_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="108238452" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Wood_2.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Wood_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="113110179" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Metal_4.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Metal_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="119334767" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Stone_4.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Stone_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="120280306" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Stone_10.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Stone_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="121991384" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Metal_10.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Metal_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="135814294" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Bark_Defensive_2.wav</ShortName>
+					<CachePath>SFX/Bo_Bark_Defensive_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="137607181" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Metal_8.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Metal_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="153195050" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Dirt_5.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Dirt_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="165318366" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Stone_2.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Stone_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="166426559" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Metal_5.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Metal_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="170878810" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Metal_2.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Metal_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="176433360" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Wood_5.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Wood_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="182714013" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Metal_12.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Metal_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="183326329" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Wood_4.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Wood_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="194013073" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Wood_5.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Wood_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="203120329" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Dirt_1.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Dirt_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="204086495" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Metal_9.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Metal_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="204688678" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Dirt_1.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Dirt_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="207501874" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Wood_7.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Wood_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="207790604" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Dirt_2.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Dirt_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="231029929" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Wood_12.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Wood_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="244307665" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Dirt_12.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Dirt_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="247205575" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Metal_5.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Metal_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="248711244" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Dirt_5.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Dirt_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="251745968" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Wood_2.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Wood_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="281998435" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Metal_11.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Metal_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="284179050" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Metal_1.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Metal_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="286910621" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Metal_5.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Metal_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="299190767" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Wood_12.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Wood_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="317540708" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Stone_9.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Stone_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="318949222" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Bark_Defensive_8.wav</ShortName>
+					<CachePath>SFX/Bo_Bark_Defensive_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="329409767" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Stone_7.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Stone_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="341362163" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Metal_7.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Metal_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="345973482" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Stone_4.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Stone_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="349124321" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Wood_1.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Wood_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="353866703" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Dirt_3.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Dirt_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="375233707" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Stone_11.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Stone_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="379367015" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Wood_3.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Wood_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="392058335" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Metal_9.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Metal_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="405128663" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Metal_1.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Metal_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="409705699" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Wood_1.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Wood_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="419814699" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Stone_3.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Stone_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="462261049" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Wood_1.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Wood_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="469674061" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Wood_7.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Wood_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="479881733" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Dirt_11.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Dirt_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="480240505" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Wood_3.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Wood_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="487914639" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Stone_2.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Stone_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="500713592" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Stone_1.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Stone_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="508374255" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Stone_8.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Stone_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="515774832" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Stone_3.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Stone_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="523755243" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Wood_8.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Wood_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="548912056" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Metal_4.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Metal_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="549192111" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Stone_3.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Stone_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="564785658" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Stone_9.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Stone_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="574960693" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Stone_11.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Stone_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="583399540" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Wood_4.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Wood_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="583884832" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Wood_5.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Wood_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="593672587" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Metal_6.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Metal_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="601496383" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Dirt_11.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Dirt_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="627779683" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Dirt_12.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Dirt_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="630323013" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Dirt_8.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Dirt_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="641147838" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Metal_3.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Metal_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="681414075" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Metal_8.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Metal_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="682989490" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Stone_12.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Stone_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="684357781" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Stone_12.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Stone_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="690092984" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Stone_5.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Stone_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="692806375" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Wood_11.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Wood_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="693287263" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Wood_8.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Wood_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="701878891" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Wood_4.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Wood_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="716697841" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Dirt_6.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Dirt_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="717675288" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Wood_11.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Wood_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="717749377" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Dirt_2.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Dirt_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="740079977" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Metal_1.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Metal_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="748795392" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Dirt_9.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Dirt_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="751601186" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Dirt_7.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Dirt_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="755763349" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Metal_6.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Metal_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="766034290" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Wood_9.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Wood_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="770117296" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Dirt_8.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Dirt_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="796395021" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Wood_6.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Wood_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="805089726" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Metal_3.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Metal_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="808904392" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Dirt_7.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Dirt_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="813761520" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Dirt_9.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Dirt_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="815467114" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Dirt_10.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Dirt_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="825132684" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Wood_3.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Wood_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="828122924" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Dirt_10.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Dirt_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="835541628" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Wood_10.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Wood_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="848027343" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Metal_12.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Metal_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="849163576" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Stone_7.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Stone_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="856320271" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Metal_4.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Metal_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="859603147" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Dirt_3.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Dirt_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="861802902" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Stone_5.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Stone_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="863695880" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Stone_1.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Stone_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="875507542" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Metal_6.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Metal_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="881129531" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Stone_5.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Stone_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="890113918" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Wood_2.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Wood_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="893265028" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Stone_6.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Stone_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="910352290" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Dirt_5.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Dirt_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="926145066" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Wood_9.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Wood_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="933030415" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Metal_2.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Metal_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="933248317" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Stone_8.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Stone_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="934502860" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Stone_2.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Stone_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="957408484" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Stone_6.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Stone_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="988536676" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Bark_Defensive_5.wav</ShortName>
+					<CachePath>SFX/Bo_Bark_Defensive_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="996465390" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Dirt_4.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Dirt_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="999761978" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Land_Dirt_4.wav</ShortName>
+					<CachePath>SFX/Bo_Land_Dirt_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1001168376" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Dirt_6.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Dirt_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1007810903" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Run_Stone_10.wav</ShortName>
+					<CachePath>SFX/Bo_Run_Stone_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1034101418" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Bark_Defensive_3.wav</ShortName>
+					<CachePath>SFX/Bo_Bark_Defensive_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1044327846" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Metal_11.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Metal_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1047536643" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Stone_1.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Stone_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1048409741" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Bark_Defensive_1.wav</ShortName>
+					<CachePath>SFX/Bo_Bark_Defensive_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1058555036" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Metal_10.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Metal_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1064146344" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bo_Walk_Wood_6.wav</ShortName>
+					<CachePath>SFX/Bo_Walk_Wood_6_818F3B66.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="1555551586" Name="Play_Bark_Defensive" ObjectPath="\Events\Default Work Unit\Characters\Bo\Bark\Play_Bark_Defensive" GUID="{5848D22A-E85B-4F2F-A545-9FE9BD51C3C8}" DurationType="OneShot" DurationMin="0.41084135" DurationMax="1.1337861">
+					<MediaRefs>
+						<MediaRef Id="3049201"/>
+						<MediaRef Id="15229480"/>
+						<MediaRef Id="73678712"/>
+						<MediaRef Id="135814294"/>
+						<MediaRef Id="318949222"/>
+						<MediaRef Id="988536676"/>
+						<MediaRef Id="1034101418"/>
+						<MediaRef Id="1048409741"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3051450612" Name="Play_Pawstep_Land" ObjectPath="\Events\Default Work Unit\Characters\Bo\Pawtstep\Play_Pawstep_Land" GUID="{874E1002-8B72-4BB6-8BC1-67D6D4664EAA}" DurationType="OneShot" DurationMin="0.027593823" DurationMax="2.1271508">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2473969246" GUID="{672F128D-86F4-44E6-898C-5F9BC3328DD7}"/>
+							<MediaRefs>
+								<MediaRef Id="26452911"/>
+								<MediaRef Id="247205575"/>
+								<MediaRef Id="548912056"/>
+								<MediaRef Id="740079977"/>
+								<MediaRef Id="755763349"/>
+								<MediaRef Id="805089726"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="1216965916" GUID="{CBEC10A5-BB33-48D5-8D6F-75D57B9E589B}"/>
+							<MediaRefs>
+								<MediaRef Id="119334767"/>
+								<MediaRef Id="500713592"/>
+								<MediaRef Id="515774832"/>
+								<MediaRef Id="690092984"/>
+								<MediaRef Id="934502860"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2195636714" GUID="{4BC341C0-5B54-467D-A837-6210EEDEFFC3}" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="203120329"/>
+								<MediaRef Id="248711244"/>
+								<MediaRef Id="353866703"/>
+								<MediaRef Id="717749377"/>
+								<MediaRef Id="999761978"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2058049674" GUID="{7A4235C3-9CB6-402A-A59E-9660C2F36CAB}"/>
+							<MediaRefs>
+								<MediaRef Id="108238452"/>
+								<MediaRef Id="176433360"/>
+								<MediaRef Id="349124321"/>
+								<MediaRef Id="480240505"/>
+								<MediaRef Id="583399540"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="1766324686" Name="Play_Pawstep_Run" ObjectPath="\Events\Default Work Unit\Characters\Bo\Pawtstep\Play_Pawstep_Run" GUID="{50198133-CCB5-4FF4-87BE-F13B739F4EF3}" DurationType="OneShot" DurationMin="0.14928445" DurationMax="0.971096">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2473969246" GUID="{672F128D-86F4-44E6-898C-5F9BC3328DD7}"/>
+							<MediaRefs>
+								<MediaRef Id="578324"/>
+								<MediaRef Id="113110179"/>
+								<MediaRef Id="121991384"/>
+								<MediaRef Id="170878810"/>
+								<MediaRef Id="204086495"/>
+								<MediaRef Id="281998435"/>
+								<MediaRef Id="286910621"/>
+								<MediaRef Id="405128663"/>
+								<MediaRef Id="593672587"/>
+								<MediaRef Id="641147838"/>
+								<MediaRef Id="681414075"/>
+								<MediaRef Id="848027343"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="1216965916" GUID="{CBEC10A5-BB33-48D5-8D6F-75D57B9E589B}"/>
+							<MediaRefs>
+								<MediaRef Id="317540708"/>
+								<MediaRef Id="329409767"/>
+								<MediaRef Id="345973482"/>
+								<MediaRef Id="375233707"/>
+								<MediaRef Id="487914639"/>
+								<MediaRef Id="549192111"/>
+								<MediaRef Id="684357781"/>
+								<MediaRef Id="863695880"/>
+								<MediaRef Id="881129531"/>
+								<MediaRef Id="893265028"/>
+								<MediaRef Id="933248317"/>
+								<MediaRef Id="1007810903"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2195636714" GUID="{4BC341C0-5B54-467D-A837-6210EEDEFFC3}" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="40967209"/>
+								<MediaRef Id="204688678"/>
+								<MediaRef Id="207790604"/>
+								<MediaRef Id="479881733"/>
+								<MediaRef Id="627779683"/>
+								<MediaRef Id="748795392"/>
+								<MediaRef Id="770117296"/>
+								<MediaRef Id="808904392"/>
+								<MediaRef Id="828122924"/>
+								<MediaRef Id="859603147"/>
+								<MediaRef Id="910352290"/>
+								<MediaRef Id="1001168376"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2058049674" GUID="{7A4235C3-9CB6-402A-A59E-9660C2F36CAB}"/>
+							<MediaRefs>
+								<MediaRef Id="183326329"/>
+								<MediaRef Id="231029929"/>
+								<MediaRef Id="462261049"/>
+								<MediaRef Id="469674061"/>
+								<MediaRef Id="583884832"/>
+								<MediaRef Id="693287263"/>
+								<MediaRef Id="717675288"/>
+								<MediaRef Id="796395021"/>
+								<MediaRef Id="825132684"/>
+								<MediaRef Id="835541628"/>
+								<MediaRef Id="890113918"/>
+								<MediaRef Id="926145066"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="2305019952" Name="Play_Pawstep_Walk" ObjectPath="\Events\Default Work Unit\Characters\Bo\Pawtstep\Play_Pawstep_Walk" GUID="{0FF03506-7099-46FB-8C75-3F48EEC9409B}" DurationType="OneShot" DurationMin="0.4074615" DurationMax="1.69241">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2473969246" GUID="{672F128D-86F4-44E6-898C-5F9BC3328DD7}"/>
+							<MediaRefs>
+								<MediaRef Id="38583586"/>
+								<MediaRef Id="137607181"/>
+								<MediaRef Id="166426559"/>
+								<MediaRef Id="182714013"/>
+								<MediaRef Id="284179050"/>
+								<MediaRef Id="341362163"/>
+								<MediaRef Id="392058335"/>
+								<MediaRef Id="856320271"/>
+								<MediaRef Id="875507542"/>
+								<MediaRef Id="933030415"/>
+								<MediaRef Id="1044327846"/>
+								<MediaRef Id="1058555036"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="1216965916" GUID="{CBEC10A5-BB33-48D5-8D6F-75D57B9E589B}"/>
+							<MediaRefs>
+								<MediaRef Id="63811923"/>
+								<MediaRef Id="120280306"/>
+								<MediaRef Id="165318366"/>
+								<MediaRef Id="419814699"/>
+								<MediaRef Id="508374255"/>
+								<MediaRef Id="564785658"/>
+								<MediaRef Id="574960693"/>
+								<MediaRef Id="682989490"/>
+								<MediaRef Id="849163576"/>
+								<MediaRef Id="861802902"/>
+								<MediaRef Id="957408484"/>
+								<MediaRef Id="1047536643"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2195636714" GUID="{4BC341C0-5B54-467D-A837-6210EEDEFFC3}" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="49020880"/>
+								<MediaRef Id="75106633"/>
+								<MediaRef Id="89763913"/>
+								<MediaRef Id="153195050"/>
+								<MediaRef Id="244307665"/>
+								<MediaRef Id="601496383"/>
+								<MediaRef Id="630323013"/>
+								<MediaRef Id="716697841"/>
+								<MediaRef Id="751601186"/>
+								<MediaRef Id="813761520"/>
+								<MediaRef Id="815467114"/>
+								<MediaRef Id="996465390"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2058049674" GUID="{7A4235C3-9CB6-402A-A59E-9660C2F36CAB}"/>
+							<MediaRefs>
+								<MediaRef Id="82777833"/>
+								<MediaRef Id="194013073"/>
+								<MediaRef Id="207501874"/>
+								<MediaRef Id="251745968"/>
+								<MediaRef Id="299190767"/>
+								<MediaRef Id="379367015"/>
+								<MediaRef Id="409705699"/>
+								<MediaRef Id="523755243"/>
+								<MediaRef Id="692806375"/>
+								<MediaRef Id="701878891"/>
+								<MediaRef Id="766034290"/>
+								<MediaRef Id="1064146344"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+			</Events>
+			<SwitchGroups>
+				<SwitchGroup Id="3714303081" Name="Surfaces" ObjectPath="\Switches\Default Work Unit\Surfaces" GUID="{437105DE-FFEE-4E0C-A50C-F1635EC9A7F5}">
+					<Switches>
+						<Switch Id="1216965916" Name="Stone" ObjectPath="\Switches\Default Work Unit\Surfaces\Stone" GUID="{CBEC10A5-BB33-48D5-8D6F-75D57B9E589B}"/>
+						<Switch Id="2058049674" Name="Wood" ObjectPath="\Switches\Default Work Unit\Surfaces\Wood" GUID="{7A4235C3-9CB6-402A-A59E-9660C2F36CAB}"/>
+						<Switch Id="2195636714" Name="Dirt" ObjectPath="\Switches\Default Work Unit\Surfaces\Dirt" GUID="{4BC341C0-5B54-467D-A837-6210EEDEFFC3}"/>
+						<Switch Id="2473969246" Name="Metal" ObjectPath="\Switches\Default Work Unit\Surfaces\Metal" GUID="{672F128D-86F4-44E6-898C-5F9BC3328DD7}"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+		<SoundBank Id="3587989757" Type="User" GUID="{901AAACA-D81C-4AE6-9961-B4B6384D8C79}" Language="SFX" Hash="{8C811286-1713-FF7C-94AA-EE908287402A}">
 			<ObjectPath>\SoundBanks\Default Work Unit\Amos</ObjectPath>
 			<ShortName>Amos</ShortName>
 			<Path>Amos.bnk</Path>
+			<Media>
+				<File Id="3029644" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Land_Cloth_2.wav</ShortName>
+					<CachePath>SFX/Amos_Land_Cloth_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="4682758" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Walk\Amos_Walk_Stone_5.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Walk/Amos_Walk_Stone_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="9809385" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Run_Cloth_8.wav</ShortName>
+					<CachePath>SFX/Amos_Run_Cloth_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="21989327" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Walk_Cloth_4.wav</ShortName>
+					<CachePath>SFX/Amos_Walk_Cloth_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="22626830" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Run\Amos_Run_Wood_6.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Run/Amos_Run_Wood_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="44403117" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Run\Amos_Run_Metal_6.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Run/Amos_Run_Metal_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="50279055" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Run_Cloth_6.wav</ShortName>
+					<CachePath>SFX/Amos_Run_Cloth_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="53195197" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Walk\Amos_Walk_Stone_10.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Walk/Amos_Walk_Stone_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="53606030" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Walk\Amos_Walk_Metal_2.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Walk/Amos_Walk_Metal_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="63273216" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Walk\Amos_Walk_Wood_11.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Walk/Amos_Walk_Wood_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="66511791" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Run\Amos_Run_Metal_4.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Run/Amos_Run_Metal_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="69178602" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Walk\Amos_Walk_Dirt_3.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Walk/Amos_Walk_Dirt_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="73090813" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Walk_Cloth_8.wav</ShortName>
+					<CachePath>SFX/Amos_Walk_Cloth_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="83699023" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Climb\Amos_Climb_Wood_2.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Climb/Amos_Climb_Wood_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="85494324" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Walk\Amos_Walk_Dirt_5.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Walk/Amos_Walk_Dirt_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="86006928" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Walk\Amos_Walk_Wood_10.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Walk/Amos_Walk_Wood_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="86488433" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Run\Amos_Run_Stone_10.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Run/Amos_Run_Stone_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="90192704" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Walk\Amos_Walk_Wood_3.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Walk/Amos_Walk_Wood_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="100452016" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Walk\Amos_Walk_Metal_9.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Walk/Amos_Walk_Metal_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="146729494" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Walk\Amos_Walk_Metal_12.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Walk/Amos_Walk_Metal_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="157733340" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Run\Amos_Run_Dirt_7.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Run/Amos_Run_Dirt_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="178300611" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Walk\Amos_Walk_Dirt_6.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Walk/Amos_Walk_Dirt_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="181250566" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Run\Amos_Run_Metal_2.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Run/Amos_Run_Metal_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="181977234" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Walk\Amos_Walk_Metal_5.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Walk/Amos_Walk_Metal_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="190482755" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Woodand\Amos_Land_Wood_1.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Woodand/Amos_Land_Wood_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="190723823" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Run_Cloth_9.wav</ShortName>
+					<CachePath>SFX/Amos_Run_Cloth_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="202195712" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Run_Cloth_2.wav</ShortName>
+					<CachePath>SFX/Amos_Run_Cloth_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="204350866" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Run\Amos_Run_Wood_7.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Run/Amos_Run_Wood_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="212763113" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Run\Amos_Run_Metal_5.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Run/Amos_Run_Metal_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="215566862" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Walk\Amos_Walk_Stone_9.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Walk/Amos_Walk_Stone_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="220142881" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Woodand\Amos_Land_Wood_3.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Woodand/Amos_Land_Wood_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="223327344" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Walk\Amos_Walk_Wood_9.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Walk/Amos_Walk_Wood_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="239591848" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Land\Amos_Land_Stone_4.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Land/Amos_Land_Stone_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="245400751" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Walk_Cloth_6.wav</ShortName>
+					<CachePath>SFX/Amos_Walk_Cloth_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="247200224" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Climb\Amos_Climb_Wood_4.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Climb/Amos_Climb_Wood_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="261929448" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Walk\Amos_Walk_Wood_7.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Walk/Amos_Walk_Wood_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="269655855" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Walk\Amos_Walk_Stone_12.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Walk/Amos_Walk_Stone_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="291606242" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Run\Amos_Run_Wood_12.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Run/Amos_Run_Wood_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="300808895" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Walk\Amos_Walk_Stone_1.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Walk/Amos_Walk_Stone_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="307247392" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Run\Amos_Run_Metal_10.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Run/Amos_Run_Metal_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="309013043" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Land\Amos_Land_Metal_3.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Land/Amos_Land_Metal_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="310497284" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Walk\Amos_Walk_Dirt_1.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Walk/Amos_Walk_Dirt_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="318718390" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Run_Cloth_12.wav</ShortName>
+					<CachePath>SFX/Amos_Run_Cloth_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="320062491" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Land\Amos_Land_Stone_3.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Land/Amos_Land_Stone_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="327555476" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Walk\Amos_Walk_Wood_12.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Walk/Amos_Walk_Wood_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="338025169" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Walk_Cloth_7.wav</ShortName>
+					<CachePath>SFX/Amos_Walk_Cloth_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="369941155" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Walk\Amos_Walk_Metal_6.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Walk/Amos_Walk_Metal_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="373648947" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Walk\Amos_Walk_Dirt_11.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Walk/Amos_Walk_Dirt_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="379392688" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Walk\Amos_Walk_Wood_6.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Walk/Amos_Walk_Wood_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="379765320" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Run\Amos_Run_Dirt_8.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Run/Amos_Run_Dirt_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="380512738" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Woodand\Amos_Land_Wood_2.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Woodand/Amos_Land_Wood_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="383937519" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Run\Amos_Run_Dirt_12.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Run/Amos_Run_Dirt_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="394851380" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Walk\Amos_Walk_Wood_1.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Walk/Amos_Walk_Wood_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="401840111" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Walk\Amos_Walk_Dirt_8.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Walk/Amos_Walk_Dirt_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="421471753" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Run\Amos_Run_Dirt_5.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Run/Amos_Run_Dirt_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="429944186" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Run\Amos_Run_Stone_3.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Run/Amos_Run_Stone_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="431178260" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Run\Amos_Run_Metal_11.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Run/Amos_Run_Metal_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="433338306" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Run\Amos_Run_Stone_4.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Run/Amos_Run_Stone_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="443716466" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Walk_Cloth_10.wav</ShortName>
+					<CachePath>SFX/Amos_Walk_Cloth_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="456522583" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Run\Amos_Run_Stone_12.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Run/Amos_Run_Stone_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="460958676" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Run\Amos_Run_Dirt_9.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Run/Amos_Run_Dirt_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="474040098" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Run\Amos_Run_Wood_11.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Run/Amos_Run_Wood_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="488852965" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Walk\Amos_Walk_Stone_8.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Walk/Amos_Walk_Stone_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="497111857" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Walk\Amos_Walk_Dirt_12.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Walk/Amos_Walk_Dirt_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="500857067" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Walk\Amos_Walk_Dirt_2.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Walk/Amos_Walk_Dirt_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="515272651" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Walk\Amos_Walk_Wood_5.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Walk/Amos_Walk_Wood_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="520959524" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Run\Amos_Run_Wood_5.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Run/Amos_Run_Wood_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="526244575" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Run\Amos_Run_Metal_3.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Run/Amos_Run_Metal_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="537436943" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Land\Amos_Land_Stone_2.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Land/Amos_Land_Stone_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="546571881" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Run_Cloth_11.wav</ShortName>
+					<CachePath>SFX/Amos_Run_Cloth_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="557869164" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Run\Amos_Run_Stone_8.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Run/Amos_Run_Stone_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="565893604" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Walk\Amos_Walk_Dirt_4.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Walk/Amos_Walk_Dirt_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="568792035" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Walk\Amos_Walk_Wood_8.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Walk/Amos_Walk_Wood_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="570518855" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Woodand\Amos_Land_Wood_4.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Woodand/Amos_Land_Wood_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="578822162" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Land\Amos_Land_Dirt_4.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Land/Amos_Land_Dirt_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="585376423" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Run\Amos_Run_Wood_2.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Run/Amos_Run_Wood_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="585384271" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Walk_Cloth_11.wav</ShortName>
+					<CachePath>SFX/Amos_Walk_Cloth_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="587349181" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Run_Cloth_3.wav</ShortName>
+					<CachePath>SFX/Amos_Run_Cloth_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="590408244" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Walk\Amos_Walk_Metal_8.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Walk/Amos_Walk_Metal_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="599117843" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Run\Amos_Run_Dirt_4.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Run/Amos_Run_Dirt_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="616715579" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Run\Amos_Run_Stone_2.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Run/Amos_Run_Stone_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="635946741" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Run\Amos_Run_Stone_11.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Run/Amos_Run_Stone_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="647117982" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Walk_Cloth_2.wav</ShortName>
+					<CachePath>SFX/Amos_Walk_Cloth_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="649630500" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Walk\Amos_Walk_Stone_7.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Walk/Amos_Walk_Stone_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="656313099" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Land\Amos_Land_Metal_2.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Land/Amos_Land_Metal_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="663311657" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Walk\Amos_Walk_Metal_4.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Walk/Amos_Walk_Metal_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="673599676" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Climb\Amos_Climb_Wood_6.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Climb/Amos_Climb_Wood_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="679527908" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Run\Amos_Run_Wood_9.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Run/Amos_Run_Wood_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="680371930" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Walk_Cloth_5.wav</ShortName>
+					<CachePath>SFX/Amos_Walk_Cloth_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="686049272" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Run\Amos_Run_Stone_9.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Run/Amos_Run_Stone_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="693475316" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Run_Cloth_10.wav</ShortName>
+					<CachePath>SFX/Amos_Run_Cloth_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="700046288" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Run\Amos_Run_Wood_10.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Run/Amos_Run_Wood_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="704251015" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Run\Amos_Run_Dirt_10.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Run/Amos_Run_Dirt_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="710769153" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Run\Amos_Run_Metal_7.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Run/Amos_Run_Metal_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="713855750" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Land_Cloth_4.wav</ShortName>
+					<CachePath>SFX/Amos_Land_Cloth_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="722471936" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Walk\Amos_Walk_Wood_4.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Walk/Amos_Walk_Wood_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="737654583" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Land\Amos_Land_Dirt_3.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Land/Amos_Land_Dirt_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="743340243" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Land\Amos_Land_Dirt_2.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Land/Amos_Land_Dirt_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="750227035" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Walk_Cloth_3.wav</ShortName>
+					<CachePath>SFX/Amos_Walk_Cloth_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="756794345" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Walk\Amos_Walk_Metal_1.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Walk/Amos_Walk_Metal_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="762910091" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Walk\Amos_Walk_Stone_11.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Walk/Amos_Walk_Stone_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="779295622" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Land_Cloth_1.wav</ShortName>
+					<CachePath>SFX/Amos_Land_Cloth_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="779476145" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Run\Amos_Run_Wood_8.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Run/Amos_Run_Wood_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="780610283" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Walk\Amos_Walk_Stone_3.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Walk/Amos_Walk_Stone_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="780666295" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Walk\Amos_Walk_Dirt_7.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Walk/Amos_Walk_Dirt_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="781330224" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Run\Amos_Run_Dirt_3.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Run/Amos_Run_Dirt_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="797125964" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Run\Amos_Run_Wood_3.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Run/Amos_Run_Wood_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="806036125" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Walk_Cloth_12.wav</ShortName>
+					<CachePath>SFX/Amos_Walk_Cloth_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="808297218" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Walk\Amos_Walk_Stone_2.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Walk/Amos_Walk_Stone_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="815781447" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Run\Amos_Run_Dirt_1.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Run/Amos_Run_Dirt_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="819127656" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Walk\Amos_Walk_Metal_11.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Walk/Amos_Walk_Metal_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="819376711" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Walk\Amos_Walk_Wood_2.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Walk/Amos_Walk_Wood_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="834484886" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Land\Amos_Land_Metal_1.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Land/Amos_Land_Metal_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="836520637" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Run\Amos_Run_Stone_5.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Run/Amos_Run_Stone_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="838030957" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Run\Amos_Run_Metal_12.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Run/Amos_Run_Metal_12_818F3B66.wem</CachePath>
+				</File>
+				<File Id="848342022" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Walk\Amos_Walk_Stone_6.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Walk/Amos_Walk_Stone_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="852275691" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Land\Amos_Land_Stone_1.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Land/Amos_Land_Stone_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="853328199" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Run\Amos_Run_Dirt_2.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Run/Amos_Run_Dirt_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="856396050" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Walk\Amos_Walk_Metal_7.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Walk/Amos_Walk_Metal_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="873906244" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Run\Amos_Run_Metal_9.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Run/Amos_Run_Metal_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="874683268" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Run_Cloth_7.wav</ShortName>
+					<CachePath>SFX/Amos_Run_Cloth_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="879382664" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Run\Amos_Run_Wood_4.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Run/Amos_Run_Wood_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="884067385" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Climb\Amos_Climb_Wood_1.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Climb/Amos_Climb_Wood_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="889747108" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Run_Cloth_4.wav</ShortName>
+					<CachePath>SFX/Amos_Run_Cloth_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="891558432" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Walk\Amos_Walk_Stone_4.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Walk/Amos_Walk_Stone_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="923713217" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Walk\Amos_Walk_Metal_3.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Walk/Amos_Walk_Metal_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="932789093" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Land\Amos_Land_Dirt_1.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Land/Amos_Land_Dirt_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="934827292" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Climb\Amos_Climb_Wood_3.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Climb/Amos_Climb_Wood_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="937331531" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Run\Amos_Run_Dirt_6.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Run/Amos_Run_Dirt_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="940478340" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Run\Amos_Run_Stone_6.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Run/Amos_Run_Stone_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="946546245" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Land\Amos_Land_Metal_4.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Land/Amos_Land_Metal_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="947034437" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Walk_Cloth_9.wav</ShortName>
+					<CachePath>SFX/Amos_Walk_Cloth_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="954663158" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Run\Amos_Run_Dirt_11.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Run/Amos_Run_Dirt_11_818F3B66.wem</CachePath>
+				</File>
+				<File Id="957348363" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Walk\Amos_Walk_Dirt_10.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Walk/Amos_Walk_Dirt_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="963262933" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Walk_Cloth_1.wav</ShortName>
+					<CachePath>SFX/Amos_Walk_Cloth_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="968071432" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Run\Amos_Run_Metal_8.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Run/Amos_Run_Metal_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="971321714" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Run\Amos_Run_Stone_7.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Run/Amos_Run_Stone_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="977503191" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Run_Cloth_5.wav</ShortName>
+					<CachePath>SFX/Amos_Run_Cloth_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="983427405" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Stone\Stone_Run\Amos_Run_Stone_1.wav</ShortName>
+					<CachePath>SFX/Feet/Stone/Stone_Run/Amos_Run_Stone_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="984829028" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Climb\Amos_Climb_Wood_8.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Climb/Amos_Climb_Wood_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1012223095" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Land_Cloth_3.wav</ShortName>
+					<CachePath>SFX/Amos_Land_Cloth_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1014936288" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Walk\Amos_Walk_Metal_10.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Walk/Amos_Walk_Metal_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1019622493" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Dirt\Dirt_Walk\Amos_Walk_Dirt_9.wav</ShortName>
+					<CachePath>SFX/Feet/Dirt/Dirt_Walk/Amos_Walk_Dirt_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1022078238" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Metal\Metal_Run\Amos_Run_Metal_1.wav</ShortName>
+					<CachePath>SFX/Feet/Metal/Metal_Run/Amos_Run_Metal_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1033125633" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Climb\Amos_Climb_Wood_7.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Climb/Amos_Climb_Wood_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1043331019" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Amos_Run_Cloth_1.wav</ShortName>
+					<CachePath>SFX/Amos_Run_Cloth_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1064520385" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Climb\Amos_Climb_Wood_5.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Climb/Amos_Climb_Wood_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1068423912" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Feet\Wood\Wood_Run\Amos_Run_Wood_1.wav</ShortName>
+					<CachePath>SFX/Feet/Wood/Wood_Run/Amos_Run_Wood_1_818F3B66.wem</CachePath>
+				</File>
+			</Media>
+			<Plugins>
+				<ShareSets>
+					<Plugin Id="1959642023" Name="Footsteps_Eq" ObjectPath="\Effects\Default Work Unit\Footsteps_Eq" GUID="{55877117-BD42-4C11-9F3D-0B14F717B75D}" LibName="Wwise Parametric EQ" LibId="6881283"/>
+				</ShareSets>
+			</Plugins>
+			<Events>
+				<Event Id="1764375706" Name="Play_Cloth_Land" ObjectPath="\Events\Default Work Unit\Characters\Amos\Cloths\Play_Cloth_Land" GUID="{9B2E9857-B464-4811-A451-30F79744EB0C}" DurationType="OneShot" DurationMin="0.9067487" DurationMax="1.4054866">
+					<MediaRefs>
+						<MediaRef Id="3029644"/>
+						<MediaRef Id="713855750"/>
+						<MediaRef Id="779295622"/>
+						<MediaRef Id="1012223095"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2772643996" Name="Play_Cloth_Run" ObjectPath="\Events\Default Work Unit\Characters\Amos\Cloths\Play_Cloth_Run" GUID="{F5B01BE5-19A2-4C18-B65C-EA1758A40EE1}" DurationType="OneShot" DurationMin="0.4419556" DurationMax="0.6162242">
+					<MediaRefs>
+						<MediaRef Id="9809385"/>
+						<MediaRef Id="50279055"/>
+						<MediaRef Id="190723823"/>
+						<MediaRef Id="202195712"/>
+						<MediaRef Id="318718390"/>
+						<MediaRef Id="546571881"/>
+						<MediaRef Id="587349181"/>
+						<MediaRef Id="693475316"/>
+						<MediaRef Id="874683268"/>
+						<MediaRef Id="889747108"/>
+						<MediaRef Id="977503191"/>
+						<MediaRef Id="1043331019"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="282740138" Name="Play_Cloth_Walk" ObjectPath="\Events\Default Work Unit\Characters\Amos\Cloths\Play_Cloth_Walk" GUID="{DC085406-B1E1-401F-9C02-C4DBE0086146}" DurationType="OneShot" DurationMin="0.6555989" DurationMax="1.4037054">
+					<MediaRefs>
+						<MediaRef Id="21989327"/>
+						<MediaRef Id="73090813"/>
+						<MediaRef Id="245400751"/>
+						<MediaRef Id="338025169"/>
+						<MediaRef Id="443716466"/>
+						<MediaRef Id="585384271"/>
+						<MediaRef Id="647117982"/>
+						<MediaRef Id="680371930"/>
+						<MediaRef Id="750227035"/>
+						<MediaRef Id="806036125"/>
+						<MediaRef Id="947034437"/>
+						<MediaRef Id="963262933"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4182872170" Name="Play_Footstep_Climb" ObjectPath="\Events\Default Work Unit\Characters\Amos\Footstep\Play_Footstep_Climb" GUID="{A43F142E-BCFF-463A-8284-3E39CA82D78F}" DurationType="OneShot" DurationMin="0.35719612" DurationMax="1.003496">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2058049674" GUID="{7A4235C3-9CB6-402A-A59E-9660C2F36CAB}" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="83699023"/>
+								<MediaRef Id="247200224"/>
+								<MediaRef Id="673599676"/>
+								<MediaRef Id="884067385"/>
+								<MediaRef Id="934827292"/>
+								<MediaRef Id="984829028"/>
+								<MediaRef Id="1033125633"/>
+								<MediaRef Id="1064520385"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="2435142848" Name="Play_Footstep_Land" ObjectPath="\Events\Default Work Unit\Characters\Amos\Footstep\Play_Footstep_Land" GUID="{257D6666-A274-4BC9-B833-3784386D312E}" DurationType="OneShot" DurationMin="0.4602491" DurationMax="1.4058235">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2473969246" GUID="{672F128D-86F4-44E6-898C-5F9BC3328DD7}"/>
+							<MediaRefs>
+								<MediaRef Id="309013043"/>
+								<MediaRef Id="656313099"/>
+								<MediaRef Id="834484886"/>
+								<MediaRef Id="946546245"/>
+							</MediaRefs>
+							<PluginRefs>
+								<ShareSets>
+									<PluginRef Id="1959642023"/>
+								</ShareSets>
+							</PluginRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="1216965916" GUID="{CBEC10A5-BB33-48D5-8D6F-75D57B9E589B}"/>
+							<MediaRefs>
+								<MediaRef Id="239591848"/>
+								<MediaRef Id="320062491"/>
+								<MediaRef Id="537436943"/>
+								<MediaRef Id="852275691"/>
+							</MediaRefs>
+							<PluginRefs>
+								<ShareSets>
+									<PluginRef Id="1959642023"/>
+								</ShareSets>
+							</PluginRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2195636714" GUID="{4BC341C0-5B54-467D-A837-6210EEDEFFC3}" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="578822162"/>
+								<MediaRef Id="737654583"/>
+								<MediaRef Id="743340243"/>
+								<MediaRef Id="932789093"/>
+							</MediaRefs>
+							<PluginRefs>
+								<ShareSets>
+									<PluginRef Id="1959642023"/>
+								</ShareSets>
+							</PluginRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2058049674" GUID="{7A4235C3-9CB6-402A-A59E-9660C2F36CAB}"/>
+							<MediaRefs>
+								<MediaRef Id="190482755"/>
+								<MediaRef Id="220142881"/>
+								<MediaRef Id="380512738"/>
+								<MediaRef Id="570518855"/>
+							</MediaRefs>
+							<PluginRefs>
+								<ShareSets>
+									<PluginRef Id="1959642023"/>
+								</ShareSets>
+							</PluginRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="1276431738" Name="Play_Footstep_Run" ObjectPath="\Events\Default Work Unit\Characters\Amos\Footstep\Play_Footstep_Run" GUID="{69B420FA-5728-449F-A2AC-64B34F1A5D33}" DurationType="OneShot" DurationMin="0.42851272" DurationMax="0.646817">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2473969246" GUID="{672F128D-86F4-44E6-898C-5F9BC3328DD7}"/>
+							<MediaRefs>
+								<MediaRef Id="44403117"/>
+								<MediaRef Id="66511791"/>
+								<MediaRef Id="181250566"/>
+								<MediaRef Id="212763113"/>
+								<MediaRef Id="307247392"/>
+								<MediaRef Id="431178260"/>
+								<MediaRef Id="526244575"/>
+								<MediaRef Id="710769153"/>
+								<MediaRef Id="838030957"/>
+								<MediaRef Id="873906244"/>
+								<MediaRef Id="968071432"/>
+								<MediaRef Id="1022078238"/>
+							</MediaRefs>
+							<PluginRefs>
+								<ShareSets>
+									<PluginRef Id="1959642023"/>
+								</ShareSets>
+							</PluginRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="1216965916" GUID="{CBEC10A5-BB33-48D5-8D6F-75D57B9E589B}"/>
+							<MediaRefs>
+								<MediaRef Id="86488433"/>
+								<MediaRef Id="429944186"/>
+								<MediaRef Id="433338306"/>
+								<MediaRef Id="456522583"/>
+								<MediaRef Id="557869164"/>
+								<MediaRef Id="616715579"/>
+								<MediaRef Id="635946741"/>
+								<MediaRef Id="686049272"/>
+								<MediaRef Id="836520637"/>
+								<MediaRef Id="940478340"/>
+								<MediaRef Id="971321714"/>
+								<MediaRef Id="983427405"/>
+							</MediaRefs>
+							<PluginRefs>
+								<ShareSets>
+									<PluginRef Id="1959642023"/>
+								</ShareSets>
+							</PluginRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2195636714" GUID="{4BC341C0-5B54-467D-A837-6210EEDEFFC3}" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="157733340"/>
+								<MediaRef Id="379765320"/>
+								<MediaRef Id="383937519"/>
+								<MediaRef Id="421471753"/>
+								<MediaRef Id="460958676"/>
+								<MediaRef Id="599117843"/>
+								<MediaRef Id="704251015"/>
+								<MediaRef Id="781330224"/>
+								<MediaRef Id="815781447"/>
+								<MediaRef Id="853328199"/>
+								<MediaRef Id="937331531"/>
+								<MediaRef Id="954663158"/>
+							</MediaRefs>
+							<PluginRefs>
+								<ShareSets>
+									<PluginRef Id="1959642023"/>
+								</ShareSets>
+							</PluginRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2058049674" GUID="{7A4235C3-9CB6-402A-A59E-9660C2F36CAB}"/>
+							<MediaRefs>
+								<MediaRef Id="22626830"/>
+								<MediaRef Id="204350866"/>
+								<MediaRef Id="291606242"/>
+								<MediaRef Id="474040098"/>
+								<MediaRef Id="520959524"/>
+								<MediaRef Id="585376423"/>
+								<MediaRef Id="679527908"/>
+								<MediaRef Id="700046288"/>
+								<MediaRef Id="779476145"/>
+								<MediaRef Id="797125964"/>
+								<MediaRef Id="879382664"/>
+								<MediaRef Id="1068423912"/>
+							</MediaRefs>
+							<PluginRefs>
+								<ShareSets>
+									<PluginRef Id="1959642023"/>
+								</ShareSets>
+							</PluginRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="2256727140" Name="Play_Footstep_Walk" ObjectPath="\Events\Default Work Unit\Characters\Amos\Footstep\Play_Footstep_Walk" GUID="{15A521A6-9D19-4CA3-90EB-3DDFCBE4C97F}" DurationType="OneShot" DurationMin="0.65219986" DurationMax="1.4037054">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2473969246" GUID="{672F128D-86F4-44E6-898C-5F9BC3328DD7}"/>
+							<MediaRefs>
+								<MediaRef Id="53606030"/>
+								<MediaRef Id="100452016"/>
+								<MediaRef Id="146729494"/>
+								<MediaRef Id="181977234"/>
+								<MediaRef Id="369941155"/>
+								<MediaRef Id="590408244"/>
+								<MediaRef Id="663311657"/>
+								<MediaRef Id="756794345"/>
+								<MediaRef Id="819127656"/>
+								<MediaRef Id="856396050"/>
+								<MediaRef Id="923713217"/>
+								<MediaRef Id="1014936288"/>
+							</MediaRefs>
+							<PluginRefs>
+								<ShareSets>
+									<PluginRef Id="1959642023"/>
+								</ShareSets>
+							</PluginRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="1216965916" GUID="{CBEC10A5-BB33-48D5-8D6F-75D57B9E589B}"/>
+							<MediaRefs>
+								<MediaRef Id="4682758"/>
+								<MediaRef Id="53195197"/>
+								<MediaRef Id="215566862"/>
+								<MediaRef Id="269655855"/>
+								<MediaRef Id="300808895"/>
+								<MediaRef Id="488852965"/>
+								<MediaRef Id="649630500"/>
+								<MediaRef Id="762910091"/>
+								<MediaRef Id="780610283"/>
+								<MediaRef Id="808297218"/>
+								<MediaRef Id="848342022"/>
+								<MediaRef Id="891558432"/>
+							</MediaRefs>
+							<PluginRefs>
+								<ShareSets>
+									<PluginRef Id="1959642023"/>
+								</ShareSets>
+							</PluginRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2195636714" GUID="{4BC341C0-5B54-467D-A837-6210EEDEFFC3}" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="69178602"/>
+								<MediaRef Id="85494324"/>
+								<MediaRef Id="178300611"/>
+								<MediaRef Id="310497284"/>
+								<MediaRef Id="373648947"/>
+								<MediaRef Id="401840111"/>
+								<MediaRef Id="497111857"/>
+								<MediaRef Id="500857067"/>
+								<MediaRef Id="565893604"/>
+								<MediaRef Id="780666295"/>
+								<MediaRef Id="957348363"/>
+								<MediaRef Id="1019622493"/>
+							</MediaRefs>
+							<PluginRefs>
+								<ShareSets>
+									<PluginRef Id="1959642023"/>
+								</ShareSets>
+							</PluginRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3714303081" Id="2058049674" GUID="{7A4235C3-9CB6-402A-A59E-9660C2F36CAB}"/>
+							<MediaRefs>
+								<MediaRef Id="63273216"/>
+								<MediaRef Id="86006928"/>
+								<MediaRef Id="90192704"/>
+								<MediaRef Id="223327344"/>
+								<MediaRef Id="261929448"/>
+								<MediaRef Id="327555476"/>
+								<MediaRef Id="379392688"/>
+								<MediaRef Id="394851380"/>
+								<MediaRef Id="515272651"/>
+								<MediaRef Id="568792035"/>
+								<MediaRef Id="722471936"/>
+								<MediaRef Id="819376711"/>
+							</MediaRefs>
+							<PluginRefs>
+								<ShareSets>
+									<PluginRef Id="1959642023"/>
+								</ShareSets>
+							</PluginRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+			</Events>
+			<SwitchGroups>
+				<SwitchGroup Id="3714303081" Name="Surfaces" ObjectPath="\Switches\Default Work Unit\Surfaces" GUID="{437105DE-FFEE-4E0C-A50C-F1635EC9A7F5}">
+					<Switches>
+						<Switch Id="1216965916" Name="Stone" ObjectPath="\Switches\Default Work Unit\Surfaces\Stone" GUID="{CBEC10A5-BB33-48D5-8D6F-75D57B9E589B}"/>
+						<Switch Id="2058049674" Name="Wood" ObjectPath="\Switches\Default Work Unit\Surfaces\Wood" GUID="{7A4235C3-9CB6-402A-A59E-9660C2F36CAB}"/>
+						<Switch Id="2195636714" Name="Dirt" ObjectPath="\Switches\Default Work Unit\Surfaces\Dirt" GUID="{4BC341C0-5B54-467D-A837-6210EEDEFFC3}"/>
+						<Switch Id="2473969246" Name="Metal" ObjectPath="\Switches\Default Work Unit\Surfaces\Metal" GUID="{672F128D-86F4-44E6-898C-5F9BC3328DD7}"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{49F12DCA-4C1D-4503-3168-697BFF7F6690}</FileHash>
+	<FileHash>{79143361-C4D7-AFB6-743C-3246655EAD6A}</FileHash>
 </SoundBanksInfo>

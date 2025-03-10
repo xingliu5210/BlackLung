@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 792f828f02f094bae9742185295a26f5, type: 3}
   m_Name: D43D63B3-549C-4537-A7E6-3FEDB78E661C
   m_EditorClassIdentifier: 
-  objectName: Play_Pickup_Fuel
-  id: 578142713
+  objectName: Play_Lantern_Fuel_PickUp
+  id: 44584836
   guid: D43D63B3-549C-4537-A7E6-3FEDB78E661C

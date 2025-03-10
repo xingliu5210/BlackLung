@@ -84,12 +84,23 @@ public class UIMainMenu : MonoBehaviour
         // Wait for the next frame to ensure the scene is loaded
         yield return new WaitForSeconds(0.1f);
 
+        // **Ensure SaveSystem exists**
+        if (FindObjectOfType<SaveSystem>() == null)
+        {
+            Debug.LogWarning("SaveSystem missing! Creating a new one.");
+            GameObject saveSystemObj = new GameObject("SaveSystem");
+            saveSystemObj.AddComponent<SaveSystem>();
+            DontDestroyOnLoad(saveSystemObj);
+        }
+
+
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         GameObject ally = GameObject.FindGameObjectWithTag("Dog");
 
         if (player != null && ally != null)
         {
             bool loaded = SaveSystem.LoadGame(player.transform, ally.transform);
+            InventoryManager.Instance.LoadInventoryFromCheckpoint();
             if (loaded)
             {
                 Debug.Log("Game Loaded after scene transition!");
@@ -108,15 +119,13 @@ public class UIMainMenu : MonoBehaviour
     public void StartNewGame()
     {
         SaveSystem.DeleteSave(); // Clears previous save data
-        SaveSystem saveSystem = FindObjectOfType<SaveSystem>(); // Find SaveSystem instance
 
-        if (saveSystem != null)
+        if (FindObjectOfType<SaveSystem>() == null)
         {
-            saveSystem.ResetGame(); // Reset game state
-        }
-        else
-        {
-            Debug.LogError("SaveSystem not found in the scene!");
+            GameObject saveSystemObj = new GameObject("SaveSystem");
+            saveSystemObj.AddComponent<SaveSystem>();
+            DontDestroyOnLoad(saveSystemObj); // Ensure it persists
+            Debug.Log("SaveSystem created in Main Menu.");
         }
 
         sceneManager.OnLoadFirstScene(); // Load first scene

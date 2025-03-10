@@ -15,18 +15,16 @@ public class PlayerInventory : MonoBehaviour
         return InventoryManager.Instance.GetItemCount("Key");
     }
 
-    public bool UseKey()
+    public void UseKey()
     {
         if (InventoryManager.Instance.HasItem("Key"))
         {
             InventoryManager.Instance.RemoveItem("Key");
             Debug.Log("Key used.");
-            return true;
         }
         else
         {
             Debug.Log("No keys available.");
-            return false;
         }
     }
 

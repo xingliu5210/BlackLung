@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using AK.Wwise;
+using System;
 
 public class Lantern : MonoBehaviour
 {
+    [SerializeField] AK.Wwise.Event lanternSwitchOnEvent;
+    [SerializeField] AK.Wwise.Event lanternSwitchOffEvent;
+
     private bool powerOn = false;
     [SerializeField] private SphereCollider lightCol;
 
@@ -72,11 +77,13 @@ public class Lantern : MonoBehaviour
             lanternLight.intensity = 0;
             material.SetColor("Color", Color.black);
             material.SetColor("_EmissionColor", Color.black);
+            PlaySwitchOffSound();
         }
         else
         {
             lightCol.enabled = true;
             lanternLight.intensity = currentFuelPercent * maxIntensity;
+            PlaySwitchOnSound();
         }
     }
 
@@ -109,4 +116,27 @@ public class Lantern : MonoBehaviour
     {
         fuelBar.fillAmount = Mathf.Clamp(currentFuelPercent, 0, 1);
     }
+
+    public void PlaySwitchOnSound()
+    {
+        AkSoundEngine.PostEvent(lanternSwitchOnEvent.Id, this.gameObject);
+    }
+
+    public void PlaySwitchOffSound()
+    {
+        AkSoundEngine.PostEvent(lanternSwitchOffEvent.Id, this.gameObject);
+    }
+
+    public float GetfuelPercent()
+    {
+        return currentFuelPercent;
+    }
+
+    public void SetFuelPercent(float fuel)
+    {
+        currentFuelPercent = Mathf.Clamp(fuel, 0, 1);
+        lanternLight.intensity = currentFuelPercent * maxIntensity;
+        UpdateFuelBar();
+    }
+
 }

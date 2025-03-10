@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -51,7 +52,10 @@ public class PlayerHealth : MonoBehaviour
     private void HealthDepleted()
     {
         Debug.Log("FEAR BAR DEPLETED!");
-        GetComponent<Checkpoint>().Respawn();
-        ally.GetComponent<Checkpoint>().Respawn();
+        // GetComponent<Checkpoint>().Respawn();
+        // ally.GetComponent<Checkpoint>().Respawn();
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
     }
 }
