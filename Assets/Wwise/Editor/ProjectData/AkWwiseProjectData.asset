@@ -66,6 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 147cf98059949f49a0c1ac37de744d60
     GuidInternal: 
+
     m_lastTime: -8584612161236385213
     List:
     - name: Amos
@@ -135,7 +136,9 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2d6fe38b65a02e4d9bf97df545c8a150
     GuidInternal: 
+
     m_lastTime: -8584612161236656597
+
     List:
     - name: Amos
       guid: 3dd5b71369c24f44b388b5028ae0c5dc
@@ -609,6 +612,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: c751e87686109141b3d7bad065297481
     GuidInternal: 
+
     m_lastTime: -8584612986398704803
     List:
     - name: Surfaces
@@ -693,6 +697,7 @@ MonoBehaviour:
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []
+
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     PathAndIcons:
