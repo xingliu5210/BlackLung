@@ -32,7 +32,8 @@ public class ParallaxBackground : MonoBehaviour
         //float yStartPosition = transform.position.y + imageOffset * height;
         startPosition = new Vector3(xStartPosition, transform.position.y, transform.position.z);
 
-        transform.position = new Vector3(xStartPosition, transform.position.y, transform.position.z);
+        //transform.position = new Vector3(xStartPosition, transform.position.y, transform.position.z);
+        transform.position = startPosition;
     }
 
     // Update is called once per frame
