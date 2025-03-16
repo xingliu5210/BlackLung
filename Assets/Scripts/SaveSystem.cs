@@ -30,6 +30,9 @@ public class SaveData
     public List<InventoryItem> inventoryItems = new List<InventoryItem>();
     // public Dictionary<string, int> savedInventoryItems;
 
+    // Store tutorial states
+    public List<TutorialState> tutorialTriggers = new List<TutorialState>();
+
 }
 
 [System.Serializable]
@@ -42,6 +45,19 @@ public class ElevatorState
     {
         elevatorName = name;
         isActivated = activated;
+    }
+}
+
+[System.Serializable]
+public class TutorialState
+{
+    public string tutorialName;
+    public bool hasBeenTriggered;
+
+    public TutorialState(string name, bool triggered)
+    {
+        tutorialName = name;
+        hasBeenTriggered = triggered;
     }
 }
 
@@ -133,6 +149,17 @@ public class SaveSystem : MonoBehaviour
         Debug.Log("[DEBUG] Inventory List before saving: " +
               (inventoryList.Count > 0 ? string.Join(", ", inventoryList) : "EMPTY"));
 
+         // Collect tutorial trigger states
+        List<TutorialState> tutorialStates = new List<TutorialState>();
+        TutorialTrigger[] tutorialTriggers = Resources.FindObjectsOfTypeAll<TutorialTrigger>(); // Finds both active and inactive objects
+
+        foreach (TutorialTrigger trigger in tutorialTriggers)
+        {
+            string tutorialKey = "Tutorial_" + trigger.popUpIndex;
+            bool hasBeenTriggered = !trigger.gameObject.activeSelf;
+            tutorialStates.Add(new TutorialState(tutorialKey, hasBeenTriggered));
+        }
+
         SaveData data = new SaveData
         {
             playerX = player.position.x,
@@ -144,7 +171,8 @@ public class SaveSystem : MonoBehaviour
             lanternFuelPercent = instance.lantern != null ? instance.lantern.GetfuelPercent() : 1.0f,
             elevatorStates = GetElevatorStates(),
             collectedKeys = new List<string>(collectedKeysList),
-            inventoryItems = inventoryList
+            inventoryItems = inventoryList,
+            tutorialTriggers = tutorialStates
             // savedInventoryItems = InventoryManager.Instance.GetSavedInventoryData()
             // inventoryItems = InventoryManager.Instance.GetInventoryItems()
         };
@@ -173,15 +201,6 @@ public class SaveSystem : MonoBehaviour
         instance.player = GameObject.FindGameObjectWithTag("Player");
         instance.bo = GameObject.FindGameObjectWithTag("Dog");
 
-        // Try to find player and bo if not assigned
-        // if (playerTransform == null) playerTransform = GameObject.FindGameObjectWithTag("Player")?.transform;
-        // if (allyTransform == null) allyTransform = GameObject.FindGameObjectWithTag("Dog")?.transform;
-        // if (playerTransform == null || allyTransform == null)
-        // {
-        //     Debug.LogError("LoadGame: Player or Bo is still null even after trying to find them.");
-        //     return false;
-        // }
-
         if (instance.player == null || instance.bo == null)
         {
             Debug.LogError("Player or Bo not found after loading scene!");
@@ -191,8 +210,6 @@ public class SaveSystem : MonoBehaviour
         // ✅ Restore Player and Bo positions
         instance.player.transform.position = new Vector3(data.playerX, data.playerY, data.playerZ);
         instance.bo.transform.position = new Vector3(data.allyX, data.allyY, data.allyZ);
-        // playerTransform.position = new Vector3(data.playerX, data.playerY, data.playerZ);
-        // allyTransform.position = new Vector3(data.allyX, data.allyY, data.allyZ);
 
         // ** Reassign Lantern after scene change**
         instance.lantern = instance.player.GetComponentInChildren<Lantern>();
@@ -208,21 +225,7 @@ public class SaveSystem : MonoBehaviour
 
         RestoreElevatorStates(data.elevatorStates);
 
-        // Ensure Inventory Data is NOT NULL before loading
-        // if (data.inventoryItems == null)
-        // {
-        //     Debug.LogWarning("Inventory data is missing! Initializing empty inventory.");
-        //     data.inventoryItems = new Dictionary<string, int>(); // Initialize a new empty dictionary
-        // }
-        // else
-        // {
-        //     InventoryManager.Instance.LoadInventoryData(data.inventoryItems);
-        //     Debug.Log("Inventory Loaded Successfully: " + string.Join(", ", data.inventoryItems));
-        // }
-
-        // InventoryManager.Instance.LoadInventoryData(data.inventoryItems);
-        // InventoryManager.Instance.LoadInventoryData(data.savedInventoryItems);
-        // ✅ Convert List to Dictionary
+        // Convert List to Dictionary
         Dictionary<string, int> loadedInventory = new Dictionary<string, int>();
         foreach (var item in data.inventoryItems)
         {
@@ -232,6 +235,8 @@ public class SaveSystem : MonoBehaviour
         InventoryManager.Instance.LoadInventoryData(loadedInventory);
 
         RestoreCollectedKeys(data.collectedKeys);
+        RestoreTutorialTriggers(data.tutorialTriggers);
+
         RespawnTemporaryObjects();
 
         Debug.Log("Game Loaded!");
@@ -262,6 +267,9 @@ public class SaveSystem : MonoBehaviour
         // Reset player and Bo positions
         player.transform.position = playerStartPos;
         bo.transform.position = boStartPos;
+
+        // Reset all tutorial triggers
+        ResetTutorialTriggers();
 
         // Reset additional game state variables if needed
         PlayerPrefs.DeleteAll(); // Ensure no leftover settings impact the game
@@ -329,6 +337,33 @@ public class SaveSystem : MonoBehaviour
         }
     }
 
+    private static void RestoreTutorialTriggers(List<TutorialState> tutorialTriggers)
+    {
+         // Restore tutorial triggers in the level
+        TutorialTrigger[] allTriggers = Resources.FindObjectsOfTypeAll<TutorialTrigger>(); // Get all, even disabled ones
+
+        foreach (TutorialTrigger trigger in allTriggers)
+        {
+            string tutorialKey = "Tutorial_" + trigger.popUpIndex;
+
+            // Find matching saved state
+            TutorialState savedState = tutorialTriggers.Find(state => state.tutorialName == tutorialKey);
+
+             if (savedState != null)
+            {
+                // Restore state: Disable if it was triggered, otherwise enable it
+                trigger.gameObject.SetActive(!savedState.hasBeenTriggered);
+            }
+            else
+            {
+                // If no saved state exists, default to enabling it
+                trigger.gameObject.SetActive(true);
+            }
+        }
+
+        Debug.Log("[LOAD] Tutorial triggers restored successfully.");
+    }
+
     // **Respawning Temporary Objects**
     private static void RespawnTemporaryObjects()
     {
@@ -345,13 +380,26 @@ public class SaveSystem : MonoBehaviour
         }
     }
 
-    // ✅ Store the name of the picked-up key
+    // Store the name of the picked-up key
     public static void RegisterKeyPickup(string keyName)
     {
         if (!collectedKeysList.Contains(keyName))
         {
             collectedKeysList.Add(keyName);
         }
+    }
+
+    // New method to reset tutorial triggers
+    private void ResetTutorialTriggers()
+    {
+        foreach (TutorialTrigger trigger in FindObjectsOfType<TutorialTrigger>())
+        {
+            trigger.gameObject.SetActive(true); // Ensure all triggers are enabled again
+        }
+
+        PlayerPrefs.DeleteAll(); // Clear any previous save states
+        PlayerPrefs.Save();
+        Debug.Log("Tutorial popups have been reset.");
     }
 }
 

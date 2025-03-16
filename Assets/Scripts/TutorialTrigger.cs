@@ -39,7 +39,13 @@ public class TutorialTrigger : MonoBehaviour
             Debug.LogError("TutorialManager not found in the scene.");
         }
 
+        // ✅ Save tutorial state immediately
+        string tutorialKey = "Tutorial_" + popUpIndex;
+        PlayerPrefs.SetInt(tutorialKey, 1);
+        PlayerPrefs.Save();
+
         // Destroy this trigger after it has been activated
-        Destroy(gameObject);
+        // Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
