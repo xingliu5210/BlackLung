@@ -221,6 +221,11 @@ public class AmosControls : PlayerMovement
             Debug.Log("Amos calls Bo");
         }
     }
+
+    public void StartFollow()
+    {
+        boFollow = true;
+    }
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.CompareTag("Ladder"))
