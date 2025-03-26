@@ -135,12 +135,35 @@ public class BoControls : PlayerMovement
     {
         base.Update();
 
-        // Move Animations
-        anim.SetFloat("moveSpd", Mathf.Abs(body.velocity.x));
+        // // Move Animations
+        // anim.SetFloat("moveSpd", Mathf.Abs(body.velocity.x));
+
+        // // Landing animation
+        // if (grounded == false) anim.SetBool("grounded", false);
+        // else anim.SetBool("grounded", true);
+
+        float effectiveVelocityX = Mathf.Abs(body.velocity.x);
+
+        // If Bo is following and being teleported or moved directly, simulate animation speed
+        if (amos.GetComponent<AmosControls>().boFollow && effectiveVelocityX == 0)
+        {
+            float distanceToAmos = Mathf.Abs(amos.transform.position.x - transform.position.x);
+            if (distanceToAmos > minFollowRange)
+            {
+                anim.SetFloat("moveSpd", 6f); // matches "walk/run" in blend tree
+            }
+            else
+            {
+                anim.SetFloat("moveSpd", 0f);
+            }
+        }
+        else
+        {
+            anim.SetFloat("moveSpd", effectiveVelocityX);
+        }
 
         // Landing animation
-        if (grounded == false) anim.SetBool("grounded", false);
-        else anim.SetBool("grounded", true);
+        anim.SetBool("grounded", grounded);
     }
 
     private void PlayBarkSound()
