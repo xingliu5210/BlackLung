@@ -1308,6 +1308,10 @@ PrefabInstance:
       propertyPath: saveNotificationDuration
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5140769187301448439, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: m_Name
+      value: Bo_Rig
+      objectReference: {fileID: 0}
     - target: {fileID: 7970636961739809252, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: tunnelCooldown
       value: 2
