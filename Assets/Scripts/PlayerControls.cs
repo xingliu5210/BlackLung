@@ -15,7 +15,6 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-// update the file to fix "Pause" error 1/30/2025 Xing
 public partial class @PlayerControls: IInputActionCollection2, IDisposable
 {
     public InputActionAsset asset { get; }
@@ -113,15 +112,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""name"": ""Whistle"",
                     ""type"": ""Button"",
                     ""id"": ""f4a6e7f3-69bc-4a49-919f-cb7a0c238035"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""new-guid-for-pause"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -319,7 +309,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9dc3093d-7bcf-42f7-83f8-06532ddc41c4"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -436,17 +426,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Whistle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""new-guid-for-esc-binding"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -488,7 +467,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Climb = m_Player.FindAction("Climb", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_Whistle = m_Player.FindAction("Whistle", throwIfNotFound: true);
-        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -560,7 +538,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Climb;
     private readonly InputAction m_Player_Inventory;
     private readonly InputAction m_Player_Whistle;
-    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -575,7 +552,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Climb => m_Wrapper.m_Player_Climb;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputAction @Whistle => m_Wrapper.m_Player_Whistle;
-        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -615,9 +591,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Whistle.started += instance.OnWhistle;
             @Whistle.performed += instance.OnWhistle;
             @Whistle.canceled += instance.OnWhistle;
-            @Pause.started += instance.OnPause;
-            @Pause.performed += instance.OnPause;
-            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -652,9 +625,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Whistle.started -= instance.OnWhistle;
             @Whistle.performed -= instance.OnWhistle;
             @Whistle.canceled -= instance.OnWhistle;
-            @Pause.started -= instance.OnPause;
-            @Pause.performed -= instance.OnPause;
-            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -702,6 +672,5 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnClimb(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnWhistle(InputAction.CallbackContext context);
-        void OnPause(InputAction.CallbackContext context);
     }
 }
