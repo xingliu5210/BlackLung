@@ -116,6 +116,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""510626a4-b6d8-49e5-a339-56c8a50b9631"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -426,6 +435,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Whistle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""72c20828-d69c-4961-87a1-60e0f2d6f091"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -467,6 +487,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Climb = m_Player.FindAction("Climb", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_Whistle = m_Player.FindAction("Whistle", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -538,6 +559,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Climb;
     private readonly InputAction m_Player_Inventory;
     private readonly InputAction m_Player_Whistle;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -552,6 +574,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Climb => m_Wrapper.m_Player_Climb;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputAction @Whistle => m_Wrapper.m_Player_Whistle;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -591,6 +614,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Whistle.started += instance.OnWhistle;
             @Whistle.performed += instance.OnWhistle;
             @Whistle.canceled += instance.OnWhistle;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -625,6 +651,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Whistle.started -= instance.OnWhistle;
             @Whistle.performed -= instance.OnWhistle;
             @Whistle.canceled -= instance.OnWhistle;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -672,5 +701,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnClimb(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnWhistle(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }
