@@ -15,7 +15,6 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-// update the file to fix "Pause" error 1/30/2025 Xing
 public partial class @PlayerControls: IInputActionCollection2, IDisposable
 {
     public InputActionAsset asset { get; }
@@ -121,7 +120,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
-                    ""id"": ""new-guid-for-pause"",
+                    ""id"": ""510626a4-b6d8-49e5-a339-56c8a50b9631"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -319,7 +318,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9dc3093d-7bcf-42f7-83f8-06532ddc41c4"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -439,11 +438,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""new-guid-for-esc-binding"",
+                    ""id"": ""72c20828-d69c-4961-87a1-60e0f2d6f091"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": """",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
