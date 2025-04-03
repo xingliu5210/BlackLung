@@ -309,6 +309,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ally: {fileID: 0}
   spawnXOffset: 0
+  saveNotificationPanel: {fileID: 0}
+  saveNotificationDuration: 2
+  checkpointCooldown: 1
 --- !u!114 &2303905559177237098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,9 +735,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10806ec632bcc3d4fb81763dee3f7854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lanternSwitchOnEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  lanternSwitchOffEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   lightCol: {fileID: 6085789419904053165}
   lanternLight: {fileID: 7282723877011051402}
   material: {fileID: 2100000, guid: b42a40e388e007249bb12913825377bc, type: 2}
+  fuelBar: {fileID: 0}
 --- !u!1001 &7205984691914228047
 PrefabInstance:
   m_ObjectHideFlags: 0
