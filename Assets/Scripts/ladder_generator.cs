@@ -5,8 +5,8 @@ using UnityEngine;
 public class ladder_generator : MonoBehaviour
 {
     // Ladder Size that will be adjusted
-    [Range(0, 100)]
-    public int ladderSize = 0;
+    [Range(2, 100)]
+    public int ladderSize = 2;
 
     // Ladder Mesh references
     [Tooltip("The lowest part of the ladder")]
@@ -26,7 +26,12 @@ public class ladder_generator : MonoBehaviour
 
 
     [HideInInspector]
-     private int _ladderSizeCheck;
+     private int _ladderSizeCheck = -1;
+     private Vector3 _LadderPosCheck = new Vector3();
+     private Quaternion _LadderRotCheck = new Quaternion();
+     private Vector3 _LadderScaCheck = new Vector3();
+
+
      private float ladderMeshSize = 1.5f;
 
      private int seed = 42;
@@ -36,19 +41,30 @@ public class ladder_generator : MonoBehaviour
      private List<Matrix4x4> ladderMatricesM2;
      private List<Matrix4x4> ladderMatricesT;
 
+     private BoxCollider boxCollider;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (sizeChange()){
+        if (anyChange()){
             createLadder();
         }
         renderLadder();
+        drawBoxCollider();
+    }
+    
+    bool anyChange(){
+        if (sizeChange() || transformChange()){
+            return true;
+        }
+        return false;
     }
 
     bool sizeChange(){
@@ -56,6 +72,18 @@ public class ladder_generator : MonoBehaviour
             _ladderSizeCheck = ladderSize;
             return true;
         }
+        return false;
+    }
+
+    bool transformChange(){
+        if (_LadderPosCheck != transform.position ||
+            _LadderRotCheck != transform.rotation ||
+            _LadderScaCheck != transform.localScale){
+                _LadderPosCheck = transform.position;
+                _LadderRotCheck = transform.rotation;
+                _LadderScaCheck = transform.localScale;
+                return true;
+            }
         return false;
     }
 
@@ -68,20 +96,19 @@ public class ladder_generator : MonoBehaviour
         ladderMatricesM2 = new List<Matrix4x4>();
         ladderMatricesT = new List<Matrix4x4>();
 
-        int ladderCount = Mathf.Max(1, (int)(ladderSize / ladderMeshSize));
-
-        var matB = Matrix4x4.TRS(transform.position, transform.rotation, new Vector3(1, 1, 1));
+        int ladderCount = Mathf.Max(2, ladderSize);
+        
+        var matB = Matrix4x4.TRS(transform.position, transform.rotation, transform.localScale);
         ladderMatricesB.Add(matB);
 
-        var matT = Matrix4x4.TRS(transform.position + new Vector3(0, ladderMeshSize * ladderCount, 0), transform.rotation, new Vector3(1, 1, 1));
+        var matT = Matrix4x4.TRS(transform.position + new Vector3(0, ladderMeshSize * ladderCount * transform.localScale.y, 0), transform.rotation, transform.localScale);
         ladderMatricesT.Add(matT);
 
+        for (int i = 1; i < ladderCount; i++){
 
-        for (int i = 0; i < ladderCount; i++){
-
-            var t = transform.position + new Vector3(0, ladderMeshSize * i, 0);
+            var t = transform.position + new Vector3(0, ladderMeshSize * i * transform.localScale.y, 0);
             var r = transform.rotation;
-            var s = new Vector3(1, 1, 1);
+            var s = transform.localScale;
 
             var mat = Matrix4x4.TRS(t, r, s);
 
@@ -111,5 +138,24 @@ public class ladder_generator : MonoBehaviour
             Graphics.DrawMeshInstanced(ladderTopMesh, 0, mLadder, ladderMatricesT.ToArray(), ladderMatricesT.Count);
         }
 
+    }
+
+    void drawBoxCollider(){
+        int ladderCount = Mathf.Max(2, ladderSize);
+        var bottom = transform.position;
+        var top = transform.position + new Vector3(0, ladderMeshSize * (ladderCount + 1)  * transform.localScale.y, 0);
+
+        Vector3 center = (top + bottom) / 2f ;
+        
+        Vector3 size = new Vector3(4f, Vector3.Distance(top, bottom), 1f);
+
+        size = new Vector3(
+            size.x,
+            size.y/transform.localScale.y,
+            size.z
+        );
+
+        boxCollider.center = transform.InverseTransformPoint(center);
+        boxCollider.size = size;
     }
 }
