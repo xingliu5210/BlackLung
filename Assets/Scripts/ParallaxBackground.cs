@@ -47,13 +47,13 @@ public class ParallaxBackground : MonoBehaviour
 
         transform.position = new Vector3(startPosition.x + xDistance, startPosition.y - yDistance, transform.position.z);
 
-        if (xTmp > startPosition.x + width)
+        if (xTmp > startPosition.x + 2 * width)
         {
-            startPosition.x += 2* width;
+            startPosition.x += 2 * width;
         }
-        else if (xTmp < startPosition.x - width)
+        else if (xTmp < startPosition.x - 2 * width)
         {
-            startPosition.x -= 2* width;
+            startPosition.x -= 2 * width;
         }
 
         cameraPosition = cam.position;
