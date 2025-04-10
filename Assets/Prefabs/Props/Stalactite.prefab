@@ -147,7 +147,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3881124432612260391}
   serializedVersion: 8
-  lengthInSec: 2
+  lengthInSec: 4
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -4883,7 +4883,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b127629efac95e74f8c0e87ef6a84ccb, type: 2}
+  - {fileID: 2100000, guid: ae3649dffbe8f644ab6fdd1bf3627450, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5078,8 +5078,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.46823502, y: 1.0708388, z: 1}
-  m_Center: {x: -0.01091814, y: -0.5994157, z: 0}
+  m_Size: {x: 0.3644538, y: 1.0203506, z: 1}
+  m_Center: {x: -0.0039060116, y: -0.6050255, z: 0}
 --- !u!54 &7927987690842455490
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5155,6 +5155,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0269c000e7957ac4393e9cf4446637d3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4751d175f887e004ca747f3b2242e2c0, type: 2}
     - target: {fileID: 919132149155446097, guid: 0269c000e7957ac4393e9cf4446637d3, type: 3}
       propertyPath: m_Name
       value: Large_Stalactites

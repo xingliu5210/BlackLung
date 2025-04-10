@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1948916204806470764}
   - component: {fileID: 595925843687580020}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railway Track C
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,6 +121,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2062c590601161f41a51a6afe376aaf5, type: 3}
       propertyPath: m_Name
       value: RailwayC
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2062c590601161f41a51a6afe376aaf5, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
