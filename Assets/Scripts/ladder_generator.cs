@@ -21,7 +21,7 @@ public class ladder_generator : MonoBehaviour
     [Tooltip("The top part of the ladder")]
     [SerializeField] private Mesh ladderTopMesh;
 
-    [Tooltip("The top part of the ladder")]
+    [Tooltip("The material of the ladder")]
     [SerializeField] private Material mLadder;
 
 
@@ -55,9 +55,9 @@ public class ladder_generator : MonoBehaviour
     {
         if (anyChange()){
             createLadder();
+            drawBoxCollider();
         }
         renderLadder();
-        drawBoxCollider();
     }
     
     bool anyChange(){

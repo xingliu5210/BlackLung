@@ -3,7 +3,12 @@ guid: 1e3179be86866104fb7b2956d35a0644
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ElevatorLift1
+    second: {fileID: 2100000, guid: 393ea49143d89d84cb232103892a2c11, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -97,7 +102,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
