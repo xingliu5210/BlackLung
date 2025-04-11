@@ -30,6 +30,11 @@
 												</ModifierInfo>
 											</ModifierList>
 										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -53,6 +58,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Lantren_Switch_On" ID="{D8F129C3-DA1F-440E-8CED-C894CB01CD24}" ShortID="986786317">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{27F2BE4B-0160-4102-92B5-CEC6072504E9}"/>
@@ -75,6 +87,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Lantern_Switch_Off" ID="{E537E0EF-33C1-494E-9E8B-A19A2F77AA9F}" ShortID="830506491">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{27F2BE4B-0160-4102-92B5-CEC6072504E9}"/>
@@ -101,6 +120,13 @@
 						<Folder Name="Elevator" ID="{864743E1-C0DD-4574-AA5D-F92E027478A3}" ShortID="747406982">
 							<ChildrenList>
 								<Sound Name="Elevator_Key_PickUp" ID="{BF6CABEE-EE44-498B-9431-ED3229AAD512}" ShortID="730191890">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{27F2BE4B-0160-4102-92B5-CEC6072504E9}"/>
@@ -158,6 +184,9 @@
 												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-20</Value>
+													</ValueList>
 													<ModifierList>
 														<ModifierInfo>
 															<Modifier Name="" ID="{AB9899DF-1ADB-4234-B098-7CC975B29E8D}"/>
@@ -282,6 +311,9 @@
 												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
 												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-20</Value>
+													</ValueList>
 													<ModifierList>
 														<ModifierInfo>
 															<Modifier Name="" ID="{F5F0166A-E18D-4C06-8832-1F9D5F99A064}"/>
@@ -582,6 +614,9 @@
 												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
 												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-20</Value>
+													</ValueList>
 													<ModifierList>
 														<ModifierInfo>
 															<Modifier Name="" ID="{07D7A8EA-3853-4B1C-96ED-22E26745B013}"/>
@@ -1116,6 +1151,13 @@
 													</GroupingInfo>
 												</SwitchContainer>
 												<SwitchContainer Name="Landing" ID="{C8837546-6A7E-42CC-8D43-426CAD5F74FF}" ShortID="181316108">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-15</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{27F2BE4B-0160-4102-92B5-CEC6072504E9}"/>
@@ -1732,6 +1774,13 @@
 													</GroupingInfo>
 												</SwitchContainer>
 												<SwitchContainer Name="Running" ID="{BFB8065E-8C4F-4540-AFCD-60078513F134}" ShortID="225767249">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-15</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{27F2BE4B-0160-4102-92B5-CEC6072504E9}"/>
@@ -3056,6 +3105,13 @@
 													</GroupingInfo>
 												</SwitchContainer>
 												<SwitchContainer Name="Walking" ID="{7FE8085C-1530-4FED-91EA-94A61879D78D}" ShortID="745666968">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-15</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{27F2BE4B-0160-4102-92B5-CEC6072504E9}"/>
@@ -7649,6 +7705,9 @@
 													</ModifierList>
 												</Property>
 												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-9</Value>
+													</ValueList>
 													<ModifierList>
 														<ModifierInfo>
 															<Modifier Name="" ID="{53A99D47-E8F3-4C7D-9DD1-2942DAE25FAF}"/>
