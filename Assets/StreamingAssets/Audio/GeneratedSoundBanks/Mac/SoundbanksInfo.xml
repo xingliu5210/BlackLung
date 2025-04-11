@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="85412153" Type="User" GUID="{32B8540D-7565-4648-8D33-C32673AD17EC}" Language="SFX" Hash="{59AB686E-413C-4639-EFDC-33358E8B8092}">
+		<SoundBank Id="85412153" Type="User" GUID="{32B8540D-7565-4648-8D33-C32673AD17EC}" Language="SFX" Hash="{51050ED1-E998-3D66-6B7B-0DB0807462D2}">
 			<ObjectPath>\SoundBanks\ME_SoundBank_WorkUnit\Ambience</ObjectPath>
 			<ShortName>Ambience</ShortName>
 			<Path>Ambience.bnk</Path>
@@ -170,7 +170,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="393239870" Type="User" GUID="{EE3D9868-A7E1-4E8B-930D-964492D2DAE7}" Language="SFX" Hash="{2FAD4448-6AB9-22BE-BC24-3F08E5AA1C54}">
+		<SoundBank Id="393239870" Type="User" GUID="{EE3D9868-A7E1-4E8B-930D-964492D2DAE7}" Language="SFX" Hash="{1ECB3034-42A8-697E-149D-CFA9FE0469DC}">
 			<ObjectPath>\SoundBanks\Default Work Unit\SFX</ObjectPath>
 			<ShortName>SFX</ShortName>
 			<Path>SFX.bnk</Path>
@@ -959,7 +959,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3587989757" Type="User" GUID="{901AAACA-D81C-4AE6-9961-B4B6384D8C79}" Language="SFX" Hash="{8C811286-1713-FF7C-94AA-EE908287402A}">
+		<SoundBank Id="3587989757" Type="User" GUID="{901AAACA-D81C-4AE6-9961-B4B6384D8C79}" Language="SFX" Hash="{FA854F0A-A2C8-BA57-E675-6AAC743F69DF}">
 			<ObjectPath>\SoundBanks\Default Work Unit\Amos</ObjectPath>
 			<ShortName>Amos</ShortName>
 			<Path>Amos.bnk</Path>
@@ -1877,5 +1877,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{79143361-C4D7-AFB6-743C-3246655EAD6A}</FileHash>
+	<FileHash>{6F195DB4-1226-BF87-AD99-996531BC17B0}</FileHash>
 </SoundBanksInfo>

@@ -935,6 +935,11 @@
 						<Sound Name="ambience_cave_01" ID="{D363843A-3DAF-425C-9FE1-7DEA0E7B73DE}" ShortID="856952900">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
