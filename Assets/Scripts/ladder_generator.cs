@@ -98,15 +98,15 @@ public class ladder_generator : MonoBehaviour
 
         int ladderCount = Mathf.Max(2, ladderSize);
         
-        var matB = Matrix4x4.TRS(transform.position, transform.rotation, transform.localScale);
+        var matB = Matrix4x4.TRS(applyRotation(transform.position), transform.rotation, transform.localScale);
         ladderMatricesB.Add(matB);
 
-        var matT = Matrix4x4.TRS(transform.position + new Vector3(0, ladderMeshSize * ladderCount * transform.localScale.y, 0), transform.rotation, transform.localScale);
+        var matT = Matrix4x4.TRS(applyRotation(transform.position + new Vector3(0, ladderMeshSize * ladderCount * transform.localScale.y, 0)), transform.rotation, transform.localScale);
         ladderMatricesT.Add(matT);
 
         for (int i = 1; i < ladderCount; i++){
 
-            var t = transform.position + new Vector3(0, ladderMeshSize * i * transform.localScale.y, 0);
+            var t = applyRotation(transform.position + new Vector3(0, ladderMeshSize * i * transform.localScale.y, 0));
             var r = transform.rotation;
             var s = transform.localScale;
 
@@ -137,13 +137,12 @@ public class ladder_generator : MonoBehaviour
         if (ladderMatricesT != null){
             Graphics.DrawMeshInstanced(ladderTopMesh, 0, mLadder, ladderMatricesT.ToArray(), ladderMatricesT.Count);
         }
-
     }
 
     void drawBoxCollider(){
         int ladderCount = Mathf.Max(2, ladderSize);
-        var bottom = transform.position;
-        var top = transform.position + new Vector3(0, ladderMeshSize * (ladderCount + 1)  * transform.localScale.y, 0);
+        var bottom = applyRotation(transform.position);
+        var top = applyRotation(transform.position + new Vector3(0, ladderMeshSize * (ladderCount + 1)  * transform.localScale.y, 0));
 
         Vector3 center = (top + bottom) / 2f ;
         
@@ -157,5 +156,11 @@ public class ladder_generator : MonoBehaviour
 
         boxCollider.center = transform.InverseTransformPoint(center);
         boxCollider.size = size;
+    }
+
+    private Vector3 applyRotation(Vector3 t){
+
+        return transform.localRotation * t;
+
     }
 }

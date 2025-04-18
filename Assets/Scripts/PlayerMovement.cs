@@ -183,11 +183,11 @@ public class PlayerMovement : MonoBehaviour
         // Flip player direction based on movement input
         if (direction > 0.01f)
         {
-            transform.localScale = Vector3.one;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (direction < -0.01f)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
     }
@@ -211,9 +211,9 @@ public class PlayerMovement : MonoBehaviour
         // trigger jump if character is grounded. Removed redundant Jump method.
         if (grounded && body != null && !inAction)
         {
+            Jumping();
             body.velocity = new Vector3(body.velocity.x, jumpForce, body.velocity.z);
             grounded = false;
-            Jumping();
         }
         else if (body == null)
         {
