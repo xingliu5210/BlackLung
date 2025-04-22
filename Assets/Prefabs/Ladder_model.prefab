@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 623854180483659854}
   - component: {fileID: 2292686379502310447}
+  - component: {fileID: 8066368827047609618}
   m_Layer: 0
   m_Name: Ladder_model
   m_TagString: Ladder
@@ -27,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,9 +45,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c2fd2cb81351940828c117702d9d89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ladderSize: 0
+  ladderSize: 35
   ladderBottomMesh: {fileID: -4516984294261642349, guid: 9e2c8adde255b314184de62a1ee2cb63, type: 3}
   ladderMidFirstMesh: {fileID: -8056688941447216029, guid: 16619a8c1e47e304d9b601a7df5180ce, type: 3}
   ladderMidSecondMesh: {fileID: -8940917146389728310, guid: ab8aecd687cace84cbde53a31f8533f4, type: 3}
   ladderTopMesh: {fileID: -5164669622831069233, guid: 511dea829a8164e4fb06e951f7452da8, type: 3}
   mLadder: {fileID: 2100000, guid: 9f6237f11e326c740b23f45ba4c319a8, type: 2}
+--- !u!65 &8066368827047609618
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2868574796693098471}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}

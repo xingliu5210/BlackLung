@@ -2,6 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.Playables;
+using UnityEngine.Animations;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     protected bool isLadder;      // Indicates if the player is near a ladder
     //protected 
     public bool isClimbing;    // Indicates if the player is currently climbing
+    public bool attachedToLadder = false;
     private float upwardGravityScale = 1.5f;
     private float downwardGravityScale = 7f;
 
@@ -178,14 +181,19 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log("Move Input: " + direction);
 
         // Set horizontal velocity based on move input
-        body.velocity = new Vector3(moveInput * speed, body.velocity.y, body.velocity.z);
+
+        var v = new Vector3();
+        if (attachedToLadder == false) v = new Vector3(moveInput * speed, body.velocity.y, body.velocity.z);
+        else v = new Vector3(0, 0, 0);
+
+        body.velocity = v;
 
         // Flip player direction based on movement input
-        if (direction > 0.01f)
+        if (direction > 0.01f && !attachedToLadder)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (direction < -0.01f)
+        else if (direction < -0.01f && !attachedToLadder)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
@@ -199,7 +207,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("Climbing with input: " + verticalInput);
         // Move the player vertically along the ladder
-        body.velocity = new Vector3(body.velocity.x, verticalInput * climbSpeed, body.velocity.z);
+        body.velocity = new Vector3(0, 0.592f * anim.speed * verticalInput * 1.45f, 0);
         body.useGravity = false; // Disable gravity while climbing
     }
 

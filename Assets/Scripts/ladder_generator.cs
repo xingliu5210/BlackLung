@@ -56,6 +56,7 @@ public class ladder_generator : MonoBehaviour
         if (anyChange()){
             createLadder();
             drawBoxCollider();
+            placeLocators();
         }
         renderLadder();
     }
@@ -97,16 +98,18 @@ public class ladder_generator : MonoBehaviour
         ladderMatricesT = new List<Matrix4x4>();
 
         int ladderCount = Mathf.Max(2, ladderSize);
+
+        var localTrans = transform.worldToLocalMatrix;
         
-        var matB = Matrix4x4.TRS(applyRotation(transform.position), transform.rotation, transform.localScale);
+        var matB = Matrix4x4.TRS(applyRotation(localTrans.GetPosition()), transform.rotation, transform.localScale);
         ladderMatricesB.Add(matB);
 
-        var matT = Matrix4x4.TRS(applyRotation(transform.position + new Vector3(0, ladderMeshSize * ladderCount * transform.localScale.y, 0)), transform.rotation, transform.localScale);
+        var matT = Matrix4x4.TRS(applyRotation(localTrans.GetPosition() - new Vector3(0, ladderMeshSize * ladderCount * transform.localScale.y, 0)), transform.rotation, transform.localScale);
         ladderMatricesT.Add(matT);
 
         for (int i = 1; i < ladderCount; i++){
 
-            var t = applyRotation(transform.position + new Vector3(0, ladderMeshSize * i * transform.localScale.y, 0));
+            var t = applyRotation(localTrans.GetPosition() - new Vector3(0, ladderMeshSize * i * transform.localScale.y, 0));
             var r = transform.rotation;
             var s = transform.localScale;
 
@@ -140,9 +143,11 @@ public class ladder_generator : MonoBehaviour
     }
 
     void drawBoxCollider(){
+
+        var localTrans = transform.worldToLocalMatrix;
         int ladderCount = Mathf.Max(2, ladderSize);
-        var bottom = applyRotation(transform.position);
-        var top = applyRotation(transform.position + new Vector3(0, ladderMeshSize * (ladderCount + 1)  * transform.localScale.y, 0));
+        var bottom = applyRotation(localTrans.GetPosition());
+        var top = applyRotation(localTrans.GetPosition() - new Vector3(0, ladderMeshSize * (ladderCount + 1)  * transform.localScale.y, 0));
 
         Vector3 center = (top + bottom) / 2f ;
         
@@ -158,9 +163,26 @@ public class ladder_generator : MonoBehaviour
         boxCollider.size = size;
     }
 
-    private Vector3 applyRotation(Vector3 t){
+    void placeLocators(){
 
-        return transform.localRotation * t;
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        int numberOfLadders = ladderMatricesM1.Count + ladderMatricesM2.Count + 1;
+        
+        for (int i = 0; i <= numberOfLadders; i +=3 ){
+            GameObject child = new GameObject($"ladder_loc_{i}");
+            child.tag = "Locator";
+            child.transform.SetParent(transform);
+            child.transform.localPosition = new Vector3(0, 1 * i, -1.5f); // Space them out
+        }
+    }
+
+    private Vector3 applyRotation(Vector3 t){
+        
+        return Vector3.Scale(transform.rotation * t, new Vector3(-transform.localScale.x, -1, -transform.localScale.z));
 
     }
 }
