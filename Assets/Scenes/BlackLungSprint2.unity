@@ -298,6 +298,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1060559649}
     m_Modifications:
+    - target: {fileID: 481362867801840774, guid: 865fa3e3e9bb51a47a676ee3ffb70711, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 723582030}
     - target: {fileID: 3249859646754238546, guid: 865fa3e3e9bb51a47a676ee3ffb70711, type: 3}
       propertyPath: m_Name
       value: Bat (2)
@@ -2286,6 +2290,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 500063951}
     m_Modifications:
+    - target: {fileID: 481362867801840774, guid: 865fa3e3e9bb51a47a676ee3ffb70711, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 723582030}
     - target: {fileID: 3249859646754238546, guid: 865fa3e3e9bb51a47a676ee3ffb70711, type: 3}
       propertyPath: m_Name
       value: Bat (1)
@@ -5639,6 +5647,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 500063951}
     m_Modifications:
+    - target: {fileID: 481362867801840774, guid: 865fa3e3e9bb51a47a676ee3ffb70711, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 723582030}
     - target: {fileID: 3249859646754238546, guid: 865fa3e3e9bb51a47a676ee3ffb70711, type: 3}
       propertyPath: m_Name
       value: Bat
@@ -9647,6 +9659,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1060559649}
     m_Modifications:
+    - target: {fileID: 481362867801840774, guid: 865fa3e3e9bb51a47a676ee3ffb70711, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 723582030}
     - target: {fileID: 3249859646754238546, guid: 865fa3e3e9bb51a47a676ee3ffb70711, type: 3}
       propertyPath: m_Name
       value: Bat (1)
@@ -19374,6 +19390,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1060559649}
     m_Modifications:
+    - target: {fileID: 481362867801840774, guid: 865fa3e3e9bb51a47a676ee3ffb70711, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 723582030}
     - target: {fileID: 3249859646754238546, guid: 865fa3e3e9bb51a47a676ee3ffb70711, type: 3}
       propertyPath: m_Name
       value: Bat (3)
@@ -29277,6 +29297,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1060559649}
     m_Modifications:
+    - target: {fileID: 481362867801840774, guid: 865fa3e3e9bb51a47a676ee3ffb70711, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 723582030}
     - target: {fileID: 3249859646754238546, guid: 865fa3e3e9bb51a47a676ee3ffb70711, type: 3}
       propertyPath: m_Name
       value: Bat
