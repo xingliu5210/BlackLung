@@ -27,6 +27,7 @@ public class AmosControls : PlayerMovement
 
     // Used to track if the rope is currently visible
     private bool ropeVisible = false;
+    private bool snapToLadder = false;
 
     // Used to countdown to remove the rope
     private float ropeVisibleCountdown = 0.5f;
@@ -92,26 +93,27 @@ public class AmosControls : PlayerMovement
         if (isLadder && climbInput != 0 && !attachedToLadder)
         {
 
-            Transform nearest = getNearestLoc();
             isClimbing = true; // Start Climbing when the input is received
             bo.GetComponent<BoControls>().amosback = true;
             anim.SetTrigger("climbing");
             anim.SetBool("Climbing", true);
-            transform.SetPositionAndRotation(nearest.position + new Vector3(0, 0.25f, 0), transform.rotation);
-            transform.Find("Amos_Rig").SetPositionAndRotation(transform.Find("Amos_Rig").position, currentLadder.rotation);
-            if (climbInput > 0) anim.CrossFade("Climbing_Up", 0.1f, 0, normalizedTime);
-            else anim.CrossFade("Climbing_Down", 0.1f, 0, normalizedTime);
+            
+            snapToLadder = true;
+
+            if (climbInput > 0) anim.CrossFade("Climbing Up", 0.1f, 0, normalizedTime);
+            else anim.CrossFade("Climbing Down", 0.1f, 0, normalizedTime);
             
             anim.speed = 1.5f;
             attachedToLadder = true;
         }
         else if (isLadder && climbInput != 0 && attachedToLadder){
             anim.speed = 1.5f;
-            if (climbInput > 0) anim.CrossFade("Climbing_Up", 0.1f, 0, normalizedTime);
-            else anim.CrossFade("Climbing_Down", 0.1f, 0, normalizedTime);
+            if (climbInput > 0) anim.CrossFade("Climbing Up", 0.1f, 0, normalizedTime);
+            else anim.CrossFade("Climbing Down", 0.1f, 0, normalizedTime);
         }
         else if (isLadder && climbInput == 0 && attachedToLadder)
         {
+            snapToLadder = true;
             isClimbing = false; // Stop climbing is there's no input or not on a ladder.
             anim.speed = 0;
         }
@@ -193,6 +195,7 @@ public class AmosControls : PlayerMovement
 
     protected override void Jumping()
     {
+        
         //Jumping animation
         anim.SetTrigger("jump");
 
@@ -210,6 +213,19 @@ public class AmosControls : PlayerMovement
 
         // Move Animations
         anim.SetFloat("moveSpd", Mathf.Abs(body.velocity.x));
+
+        if (snapToLadder){
+
+            Transform nearest = getNearestLoc();
+            var newPosition = nearest.position + new Vector3(0, 0.3f, 0);
+            
+            transform.position = Vector3.Lerp(transform.position, newPosition, 1f);
+            transform.Find("Amos_Rig").SetPositionAndRotation(transform.Find("Amos_Rig").position, currentLadder.rotation);
+
+            if (Vector3.Distance(transform.position, newPosition) < 0.001f){
+                snapToLadder = false;
+            }
+        }
 
         // Landing animation
         if (grounded == false) anim.SetBool("grounded", false);
@@ -278,14 +294,28 @@ public class AmosControls : PlayerMovement
 
             Transform nearest = null;
 
+            AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+
             foreach (Transform child in currentLadder)
             {
                 float dist = Vector3.Distance(child.transform.position, currentPos);
 
-                if (dist < minDist)
-                {
-                    minDist = dist;
-                    nearest = child;
+                var condition = false;
+                //Output the name of the starting clip
+                if (stateInfo.IsName("Climbing Down")){
+                    condition = child.transform.position.y < currentPos.y;
+                }
+                else{
+                    condition = true;
+                }
+
+                if (condition){
+                    if (dist < minDist)
+                    {
+                        minDist = dist;
+                        nearest = child;
+                    }
+
                 }
             }
 

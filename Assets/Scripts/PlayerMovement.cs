@@ -68,11 +68,11 @@ public class PlayerMovement : MonoBehaviour
         GroundCheck();
 
         // Check if the player is climbing
-        if (isClimbing)
+        if (isClimbing && attachedToLadder)
         {
             OnClimb(vertical); // Calls climbing behavior when on a ladder
         }
-        else if (isLadder)
+        else if (isLadder && attachedToLadder)
         {
             body.useGravity = false;
             grounded = true;

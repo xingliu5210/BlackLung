@@ -129,16 +129,16 @@ public class ladder_generator : MonoBehaviour
     void renderLadder(){
 
         if (ladderMatricesB != null){
-            Graphics.DrawMeshInstanced(ladderBottomMesh, 0, mLadder, ladderMatricesB.ToArray(), ladderMatricesB.Count);
+            Graphics.DrawMeshInstanced(ladderBottomMesh, 0, mLadder, ladderMatricesB.ToArray(), ladderMatricesB.Count, null, UnityEngine.Rendering.ShadowCastingMode.On, true, 9);
         }
         if (ladderMatricesM1 != null){
-            Graphics.DrawMeshInstanced(ladderMidFirstMesh, 0, mLadder, ladderMatricesM1.ToArray(), ladderMatricesM1.Count);
+            Graphics.DrawMeshInstanced(ladderMidFirstMesh, 0, mLadder, ladderMatricesM1.ToArray(), ladderMatricesM1.Count, null, UnityEngine.Rendering.ShadowCastingMode.On, true, 9);
         }
         if (ladderMatricesM2 != null){
-            Graphics.DrawMeshInstanced(ladderMidSecondMesh, 0, mLadder, ladderMatricesM2.ToArray(), ladderMatricesM2.Count);
+            Graphics.DrawMeshInstanced(ladderMidSecondMesh, 0, mLadder, ladderMatricesM2.ToArray(), ladderMatricesM2.Count, null, UnityEngine.Rendering.ShadowCastingMode.On, true, 9);
         }
         if (ladderMatricesT != null){
-            Graphics.DrawMeshInstanced(ladderTopMesh, 0, mLadder, ladderMatricesT.ToArray(), ladderMatricesT.Count);
+            Graphics.DrawMeshInstanced(ladderTopMesh, 0, mLadder, ladderMatricesT.ToArray(), ladderMatricesT.Count, null, UnityEngine.Rendering.ShadowCastingMode.On, true, 9);
         }
     }
 
@@ -172,7 +172,7 @@ public class ladder_generator : MonoBehaviour
 
         int numberOfLadders = ladderMatricesM1.Count + ladderMatricesM2.Count + 1;
         
-        for (int i = 0; i <= numberOfLadders; i +=3 ){
+        for (float i = 0; i <= numberOfLadders; i += 1.5f ){
             GameObject child = new GameObject($"ladder_loc_{i}");
             child.tag = "Locator";
             child.transform.SetParent(transform);
