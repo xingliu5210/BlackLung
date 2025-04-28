@@ -49,9 +49,20 @@ public class Checkpoint : MonoBehaviour
             spawnPosition = CheckpointPosition;
             spawnPosition.x += spawnXOffset;
             // CheckpointPosition = other.transform.position;
-            ally.transform.position = spawnPosition;
+            // ally.transform.position = spawnPosition;
 
             ally.GetComponent<Checkpoint>().AllyCheckpoint();
+
+            bool allyIsCloseEnough = Vector3.Distance(ally.transform.position, spawnPosition) < 2.0f;
+            bool allyIsFollowing = ally.GetComponent<BoControls>()?.amosback ?? false;
+
+            // Only teleport ally if NOT close and NOT following
+            if (!allyIsCloseEnough && !allyIsFollowing)
+            {
+                ally.transform.position = spawnPosition;
+                ally.GetComponent<Checkpoint>().AllyCheckpoint();
+                Debug.Log("Teleported ally to checkpoint.");
+            } 
 
             Debug.Log("Checkpoint set to " + CheckpointPosition);
             InventoryManager.Instance.SaveInventoryAtCheckpoint();
