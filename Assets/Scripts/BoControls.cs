@@ -8,6 +8,7 @@ public class BoControls : PlayerMovement
 {
     [SerializeField] AK.Wwise.Event boBarkEvent;
     public bool amosback;
+    public bool isMovementPaused = false;
     [SerializeField] private GameObject amos;
     [SerializeField] private float minFollowRange;
     [SerializeField] private float teleportRange;
@@ -18,6 +19,8 @@ public class BoControls : PlayerMovement
 
     protected override void FixedUpdate()
     {
+        if (isMovementPaused) return;
+        
         base.FixedUpdate();
 
         lastPos = currentPos;

@@ -49,13 +49,25 @@ public class Checkpoint : MonoBehaviour
             spawnPosition = CheckpointPosition;
             spawnPosition.x += spawnXOffset;
             // CheckpointPosition = other.transform.position;
-            ally.transform.position = spawnPosition;
+            // ally.transform.position = spawnPosition;
 
             ally.GetComponent<Checkpoint>().AllyCheckpoint();
 
+            bool allyIsCloseEnough = Vector3.Distance(ally.transform.position, spawnPosition) < 2.0f;
+            bool allyIsFollowing = ally.GetComponent<BoControls>()?.amosback ?? false;
+
+            // Only teleport ally if NOT close and NOT following
+            if (!allyIsCloseEnough && !allyIsFollowing)
+            {
+                ally.transform.position = spawnPosition;
+                ally.GetComponent<Checkpoint>().AllyCheckpoint();
+                Debug.Log("Teleported ally to checkpoint.");
+            } 
+
             Debug.Log("Checkpoint set to " + CheckpointPosition);
             InventoryManager.Instance.SaveInventoryAtCheckpoint();
-            SaveSystem.SaveGame(other.transform, ally.transform);
+            // SaveSystem.SaveGame(other.transform, ally.transform);
+            StartCoroutine(SaveAfterPausingBo());
 
             // Show "Game Saved" notification
             if (saveNotificationPanel != null)
@@ -97,5 +109,34 @@ public class Checkpoint : MonoBehaviour
         checkpointActive = false;
         yield return new WaitForSeconds(checkpointCooldown);
         checkpointActive = true;
+    }
+
+    private IEnumerator SaveAfterPausingBo()
+    {
+        BoControls boControl = ally.GetComponent<BoControls>();
+        if (boControl != null)
+        {
+            boControl.isMovementPaused = true; // ✨ Pause Bo movement
+        }
+
+        yield return new WaitForEndOfFrame(); // Wait one frame to stabilize
+
+        SaveSystem.SaveGame(transform, ally.transform);
+
+        if (saveNotificationPanel != null)
+        {
+            if (notificationCoroutine != null)
+                StopCoroutine(notificationCoroutine);
+
+            notificationCoroutine = StartCoroutine(ShowSaveNotification());
+        }
+
+        // After 0.2 seconds, resume Bo's movement
+        yield return new WaitForSeconds(0.2f);
+
+        if (boControl != null)
+        {
+            boControl.isMovementPaused = false; // ✨ Resume Bo movement
+        }
     }
 }
