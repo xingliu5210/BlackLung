@@ -97,6 +97,7 @@ public class Elevator_generator : MonoBehaviour
         
         if (anyChange()){
             createElevator();
+            placeLocators();
             elevatorBox.transform.position = ElevatorMatricesF[ElevatorPosition].GetPosition() + new Vector3(0, 1.5f * transform.localScale.y, 0);
         }
         renderElevator();
@@ -244,5 +245,24 @@ public class Elevator_generator : MonoBehaviour
             Graphics.DrawMeshInstanced(elevatorTunnelMesh_03, 0, mElevatorTunnel_03, ElevatorMatricesT3.ToArray(), ElevatorMatricesT3.Count);
         }
 
+    }
+
+    void placeLocators(){
+
+        foreach (Transform child in transform)
+        {
+            if (child.gameObject.tag == "Locator"){
+                Destroy(child.gameObject);
+            }
+        }
+
+        int numberOfLoc = elevatorSizes.Count;
+        
+        for (int i = 0; i < numberOfLoc; i += 1 ){
+            GameObject child = new GameObject($"elevator_loc_{i}");
+            child.tag = "Locator";
+            child.transform.SetParent(transform);
+            child.transform.position = ElevatorMatricesF[i].GetPosition() + new Vector3(0, 0, -6f); // Space them out
+        }
     }
 }

@@ -28,6 +28,7 @@ public class AmosControls : PlayerMovement
     // Used to track if the rope is currently visible
     private bool ropeVisible = false;
     private bool snapToLadder = false;
+    private bool movingDown = false;
 
     // Used to countdown to remove the rope
     private float ropeVisibleCountdown = 0.5f;
@@ -64,7 +65,7 @@ public class AmosControls : PlayerMovement
             }
         }
 
-        if (grounded && !isClimbing && !hooking)
+        if (grounded && !attachedToLadder && !hooking)
         {
             bo.GetComponent<BoControls>().amosback = false;
         }
@@ -83,7 +84,6 @@ public class AmosControls : PlayerMovement
         
         
         float normalizedTime = stateInfo.normalizedTime;
-        Debug.Log(animName);
 
         if (animName != "Amos_Climb_01"){
             normalizedTime = 0;
@@ -100,20 +100,31 @@ public class AmosControls : PlayerMovement
             
             snapToLadder = true;
 
-            if (climbInput > 0) anim.CrossFade("Climbing Up", 0.1f, 0, normalizedTime);
-            else anim.CrossFade("Climbing Down", 0.1f, 0, normalizedTime);
+            if (climbInput > 0){
+                anim.CrossFade("Climbing Up", 0.1f, 0, normalizedTime - (int)normalizedTime);
+                movingDown = false;
+            }
+            else {
+                anim.CrossFade("Climbing Down", 0.1f, 0, normalizedTime - (int)normalizedTime);
+                movingDown = true;
+            }
             
             anim.speed = 1.5f;
             attachedToLadder = true;
         }
         else if (isLadder && climbInput != 0 && attachedToLadder){
             anim.speed = 1.5f;
-            if (climbInput > 0) anim.CrossFade("Climbing Up", 0.1f, 0, normalizedTime);
-            else anim.CrossFade("Climbing Down", 0.1f, 0, normalizedTime);
+            if (climbInput > 0){
+                anim.CrossFade("Climbing Up", 0.1f, 0, normalizedTime - (int)normalizedTime);
+                movingDown = false;
+            }
+            else {
+                anim.CrossFade("Climbing Down", 0.1f, 0, normalizedTime - (int)normalizedTime);
+                movingDown = true;
+            }
         }
         else if (isLadder && climbInput == 0 && attachedToLadder)
         {
-            snapToLadder = true;
             isClimbing = false; // Stop climbing is there's no input or not on a ladder.
             anim.speed = 0;
         }
@@ -204,6 +215,7 @@ public class AmosControls : PlayerMovement
             anim.SetBool("Climbing", false);
             anim.speed = 1;
             attachedToLadder = false;
+            body.useGravity = true;
         }
     }
 
@@ -213,17 +225,22 @@ public class AmosControls : PlayerMovement
 
         // Move Animations
         anim.SetFloat("moveSpd", Mathf.Abs(body.velocity.x));
+        
 
         if (snapToLadder){
+            moveToNearestLoc();
+        }
+        
+        if (attachedToLadder){
 
-            Transform nearest = getNearestLoc();
-            var newPosition = nearest.position + new Vector3(0, 0.3f, 0);
-            
-            transform.position = Vector3.Lerp(transform.position, newPosition, 1f);
-            transform.Find("Amos_Rig").SetPositionAndRotation(transform.Find("Amos_Rig").position, currentLadder.rotation);
+            if (climbInput == 0){
+                var normalizedTime = anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
+                normalizedTime -= (int)normalizedTime;
 
-            if (Vector3.Distance(transform.position, newPosition) < 0.001f){
-                snapToLadder = false;
+                if (normalizedTime < 0.5){
+                    
+                }
+
             }
         }
 
@@ -306,7 +323,7 @@ public class AmosControls : PlayerMovement
                     condition = child.transform.position.y < currentPos.y;
                 }
                 else{
-                    condition = true;
+                    condition = child.transform.position.y >= currentPos.y;
                 }
 
                 if (condition){
@@ -323,6 +340,19 @@ public class AmosControls : PlayerMovement
         }
 
         return null;
+    }
+
+    private void moveToNearestLoc(){
+
+        Transform nearest = getNearestLoc();
+        var newPosition = nearest.position + new Vector3(0, 0.3f, 0);
+            
+        transform.position = Vector3.Lerp(transform.position, newPosition, 1f);
+        transform.Find("Amos_Rig").SetPositionAndRotation(transform.Find("Amos_Rig").position, currentLadder.rotation);
+
+        if (Vector3.Distance(transform.position, newPosition) < 0.001f){
+            snapToLadder = false;
+        }
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -346,7 +376,7 @@ public class AmosControls : PlayerMovement
         {
             isLadder = false;   // Disable climbing when exiting the ladder
             isClimbing = false;
-            body.useGravity = true; // Re-enable gravity when leaving the ladder
+            // Re-enable gravity when leaving the ladder
             Debug.Log("Exited ladder trigger. isLadder set to false.");
         }
 
