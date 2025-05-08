@@ -104,12 +104,12 @@ public class ladder_generator : MonoBehaviour
         var matB = Matrix4x4.TRS(applyRotation(localTrans.GetPosition()), transform.rotation, transform.localScale);
         ladderMatricesB.Add(matB);
 
-        var matT = Matrix4x4.TRS(applyRotation(localTrans.GetPosition() - new Vector3(0, ladderMeshSize * ladderCount * transform.localScale.y, 0)), transform.rotation, transform.localScale);
+        var matT = Matrix4x4.TRS(applyRotation(localTrans.GetPosition() - new Vector3(0, ladderMeshSize * ladderCount, 0)), transform.rotation, transform.localScale);
         ladderMatricesT.Add(matT);
 
         for (int i = 1; i < ladderCount; i++){
 
-            var t = applyRotation(localTrans.GetPosition() - new Vector3(0, ladderMeshSize * i * transform.localScale.y, 0));
+            var t = applyRotation(localTrans.GetPosition() - new Vector3(0, ladderMeshSize * i, 0));
             var r = transform.rotation;
             var s = transform.localScale;
 
@@ -147,7 +147,7 @@ public class ladder_generator : MonoBehaviour
         var localTrans = transform.worldToLocalMatrix;
         int ladderCount = Mathf.Max(2, ladderSize);
         var bottom = applyRotation(localTrans.GetPosition());
-        var top = applyRotation(localTrans.GetPosition() - new Vector3(0, ladderMeshSize * (ladderCount + 1)  * transform.localScale.y, 0));
+        var top = applyRotation(localTrans.GetPosition() - new Vector3(0, ladderMeshSize * (ladderCount + 1), 0));
 
         Vector3 center = (top + bottom) / 2f ;
         
@@ -170,19 +170,26 @@ public class ladder_generator : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        int numberOfLadders = ladderMatricesM1.Count + ladderMatricesM2.Count + 1;
-        
-        for (float i = 0; i <= numberOfLadders; i += 1.5f ){
+        int numberOfLadders = (ladderMatricesM1.Count + ladderMatricesM2.Count) + 1;
+        for (float i = 0; i <= numberOfLadders; i += 1 ){
             GameObject child = new GameObject($"ladder_loc_{i}");
             child.tag = "Locator";
+            child.layer = 9;
             child.transform.SetParent(transform);
-            child.transform.localPosition = new Vector3(0, 1 * i, -1.5f); // Space them out
+            child.transform.localPosition = new Vector3(0, 1.5f * (i + 1) , -1.5f); // Space them out
+            child.transform.localRotation = Quaternion.identity;
+            child.AddComponent<BoxCollider>();
+            BoxCollider box = child.GetComponent<BoxCollider>();
+            box.size = new Vector3(1, 0.01f, 0.2f);
+            box.center = new Vector3(0, -0.14f, 0.5f);
+            box.isTrigger = true;
+            
         }
     }
 
     private Vector3 applyRotation(Vector3 t){
         
-        return Vector3.Scale(transform.rotation * t, new Vector3(-transform.localScale.x, -1, -transform.localScale.z));
+        return Vector3.Scale(transform.rotation * t, new Vector3(-transform.localScale.x, -transform.localScale.y, -transform.localScale.z));
 
     }
 }

@@ -333,6 +333,7 @@ MonoBehaviour:
   grounded: 0
   isClimbing: 0
   attachedToLadder: 0
+  isResting: 1
   inAction: 0
   mount: {fileID: 0}
   bo: {fileID: 0}

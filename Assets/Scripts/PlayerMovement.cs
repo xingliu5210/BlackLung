@@ -30,15 +30,17 @@ public class PlayerMovement : MonoBehaviour
     //protected 
     public bool isClimbing;    // Indicates if the player is currently climbing
     public bool attachedToLadder = false;
+    public bool isResting = true;
     private float upwardGravityScale = 1.5f;
     private float downwardGravityScale = 7f;
+    
 
     public bool inAction = false;
     private bool isMounting = false;
     public GameObject mount;
     private int transitionTimer = 0;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         body = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
@@ -72,20 +74,12 @@ public class PlayerMovement : MonoBehaviour
         {
             OnClimb(vertical); // Calls climbing behavior when on a ladder
         }
-        else if (isLadder && attachedToLadder)
+        else if (!isClimbing && attachedToLadder)
         {
-            body.useGravity = false;
-            grounded = true;
-            // If not climbing, apply horizontal movement
-            if(moveInput != 0 && !grounded && !inAction)
-            {
-                OnMove(moveInput);
-            }
-            else if(grounded && !inAction)
-            {
-                OnMove(moveInput);
-            }
-            
+            if (body.velocity.y != 0)
+                {
+                    body.velocity = new Vector3(0,0,0);
+                }
         }
         else
         {
@@ -99,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
                 OnMove(moveInput);
             }
             
-            if (!grounded)
+            if (!grounded && !attachedToLadder)
             {
                 if (body.velocity.y > 0) // Ascending
                 {
@@ -205,9 +199,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void OnClimb(float verticalInput)
     {
-        Debug.Log("Climbing with input: " + verticalInput);
-        // Move the player vertically along the ladder
-        body.velocity = new Vector3(0, 0.592f * anim.speed * verticalInput * 1.45f, 0);
+        body.velocity = transform.Find("Amos_Rig").rotation * new Vector3(0, 0.592f * anim.speed * verticalInput * 1.45f, 0);
         body.useGravity = false; // Disable gravity while climbing
     }
 
@@ -217,7 +209,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnJump()
     {
         // trigger jump if character is grounded. Removed redundant Jump method.
-        if (grounded && body != null && !inAction)
+        if ((grounded || attachedToLadder) && body != null && !inAction)
         {
             Jumping();
             body.velocity = new Vector3(body.velocity.x, jumpForce, body.velocity.z);
@@ -280,9 +272,7 @@ public class PlayerMovement : MonoBehaviour
         vertical = input;
         
         // Start climbing if on a ladder and receiving vertical input
-        isClimbing = isLadder && vertical != 0;
-
-        Debug.Log("SetClimbInput called. vertical: " + vertical + ", isLadder: " + isLadder + ", isClimbing: " + isClimbing);
+        isClimbing = attachedToLadder && vertical != 0;
     }
 
     public virtual void BarkWhip()
