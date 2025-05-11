@@ -59,7 +59,7 @@ public class Checkpoint : MonoBehaviour
             // Only teleport ally if NOT close and NOT following
             if (!allyIsCloseEnough && !allyIsFollowing)
             {
-                ally.transform.position = spawnPosition;
+                // ally.transform.position = spawnPosition;
                 ally.GetComponent<Checkpoint>().AllyCheckpoint();
                 Debug.Log("Teleported ally to checkpoint.");
             } 
