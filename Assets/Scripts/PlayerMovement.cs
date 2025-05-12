@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (!isClimbing && attachedToLadder)
         {
-            if (body.velocity.y != 0)
+            if (body.velocity.magnitude != 0)
                 {
                     body.velocity = new Vector3(0,0,0);
                 }

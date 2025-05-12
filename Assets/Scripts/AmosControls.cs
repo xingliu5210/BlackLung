@@ -40,8 +40,11 @@ public class AmosControls : PlayerMovement
     public bool boFollow = false;
     public bool whistleLearned = false;
     public bool whistleRestricted = false;
-    public Vector3 offsetTest = new Vector3(0,0,0);
+
+    // Rig Offsets
+    private Vector3 offsetTest = new Vector3(-0.2f,-0.4f,0);
     private float footOffset = .16f;
+    private float handOffet = -.16f;
 
     private Transform currentLadder;
     private Vector3 amosCenter = Vector3.zero;
@@ -432,6 +435,7 @@ public class AmosControls : PlayerMovement
                 if ((dis > 0 && climbInput > 0) || (dis < 0 && climbInput < 0)){
                     anim.speed = 0;
                     base.SetClimbInput(0);
+                    body.velocity = new Vector3(0, 0, 0);
                 }
                 else{
                     isTouchingGround = true;
@@ -450,6 +454,7 @@ public class AmosControls : PlayerMovement
                 if ((dis > 0 && climbInput > 0) || (dis < 0 && climbInput < 0)){
                     anim.speed = 0;
                     base.SetClimbInput(0);
+                    body.velocity = new Vector3(0, 0, 0);
                 }
                 else{
                     isTouchingGround = true;
@@ -474,6 +479,8 @@ public class AmosControls : PlayerMovement
 
 
         if (anim) {
+
+            // Foot IK Snapping
             anim.SetIKPositionWeight(AvatarIKGoal.LeftFoot, anim.GetFloat("LeftFootIKWeight"));
             anim.SetIKRotationWeight(AvatarIKGoal.LeftFoot, anim.GetFloat("LeftFootIKWeight"));
 
@@ -482,15 +489,15 @@ public class AmosControls : PlayerMovement
 
             RaycastHit hit;
             LayerMask mask = LayerMask.GetMask("Ground", "Ladder");
-            Ray rayLeft = new Ray(anim.GetIKPosition(AvatarIKGoal.LeftFoot) + Vector3.up, Vector3.down);
+            Ray rayLeft = new Ray(anim.GetIKPosition(AvatarIKGoal.LeftFoot) + Vector3.down, transform.Find("Amos_Rig").rotation * Vector3.down);
 
-            Ray rayRight = new Ray(anim.GetIKPosition(AvatarIKGoal.RightFoot) + Vector3.up, Vector3.down);
+            Ray rayRight = new Ray(anim.GetIKPosition(AvatarIKGoal.RightFoot) + Vector3.down, transform.Find("Amos_Rig").rotation * Vector3.down);
 
             if (Physics.Raycast(rayLeft, out hit, groundCheckDistance + 2f, mask)){
                 if ((hit.transform.tag == "Ground" && !attachedToLadder) || (hit.transform.tag == "Locator" && attachedToLadder)){
-                    Debug.Log("Left");
+                    
                     Vector3 footPosition = hit.point;
-                    footPosition.y += groundCheckDistance;
+                    footPosition += (new Vector3(0, groundCheckDistance, 0));
                     anim.SetIKPosition(AvatarIKGoal.LeftFoot, footPosition + new Vector3(0, footOffset, 0));
                     anim.SetIKRotation(AvatarIKGoal.LeftFoot, Quaternion.LookRotation(transform.forward, hit.normal));
                 }
@@ -501,9 +508,45 @@ public class AmosControls : PlayerMovement
                 if ((hit.transform.tag == "Ground" && !attachedToLadder) || (hit.transform.tag == "Locator" && attachedToLadder)){
                     
                     Vector3 footPosition = hit.point;
-                    footPosition.y += groundCheckDistance;
+                    footPosition += (new Vector3(0, groundCheckDistance, 0));
                     anim.SetIKPosition(AvatarIKGoal.RightFoot, footPosition + new Vector3(0, footOffset, 0));
                     anim.SetIKRotation(AvatarIKGoal.RightFoot, Quaternion.LookRotation(transform.forward, hit.normal));
+
+                }
+
+            }
+
+
+            // Hand IK Snapping
+
+            anim.SetIKPositionWeight(AvatarIKGoal.LeftHand, anim.GetFloat("LeftHandIKWeight"));
+            anim.SetIKRotationWeight(AvatarIKGoal.LeftHand, anim.GetFloat("LeftHandIKWeight"));
+
+            anim.SetIKPositionWeight(AvatarIKGoal.RightHand, anim.GetFloat("RightHandIKWeight"));
+            anim.SetIKRotationWeight(AvatarIKGoal.RightHand, anim.GetFloat("RightHandIKWeight"));
+
+            rayLeft = new Ray(anim.GetIKPosition(AvatarIKGoal.LeftHand) + Vector3.down, transform.Find("Amos_Rig").rotation * Vector3.up);
+
+            rayRight = new Ray(anim.GetIKPosition(AvatarIKGoal.RightHand) + Vector3.down, transform.Find("Amos_Rig").rotation * Vector3.up);
+
+            if (Physics.Raycast(rayLeft, out hit, .98f + 2f, mask))
+            {
+                if ((hit.transform.tag == "Locator" && attachedToLadder))
+                {
+                    Vector3 handPosition = hit.point;
+                    handPosition += (new Vector3(0, .98f, 0));
+                    anim.SetIKPosition(AvatarIKGoal.LeftHand, handPosition + new Vector3(0, handOffet, 0));
+                }
+
+            }
+
+            if (Physics.Raycast(rayRight, out hit, .98f + 2f, mask))
+            {
+                if ((hit.transform.tag == "Locator" && attachedToLadder))
+                {
+                    Vector3 handPosition = hit.point;
+                    handPosition += (new Vector3(0, .98f, 0));
+                    anim.SetIKPosition(AvatarIKGoal.RightHand, handPosition + new Vector3(0, handOffet, 0));
 
                 }
 

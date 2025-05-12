@@ -180,8 +180,8 @@ public class ladder_generator : MonoBehaviour
             child.transform.localRotation = Quaternion.identity;
             child.AddComponent<BoxCollider>();
             BoxCollider box = child.GetComponent<BoxCollider>();
-            box.size = new Vector3(1, 0.01f, 0.2f);
-            box.center = new Vector3(0, -0.14f, 0.5f);
+            box.size = new Vector3(1, 0.01f, 0.9f);
+            box.center = new Vector3(0, -0.08f, 0.1f);
             box.isTrigger = true;
             
         }

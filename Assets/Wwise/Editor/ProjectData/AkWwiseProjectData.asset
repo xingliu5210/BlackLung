@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 96021130e9f0f04590841e3b4f96d2ca
     GuidInternal: 
-    m_lastTime: -8584572785241673649
+    m_lastTime: -8584548612172586759
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 59faefa4061ff145860af744d804a85b
     GuidInternal: 
-    m_lastTime: -8584572785255317103
+    m_lastTime: -8584548612178708629
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 147cf98059949f49a0c1ac37de744d60
     GuidInternal: 
-    m_lastTime: -8584572785241673649
+    m_lastTime: -8584548612172606708
     List:
     - name: Amos
       guid: caaa1a901cd8e64a9961b4b6384d8c79
@@ -121,7 +121,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\ME_SoundBank_WorkUnit
     guid: 11ed9adaabb28043bf140b7aefdc03ff
     GuidInternal: 
-    m_lastTime: -8584572785241673649
+    m_lastTime: -8584548612172606708
     List:
     - name: Ambience
       guid: 0d54b832657548468d33c32673ad17ec
@@ -149,7 +149,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2d6fe38b65a02e4d9bf97df545c8a150
     GuidInternal: 
-    m_lastTime: -8584572785255372247
+    m_lastTime: -8584548612178768184
     List:
     - name: Amos
       guid: 3dd5b71369c24f44b388b5028ae0c5dc
@@ -746,7 +746,7 @@ MonoBehaviour:
     ParentPath: Events\ME_Event_WorkUnit
     guid: 87197f5cf291e341acf805d9e0288c11
     GuidInternal: 
-    m_lastTime: -8584572785255317103
+    m_lastTime: -8584548612178768184
     List:
     - name: Play_ambience_cave
       guid: 019bba1be4910046b76cf0aa51db38dd
@@ -811,7 +811,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 2c500b95ca42b848ac24b04f36168af1
     GuidInternal: 
-    m_lastTime: -8584572785255317103
+    m_lastTime: -8584548612178758266
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -825,7 +825,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: a28827b1fda31446a4ca51ebcef7e49a
     GuidInternal: 
-    m_lastTime: -8584572785241673649
+    m_lastTime: -8584548612172596737
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -839,7 +839,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: c751e87686109141b3d7bad065297481
     GuidInternal: 
-    m_lastTime: -8584572785241673649
+    m_lastTime: -8584548612172596737
     List:
     - name: Surfaces
       guid: de057143eeff0c4ea50cf1635ec9a7f5
@@ -935,7 +935,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 4e7c2ef5b3a95a43b3ef6015fed614c1
     GuidInternal: 
-    m_lastTime: -8584572785241673649
+    m_lastTime: -8584548612172596737
     List: []
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 
