@@ -2873,6 +2873,10 @@ PrefabInstance:
       value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 508470538113480325, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: groundCheckDistance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 508470538113480325, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: boBarkEvent.WwiseObjectReference
       value: 
       objectReference: {fileID: 11400000, guid: f9fff53641443d84780c71354d4ee303, type: 2}
@@ -3024,7 +3028,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 210073316}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 86de9b715ed0611439fb04ffca8dd39d, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 6ad7020cf99f26e4880560f665ef9b84, type: 3}
   m_Controller: {fileID: 9100000, guid: b699d8335161f974fbaffa1bcbe430fa, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
