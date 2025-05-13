@@ -26,26 +26,8 @@ public class BoControls : PlayerMovement
         lastPos = currentPos;
         currentPos = transform.position.x;
 
-        /*if(control bo)
-        {
-            boFollow = false;
-        }
-        */
-
         // Bo follows Amos when Amos whistles
         float distance = Mathf.Abs(amos.transform.position.x - transform.position.x);
-
-        if (amos.GetComponent<AmosControls>().boFollow && amosback)
-        {
-            //GetComponent<Collider>().enabled = false;
-            //body.isKinematic = false;
-            //grounded = true;
-        }
-        else
-        {
-            //GetComponent<Collider>().enabled = true;
-           // body.isKinematic = true;
-        }
 
         if (amos.GetComponent<AmosControls>().boFollow && (amosback || distance > teleportRange))
         {
@@ -59,12 +41,12 @@ public class BoControls : PlayerMovement
             // Flip player direction based on movement input
             if (amos.transform.position.x > transform.position.x)
             {
-                transform.localScale = Vector3.one;
+                transform.rotation = Quaternion.identity;
                 direction = 1;
             }
             else if (amos.transform.position.x < transform.position.x)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
                 direction = -1;
             }
 
@@ -96,7 +78,6 @@ public class BoControls : PlayerMovement
     public override void BarkWhip()
     {
         base.BarkWhip();
-        Debug.Log("BARK ");
         PlayBarkSound();
         // Trigger the dog barking
         //onBark.Invoke();
@@ -137,13 +118,6 @@ public class BoControls : PlayerMovement
     protected override void Update()
     {
         base.Update();
-
-        // // Move Animations
-        // anim.SetFloat("moveSpd", Mathf.Abs(body.velocity.x));
-
-        // // Landing animation
-        // if (grounded == false) anim.SetBool("grounded", false);
-        // else anim.SetBool("grounded", true);
 
         float effectiveVelocityX = Mathf.Abs(body.velocity.x);
 
