@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Elevator_generator : MonoBehaviour
 {
@@ -50,6 +52,12 @@ public class Elevator_generator : MonoBehaviour
     [Tooltip("The material of the Elevator Tunnel")]
     [SerializeField] private Material mElevatorTunnel_03;
 
+    [SerializeField] private ElevatorManager manager;
+    [SerializeField] private List<Transform> elevatorLocations;
+    [SerializeField] private Collider interactionColliderPrefab;
+    //[SerializeField] private Collider[] interactionColliders;
+    //[SerializeField] private Transform[] loadPlayerPositions;
+
     // Hidden Variables from the inspector
     [HideInInspector]
     private List<float> _ElevatorSizesCheck = null;
@@ -98,6 +106,8 @@ public class Elevator_generator : MonoBehaviour
         if (anyChange()){
             createElevator();
             placeLocators();
+            PlaceInteractionColliders();
+
             elevatorBox.transform.position = ElevatorMatricesF[ElevatorPosition].GetPosition() + new Vector3(0, 1.5f * transform.localScale.y, 0);
         }
         renderElevator();
@@ -183,7 +193,7 @@ public class Elevator_generator : MonoBehaviour
             }
 
             var currentPosition = transform.position + offset;
-
+            
             var matF = Matrix4x4.TRS(Vector3.Scale(currentPosition, new Vector3(1, transform.localScale.y, 1)), transform.rotation, transform.localScale);
             ElevatorMatricesF.Add(matF);
 
@@ -214,9 +224,9 @@ public class Elevator_generator : MonoBehaviour
                 }
 
             }
-
         }
-        
+
+
     }
 
     void renderElevator(){
@@ -256,13 +266,53 @@ public class Elevator_generator : MonoBehaviour
             }
         }
 
+        ////Remove old values from list
+        for (int i = elevatorLocations.Count - 1; i >= 0; i--)
+        {
+            elevatorLocations.RemoveAt(i);
+        }
+
+        manager.ResetPositionLists();
+
         int numberOfLoc = elevatorSizes.Count;
         
         for (int i = 0; i < numberOfLoc; i += 1 ){
             GameObject child = new GameObject($"elevator_loc_{i}");
             child.tag = "Locator";
             child.transform.SetParent(transform);
+            child.transform.position = ElevatorMatricesF[i].GetPosition();
+
+            //Add onBoardPositions
+            GameObject onBoardPosition = new GameObject($"onBoardPosition{i}");
+            onBoardPosition.transform.position = child.transform.position;
+            manager.AddOnBoardPosition(onBoardPosition.transform);
+
+            //Add offLoadPositions
+            GameObject offLoadPosition = new GameObject($"offLoadPosition{i}");
+            child.transform.position = ElevatorMatricesF[i].GetPosition() + new Vector3(0, 0, -3f);
+            offLoadPosition.transform.position = child.transform.position;
+            manager.AddOffLoadPosition(offLoadPosition.transform);
+
             child.transform.position = ElevatorMatricesF[i].GetPosition() + new Vector3(0, 0, -6f); // Space them out
+            elevatorLocations.Add(child.transform);
         }
     }
+
+    private void PlaceInteractionColliders()
+    {
+        manager.ResetInteractionColliderList();
+
+        foreach (Transform location in elevatorLocations)
+        {
+            Vector3 position = location.position;
+            position.z = 0;
+            position.y += 1;
+            Debug.Log(position);
+            Collider collider = Instantiate(interactionColliderPrefab, position, Quaternion.identity);
+            manager.AddInteractionCollider(collider);
+        }
+    }
+
+
+
 }
