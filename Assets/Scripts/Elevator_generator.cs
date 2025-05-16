@@ -54,7 +54,7 @@ public class Elevator_generator : MonoBehaviour
 
     [SerializeField] private ElevatorManager manager;
     [SerializeField] private List<Transform> elevatorLocations;
-    [SerializeField] private Collider interactionColliderPrefab;
+    [SerializeField] private InteractionZone interactionZonePrefab;
     //[SerializeField] private Collider[] interactionColliders;
     //[SerializeField] private Transform[] loadPlayerPositions;
 
@@ -284,13 +284,13 @@ public class Elevator_generator : MonoBehaviour
 
             //Add onBoardPositions
             GameObject onBoardPosition = new GameObject($"onBoardPosition{i}");
-            onBoardPosition.transform.position = child.transform.position;
+            onBoardPosition.transform.position = child.transform.position + new Vector3(0, 1f, 0);
             manager.AddOnBoardPosition(onBoardPosition.transform);
 
             //Add offLoadPositions
             GameObject offLoadPosition = new GameObject($"offLoadPosition{i}");
             child.transform.position = ElevatorMatricesF[i].GetPosition() + new Vector3(0, 0, -3f);
-            offLoadPosition.transform.position = child.transform.position;
+            offLoadPosition.transform.position = child.transform.position + new Vector3(0, 1f, 0);
             manager.AddOffLoadPosition(offLoadPosition.transform);
 
             child.transform.position = ElevatorMatricesF[i].GetPosition() + new Vector3(0, 0, -6f); // Space them out
@@ -308,9 +308,19 @@ public class Elevator_generator : MonoBehaviour
             position.z = 0;
             position.y += 1;
             Debug.Log(position);
-            Collider collider = Instantiate(interactionColliderPrefab, position, Quaternion.identity);
-            manager.AddInteractionCollider(collider);
+            InteractionZone zone = Instantiate(interactionZonePrefab, position, Quaternion.identity);
+            manager.AddInteractionCollider(zone);
         }
+    }
+
+    public GameObject GetElevatorBox()
+    {
+        return elevatorBox;
+    }
+
+    public int GetElevatorPosition()
+    {
+        return currentPosition;
     }
 
 

@@ -23,6 +23,7 @@ TagManager:
   - Item
   - Key
   - Locator
+  - ElevatorSystem
   layers:
   - Default
   - TransparentFX

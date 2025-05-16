@@ -9,6 +9,7 @@ public class Interaction : MonoBehaviour
     [SerializeField] private LayerMask interactableLayer = 1 << 10;  // Layer for interactable items
     private PlayerInventory playerInventory; // Reference to the player's inventory
     private Elevator currentElevator; // Reference to the elevator being interacted with
+    private InteractionZone currentInteractionZone;
     private GameObject rock; // Reference to the rock being interacted with
     public GameObject mount; // Reference to the rock being interacted with
 
@@ -52,6 +53,11 @@ public class Interaction : MonoBehaviour
             // If an elevator is currently detected, interact with it
             Debug.Log("Interacting with the elevator.");
             currentElevator.ActivateElevator(playerInventory);
+        }
+        else if (currentInteractionZone != null)
+        {
+            Debug.Log("Interacting with elevator system");
+            currentInteractionZone.InteractWithElevator();
         }
         else if (rock != null)
         {
@@ -99,6 +105,12 @@ public class Interaction : MonoBehaviour
             Debug.Log($"Player entered the mount trigger: {other.name}");
             mount = other.gameObject;
         }
+
+        if (other.CompareTag("ElevatorSystem"))
+        {
+            Debug.Log("Entered elevator system interaction zone");
+            currentInteractionZone = other.GetComponent<InteractionZone>();
+        }
     }
 
     /// <summary>
@@ -125,6 +137,12 @@ public class Interaction : MonoBehaviour
         {
             Debug.Log($"Player exited the mount trigger: {other.name}");
             mount = null;  // Clear the mount reference
+        }
+
+        if (other.CompareTag("ElevatorSystem"))
+        {
+            Debug.Log("Exit elevator system interaction zone");
+            currentInteractionZone = null;
         }
     }
 

@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 888435278872790578}
   - component: {fileID: 2043231850633675798}
   - component: {fileID: 4966176614064892712}
+  - component: {fileID: -9130337125997612256}
   m_Layer: 0
-  m_Name: InteractionCollider
-  m_TagString: Untagged
+  m_Name: OnBoardInteractionCollider
+  m_TagString: ElevatorSystem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,5 +61,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 1.5, z: 3}
-  m_Center: {x: 0, y: 0.15, z: 0}
+  m_Size: {x: 1.5, y: 1.5, z: 2.644266}
+  m_Center: {x: 0, y: 0.14999998, z: -0.17786705}
+--- !u!114 &-9130337125997612256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768498155475975713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82497ac512bdd1c47a07b2b7df0f13ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  manager: {fileID: 0}
+  type: 1

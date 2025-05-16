@@ -41,6 +41,9 @@ public class AmosControls : PlayerMovement
     public bool whistleLearned = false;
     public bool whistleRestricted = false;
 
+    //Used for elevator
+    public bool isOnElevator = false;
+
     // Rig Offsets
     private Vector3 offsetTest = new Vector3(-0.2f,-0.4f,0);
     private float footOffset = .16f;

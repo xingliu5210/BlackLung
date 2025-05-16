@@ -1,27 +1,75 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ElevatorManager : MonoBehaviour
 {
+    [SerializeField] private PlayerMovement amos;
+    [SerializeField] private PlayerMovement bo; 
     [SerializeField] private Elevator_generator generator;
-    [SerializeField] private List<Collider> interactionColliders;
+    [SerializeField] private List<InteractionZone> interactionZones;
     [SerializeField] private List<Transform> onBoardPositions;
     [SerializeField] private List<Transform> offLoadPositions;
+    [SerializeField] private int currentLocation;
 
-    public void AddInteractionCollider(Collider collider)
+    private void Start()
     {
-        interactionColliders.Add(collider);
+        currentLocation = 0;
+    }
+    public void InteractWithElevator(int playerLocation)
+    {
+        if(playerLocation != currentLocation)
+        {
+            //move elevator to current location
+        }
+
+        if(playerLocation == currentLocation)
+        {
+            //board the elevator
+        }
+
+        BoardElevator();
+    }
+
+    public void InteractWithElevator(InteractionZoneType type)
+    {
+        if (type == InteractionZoneType.OnElevator)
+        {
+            GetOffElevator();
+        }
+    }
+
+    private void GetOffElevator()
+    {
+        Debug.Log("GET OFF ELEVATOR");
+        int elevatorPosition = generator.GetElevatorPosition();
+        amos.gameObject.transform.position = offLoadPositions[elevatorPosition].position;
+    }
+
+    private void BoardElevator()
+    {
+        Debug.Log("BOARDING ELEVATOR");
+        GameObject parent = generator.GetElevatorBox();
+        amos.gameObject.transform.SetParent(parent.transform);
+        amos.gameObject.transform.position = onBoardPositions[currentLocation].position;
+    }
+
+    public void AddInteractionCollider(InteractionZone zone)
+    {
+        interactionZones.Add(zone);
+        zone.SetLevelNumber(interactionZones.Count - 1);
+        zone.SetManager(this);
     }
 
     public void ResetInteractionColliderList()
     {
-        if (interactionColliders.Count > 0)
+        if (interactionZones.Count > 0)
         {
-            for (int i = interactionColliders.Count - 1; i >= 0; i--)
+            for (int i = interactionZones.Count - 1; i >= 0; i--)
             {
-                Destroy(interactionColliders[i].gameObject);
-                interactionColliders.RemoveAt(i);
+                Destroy(interactionZones[i].gameObject);
+                interactionZones.RemoveAt(i);
             }
         }
     }
