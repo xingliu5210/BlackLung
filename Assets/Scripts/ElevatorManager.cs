@@ -13,9 +13,25 @@ public class ElevatorManager : MonoBehaviour
     [SerializeField] private List<Transform> offLoadPositions;
     [SerializeField] private int currentLocation;
 
+
+    private bool onElevator = false;
+    [SerializeField] private bool isOnALevel;
+    private float verticalInput;
     private void Start()
     {
         currentLocation = 0;
+    }
+
+    private void Update()
+    {
+        if (onElevator)
+        {
+            verticalInput = amos.GetVerticalInput();
+            if(verticalInput != 0)
+            {
+                generator.MoveElevator(verticalInput);
+            }
+        }
     }
     public void InteractWithElevator(int playerLocation)
     {
@@ -42,9 +58,18 @@ public class ElevatorManager : MonoBehaviour
 
     private void GetOffElevator()
     {
-        Debug.Log("GET OFF ELEVATOR");
+        
+        isOnALevel = generator.withinUnboardRange;
+        if (!generator.withinUnboardRange)
+        {
+            return;
+        }
         int elevatorPosition = generator.GetElevatorPosition();
+        amos.gameObject.transform.SetParent(null);
         amos.gameObject.transform.position = offLoadPositions[elevatorPosition].position;
+        currentLocation = elevatorPosition;
+        Debug.Log("GET OFF ELEVATOR: " + elevatorPosition);
+        onElevator = false;
     }
 
     private void BoardElevator()
@@ -53,6 +78,7 @@ public class ElevatorManager : MonoBehaviour
         GameObject parent = generator.GetElevatorBox();
         amos.gameObject.transform.SetParent(parent.transform);
         amos.gameObject.transform.position = onBoardPositions[currentLocation].position;
+        onElevator = true;
     }
 
     public void AddInteractionCollider(InteractionZone zone)

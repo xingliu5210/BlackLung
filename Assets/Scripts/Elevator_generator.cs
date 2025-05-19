@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -54,7 +55,14 @@ public class Elevator_generator : MonoBehaviour
 
     [SerializeField] private ElevatorManager manager;
     [SerializeField] private List<Transform> elevatorLocations;
-    [SerializeField] private InteractionZone interactionZonePrefab;
+    [SerializeField] private InteractionZone onBoardInteractionZonePrefab;
+    [SerializeField] private float elevatorSpeed;
+    [SerializeField] public bool withinUnboardRange;
+
+    [Header("TESTING")]
+    [SerializeField] private int testing_currentElPosition;
+    [SerializeField] private float testing_difference;
+
     //[SerializeField] private Collider[] interactionColliders;
     //[SerializeField] private Transform[] loadPlayerPositions;
 
@@ -89,6 +97,7 @@ public class Elevator_generator : MonoBehaviour
 
         elevatorBox.transform.position = ElevatorMatricesF[0].GetPosition() + new Vector3(0, 1.5f * transform.localScale.y, 0);
         currentPosition = 0;
+        withinUnboardRange = true;
     }
 
     // Update is called once per frame
@@ -111,6 +120,50 @@ public class Elevator_generator : MonoBehaviour
             elevatorBox.transform.position = ElevatorMatricesF[ElevatorPosition].GetPosition() + new Vector3(0, 1.5f * transform.localScale.y, 0);
         }
         renderElevator();
+    }
+
+    public void MoveElevator(float direction)
+    {
+        
+        elevatorBox.transform.position += new Vector3(0, direction * elevatorSpeed, 0);
+        Vector3 position = elevatorBox.transform.position;
+        //check if unlocked
+
+        float difference;
+
+        //update location of elevator
+        for(int i = 0; i < elevatorLocations.Count; i++)
+        {
+            difference = position.y - elevatorLocations[i].position.y;
+            testing_difference = difference;
+
+            //if close to a level allow player to get off else, they can't
+            if(difference < 1 && difference > -1)
+            {
+                //lvlInRange = i;
+                ElevatorPosition = i;
+                testing_currentElPosition = i;
+                withinUnboardRange = true;
+            }
+            if(i == ElevatorPosition)
+            {
+                if(difference >=1 || difference <= -1)
+                {
+                    withinUnboardRange = false;
+                }
+            }
+        }
+        
+        
+        //foreach (Transform location in elevatorLocations)
+        //{
+        //    //check if elevator is close to a level
+        //    difference = position.y - location.position.y; 
+        //    if (difference >= 1 || difference <= 1)
+        //    {
+        //        Debug.Log("IN RANGE");
+        //    }
+        //}
     }
 
 
@@ -163,6 +216,7 @@ public class Elevator_generator : MonoBehaviour
 
     bool positionChange(){
         if (currentPosition != ElevatorPosition && (ElevatorPosition < elevatorSizes.Count) && (ElevatorPosition >= 0)){
+            Debug.Log("POSITION CHANGED");
             return true;
         }
 
@@ -172,7 +226,7 @@ public class Elevator_generator : MonoBehaviour
 
     void createElevator(){
 
-        Random.InitState(seed);
+        UnityEngine.Random.InitState(seed);
 
         var offset = new Vector3(0, 0, 0);
 
@@ -213,7 +267,7 @@ public class Elevator_generator : MonoBehaviour
                 var t = currentPosition + new Vector3(0, (elevatorFloorSize + (elevatorBaseSize * baseScale)), 0) + new Vector3(0, -elevatorSizes[i]/2 + elevatorTunnelSize * tunnelScale * (1 + 0.5f * (Mathf.Max(0, tunnelCount - 2))) + j * tunnelScale * elevatorTunnelSize, 0);
                 var matT = Matrix4x4.TRS(Vector3.Scale(t, new Vector3(1, transform.localScale.y, 1)), transform.rotation, Vector3.Scale(transform.localScale, new Vector3(1, tunnelScale, 1)));
 
-                var rand = Random.Range(0,3);
+                var rand = UnityEngine.Random.Range(0,3);
 
                 if (rand < 1){
                     ElevatorMatricesT1.Add(matT);
@@ -308,7 +362,7 @@ public class Elevator_generator : MonoBehaviour
             position.z = 0;
             position.y += 1;
             Debug.Log(position);
-            InteractionZone zone = Instantiate(interactionZonePrefab, position, Quaternion.identity);
+            InteractionZone zone = Instantiate(onBoardInteractionZonePrefab, position, Quaternion.identity);
             manager.AddInteractionCollider(zone);
         }
     }

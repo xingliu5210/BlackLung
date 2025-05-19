@@ -313,5 +313,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public float GetVerticalInput()
+    {
+        return vertical;
+    }
+
     #endregion
 }

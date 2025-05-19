@@ -12119,6 +12119,7 @@ MonoBehaviour:
   onBoardPositions: []
   offLoadPositions: []
   currentLocation: 0
+  isOnALevel: 0
 --- !u!114 &743989456 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
@@ -28897,6 +28898,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 743989455}
     - target: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
+      propertyPath: elevatorSpeed
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: interactionCollider
       value: 
       objectReference: {fileID: 4966176614064892712, guid: 0816811ff9026f34b80ea1ac8ef5452c, type: 3}
@@ -28924,6 +28929,10 @@ PrefabInstance:
       propertyPath: elevatorSizes.Array.data[2]
       value: 154.5
       objectReference: {fileID: 0}
+    - target: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
+      propertyPath: onBoardInteractionZonePrefab
+      value: 
+      objectReference: {fileID: -9130337125997612256, guid: 0816811ff9026f34b80ea1ac8ef5452c, type: 3}
     - target: {fileID: 4547940219096465991, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
