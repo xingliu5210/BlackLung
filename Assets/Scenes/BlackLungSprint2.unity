@@ -12114,6 +12114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amos: {fileID: 723582029}
   bo: {fileID: 210073324}
+  inventory: {fileID: 0}
   generator: {fileID: 743989456}
   interactionZones: []
   onBoardPositions: []
@@ -28899,7 +28900,7 @@ PrefabInstance:
       objectReference: {fileID: 743989455}
     - target: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: elevatorSpeed
-      value: 0.01
+      value: 0.015
       objectReference: {fileID: 0}
     - target: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: interactionCollider

@@ -6,7 +6,8 @@ using UnityEngine;
 public class ElevatorManager : MonoBehaviour
 {
     [SerializeField] private PlayerMovement amos;
-    [SerializeField] private PlayerMovement bo; 
+    [SerializeField] private PlayerMovement bo;
+    [SerializeField] private PlayerInventory inventory;
     [SerializeField] private Elevator_generator generator;
     [SerializeField] private List<InteractionZone> interactionZones;
     [SerializeField] private List<Transform> onBoardPositions;
@@ -15,11 +16,12 @@ public class ElevatorManager : MonoBehaviour
 
 
     private bool onElevator = false;
-    [SerializeField] private bool isOnALevel;
+    [SerializeField] private bool isUnlocked;
     private float verticalInput;
     private void Start()
     {
         currentLocation = 0;
+        inventory = amos.GetComponent<PlayerInventory>();
     }
 
     private void Update()
@@ -27,10 +29,30 @@ public class ElevatorManager : MonoBehaviour
         if (onElevator)
         {
             verticalInput = amos.GetVerticalInput();
-            if(verticalInput != 0)
+            if(verticalInput < 0)
+            {
+                if (checkElevatorStatus())
+                {
+                    generator.MoveElevator(verticalInput);
+                }
+            }
+            else if (verticalInput != 0)
             {
                 generator.MoveElevator(verticalInput);
             }
+        }
+    }
+
+    private bool checkElevatorStatus()
+    {
+        int keysUnlocked = inventory.GetKeyCount();
+        int elevatorPosition = generator.GetElevatorPosition();
+        if(keysUnlocked - 1 >= elevatorPosition)
+        {
+            return true;
+        } else
+        {
+            return false;
         }
     }
     public void InteractWithElevator(int playerLocation)
@@ -42,10 +64,10 @@ public class ElevatorManager : MonoBehaviour
 
         if(playerLocation == currentLocation)
         {
-            //board the elevator
+            BoardElevator();
         }
 
-        BoardElevator();
+        
     }
 
     public void InteractWithElevator(InteractionZoneType type)
@@ -59,7 +81,6 @@ public class ElevatorManager : MonoBehaviour
     private void GetOffElevator()
     {
         
-        isOnALevel = generator.withinUnboardRange;
         if (!generator.withinUnboardRange)
         {
             return;

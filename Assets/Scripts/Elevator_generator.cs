@@ -58,6 +58,7 @@ public class Elevator_generator : MonoBehaviour
     [SerializeField] private InteractionZone onBoardInteractionZonePrefab;
     [SerializeField] private float elevatorSpeed;
     [SerializeField] public bool withinUnboardRange;
+    private float maxYPos;
 
     [Header("TESTING")]
     [SerializeField] private int testing_currentElPosition;
@@ -98,6 +99,7 @@ public class Elevator_generator : MonoBehaviour
         elevatorBox.transform.position = ElevatorMatricesF[0].GetPosition() + new Vector3(0, 1.5f * transform.localScale.y, 0);
         currentPosition = 0;
         withinUnboardRange = true;
+        maxYPos = elevatorBox.transform.position.y;
     }
 
     // Update is called once per frame
@@ -124,11 +126,18 @@ public class Elevator_generator : MonoBehaviour
 
     public void MoveElevator(float direction)
     {
-        
+        //if on level 0, prevent player from moving up
+        if (elevatorBox.transform.position.y >= maxYPos & direction > 0)
+        {
+            return;
+        }
+ 
+
+        //Move elevator
         elevatorBox.transform.position += new Vector3(0, direction * elevatorSpeed, 0);
         Vector3 position = elevatorBox.transform.position;
-        //check if unlocked
 
+        
         float difference;
 
         //update location of elevator
@@ -153,17 +162,6 @@ public class Elevator_generator : MonoBehaviour
                 }
             }
         }
-        
-        
-        //foreach (Transform location in elevatorLocations)
-        //{
-        //    //check if elevator is close to a level
-        //    difference = position.y - location.position.y; 
-        //    if (difference >= 1 || difference <= 1)
-        //    {
-        //        Debug.Log("IN RANGE");
-        //    }
-        //}
     }
 
 
