@@ -111,6 +111,7 @@ public class Elevator_generator : MonoBehaviour
             if (positionMoved()){
                 Debug.Log("Done");
                 currentPosition = ElevatorPosition;
+                withinUnboardRange = true;
             }
         }
         
@@ -127,40 +128,21 @@ public class Elevator_generator : MonoBehaviour
     public void MoveElevator(float direction)
     {
         //if on level 0, prevent player from moving up
-        if (elevatorBox.transform.position.y >= maxYPos & direction > 0)
+        if ((ElevatorPosition == 0 & direction > 0) || (ElevatorPosition == elevatorSizes.Count - 1 & direction < 0))
         {
+            Debug.Log(elevatorSizes.Count - 1);
             return;
         }
- 
 
-        //Move elevator
-        elevatorBox.transform.position += new Vector3(0, direction * elevatorSpeed, 0);
-        Vector3 position = elevatorBox.transform.position;
-
-        
-        float difference;
-
-        //update location of elevator
-        for(int i = 0; i < elevatorLocations.Count; i++)
+        if (direction > 0 & !positionChange())
         {
-            difference = position.y - elevatorLocations[i].position.y;
-            testing_difference = difference;
-
-            //if close to a level allow player to get off else, they can't
-            if(difference < 1 && difference > -1)
-            {
-                //lvlInRange = i;
-                ElevatorPosition = i;
-                testing_currentElPosition = i;
-                withinUnboardRange = true;
-            }
-            if(i == ElevatorPosition)
-            {
-                if(difference >=1 || difference <= -1)
-                {
-                    withinUnboardRange = false;
-                }
-            }
+            ElevatorPosition -= 1;
+            withinUnboardRange = false;
+        }
+        else if (direction < 0 & !positionChange())
+        {
+            ElevatorPosition += 1;
+            withinUnboardRange = false;
         }
     }
 

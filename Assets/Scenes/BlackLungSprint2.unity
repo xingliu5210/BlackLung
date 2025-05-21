@@ -3013,6 +3013,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bo_Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 5963073694512198951, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963073694512198951, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7970636961739809252, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: tunnelCooldown
       value: 2
@@ -12124,7 +12132,7 @@ MonoBehaviour:
   onBoardPositions: []
   offLoadPositions: []
   currentLocation: 0
-  isOnALevel: 0
+  isUnlocked: 0
 --- !u!114 &743989456 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
@@ -17462,6 +17470,14 @@ PrefabInstance:
     - target: {fileID: 2847827641146774932, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
       propertyPath: m_Name
       value: Amos
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585397006715510678, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585397006715510678, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5477935498493494923, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -28906,6 +28922,10 @@ PrefabInstance:
       value: 0.015
       objectReference: {fileID: 0}
     - target: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
+      propertyPath: withinUnboardRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: interactionCollider
       value: 
       objectReference: {fileID: 4966176614064892712, guid: 0816811ff9026f34b80ea1ac8ef5452c, type: 3}
@@ -28927,27 +28947,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: elevatorSizes.Array.data[1]
-      value: 143.5
+      value: 96.4
       objectReference: {fileID: 0}
     - target: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: elevatorSizes.Array.data[2]
-      value: 154.5
+      value: 103
+      objectReference: {fileID: 0}
+    - target: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
+      propertyPath: elevatorLocations.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: onBoardInteractionZonePrefab
       value: 
       objectReference: {fileID: -9130337125997612256, guid: 0816811ff9026f34b80ea1ac8ef5452c, type: 3}
+    - target: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
+      propertyPath: elevatorLocations.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
+      propertyPath: elevatorLocations.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
+      propertyPath: elevatorLocations.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4547940219096465991, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4547940219096465991, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4547940219096465991, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4547940219096465991, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: m_LocalPosition.x

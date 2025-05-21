@@ -180,7 +180,9 @@ public class PlayerMovement : MonoBehaviour
         if (attachedToLadder == false) v = new Vector3(moveInput * speed, body.velocity.y, body.velocity.z);
         else v = new Vector3(0, 0, 0);
 
-        body.velocity = v;
+        var currVel = body.velocity;
+
+        body.velocity = Vector3.SmoothDamp(body.velocity, v, ref currVel, 0.05f); ;
 
         // Flip player direction based on movement input
         if (direction > 0.01f && !attachedToLadder)

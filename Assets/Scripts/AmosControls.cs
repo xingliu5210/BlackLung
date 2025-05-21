@@ -45,7 +45,7 @@ public class AmosControls : PlayerMovement
     public bool isOnElevator = false;
 
     // Rig Offsets
-    private Vector3 offsetTest = new Vector3(-0.2f,-0.4f,0);
+    private Vector3 amosOffset = new Vector3(-0.2f,-0.4f,0);
     private float footOffset = .16f;
     private float handOffet = -.16f;
 
@@ -383,7 +383,7 @@ public class AmosControls : PlayerMovement
             
         transform.position = Vector3.Lerp(transform.position, newPosition, speed);
 
-        amos.position = newPosition - currentLadder.rotation * (amosCenter + offsetTest);
+        amos.position = newPosition - currentLadder.rotation * (amosCenter + amosOffset);
         amos.rotation = currentLadder.rotation;
 
         if (Vector3.Distance(transform.position, newPosition) < 0.001f){

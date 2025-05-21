@@ -34,7 +34,7 @@ public class BoControls : PlayerMovement
             transform.position = amos.transform.position;
             body.velocity = Vector3.zero;
         }
-        else if (amos.GetComponent<AmosControls>().boFollow && distance > minFollowRange )
+        else if (amos.GetComponent<AmosControls>().boFollow && distance >= minFollowRange )
         {
             float direction = 1;
 
@@ -50,12 +50,22 @@ public class BoControls : PlayerMovement
                 direction = -1;
             }
 
-            body.velocity = new Vector3(direction * 10, body.velocity.y, body.velocity.z);
+            var distanceScale = distance / 7;
+            var currVel = body.velocity;
+
+            if (Mathf.Abs(amos.GetComponent<Rigidbody>().velocity.x) > 0)
+            {
+                body.velocity = new Vector3(direction * 10 * distanceScale, body.velocity.y, body.velocity.z);
+            }
+            else
+            {
+                body.velocity = Vector3.SmoothDamp(body.velocity, Vector3.zero, ref currVel, 0.05f);
+            }
 
 
-            if (lastPos == currentPos)
-            { 
-                frameCount ++;
+            if (lastPos == currentPos && (Mathf.Abs(amos.GetComponent<Rigidbody>().velocity.x) > 0))
+            {
+                frameCount++;
                 if (frameCount < 2) return;
 
                 base.OnJump();
@@ -117,27 +127,15 @@ public class BoControls : PlayerMovement
 
     protected override void Update()
     {
-        base.Update();
+        if (!amos.GetComponent<AmosControls>().boFollow)
+        {
+            base.Update();
+        }
+
 
         float effectiveVelocityX = Mathf.Abs(body.velocity.x);
 
-        // If Bo is following and being teleported or moved directly, simulate animation speed
-        if (amos.GetComponent<AmosControls>().boFollow && effectiveVelocityX == 0)
-        {
-            float distanceToAmos = Mathf.Abs(amos.transform.position.x - transform.position.x);
-            if (distanceToAmos > minFollowRange)
-            {
-                anim.SetFloat("moveSpd", 6f); // matches "walk/run" in blend tree
-            }
-            else
-            {
-                anim.SetFloat("moveSpd", 0f);
-            }
-        }
-        else
-        {
-            anim.SetFloat("moveSpd", effectiveVelocityX);
-        }
+        anim.SetFloat("moveSpd", effectiveVelocityX);
 
         // Landing animation
         anim.SetBool("grounded", grounded);
