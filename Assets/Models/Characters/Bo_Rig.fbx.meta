@@ -29,7 +29,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -83,11 +83,326 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: Bo_Rig(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bow_Geo
+      parentName: Bo_Rig(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bo_Skin
+      parentName: Bow_Geo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bo_Eyes
+      parentName: Bow_Geo
+      position: {x: -1.2053401, y: 1.076751, z: 0.6574689}
+      rotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.032740045, y: 0.032740045, z: 0.032740045}
+    - name: Bo_InnerMouth
+      parentName: Bow_Geo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bo_toungue
+      parentName: Bow_Geo
+      position: {x: -0, y: 0.9474044, z: 0.74556446}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.045466192, y: 0.050695207, z: 0.04017343}
+    - name: root
+      parentName: Bo_Rig(Clone)
+      position: {x: 0.27160972, y: 1.0940422, z: 0.47089696}
+      rotation: {x: -0.7385803, y: 0.16279122, z: 0.23326932, w: 0.6112149}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pelvis
+      parentName: root
+      position: {x: 1.0224237e-23, y: 0.75376844, z: -0.5319424}
+      rotation: {x: 0.571197, y: -0.571197, z: -0.41681412, w: -0.41681412}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spine_02
+      parentName: pelvis
+      position: {x: -0.2133749, y: 2.3689415e-17, z: -0.000000015727018}
+      rotation: {x: 0, y: -0.057914592, z: -0, w: 0.9983216}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spine_03
+      parentName: spine_02
+      position: {x: -0.20517433, y: -2.198628e-18, z: 4.440892e-16}
+      rotation: {x: 0, y: -0.029910743, z: -0, w: 0.9995526}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spine_04
+      parentName: spine_03
+      position: {x: -0.20664017, y: -2.157604e-17, z: 0}
+      rotation: {x: 0, y: -0.005756006, z: -0, w: 0.99998343}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spine_Spine_JointChain_joint_cluster1Handle
+      parentName: spine_04
+      position: {x: -2.7755576e-17, y: -9.8607613e-32, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: shoulders
+      parentName: spine_04
+      position: {x: -0.18783261, y: 1.277627e-16, z: -2.4424907e-15}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neck_01
+      parentName: shoulders
+      position: {x: -0.09453872, y: -8.48047e-17, z: 0.051901024}
+      rotation: {x: -0.008275498, y: 0.18824914, z: 0.00059579214, w: 0.98208624}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neck_02
+      parentName: neck_01
+      position: {x: -0.124074005, y: 1.0408341e-17, z: -6.661338e-16}
+      rotation: {x: -0.020746928, y: -0.19044548, z: -0.009205995, w: 0.98143536}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neck_Spine_JointChain_joint_cluster1Handle
+      parentName: neck_02
+      position: {x: -0, y: 0, z: 2.220446e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: head
+      parentName: neck_02
+      position: {x: -0.14925103, y: -0.003169317, z: -0.00019711265}
+      rotation: {x: 0, y: -0.13052619, z: -0, w: 0.9914449}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ear_01_L
+      parentName: head
+      position: {x: 0.036111046, y: 0.06834353, z: 0.064970404}
+      rotation: {x: -0.18075408, y: 0.6297784, z: -0.14262211, w: 0.74186665}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ear_02_L
+      parentName: ear_01_L
+      position: {x: -0.052735787, y: -5.551115e-16, z: -7.771561e-16}
+      rotation: {x: -0.00083991076, y: -0.031201877, z: -0.0035852198, w: 0.99950635}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ear_03_L
+      parentName: ear_02_L
+      position: {x: -0.06235524, y: -3.330669e-16, z: 1.110223e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ear_Tenticle_JointChain_L_joint_cluster1Handle
+      parentName: ear_03_L
+      position: {x: -2.7061686e-16, y: -1.2971392e-16, z: 1.7774387e-16}
+      rotation: {x: 2.198762e-16, y: 2.2551405e-16, z: 4.338164e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ear_01_R
+      parentName: head
+      position: {x: 0.035781626, y: -0.07620707, z: 0.055753335}
+      rotation: {x: 0.18072242, y: -0.7291818, z: -0.22904101, w: 0.6190101}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ear_02_R
+      parentName: ear_01_R
+      position: {x: 0.052735, y: -0.00000015685437, z: -0.00000066613404}
+      rotation: {x: -0.00083991076, y: -0.031201877, z: -0.0035852198, w: 0.99950635}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ear_03_R
+      parentName: ear_02_R
+      position: {x: 0.06235285, y: -0.0000014336669, z: 0.0000003259872}
+      rotation: {x: -5.8715976e-18, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ear_Tenticle_JointChain_R_joint_cluster1Handle
+      parentName: ear_03_R
+      position: {x: 6.938894e-17, y: 1.1800185e-16, z: 1.0973079e-16}
+      rotation: {x: -5.5402724e-17, y: 3.1225023e-17, z: -1.4162399e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: eye_L
+      parentName: head
+      position: {x: -0.060711134, y: 0.03728849, z: 0.0047004055}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: nose_base
+      parentName: head
+      position: {x: -0.08927054, y: 0.0006333415, z: -0.0067300596}
+      rotation: {x: 0.99189717, y: -0.0050505837, z: 0.12298377, w: -0.031456668}
+      scale: {x: 1, y: 1, z: 1}
+    - name: nose_tip
+      parentName: nose_base
+      position: {x: -0.104608156, y: 3.9757694e-16, z: 2.220446e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: eye_R
+      parentName: head
+      position: {x: -0.06088021, y: -0.03730659, z: -0.00005676576}
+      rotation: {x: 0.002282, y: 0.99797, z: 0.06364585, w: -5.861034e-16}
+      scale: {x: 1, y: 1, z: 1}
+    - name: jaw_base
+      parentName: head
+      position: {x: -0.013572226, y: 0.0073712617, z: -0.11509512}
+      rotation: {x: 0, y: 0.017918693, z: -0, w: 0.9998395}
+      scale: {x: 1, y: 1, z: 1}
+    - name: jaw_tip
+      parentName: jaw_base
+      position: {x: -0.10431003, y: 3.469447e-17, z: -1.110223e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: front_femur_L
+      parentName: shoulders
+      position: {x: -0.061309546, y: 0.098409176, z: -0.11832021}
+      rotation: {x: 0.36610523, y: -0.53970164, z: 0.32295206, w: -0.6858506}
+      scale: {x: 1, y: 1, z: 1}
+    - name: front_tibia_L
+      parentName: front_femur_L
+      position: {x: -0.26230788, y: -2.7755576e-16, z: -8.326673e-17}
+      rotation: {x: 0.0024898343, y: -0.03512069, z: -0.015987512, w: 0.9992521}
+      scale: {x: 1, y: 1, z: 1}
+    - name: front_carpus_L
+      parentName: front_tibia_L
+      position: {x: -0.36808282, y: -1.3877788e-16, z: -7.771561e-16}
+      rotation: {x: 0.026406892, y: -0.084081836, z: 0.008157884, w: 0.9960755}
+      scale: {x: 1, y: 1, z: 1}
+    - name: front_metacarus_L
+      parentName: front_carpus_L
+      position: {x: -0.12019937, y: -3.0531133e-16, z: 5.551115e-17}
+      rotation: {x: 0.7233379, y: 0.5935094, z: -0.24705222, w: -0.2519804}
+      scale: {x: 1, y: 1, z: 1}
+    - name: front_QuadrupedLeg_L_joint_cluster1Handle
+      parentName: front_metacarus_L
+      position: {x: 2.7755576e-17, y: -6.938894e-18, z: 5.551115e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: front_ball_L
+      parentName: front_metacarus_L
+      position: {x: -0.005931563, y: -0.019138567, z: 0.022763856}
+      rotation: {x: 0.7563509, y: 0.4756011, z: -0.41485, w: 0.17215236}
+      scale: {x: 1, y: 1, z: 1}
+    - name: front_ball_end_L
+      parentName: front_ball_L
+      position: {x: -0.06555238, y: -2.220446e-16, z: 1.3877788e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: front_femur_R
+      parentName: shoulders
+      position: {x: -0.06130988, y: -0.098409, z: -0.11831884}
+      rotation: {x: 0.77765393, y: -0.02535889, z: -0.6223942, w: 0.08506892}
+      scale: {x: 1, y: 1, z: 1}
+    - name: front_tibia_R
+      parentName: front_femur_R
+      position: {x: 0.26230812, y: 0.00000022832981, z: -0.00000006117011}
+      rotation: {x: -0.014775259, y: -0.021707885, z: 0.2749285, w: 0.96110606}
+      scale: {x: 1, y: 1, z: 1}
+    - name: front_carpus_R
+      parentName: front_tibia_R
+      position: {x: 0.3680839, y: -0.00000006468236, z: -0.0000002901431}
+      rotation: {x: 0.039381653, y: 0.01185858, z: 0.123870745, w: 0.9914457}
+      scale: {x: 1, y: 1, z: 1}
+    - name: front_metacarus_R
+      parentName: front_carpus_R
+      position: {x: 0.120199665, y: -0.00000027833633, z: 0.00000015329199}
+      rotation: {x: 0.6567475, y: 0.5458338, z: -0.36259583, w: -0.3731922}
+      scale: {x: 1, y: 1, z: 1}
+    - name: front_QuadrupedLeg_R_joint_cluster1Handle
+      parentName: front_metacarus_R
+      position: {x: -2.7755576e-17, y: -6.938894e-18, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: front_ball_R
+      parentName: front_metacarus_R
+      position: {x: 0.005932, y: 0.0191384, z: -0.022764}
+      rotation: {x: 0.7297924, y: 0.396975, z: -0.49150756, w: 0.26121694}
+      scale: {x: 1, y: 1, z: 1}
+    - name: front_ball_end_R
+      parentName: front_ball_R
+      position: {x: 0.06555219, y: -0.00000038489185, z: 0.0000001542298}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear_femur_L
+      parentName: pelvis
+      position: {x: 0.010781421, y: 0.06702928, z: -0.09629821}
+      rotation: {x: -0.16611375, y: -0.18127416, z: 0.9641712, w: -0.09959877}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear_tibia_L
+      parentName: rear_femur_L
+      position: {x: -0.22975451, y: 0, z: 1.110223e-16}
+      rotation: {x: 0.055913642, y: 0.28602177, z: -0.10909013, w: 0.95034975}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear_carpus_L
+      parentName: rear_tibia_L
+      position: {x: -0.24989069, y: -2.7755576e-16, z: -3.330669e-16}
+      rotation: {x: 0.053414118, y: -0.8471992, z: 0.056166578, w: 0.52559084}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear_metacarus_L
+      parentName: rear_carpus_L
+      position: {x: -0.17394069, y: -3.0531133e-16, z: 5.551115e-16}
+      rotation: {x: 0.71355814, y: 0.6967339, z: 0.052724216, w: 0.051154874}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear_QuadrupedLeg_L_joint_cluster1Handle
+      parentName: rear_metacarus_L
+      position: {x: -0, y: 0, z: 1.110223e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear_ball_L
+      parentName: rear_metacarus_L
+      position: {x: -0.009590486, y: -0.050228685, z: 0.017826442}
+      rotation: {x: 0.6843927, y: 0.47387686, z: -0.4555713, w: 0.31543982}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear_ball_end_L
+      parentName: rear_ball_L
+      position: {x: -0.06012801, y: -2.7755576e-16, z: 3.8857806e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: tail_01
+      parentName: pelvis
+      position: {x: 0.1874452, y: 0.005908995, z: -0.020216852}
+      rotation: {x: 0.15287435, y: 0.02288791, z: 0.9879143, w: 0.01144066}
+      scale: {x: 1, y: 1, z: 1}
+    - name: tail_02
+      parentName: tail_01
+      position: {x: -0.18045077, y: -7.2858386e-17, z: -2.220446e-16}
+      rotation: {x: -0.02643755, y: 0.04913763, z: 0.016866583, w: 0.9982996}
+      scale: {x: 1, y: 1, z: 1}
+    - name: tail_03
+      parentName: tail_02
+      position: {x: -0.17669979, y: -2.6020852e-18, z: -2.220446e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: tail_Tail_JointChain_joint_cluster1Handle
+      parentName: tail_03
+      position: {x: 1.110223e-16, y: -8.6736174e-19, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear_femur_R
+      parentName: pelvis
+      position: {x: 0.010783969, y: -0.0670295, z: -0.096299015}
+      rotation: {x: 0.9768295, y: -0.04456556, z: 0.15103462, w: 0.14493644}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear_tibia_R
+      parentName: rear_femur_R
+      position: {x: 0.22975299, y: 0.0000003596781, z: 0.0000038511666}
+      rotation: {x: 0.06782407, y: 0.25222552, z: -0.06270893, w: 0.9632496}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear_carpus_R
+      parentName: rear_tibia_R
+      position: {x: 0.24989183, y: -0.00000019245297, z: -0.0000014702026}
+      rotation: {x: 0.18981929, y: -0.7990334, z: -0.060289722, w: 0.5673441}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear_metacarus_R
+      parentName: rear_carpus_R
+      position: {x: 0.17394027, y: -0.0000001566551, z: 0.0000017059155}
+      rotation: {x: 0.7254463, y: 0.6844258, z: 0.05268876, w: 0.050129488}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear_QuadrupedLeg_R_joint_cluster1Handle
+      parentName: rear_metacarus_R
+      position: {x: -0, y: 1.3877788e-17, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear_ball_R
+      parentName: rear_metacarus_R
+      position: {x: 0.0095905, y: 0.05022875, z: -0.017825}
+      rotation: {x: 0.6843927, y: 0.4738768, z: -0.4555713, w: 0.31543976}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rear_ball_end_R
+      parentName: rear_ball_R
+      position: {x: 0.060127664, y: 0.00000013532669, z: -0.00000021506267}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -95,10 +410,10 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.5
+    globalScale: 50
     rootMotionBoneName: root
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1

@@ -2921,6 +2921,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Dog
       objectReference: {fileID: 0}
+    - target: {fileID: 1944519500375120439, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2416400058251081295, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: amos
       value: 
@@ -2935,11 +2939,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3534248218595810644, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 77.2
+      value: 75.69
       objectReference: {fileID: 0}
     - target: {fileID: 3534248218595810644, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 3534248218595810644, guid: 8eafd3e62fc55074a8dae7e755ed44a6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17543,8 +17547,7 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 05560c54dac29da41b371a932286b909, type: 3}
-    m_RemovedComponents:
-    - {fileID: 7572011819841016954, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7548496093718150174, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
     m_AddedGameObjects: []
