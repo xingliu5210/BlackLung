@@ -11764,6 +11764,20 @@ MonoBehaviour:
   - {fileID: 1054822364}
   - {fileID: 1054822355}
   - {fileID: 1054822356}
+--- !u!114 &723582045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723582019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2968da1ac6fd248b70138ba21f2a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amosCamera: {fileID: 1693884460}
+  bo: {fileID: 210073316}
 --- !u!1001 &723894254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17577,6 +17591,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2847827641146774932, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 723582043}
+    - targetCorrespondingSourceObject: {fileID: 2847827641146774932, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 723582045}
   m_SourcePrefab: {fileID: 100100000, guid: 74ef6281faad7dd458af784d733a7f8c, type: 3}
 --- !u!4 &1054822330 stripped
 Transform:
