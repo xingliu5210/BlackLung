@@ -39,6 +39,7 @@ public class Bat : MonoBehaviour
         fleeDirection = - (playerPos - transform.position).normalized;
         fleeDirection.z = 0;
         fearingTimer = 0f;
+        transform.rotation *= Quaternion.Euler(0, 180, 0);
     }
 
     void FixedUpdate()
@@ -59,9 +60,12 @@ public class Bat : MonoBehaviour
         {
             if (distanceToTarget <= detectionRange && followPlayer)
             {
+                GetComponent<Animator>().SetTrigger("Attack");
+                GetComponent<Animator>().SetBool("isSleeping", false);
                 Vector3 direction = (player.position - transform.position).normalized;
                 direction.z = 0; //lock axis
                 transform.position += direction * moveSpeed;
+                transform.LookAt(player.position);
             }
         }
     }
@@ -77,7 +81,11 @@ public class Bat : MonoBehaviour
     {
         if (other.CompareTag("Light"))
         {
-            GetComponent<CreatureFear>().TakeDamage(1);
+            if (!GetComponent<Animator>().GetBool("isSleeping"))
+            {
+                GetComponent<CreatureFear>().TakeDamage(1);
+            }
+            
         }
     }
 
@@ -86,6 +94,7 @@ public class Bat : MonoBehaviour
         if (other.CompareTag("Light"))
         {
             Debug.Log("Bat escaped the light.");
+            FearedFlee(player.position);
         }
     }
 
