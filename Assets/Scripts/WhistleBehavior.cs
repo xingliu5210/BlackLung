@@ -79,38 +79,72 @@ public class WhistleBehavior : MonoBehaviour
         foreach (var vp in viewportPoints)
         {
             Vector3 origin = amosCamera.ViewportToWorldPoint(vp);
-            // origin.y = safeY; // override to consistent cast height
 
-            // Try upward and downward rays
-            if (TryRayForNavMesh(origin, Vector3.up)) return;
-            if (TryRayForNavMesh(origin, Vector3.down)) return;
+            if (TryRayForNavMesh(origin, Vector3.up, out Vector3 spawnPoint))
+            {
+                validSpawnPoints.Add(spawnPoint);
+                continue;
+            }
+
+            if (TryRayForNavMesh(origin, Vector3.down, out spawnPoint))
+            {
+                validSpawnPoints.Add(spawnPoint);
+            }
         }
 
-        Debug.Log("Bo can't be safely spawned");
+        if (validSpawnPoints.Count == 0)
+        {
+            Debug.Log("Bo can't be safely spawned");
+        }
+        else if (validSpawnPoints.Count == 1)
+        {
+            SpawnBo(validSpawnPoints[0]);
+        }
+        else
+        {
+            // Pick the point closer to Bo's current position
+            Vector3 closest = validSpawnPoints[0];
+            float minDistance = Vector3.Distance(bo.transform.position, closest);
+
+            foreach (var point in validSpawnPoints)
+            {
+                float dist = Vector3.Distance(bo.transform.position, point);
+                if (dist < minDistance)
+                {
+                    minDistance = dist;
+                    closest = point;
+                }
+            }
+
+            SpawnBo(closest);
+        }
     }
 
-    private bool TryRayForNavMesh(Vector3 origin, Vector3 direction)
+    private bool TryRayForNavMesh(Vector3 origin, Vector3 direction, out Vector3 spawnPoint)
     {
+        spawnPoint = Vector3.zero;
+
         if (Physics.Raycast(origin, direction, out RaycastHit hit, raycastDistance))
         {
-            // Check if hit point is on the NavMesh
             if (NavMesh.SamplePosition(hit.point, out NavMeshHit navHit, navmeshSampleRadius, NavMesh.AllAreas) &&
                 NavMesh.SamplePosition(transform.position, out NavMeshHit amosNavHit, navmeshSampleRadius, NavMesh.AllAreas))
             {
-                if (Vector3.Distance(navHit.position, amosNavHit.position) < 13f)
+                if (Vector3.Distance(navHit.position, amosNavHit.position) < 15f)
                 {
-                    // Safe spawn point found — spawn Bo slightly above the surface
-                    bo.transform.position = navHit.position + Vector3.up * spawnYOffset;
-                    bo.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                    // Enable following
-                    amosControls.boFollow = true;
-
-                    Debug.Log("Whistle is successful. Bo spawned at: " + bo.transform.position);
+                    spawnPoint = navHit.position + Vector3.up * spawnYOffset;
                     return true;
                 }
             }
         }
 
         return false;
+    }
+
+    private void SpawnBo(Vector3 position)
+    {
+        bo.transform.position = position;
+        bo.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        amosControls.boFollow = true;
+        Debug.Log("Whistle is successful. Bo spawned at: " + position);
     }
 }
