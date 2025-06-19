@@ -12129,6 +12129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amosCamera: {fileID: 1693884460}
   bo: {fileID: 210073316}
+  raycastDistance: 50
+  navmeshSampleRadius: 2
 --- !u!1001 &723894254
 PrefabInstance:
   m_ObjectHideFlags: 0
