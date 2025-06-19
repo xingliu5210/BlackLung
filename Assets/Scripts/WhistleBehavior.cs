@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,9 +9,11 @@ public class WhistleBehavior : MonoBehaviour
     [SerializeField] private GameObject bo;         // Assign Bo object
     [SerializeField] private float raycastDistance = 50f;
     [SerializeField] private float navmeshSampleRadius = 2f;
+    [SerializeField] private float spawnYOffset = 1f;
 
     private CharacterSwitcher characterSwitcher;
     private AmosControls amosControls;
+    private bool boIsVisible = true;
 
     private void Start()
     {
@@ -27,11 +30,18 @@ public class WhistleBehavior : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            // Only check visibility if Amos is the currently controlled character
-            if (characterSwitcher.GetControlledCharacter() == amosControls)
+            if (Input.GetKeyDown(KeyCode.C))
             {
-                CheckBoVisibility();
-                TryWhistleSpawn();
+                // Only check if Amos is the controlled character
+                if (characterSwitcher.GetControlledCharacter() == amosControls)
+                {
+                    CheckBoVisibility();
+
+                    if (!boIsVisible)
+                    {
+                        TryWhistleSpawn(); // Only try to spawn Bo if he's off-screen
+                    }
+                }
             }
         }
     }
@@ -42,51 +52,60 @@ public class WhistleBehavior : MonoBehaviour
         if (boRenderer == null)
         {
             Debug.LogWarning("Bo has no Renderer attached.");
+            boIsVisible = false;
             return;
         }
 
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(amosCamera);
-        bool isVisible = GeometryUtility.TestPlanesAABB(planes, boRenderer.bounds);
+        boIsVisible = GeometryUtility.TestPlanesAABB(planes, boRenderer.bounds);
 
-        Debug.Log(isVisible ? "Bo in Screen" : "Bo is off screen");
+        Debug.Log(boIsVisible ? "Bo in Screen" : "Bo is off screen");
     }
 
     private void TryWhistleSpawn()
     {
         float camZDistance = Mathf.Abs(amosCamera.transform.position.z - transform.position.z);
+        // float safeY = amosCamera.transform.position.y; // A good Y height to raycast from
 
         // Viewport points slightly outside left and right
         Vector3[] viewportPoints = new Vector3[]
         {
-            new Vector3(-0.1f, 0.5f, camZDistance),  // left
-            new Vector3(1.1f, 0.5f, camZDistance),   // right
+            new Vector3(-0.2f, 0.5f, camZDistance),  // left
+            new Vector3(1.2f, 0.5f, camZDistance),   // right
         };
+
+        List<Vector3> validSpawnPoints = new List<Vector3>();
 
         foreach (var vp in viewportPoints)
         {
-            Vector3 worldPoint = amosCamera.ViewportToWorldPoint(vp);
+            Vector3 origin = amosCamera.ViewportToWorldPoint(vp);
+            // origin.y = safeY; // override to consistent cast height
 
-            if (CheckRayHitNavMesh(worldPoint, Vector3.up) ||
-                CheckRayHitNavMesh(worldPoint, Vector3.down))
-            {
-                Debug.Log("Bo can be spawned");
-                return;
-            }
+            // Try upward and downward rays
+            if (TryRayForNavMesh(origin, Vector3.up)) return;
+            if (TryRayForNavMesh(origin, Vector3.down)) return;
         }
 
         Debug.Log("Bo can't be safely spawned");
     }
 
-    private bool CheckRayHitNavMesh(Vector3 origin, Vector3 direction)
+    private bool TryRayForNavMesh(Vector3 origin, Vector3 direction)
     {
         if (Physics.Raycast(origin, direction, out RaycastHit hit, raycastDistance))
         {
+            // Check if hit point is on the NavMesh
             if (NavMesh.SamplePosition(hit.point, out NavMeshHit navHit, navmeshSampleRadius, NavMesh.AllAreas) &&
                 NavMesh.SamplePosition(transform.position, out NavMeshHit amosNavHit, navmeshSampleRadius, NavMesh.AllAreas))
             {
-                // Compare area masks OR closeness in position
-                if (Vector3.Distance(navHit.position, amosNavHit.position) < 10f)
+                if (Vector3.Distance(navHit.position, amosNavHit.position) < 13f)
                 {
+                    // Safe spawn point found — spawn Bo slightly above the surface
+                    bo.transform.position = navHit.position + Vector3.up * spawnYOffset;
+                    bo.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    // Enable following
+                    amosControls.boFollow = true;
+
+                    Debug.Log("Whistle is successful. Bo spawned at: " + bo.transform.position);
                     return true;
                 }
             }
