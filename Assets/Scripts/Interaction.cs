@@ -146,6 +146,14 @@ public class Interaction : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.CompareTag("ElevatorSystem"))
+        {
+            currentInteractionZone = other.GetComponent<InteractionZone>();
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         // Draw the interaction radius in the editor for debugging

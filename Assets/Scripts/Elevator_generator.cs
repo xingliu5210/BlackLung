@@ -357,6 +357,9 @@ public class Elevator_generator : MonoBehaviour
         return currentPosition;
     }
 
-
+    public int GetNumberOfStops()
+    {
+        return elevatorSizes.Count;
+    }
 
 }

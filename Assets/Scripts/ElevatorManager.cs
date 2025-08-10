@@ -9,10 +9,13 @@ public class ElevatorManager : MonoBehaviour
     [SerializeField] private PlayerMovement bo;
     [SerializeField] private PlayerInventory inventory;
     [SerializeField] private Elevator_generator generator;
+    [SerializeField] private UI_ElevatorPanel elevatorPanel;
     [SerializeField] private List<InteractionZone> interactionZones;
     [SerializeField] private List<Transform> onBoardPositions;
     [SerializeField] private List<Transform> offLoadPositions;
     [SerializeField] private int currentLocation;
+    [SerializeField] private int destination;
+    [SerializeField] private int direction;
 
 
     private bool onElevator = false;
@@ -22,39 +25,87 @@ public class ElevatorManager : MonoBehaviour
     {
         currentLocation = 0;
         inventory = amos.GetComponent<PlayerInventory>();
+        elevatorPanel.PopulatePanel(generator.GetNumberOfStops());
+        elevatorPanel.gameObject.SetActive(false);
     }
 
     private void Update()
     {
         if (onElevator)
         {
-            verticalInput = amos.GetVerticalInput();
-            if(verticalInput < 0)
+            //verticalInput = amos.GetVerticalInput();
+            //if(verticalInput < 0)
+            //{
+            //    if (checkElevatorStatus())
+            //    {
+            //        generator.MoveElevator(verticalInput);
+            //    }
+            //}
+            //else if (verticalInput != 0)
+            //{
+            //    generator.MoveElevator(verticalInput);
+            //}
+            
+            if (isUnlocked)
             {
-                if (checkElevatorStatus())
+                //Debug.Log("b move elevator. current pos: " + generator.GetElevatorPosition());
+                if (generator.GetElevatorPosition() != destination)
                 {
-                    generator.MoveElevator(verticalInput);
+                    generator.MoveElevator(direction);
                 }
-            }
-            else if (verticalInput != 0)
-            {
-                generator.MoveElevator(verticalInput);
             }
         }
     }
 
-    private bool checkElevatorStatus()
+    public void TryToGoTo(int level)
+    {
+        currentLocation = generator.GetElevatorPosition();
+        if (!IsLevelUnlocked(level))
+        {
+            Debug.Log("b locked");
+            return;
+        }
+        if (level == currentLocation)
+        {
+            return;
+        }
+
+        destination = level;
+
+        direction = currentLocation - destination;
+        isUnlocked = true;
+        Debug.Log("b unlocked " + direction);
+    }
+
+    private bool IsLevelUnlocked(int level)
     {
         int keysUnlocked = inventory.GetKeyCount();
         int elevatorPosition = generator.GetElevatorPosition();
-        if(keysUnlocked - 1 >= elevatorPosition)
+        if (keysUnlocked >= level)
         {
             return true;
-        } else
-        {
-            return false;
         }
+        
+        return false;
     }
+
+    //private int CalculateDirection()
+    //{
+    //    if
+    //}
+
+    //private bool checkElevatorStatus()
+    //{
+    //    int keysUnlocked = inventory.GetKeyCount();
+    //    int elevatorPosition = generator.GetElevatorPosition();
+    //    if(keysUnlocked - 1 >= elevatorPosition)
+    //    {
+    //        return true;
+    //    } else
+    //    {
+    //        return false;
+    //    }
+    //}
     public void InteractWithElevator(int playerLocation)
     {
         if(playerLocation != currentLocation)
@@ -90,6 +141,10 @@ public class ElevatorManager : MonoBehaviour
         amos.gameObject.transform.position = offLoadPositions[elevatorPosition].position;
         currentLocation = elevatorPosition;
         Debug.Log("GET OFF ELEVATOR: " + elevatorPosition);
+
+        elevatorPanel.gameObject.SetActive(false);
+        isUnlocked = false;
+
         onElevator = false;
     }
 
@@ -99,6 +154,7 @@ public class ElevatorManager : MonoBehaviour
         GameObject parent = generator.GetElevatorBox();
         amos.gameObject.transform.SetParent(parent.transform);
         amos.gameObject.transform.position = onBoardPositions[currentLocation].position;
+        elevatorPanel.gameObject.SetActive(true);
         onElevator = true;
     }
 
