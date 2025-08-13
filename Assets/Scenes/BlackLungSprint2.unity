@@ -4621,6 +4621,10 @@ PrefabInstance:
       propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2506374357699788461, guid: 0947cbe913913434b8c56eb13e96898a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1190832007, guid: 4162556156e6a6641b913d9f9fcaf202, type: 3}
     - target: {fileID: 2640834469412299955, guid: 0947cbe913913434b8c56eb13e96898a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -30730,15 +30734,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8409451919182809087, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: m_Spacing.x
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8409451919182809087, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: m_Spacing.y
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8409451919182809087, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: m_ChildAlignment
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9129237714367726416, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: manager
