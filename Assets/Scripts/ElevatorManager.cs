@@ -17,6 +17,9 @@ public class ElevatorManager : MonoBehaviour
     [SerializeField] private int destination;
     [SerializeField] private int direction;
 
+    [Header("Testing Variables")]
+    [SerializeField] private bool unlockElevators;
+
 
     private bool onElevator = false;
     [SerializeField] private bool isUnlocked;
@@ -79,6 +82,10 @@ public class ElevatorManager : MonoBehaviour
 
     private bool IsLevelUnlocked(int level)
     {
+        if (unlockElevators)
+        {
+            return true;
+        }
         int keysUnlocked = inventory.GetKeyCount();
         int elevatorPosition = generator.GetElevatorPosition();
         if (keysUnlocked >= level)

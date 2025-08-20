@@ -30620,6 +30620,10 @@ PrefabInstance:
       propertyPath: amos
       value: 
       objectReference: {fileID: 723582029}
+    - target: {fileID: 3163802434929733078, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
+      propertyPath: unlockElevators
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3512660468372815860, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 600
