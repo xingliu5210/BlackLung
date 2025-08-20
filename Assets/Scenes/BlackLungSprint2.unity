@@ -30604,6 +30604,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
+      propertyPath: cruiseSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
+      propertyPath: finalMaxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 926841171228236033, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
+      propertyPath: finalSmoothTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2509096491423385720, guid: 465c7140046d55c4d979baf7ffb73416, type: 3}
       propertyPath: m_Layer
       value: 5

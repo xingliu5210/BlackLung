@@ -58,6 +58,9 @@ public class Elevator_generator : MonoBehaviour
     [SerializeField] private InteractionZone onBoardInteractionZonePrefab;
     [SerializeField] private float elevatorSpeed;
     [SerializeField] public bool withinUnboardRange;
+    [SerializeField] private float cruiseSpeed;   // constant speed for pass-through legs
+    [SerializeField] private float finalSmoothTime; // your existing ease time
+
     private float maxYPos;
 
     [Header("TESTING")]
@@ -107,11 +110,29 @@ public class Elevator_generator : MonoBehaviour
     {
         if (positionChange()){
             var newPosition = ElevatorMatricesF[ElevatorPosition].GetPosition() + new Vector3(0, 1.5f * transform.localScale.y, 0);
-            elevatorBox.transform.position = Vector3.SmoothDamp(elevatorBox.transform.position, newPosition, ref elevatorVelocity, 2f, 100f * transform.localScale.y);
-            if (positionMoved()){
+            bool finalLeg = (manager != null && ElevatorPosition == manager.Destination);
+
+            if (finalLeg)
+            {
+                elevatorBox.transform.position = Vector3.SmoothDamp(elevatorBox.transform.position, newPosition, ref elevatorVelocity, 2f, 100f * transform.localScale.y);
+            }
+            else
+            { 
+                // Cruise between intermediate floors (no mid-trip slow-down)
+                elevatorBox.transform.position = Vector3.MoveTowards(
+                    elevatorBox.transform.position,
+                    newPosition,
+                    cruiseSpeed * Time.deltaTime
+                );
+            }
+            // elevatorBox.transform.position = Vector3.SmoothDamp(elevatorBox.transform.position, newPosition, ref elevatorVelocity, 2f, 100f * transform.localScale.y);
+            if (positionMoved())
+            {
                 Debug.Log("Done");
                 currentPosition = ElevatorPosition;
-                withinUnboardRange = true;
+                // withinUnboardRange = true;
+                // Only allow unboarding when we have reached the final destination
+                withinUnboardRange = finalLeg;
             }
         }
         

@@ -20,6 +20,7 @@ public class ElevatorManager : MonoBehaviour
     [Header("Testing Variables")]
     [SerializeField] private bool unlockElevators;
 
+    public int Destination => destination;
 
     private bool onElevator = false;
     [SerializeField] private bool isUnlocked;
